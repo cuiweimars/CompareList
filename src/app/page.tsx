@@ -57,6 +57,7 @@ export default function Home() {
   const handleCompare = useCallback(() => {
     if (!listA.trim() && !listB.trim()) return;
     setAiResult(null); setAiUnlocked(false); setAiError(null);
+    if (mode === "ai") setAiLoading(true);
     const r = compareLists(listA, listB, options);
     setResult(r);
     saveComparison({
@@ -106,6 +107,7 @@ export default function Home() {
   const handleDemo = useCallback(() => {
     setListA(DEMO_A); setListB(DEMO_B);
     setResult(null); setAiResult(null); setAiUnlocked(false); setAiError(null);
+    if (mode === "ai") setAiLoading(true);
     const r = compareLists(DEMO_A, DEMO_B, options);
     setResult(r);
     if (mode === "ai") {
@@ -113,7 +115,13 @@ export default function Home() {
       fetch("/api/compare-ai", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ listA: itemsA, listB: itemsB, threshold: 0.6 }),
-      }).then((res) => res.json()).then((data) => setAiResult(data)).catch(() => setAiResult(null));
+      }).then((res) => res.json()).then((data) => {
+        setAiResult(data);
+        setAiLoading(false);
+      }).catch(() => {
+        setAiResult(null);
+        setAiLoading(false);
+      });
     }
   }, [options, mode, parseList]);
 
