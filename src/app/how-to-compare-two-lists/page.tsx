@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRightLeft, Zap, Shield, Globe, ArrowRight, Check } from "lucide-react";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata: Metadata = {
   title: "How to Compare Two Lists Online - Free Step-by-Step Guide | CompareList",
@@ -167,6 +168,11 @@ export default function HowToCompareTwoListsPage() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Related Tools */}
+        <div className="mb-16">
+          <RelatedTools current="/how-to-compare-two-lists" />
         </div>
 
         {/* CTA */}

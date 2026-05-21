@@ -8,6 +8,7 @@ import StatsCards from "@/components/StatsCards";
 import VennDiagram from "@/components/VennDiagram";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
+import RelatedTools from "@/components/RelatedTools";
 
 export default function ListDiffPage() {
   const [listA, setListA] = useState("");
@@ -121,6 +122,10 @@ export default function ListDiffPage() {
           ))}
         </div>
       </section>
+
+      <div className="max-w-5xl mx-auto px-4">
+        <RelatedTools current="/list-diff" />
+      </div>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
         <a href="/" className="hover:text-text transition-colors">CompareList</a> &middot; Free Online List Diff Tool

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRightLeft, ArrowRight, FileSpreadsheet, Check } from "lucide-react";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata: Metadata = {
   title: "How to Compare Two CSV Files Online - Free CSV Comparison Guide | CompareList",
@@ -119,6 +120,11 @@ export default function HowToCompareCSVFilesPage() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Related Tools */}
+        <div className="mb-16">
+          <RelatedTools current="/how-to-compare-csv-files" />
         </div>
 
         {/* CTA */}

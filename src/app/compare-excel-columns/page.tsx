@@ -7,6 +7,7 @@ import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
+import RelatedTools from "@/components/RelatedTools";
 
 export default function CompareExcelColumnsPage() {
   const [listA, setListA] = useState("");
@@ -118,6 +119,10 @@ export default function CompareExcelColumnsPage() {
           ))}
         </div>
       </section>
+
+      <div className="max-w-5xl mx-auto px-4">
+        <RelatedTools current="/compare-excel-columns" />
+      </div>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
         <a href="/" className="hover:text-text transition-colors">CompareList</a> &middot; Free Online List Comparison Tool

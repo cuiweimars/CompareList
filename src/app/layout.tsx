@@ -25,6 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com"),
   title: "CompareList - Smart List Comparison Tool | Compare Two Lists Online Free",
   description:
     "Free online tool to compare two lists instantly. Find differences, common items, and unique entries. Supports CSV, TXT, and Excel files. No signup required.",
@@ -50,6 +51,15 @@ export const metadata: Metadata = {
     description:
       "Free online tool to compare two lists instantly. Find differences, common items, and unique entries.",
   },
+  icons: {
+    icon: ["/favicon.ico", "/favicon-32.png"],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/manifest.webmanifest",
+  other: {
+    "theme-color": "#818cf8",
+    "msapplication-TileColor": "#818cf8",
+  },
   robots: { index: true, follow: true },
 };
 
@@ -64,6 +74,7 @@ export default function RootLayout({
       className={`${sora.variable} ${dmSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
+        <meta name="theme-color" content="#818cf8" />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com"} />
         <script
           type="application/ld+json"

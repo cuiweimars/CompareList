@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRightLeft, ArrowRight, Check } from "lucide-react";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata: Metadata = {
   title: "How to Find Differences Between Two Lists - Free Guide | CompareList",
@@ -144,6 +145,11 @@ export default function HowToFindDifferencesPage() {
               <p className="text-xs text-text-muted mt-1">Retained subscribers</p>
             </div>
           </div>
+        </div>
+
+        {/* Related Tools */}
+        <div className="mb-16">
+          <RelatedTools current="/how-to-find-differences" />
         </div>
 
         {/* CTA */}

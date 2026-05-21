@@ -8,6 +8,7 @@ import StatsCards from "@/components/StatsCards";
 import VennDiagram from "@/components/VennDiagram";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
+import RelatedTools from "@/components/RelatedTools";
 
 export default function CompareKeywordsPage() {
   const [listA, setListA] = useState("");
@@ -120,6 +121,10 @@ export default function CompareKeywordsPage() {
           ))}
         </div>
       </section>
+
+      <div className="max-w-5xl mx-auto px-4">
+        <RelatedTools current="/compare-keywords" />
+      </div>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
         <a href="/" className="hover:text-text transition-colors">CompareList</a> &middot; Free Keyword List Comparison Tool

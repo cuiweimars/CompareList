@@ -7,6 +7,7 @@ import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
+import RelatedTools from "@/components/RelatedTools";
 
 const DEMO_A = `192.168.1.1
 192.168.1.100
@@ -122,6 +123,7 @@ export default function CompareIPAddressesPage() {
             </div>
           </div>
         </div>
+        <RelatedTools current="/compare-ip-addresses" />
       </main>
     </div>
   );

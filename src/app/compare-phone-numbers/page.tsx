@@ -7,6 +7,7 @@ import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
+import RelatedTools from "@/components/RelatedTools";
 
 const DEMO_A = `+1 (555) 123-4567
 +1-555-234-5678
@@ -129,6 +130,7 @@ export default function ComparePhoneNumbersPage() {
             </div>
           </div>
         </div>
+        <RelatedTools current="/compare-phone-numbers" />
       </main>
     </div>
   );

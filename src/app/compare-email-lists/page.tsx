@@ -7,6 +7,7 @@ import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
+import RelatedTools from "@/components/RelatedTools";
 
 const DEMO_A = `alice@gmail.com
 bob@yahoo.com
@@ -184,6 +185,10 @@ export default function CompareEmailListsPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="py-8 max-w-5xl mx-auto px-4">
+        <RelatedTools current="/compare-email-lists" />
       </section>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
