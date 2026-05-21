@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 interface OptionsPanelProps {
   caseSensitive: boolean;
   trimWhitespace: boolean;
@@ -20,26 +22,27 @@ export default function OptionsPanel({
   ignoreEmpty,
   onChange,
 }: OptionsPanelProps) {
+  const t = useTranslations("components.optionsPanel");
   const options = [
     {
       key: "caseSensitive" as const,
-      label: "Case Sensitive",
-      desc: "Treat uppercase and lowercase as different",
+      label: t("caseSensitive.label"),
+      desc: t("caseSensitive.desc"),
     },
     {
       key: "trimWhitespace" as const,
-      label: "Trim Whitespace",
-      desc: "Remove leading/trailing spaces",
+      label: t("trimWhitespace.label"),
+      desc: t("trimWhitespace.desc"),
     },
     {
       key: "removeDuplicates" as const,
-      label: "Remove Duplicates",
-      desc: "Deduplicate items before comparing",
+      label: t("removeDuplicates.label"),
+      desc: t("removeDuplicates.desc"),
     },
     {
       key: "ignoreEmpty" as const,
-      label: "Ignore Empty Lines",
-      desc: "Skip blank lines and empty items",
+      label: t("ignoreEmpty.label"),
+      desc: t("ignoreEmpty.desc"),
     },
   ];
 

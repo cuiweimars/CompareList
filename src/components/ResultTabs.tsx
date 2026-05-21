@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Download, Check, Search, ArrowUpDown, FileSpreadsheet, CheckSquare, Square, Trash2, Pencil, MoreHorizontal } from "lucide-react";
 import { copyToClipboard, downloadAsCSV, downloadAsText } from "@/lib/export";
 
@@ -14,6 +15,7 @@ type TabKey = "onlyA" | "onlyB" | "both" | "union" | "symDiff" | "all";
 type SortMode = "original" | "asc" | "desc";
 
 export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps) {
+  const t = useTranslations("components.resultTabs");
   const [activeTab, setActiveTab] = useState<TabKey>("onlyA");
   const [copied, setCopied] = useState(false);
   const [search, setSearch] = useState("");
@@ -45,21 +47,21 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
   }, [showExportMenu]);
 
   const tabs: { key: TabKey; label: string; short: string; count: number; color: string }[] = [
-    { key: "onlyA", label: "Only in A", short: "A only", count: items.onlyInA.length, color: "#fbbf24" },
-    { key: "onlyB", label: "Only in B", short: "B only", count: items.onlyInB.length, color: "#22d3ee" },
-    { key: "both", label: "In Both", short: "Both", count: items.inBoth.length, color: "#34d399" },
+    { key: "onlyA", label: t("tabs.onlyA.label"), short: t("tabs.onlyA.short"), count: items.onlyInA.length, color: "#fbbf24" },
+    { key: "onlyB", label: t("tabs.onlyB.label"), short: t("tabs.onlyB.short"), count: items.onlyInB.length, color: "#22d3ee" },
+    { key: "both", label: t("tabs.both.label"), short: t("tabs.both.short"), count: items.inBoth.length, color: "#34d399" },
     {
-      key: "union", label: "Union (A ∪ B)", short: "A∪B",
+      key: "union", label: t("tabs.union.label"), short: t("tabs.union.short"),
       count: new Set([...items.onlyInA, ...items.inBoth, ...items.onlyInB]).size,
       color: "#a78bfa",
     },
     {
-      key: "symDiff", label: "Sym Diff (A △ B)", short: "A△B",
+      key: "symDiff", label: t("tabs.symDiff.label"), short: t("tabs.symDiff.short"),
       count: items.onlyInA.length + items.onlyInB.length,
       color: "#f472b6",
     },
     {
-      key: "all", label: "All Combined", short: "All",
+      key: "all", label: t("tabs.all.label"), short: t("tabs.all.short"),
       count: items.onlyInA.length + items.onlyInB.length + items.inBoth.length,
       color: "#818cf8",
     },
@@ -164,7 +166,7 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
     setEditingIdx(null);
   }
 
-  const sortLabel = sortMode === "asc" ? "A-Z" : sortMode === "desc" ? "Z-A" : "Sort";
+  const sortLabel = sortMode === "asc" ? t("sortAsc") : sortMode === "desc" ? t("sortDesc") : t("sort");
   const isComputedTab = activeTab === "union" || activeTab === "symDiff" || activeTab === "all";
 
   return (
@@ -208,7 +210,7 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
           <button
             onClick={toggleSelectAll}
             className="p-1 text-text-muted hover:text-text transition-colors shrink-0"
-            title={selected.size === currentList.length ? "Deselect all" : "Select all"}
+            title={selected.size === currentList.length ? t("deselect") : t("select")}
           >
             {selected.size === currentList.length && currentList.length > 0
               ? <CheckSquare size={14} className="text-primary" />
@@ -221,7 +223,7 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Filter..."
+              placeholder={t("filter")}
               className="w-full pl-7 pr-2 py-1.5 text-sm bg-surface-alt/50 rounded-lg border border-border outline-none focus:border-primary/40 transition-colors placeholder:text-text-muted/50"
             />
           </div>
@@ -238,10 +240,10 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
           {selected.size > 0 && (
             <div className="flex items-center gap-1 shrink-0">
               <span className="text-xs text-primary font-medium">{selected.size}</span>
-              <button onClick={handleCopySelected} className="p-1.5 text-primary hover:bg-primary/10 rounded transition-colors" title="Copy selected">
+              <button onClick={handleCopySelected} className="p-1.5 text-primary hover:bg-primary/10 rounded transition-colors" title={t("copySelected")}>
                 <Copy size={12} />
               </button>
-              <button onClick={handleDeleteSelected} className="p-1.5 text-danger hover:bg-danger/10 rounded transition-colors" title="Delete selected">
+              <button onClick={handleDeleteSelected} className="p-1.5 text-danger hover:bg-danger/10 rounded transition-colors" title={t("deleteSelected")}>
                 <Trash2 size={12} />
               </button>
             </div>
@@ -252,7 +254,7 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
             className="flex items-center gap-1 px-2 py-1.5 text-xs text-text-muted hover:text-text rounded-lg hover:bg-surface-alt/50 transition-colors shrink-0"
           >
             {copied ? <Check size={13} className="text-success" /> : <Copy size={13} />}
-            {copied ? "Copied!" : "Copy"}
+            {copied ? t("copied") : t("copy")}
           </button>
           {/* Export menu trigger */}
           <div className="relative shrink-0" ref={exportMenuRef}>
@@ -266,17 +268,17 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
               <div className="absolute right-0 top-full mt-1 w-40 bg-[#0f1629] rounded-lg shadow-xl border border-border z-20 py-1">
                 <button onClick={handleCopy} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
                   {copied ? <Check size={13} className="text-success" /> : <Copy size={13} />}
-                  {copied ? "Copied!" : "Copy All"}
+                  {copied ? t("copied") : t("copyAll")}
                 </button>
                 <button onClick={handleDownloadCSV} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
-                  <Download size={13} /> Download CSV
+                  <Download size={13} /> {t("downloadCsv")}
                 </button>
                 <button onClick={handleDownloadTXT} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
-                  <Download size={13} /> Download TXT
+                  <Download size={13} /> {t("downloadTxt")}
                 </button>
                 <div className="my-1 border-t border-border" />
                 <button onClick={handleExportFullReport} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
-                  <FileSpreadsheet size={13} /> Full Report
+                  <FileSpreadsheet size={13} /> {t("fullReport")}
                 </button>
               </div>
             )}
@@ -293,7 +295,7 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
       }}>
         {currentList.length === 0 ? (
           <div className="p-10 text-center text-text-muted text-base">
-            {search ? "No items match your filter" : "No items in this category"}
+            {search ? t("noItemsFilter") : t("noItemsCategory")}
           </div>
         ) : (
           <div className="p-1">
@@ -341,7 +343,7 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
               </div>
             ))}
             {visibleCount < currentList.length && (
-              <div className="py-2 text-center text-xs text-text-muted">Showing {visibleCount} of {currentList.length} items — scroll to load more</div>
+              <div className="py-2 text-center text-xs text-text-muted">{t("showingItems", { visible: visibleCount, total: currentList.length })}</div>
             )}
           </div>
         )}

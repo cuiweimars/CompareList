@@ -1,3 +1,8 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+
 const tools = [
   { href: "/compare-email-lists", label: "Compare Email Lists" },
   { href: "/compare-excel-columns", label: "Compare Excel Columns" },
@@ -19,30 +24,31 @@ const guides = [
 ];
 
 export default function RelatedTools({ current }: { current: string }) {
-  const otherTools = tools.filter((t) => t.href !== current);
+  const t = useTranslations("components.relatedTools");
+  const otherTools = tools.filter((tool) => tool.href !== current);
   return (
     <section className="py-8 border-t border-border">
-      <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider mb-4">Related Tools</h3>
+      <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider mb-4">{t("title")}</h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-        {otherTools.map((t) => (
-          <a
-            key={t.href}
-            href={t.href}
+        {otherTools.map((tool) => (
+          <Link
+            key={tool.href}
+            href={tool.href}
             className="text-sm px-3 py-2 rounded-lg border border-border hover:border-primary/40 hover:bg-surface-alt/30 transition-all text-text-secondary hover:text-text"
           >
-            {t.label}
-          </a>
+            {t(`tools.${tools.indexOf(tool)}.label`)}
+          </Link>
         ))}
       </div>
       <div className="flex flex-wrap gap-3 mt-4">
         {guides.map((g) => (
-          <a
+          <Link
             key={g.href}
             href={g.href}
             className="text-xs text-text-muted hover:text-primary transition-colors"
           >
-            {g.label}
-          </a>
+            {t(`guides.${guides.indexOf(g)}.label`)}
+          </Link>
         ))}
       </div>
     </section>

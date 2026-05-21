@@ -1,0 +1,343 @@
+{
+  "common": {
+    "appName": "CompareList",
+    "appNameHtml": "Compare<span>List</span>",
+    "free": "Free",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "clear": "Clear",
+    "delete": "Delete",
+    "edit": "Edit",
+    "reset": "Reset",
+    "all": "All",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "items": "{count} items",
+    "rows": "{count} rows"
+  },
+  "nav": {
+    "tool": "Tool",
+    "features": "Features",
+    "faq": "FAQ",
+    "history": "History",
+    "pricing": "Pricing"
+  },
+  "home": {
+    "hero": {
+      "badge": "Free · Private · No Signup",
+      "title": "Compare Two Lists <gradient>Instantly</gradient>",
+      "subtitle": "Find differences, common items, and unique entries between any two lists. Powered by AI."
+    },
+    "tool": {
+      "modeExact": "Exact Match",
+      "modeAi": "AI Match",
+      "modeAiFree": "Free",
+      "listALabel": "List A",
+      "listBLabel": "List B",
+      "listAPlaceholder": "Paste your first list here, one item per line...",
+      "listBPlaceholder": "Paste your second list here, one item per line...",
+      "defaultPlaceholder": "Paste your list here, one item per line...",
+      "swapLists": "Swap lists",
+      "options": "Options",
+      "tryDemo": "Try Demo",
+      "compareLists": "Compare Lists",
+      "compareWithAi": "Compare with AI",
+      "analyzing": "Analyzing...",
+      "results": "Results",
+      "clearResults": "Clear Results"
+    },
+    "dragOverlay": {
+      "title": "Drop files to compare",
+      "subtitle": "Drop 2 files (List A + List B) or 1 file (auto-fills first empty list)"
+    },
+    "aiAnalysis": {
+      "title": "AI Analysis",
+      "unavailableWarning": "AI deep analysis is temporarily unavailable. Showing local fuzzy matching results for free.",
+      "foundFuzzy": "AI found <strong>{count} fuzzy match{plural}</strong> that exact matching missed.",
+      "combinedRate": "Combined rate: <strong>{aiRate}%</strong> (vs {exactRate}% exact).",
+      "fuzzyMatches": "{count} fuzzy match{plural}",
+      "aiError": "AI analysis failed. Showing exact comparison results below."
+    },
+    "features": {
+      "sectionTag": "Why CompareList",
+      "sectionTitle": "Built for Speed & Privacy",
+      "0": {
+        "title": "Instant Comparison",
+        "desc": "Compare thousands of items in milliseconds. All processing happens in your browser."
+      },
+      "1": {
+        "title": "100% Private",
+        "desc": "Your data never leaves your device. No tracking, no collection, no server upload."
+      },
+      "2": {
+        "title": "Any Format",
+        "desc": "Paste text, upload files, drag and drop. Auto-detects delimiters."
+      },
+      "3": {
+        "title": "AI-Powered",
+        "desc": "DeepSeek AI finds fuzzy matches, typos, and reordered items automatically."
+      }
+    },
+    "testimonials": {
+      "sectionTag": "Testimonials",
+      "sectionTitle": "Loved by Thousands",
+      "0": {
+        "name": "Sarah M.",
+        "role": "Marketing Manager",
+        "text": "Saved me hours deduplicating our 50K email list. The fuzzy matching caught typos I would have never found manually.",
+        "rating": 5
+      },
+      "1": {
+        "name": "David K.",
+        "role": "Data Analyst",
+        "text": "The CSV column selector is brilliant. I can compare specific fields from different exports without cleaning the data first.",
+        "rating": 5
+      },
+      "2": {
+        "name": "Emily R.",
+        "role": "E-commerce Owner",
+        "text": "I use this weekly to reconcile product SKUs between our warehouse system and online store. Incredibly fast and reliable.",
+        "rating": 5
+      },
+      "3": {
+        "name": "James L.",
+        "role": "DevOps Engineer",
+        "text": "Perfect for comparing IP whitelists and firewall rules. The symmetric difference view shows exactly what's changed.",
+        "rating": 5
+      },
+      "4": {
+        "name": "Maria C.",
+        "role": "HR Coordinator",
+        "text": "We compare employee lists across departments. The union view gives us a complete headcount in seconds. Love the privacy focus.",
+        "rating": 5
+      },
+      "5": {
+        "name": "Tom W.",
+        "role": "SEO Specialist",
+        "text": "Comparing keyword lists from different tools used to take me 30 minutes in Excel. Now it takes 10 seconds. Absolute game changer.",
+        "rating": 5
+      },
+      "6": {
+        "name": "Anna P.",
+        "role": "Researcher",
+        "text": "The full report export with all categories in one CSV is exactly what I needed for my research paper data analysis.",
+        "rating": 4
+      },
+      "7": {
+        "name": "Chris B.",
+        "role": "Sales Manager",
+        "text": "Comparing prospect lists before outreach campaigns. No duplicates means no embarrassing double emails to the same lead.",
+        "rating": 5
+      },
+      "8": {
+        "name": "Lisa T.",
+        "role": "Product Manager",
+        "text": "Clean, fast, no signup required. I've tried 5 different list comparison tools and this is by far the best one.",
+        "rating": 5
+      },
+      "9": {
+        "name": "Ryan H.",
+        "role": "Sysadmin",
+        "text": "Compared two DNS zone files and found 23 orphaned records in seconds. The search filter made it easy to verify each one.",
+        "rating": 5
+      }
+    },
+    "howItWorks": {
+      "sectionTag": "How it works",
+      "sectionTitle": "Three Simple Steps",
+      "0": {
+        "step": "01",
+        "title": "Paste Your Lists",
+        "desc": "Paste two lists or upload TXT/CSV files. Auto-detects newlines, commas, tabs."
+      },
+      "1": {
+        "step": "02",
+        "title": "Choose Mode",
+        "desc": "Exact Match for free, or AI Match for fuzzy matching and DeepSeek insights."
+      },
+      "2": {
+        "step": "03",
+        "title": "Get Results",
+        "desc": "See breakdown: items only in A, only in B, and in both. Export as CSV."
+      }
+    },
+    "cta": {
+      "title": "Ready to Compare?",
+      "subtitle": "Join thousands of users who compare lists every day. Free, private, and instant.",
+      "button": "Start Comparing"
+    },
+    "faq": {
+      "sectionTag": "FAQ",
+      "sectionTitle": "Questions & Answers",
+      "0": {
+        "q": "Is my data safe?",
+        "a": "Yes. All comparison happens in your browser. Your lists are never sent to any server or stored anywhere."
+      },
+      "1": {
+        "q": "What file formats are supported?",
+        "a": "Paste text or upload .txt, .csv, .tsv files. Items can be separated by newlines, commas, semicolons, or tabs."
+      },
+      "2": {
+        "q": "How many items can I compare?",
+        "a": "No hard limit. Handles tens of thousands of items smoothly since all processing is local."
+      },
+      "3": {
+        "q": "What is AI comparison?",
+        "a": "AI mode uses DeepSeek to find fuzzy matches like 'John Smith' vs 'Smith, John', detect typos, and generate an intelligent analysis summary. Uses 1 credit per comparison."
+      },
+      "4": {
+        "q": "How is match rate calculated?",
+        "a": "Uses the Dice coefficient: 2 x (common items) / (total A + total B), giving a percentage of list similarity."
+      }
+    },
+    "footer": {
+      "copyright": "© {year} CompareList",
+      "processing": "All processing in your browser"
+    }
+  },
+  "components": {
+    "listInput": {
+      "upload": "Upload",
+      "dropFileHere": "Drop file here",
+      "selectColumns": "Select columns",
+      "allColumns": "All columns",
+      "columnsCount": "{count} columns",
+      "previewRow": "Preview (row 1):",
+      "fileTooLarge": "File too large. Please use files under 50MB.",
+      "largeFileConfirm": "This file is {size}MB. Large files may be slow to process. Continue?",
+      "items": "{count} items"
+    },
+    "resultTabs": {
+      "tabs": {
+        "onlyA": {
+          "label": "Only in A",
+          "short": "A only"
+        },
+        "onlyB": {
+          "label": "Only in B",
+          "short": "B only"
+        },
+        "both": {
+          "label": "In Both",
+          "short": "Both"
+        },
+        "union": {
+          "label": "Union (A ∪ B)",
+          "short": "A∪B"
+        },
+        "symDiff": {
+          "label": "Sym Diff (A △ B)",
+          "short": "A△B"
+        },
+        "all": {
+          "label": "All Combined",
+          "short": "All"
+        }
+      },
+      "filter": "Filter...",
+      "sort": "Sort",
+      "sortAsc": "A-Z",
+      "sortDesc": "Z-A",
+      "select": "Select all",
+      "deselect": "Deselect all",
+      "copySelected": "Copy selected",
+      "deleteSelected": "Delete selected",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "copyAll": "Copy All",
+      "downloadCsv": "Download CSV",
+      "downloadTxt": "Download TXT",
+      "fullReport": "Full Report",
+      "noItemsFilter": "No items match your filter",
+      "noItemsCategory": "No items in this category",
+      "showingItems": "Showing {visible} of {total} items — scroll to load more"
+    },
+    "statsCards": {
+      "matchRate": "Match Rate",
+      "commonItems": "Common Items",
+      "onlyInListA": "Only in List A",
+      "onlyInListB": "Only in List B"
+    },
+    "optionsPanel": {
+      "caseSensitive": {
+        "label": "Case Sensitive",
+        "desc": "Treat uppercase and lowercase as different"
+      },
+      "trimWhitespace": {
+        "label": "Trim Whitespace",
+        "desc": "Remove leading/trailing spaces"
+      },
+      "removeDuplicates": {
+        "label": "Remove Duplicates",
+        "desc": "Deduplicate items before comparing"
+      },
+      "ignoreEmpty": {
+        "label": "Ignore Empty Lines",
+        "desc": "Skip blank lines and empty items"
+      }
+    },
+    "fuzzyMatchTable": {
+      "title": "Fuzzy Matches",
+      "subtitle": "Similar but not identical items",
+      "noMatches": "No fuzzy matches found. Try lowering the similarity threshold.",
+      "moreHidden": "+ {count} more matches hidden"
+    },
+    "aiInsights": {
+      "title": "AI Insights",
+      "fuzzyMatches": "{count} fuzzy match{plural}",
+      "viewAiAnalysis": "View AI Analysis",
+      "free": "Free"
+    },
+    "relatedTools": {
+      "title": "Related Tools",
+      "tools": {
+        "0": { "label": "Compare Email Lists" },
+        "1": { "label": "Compare Excel Columns" },
+        "2": { "label": "Compare CSV Files" },
+        "3": { "label": "Compare Two Columns in Excel" },
+        "4": { "label": "Compare IP Addresses" },
+        "5": { "label": "Compare Keywords" },
+        "6": { "label": "Compare Name Lists" },
+        "7": { "label": "Compare Phone Numbers" },
+        "8": { "label": "Compare URLs" },
+        "9": { "label": "List Diff" },
+        "10": { "label": "Remove Duplicates" }
+      },
+      "guides": {
+        "0": { "label": "How to Compare Two Lists" },
+        "1": { "label": "How to Compare CSV Files" },
+        "2": { "label": "How to Find Differences" }
+      }
+    },
+    "vennDiagram": {
+      "title": "Visual Overview",
+      "listATooltip": "List A: {unique} unique, {shared} shared",
+      "listBTooltip": "List B: {unique} unique, {shared} shared",
+      "listALabel": "List A",
+      "listBLabel": "List B"
+    },
+    "historyPanel": {
+      "title": "History",
+      "recordCount": "({count})",
+      "clearAll": "Clear All",
+      "noComparisons": "No comparisons yet",
+      "justNow": "Just now",
+      "minutesAgo": "{count}m ago",
+      "hoursAgo": "{count}h ago",
+      "modeAi": "AI",
+      "modeExact": "Exact",
+      "labelA": "A: {count}",
+      "labelB": "B: {count}",
+      "common": "Common: {count}",
+      "clickToRestore": "Click to restore",
+      "partialData": "(partial data)"
+    },
+    "notFound": {
+      "title": "404",
+      "subtitle": "Page Not Found",
+      "description": "The page you're looking for doesn't exist. It may have been moved or deleted.",
+      "goHome": "Go Home",
+      "compareLists": "Compare Lists"
+    }
+  }
+}

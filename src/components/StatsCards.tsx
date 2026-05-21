@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 interface StatsCardsProps {
   stats: {
     totalA: number;
@@ -13,30 +15,31 @@ interface StatsCardsProps {
 }
 
 export default function StatsCards({ stats, onCardClick }: StatsCardsProps) {
+  const t = useTranslations("components.statsCards");
   const cards = [
     {
-      label: "Match Rate",
+      label: t("matchRate"),
       value: `${stats.matchRate}%`,
       color: "#818cf8",
       glow: "rgba(129,140,248,0.3)",
       icon: "~",
     },
     {
-      label: "Common Items",
+      label: t("commonItems"),
       value: stats.common,
       color: "#34d399",
       glow: "rgba(52,211,153,0.3)",
       icon: "∩",
     },
     {
-      label: "Only in List A",
+      label: t("onlyInListA"),
       value: stats.uniqueA,
       color: "#fbbf24",
       glow: "rgba(251,191,36,0.25)",
       icon: "A",
     },
     {
-      label: "Only in List B",
+      label: t("onlyInListB"),
       value: stats.uniqueB,
       color: "#22d3ee",
       glow: "rgba(34,211,238,0.3)",

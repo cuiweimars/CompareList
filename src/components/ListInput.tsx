@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Upload, X, FileText, Columns3, CheckSquare, Square } from "lucide-react";
 
 interface ListInputProps {
@@ -18,6 +19,7 @@ export default function ListInput({
   onChange,
   placeholder = "Paste your list here, one item per line...",
 }: ListInputProps) {
+  const t = useTranslations("components.listInput");
   const [dragOver, setDragOver] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
   const [csvColumns, setCsvColumns] = useState<string[] | null>(null);
@@ -122,11 +124,11 @@ export default function ListInput({
 
   async function handleFile(file: File) {
     if (file.size > 50 * 1024 * 1024) {
-      alert("File too large. Please use files under 50MB.");
+      alert(t("fileTooLarge"));
       return;
     }
     if (file.size > 10 * 1024 * 1024) {
-      const ok = confirm(`This file is ${(file.size / 1024 / 1024).toFixed(1)}MB. Large files may be slow to process. Continue?`);
+      const ok = confirm(t("largeFileConfirm", { size: (file.size / 1024 / 1024).toFixed(1) }));
       if (!ok) return;
     }
     setFileName(file.name);
@@ -214,7 +216,7 @@ export default function ListInput({
   const selCount = selectedCols.size;
   const totalCols = csvColumns?.length ?? 0;
   const colLabel = totalCols > 0
-    ? selCount === totalCols ? "All columns" : selCount === 1 ? csvColumns![Array.from(selectedCols)[0]] : `${selCount} columns`
+    ? selCount === totalCols ? t("allColumns") : selCount === 1 ? csvColumns![Array.from(selectedCols)[0]] : t("columnsCount", { count: selCount })
     : "";
 
   // Preview: show how first row combines
@@ -239,7 +241,7 @@ export default function ListInput({
           </span>
           {lineCount > 0 && (
             <span className="text-xs text-text-muted bg-surface-alt/50 px-2 py-0.5 rounded-full border border-border">
-              {lineCount} items
+              {t("items", { count: lineCount })}
             </span>
           )}
         </div>
@@ -248,7 +250,7 @@ export default function ListInput({
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-surface-alt/40 hover:bg-surface-alt/70 hover:border-border-active transition-all text-text-secondary hover:text-text text-xs font-medium shrink-0"
         >
           <Upload size={14} />
-          Upload
+          {t("upload")}
         </button>
         <input
           ref={fileRef}
@@ -283,7 +285,7 @@ export default function ListInput({
               {showColPicker && (
                 <div className="absolute left-0 top-full mt-1 w-72 bg-[#0f1629] rounded-xl shadow-2xl border border-border z-30 py-1.5">
                   <div className="px-3 py-1.5 flex items-center justify-between border-b border-border mb-1">
-                    <span className="text-xs font-medium text-text">Select columns</span>
+                    <span className="text-xs font-medium text-text">{t("selectColumns")}</span>
                     <button
                       onClick={handleAllOrReset}
                       className="text-xs text-amber-600 hover:underline"
@@ -311,7 +313,7 @@ export default function ListInput({
                   ))}
                   {previewRow && (
                     <div className="mx-3 mt-1.5 pt-1.5 border-t border-border">
-                      <p className="text-[10px] text-text-muted mb-0.5">Preview (row 1):</p>
+                      <p className="text-[10px] text-text-muted mb-0.5">{t("previewRow")}</p>
                       <p className="text-[10px] text-text-secondary font-mono truncate">{previewRow}</p>
                     </div>
                   )}
@@ -358,7 +360,7 @@ export default function ListInput({
           <div className="absolute inset-0 flex items-center justify-center bg-primary/5 rounded-xl pointer-events-none">
             <div className="flex flex-col items-center gap-2">
               <Upload size={28} className="text-primary" />
-              <p className="text-primary font-semibold text-base">Drop file here</p>
+              <p className="text-primary font-semibold text-base">{t("dropFileHere")}</p>
             </div>
           </div>
         )}

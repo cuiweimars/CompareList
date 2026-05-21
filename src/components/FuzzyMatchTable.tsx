@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 
 interface FuzzyMatch {
@@ -15,10 +16,12 @@ interface FuzzyMatchTableProps {
 }
 
 export default function FuzzyMatchTable({ matches, locked = false }: FuzzyMatchTableProps) {
+  const t = useTranslations("components.fuzzyMatchTable");
+
   if (matches.length === 0) {
     return (
       <div className="glass rounded-xl p-6 text-center">
-        <p className="text-sm text-text-muted">No fuzzy matches found. Try lowering the similarity threshold.</p>
+        <p className="text-sm text-text-muted">{t("noMatches")}</p>
       </div>
     );
   }
@@ -30,9 +33,9 @@ export default function FuzzyMatchTable({ matches, locked = false }: FuzzyMatchT
   return (
     <div className="glass rounded-xl overflow-hidden">
       <div className="px-4 py-3 border-b border-border flex items-center gap-2">
-        <span className="text-sm font-semibold">Fuzzy Matches</span>
+        <span className="text-sm font-semibold">{t("title")}</span>
         <span className="text-xs text-text-muted">
-          Similar but not identical items
+          {t("subtitle")}
         </span>
       </div>
       <div className="divide-y divide-border">
@@ -68,7 +71,7 @@ export default function FuzzyMatchTable({ matches, locked = false }: FuzzyMatchT
       </div>
       {locked && matches.length > 2 && (
         <div className="px-4 py-3 bg-surface-alt/30 text-center text-xs text-text-muted">
-          + {matches.length - 2} more matches hidden
+          {t("moreHidden", { count: matches.length - 2 })}
         </div>
       )}
     </div>

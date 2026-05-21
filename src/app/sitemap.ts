@@ -1,33 +1,71 @@
 import type { MetadataRoute } from "next";
 
+const locales = ["en", "zh", "ja", "es", "fr", "de"];
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com";
+
+const paths = [
+  "",
+  "/pricing",
+  "/compare-csv-files",
+  "/compare-csv-columns",
+  "/compare-email-lists",
+  "/compare-excel-columns",
+  "/compare-ip-addresses",
+  "/compare-keywords",
+  "/compare-name-lists",
+  "/compare-phone-numbers",
+  "/compare-two-columns-excel",
+  "/compare-urls",
+  "/list-diff",
+  "/remove-duplicates-from-list",
+  "/how-to-compare-two-lists",
+  "/how-to-compare-csv-files",
+  "/how-to-find-differences",
+];
+
+const priorities: Record<string, number> = {
+  "": 1,
+  pricing: 0.6,
+};
+
+const toolPages = [
+  "compare-csv-files",
+  "compare-email-lists",
+  "compare-excel-columns",
+  "compare-ip-addresses",
+  "compare-keywords",
+  "compare-name-lists",
+  "compare-phone-numbers",
+  "compare-two-columns-excel",
+  "compare-urls",
+  "list-diff",
+  "remove-duplicates-from-list",
+];
+
+const guidePages = [
+  "how-to-compare-two-lists",
+  "how-to-compare-csv-files",
+  "how-to-find-differences",
+];
+
+function getPriority(path: string): number {
+  if (priorities[path] !== undefined) return priorities[path];
+  const segment = path.slice(1);
+  if (toolPages.includes(segment)) return 0.8;
+  if (segment.startsWith("compare-") && segment.includes("csv-columns")) return 0.7;
+  if (guidePages.includes(segment)) return 0.7;
+  return 0.5;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com";
   const now = new Date();
 
-  const toolPages = [
-    { path: "/compare-email-lists", priority: 0.8, freq: "monthly" as const },
-    { path: "/compare-excel-columns", priority: 0.8, freq: "monthly" as const },
-    { path: "/compare-csv-files", priority: 0.8, freq: "monthly" as const },
-    { path: "/compare-two-columns-excel", priority: 0.9, freq: "monthly" as const },
-    { path: "/compare-ip-addresses", priority: 0.8, freq: "monthly" as const },
-    { path: "/compare-keywords", priority: 0.8, freq: "monthly" as const },
-    { path: "/compare-name-lists", priority: 0.8, freq: "monthly" as const },
-    { path: "/compare-phone-numbers", priority: 0.8, freq: "monthly" as const },
-    { path: "/compare-urls", priority: 0.8, freq: "monthly" as const },
-    { path: "/list-diff", priority: 0.8, freq: "monthly" as const },
-    { path: "/remove-duplicates-from-list", priority: 0.9, freq: "monthly" as const },
-  ];
-
-  const guidePages = [
-    { path: "/how-to-compare-two-lists", priority: 0.7, freq: "monthly" as const },
-    { path: "/how-to-compare-csv-files", priority: 0.7, freq: "monthly" as const },
-    { path: "/how-to-find-differences", priority: 0.7, freq: "monthly" as const },
-  ];
-
-  return [
-    { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${baseUrl}/pricing`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    ...toolPages.map((p) => ({ url: `${baseUrl}${p.path}`, lastModified: now, changeFrequency: p.freq, priority: p.priority })),
-    ...guidePages.map((p) => ({ url: `${baseUrl}${p.path}`, lastModified: now, changeFrequency: p.freq, priority: p.priority })),
-  ];
+  return locales.flatMap((locale) =>
+    paths.map((path) => ({
+      url: `${baseUrl}/${locale}${path}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: getPriority(path),
+    }))
+  );
 }

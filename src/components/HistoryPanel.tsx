@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Clock, Trash2, X, ChevronRight, RotateCcw } from "lucide-react";
 import { getHistory, deleteComparison, clearHistory, ComparisonRecord } from "@/lib/history";
 
@@ -11,6 +12,7 @@ interface HistoryPanelProps {
 }
 
 export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelProps) {
+  const t = useTranslations("components.historyPanel");
   const [records, setRecords] = useState<ComparisonRecord[]>([]);
 
   useEffect(() => {
@@ -38,9 +40,9 @@ export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelP
     const d = new Date(ts);
     const now = new Date();
     const diff = now.getTime() - d.getTime();
-    if (diff < 60000) return "Just now";
-    if (diff < 3600000) return `${Math.floor(diff / 60000)}m ago`;
-    if (diff < 86400000) return `${Math.floor(diff / 3600000)}h ago`;
+    if (diff < 60000) return t("justNow");
+    if (diff < 3600000) return t("minutesAgo", { count: Math.floor(diff / 60000) });
+    if (diff < 86400000) return t("hoursAgo", { count: Math.floor(diff / 3600000) });
     return d.toLocaleDateString();
   }
 
@@ -51,12 +53,12 @@ export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelP
         <div className="flex items-center justify-between px-5 py-4 border-b border-border">
           <div className="flex items-center gap-2">
             <Clock size={17} className="text-text-secondary" />
-            <h3 className="font-semibold text-base font-[family-name:var(--font-sora)]">History</h3>
-            <span className="text-xs text-text-muted">({records.length})</span>
+            <h3 className="font-semibold text-base font-[family-name:var(--font-sora)]">{t("title")}</h3>
+            <span className="text-xs text-text-muted">{t("recordCount", { count: records.length })}</span>
           </div>
           <div className="flex items-center gap-2">
             {records.length > 0 && (
-              <button onClick={handleClear} className="text-xs text-danger hover:underline">Clear All</button>
+              <button onClick={handleClear} className="text-xs text-danger hover:underline">{t("clearAll")}</button>
             )}
             <button onClick={onClose} className="p-1.5 hover:bg-surface-alt/50 rounded-lg">
               <X size={17} className="text-text-muted" />
@@ -66,7 +68,7 @@ export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelP
 
         <div className="flex-1 overflow-y-auto">
           {records.length === 0 ? (
-            <div className="p-10 text-center text-text-muted text-sm">No comparisons yet</div>
+            <div className="p-10 text-center text-text-muted text-sm">{t("noComparisons")}</div>
           ) : (
             <div className="divide-y divide-border">
               {records.map((record) => (
@@ -82,7 +84,7 @@ export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelP
                           record.mode === "ai" ? "bg-primary/10 text-primary" : "bg-surface-alt text-text-secondary"
                         }`}
                       >
-                        {record.mode === "ai" ? "AI" : "Exact"}
+                        {record.mode === "ai" ? t("modeAi") : t("modeExact")}
                       </span>
                       <span className="text-xs text-text-muted">{formatDate(record.timestamp)}</span>
                     </div>
@@ -97,17 +99,17 @@ export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelP
                     </div>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-text-secondary mb-1.5">
-                    <span>A: {record.listALength}</span>
-                    <span>B: {record.listBLength}</span>
+                    <span>{t("labelA", { count: record.listALength })}</span>
+                    <span>{t("labelB", { count: record.listBLength })}</span>
                     <span className="font-semibold text-primary">{record.matchRate}%</span>
-                    <span>Common: {record.commonCount}</span>
+                    <span>{t("common", { count: record.commonCount })}</span>
                   </div>
                   {record.preview && (
                     <div className="flex items-center gap-1.5 text-xs text-text-muted">
                       <RotateCcw size={11} />
-                      <span>Click to restore</span>
+                      <span>{t("clickToRestore")}</span>
                       {(record.preview.onlyInA.length >= 20 || record.preview.onlyInB.length >= 20 || record.preview.inBoth.length >= 20) && (
-                        <span className="text-amber-500 ml-1">(partial data)</span>
+                        <span className="text-amber-500 ml-1">{t("partialData")}</span>
                       )}
                     </div>
                   )}

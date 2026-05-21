@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 interface VennDiagramProps {
   totalA: number;
   totalB: number;
@@ -9,6 +11,7 @@ interface VennDiagramProps {
 }
 
 export default function VennDiagram({ onlyA, onlyB, common }: VennDiagramProps) {
+  const t = useTranslations("components.vennDiagram");
   const maxVal = Math.max(onlyA, onlyB, common, 1);
   const scale = 55;
   const rA = Math.max(28, Math.sqrt((onlyA + common) / maxVal) * scale);
@@ -23,7 +26,7 @@ export default function VennDiagram({ onlyA, onlyB, common }: VennDiagramProps) 
       <div className="flex items-center gap-2 mb-4">
         <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-glow" />
         <span className="text-[10px] uppercase tracking-widest text-text-muted font-medium">
-          Visual Overview
+          {t("title")}
         </span>
       </div>
       <svg viewBox="0 0 200 160" className="w-full max-w-[220px] mx-auto">
@@ -46,10 +49,10 @@ export default function VennDiagram({ onlyA, onlyB, common }: VennDiagramProps) 
           </linearGradient>
         </defs>
         <circle cx={cx1} cy={cy} r={rA} fill="url(#grad-a)" stroke="#818cf8" strokeWidth={1} strokeOpacity={0.5} filter="url(#glow-a)" className="cursor-pointer hover:opacity-80 transition-opacity" >
-          <title>List A: {onlyA} unique, {common} shared</title>
+          <title>{t("listATooltip", { unique: onlyA, shared: common })}</title>
         </circle>
         <circle cx={cx2} cy={cy} r={rB} fill="url(#grad-b)" stroke="#22d3ee" strokeWidth={1} strokeOpacity={0.5} filter="url(#glow-b)" className="cursor-pointer hover:opacity-80 transition-opacity" >
-          <title>List B: {onlyB} unique, {common} shared</title>
+          <title>{t("listBTooltip", { unique: onlyB, shared: common })}</title>
         </circle>
         {onlyA > 0 && (
           <text x={cx1 - rA / 2.5} y={cy + 4} textAnchor="middle" className="text-[11px] font-bold fill-primary font-[family-name:var(--font-sora)]">
@@ -66,8 +69,8 @@ export default function VennDiagram({ onlyA, onlyB, common }: VennDiagramProps) 
             {onlyB}
           </text>
         )}
-        <text x={cx1 - rA / 2} y={152} textAnchor="middle" className="text-[7px] fill-text-muted uppercase tracking-wider">List A</text>
-        <text x={cx2 + rB / 2} y={152} textAnchor="middle" className="text-[7px] fill-text-muted uppercase tracking-wider">List B</text>
+        <text x={cx1 - rA / 2} y={152} textAnchor="middle" className="text-[7px] fill-text-muted uppercase tracking-wider">{t("listALabel")}</text>
+        <text x={cx2 + rB / 2} y={152} textAnchor="middle" className="text-[7px] fill-text-muted uppercase tracking-wider">{t("listBLabel")}</text>
       </svg>
     </div>
   );

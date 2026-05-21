@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Sparkles, Lock, Coins } from "lucide-react";
 import { getCredits } from "@/lib/credits";
 
@@ -18,6 +19,7 @@ export default function AIInsights({
   onUnlock,
   onBuyCredits,
 }: AIInsightsProps) {
+  const t = useTranslations("components.aiInsights");
   const balance = typeof window !== "undefined" ? getCredits().balance : 0;
   const hasCredits = balance > 0;
 
@@ -25,10 +27,10 @@ export default function AIInsights({
     <div className="glass rounded-xl overflow-hidden">
       <div className="px-4 py-3 border-b border-border flex items-center gap-2 bg-gradient-to-r from-primary/8 to-accent/5">
         <Sparkles size={15} className="text-primary" />
-        <span className="text-sm font-semibold">AI Insights</span>
+        <span className="text-sm font-semibold">{t("title")}</span>
         {fuzzyMatchCount > 0 && (
           <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-            {fuzzyMatchCount} fuzzy match{fuzzyMatchCount !== 1 ? "es" : ""}
+            {t("fuzzyMatches", { count: fuzzyMatchCount, plural: fuzzyMatchCount !== 1 ? "es" : "" })}
           </span>
         )}
       </div>
@@ -44,8 +46,8 @@ export default function AIInsights({
                 className="btn-primary flex items-center gap-2 px-6 py-3 text-white rounded-xl text-sm font-semibold"
               >
                 <Lock size={15} />
-                View AI Analysis
-                <span className="text-xs text-green-300 bg-green-500/20 px-2 py-0.5 rounded-full ml-1">Free</span>
+                {t("viewAiAnalysis")}
+                <span className="text-xs text-green-300 bg-green-500/20 px-2 py-0.5 rounded-full ml-1">{t("free")}</span>
               </button>
             </div>
           </div>
