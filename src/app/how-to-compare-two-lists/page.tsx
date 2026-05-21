@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRightLeft, Zap, Shield, Globe, ArrowRight, Check } from "lucide-react";
 import RelatedTools from "@/components/RelatedTools";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "How to Compare Two Lists Online - Free Step-by-Step Guide | CompareList",
@@ -64,6 +65,11 @@ export default function HowToCompareTwoListsPage() {
 
   return (
     <div className="min-h-screen">
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "Tutorials", path: "/" },
+        { name: "How to Compare Two Lists", path: "/how-to-compare-two-lists" },
+      ]} />
       {/* Header */}
       <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center gap-3">

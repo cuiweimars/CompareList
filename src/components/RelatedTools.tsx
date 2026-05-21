@@ -1,12 +1,15 @@
 const tools = [
   { href: "/compare-email-lists", label: "Compare Email Lists" },
   { href: "/compare-excel-columns", label: "Compare Excel Columns" },
+  { href: "/compare-csv-files", label: "Compare CSV Files" },
+  { href: "/compare-two-columns-excel", label: "Compare Two Columns in Excel" },
   { href: "/compare-ip-addresses", label: "Compare IP Addresses" },
   { href: "/compare-keywords", label: "Compare Keywords" },
   { href: "/compare-name-lists", label: "Compare Name Lists" },
   { href: "/compare-phone-numbers", label: "Compare Phone Numbers" },
   { href: "/compare-urls", label: "Compare URLs" },
   { href: "/list-diff", label: "List Diff" },
+  { href: "/remove-duplicates-from-list", label: "Remove Duplicates" },
 ];
 
 const guides = [

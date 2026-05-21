@@ -1,0 +1,146 @@
+"use client";
+
+import { useState } from "react";
+import { ArrowRightLeft, FileSpreadsheet, ChevronDown, ChevronUp } from "lucide-react";
+import ListInput from "@/components/ListInput";
+import OptionsPanel from "@/components/OptionsPanel";
+import StatsCards from "@/components/StatsCards";
+import ResultTabs from "@/components/ResultTabs";
+import { compareLists, CompareResult } from "@/lib/compare";
+import RelatedTools from "@/components/RelatedTools";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+
+export default function CompareCsvFilesPage() {
+  const [listA, setListA] = useState("");
+  const [listB, setListB] = useState("");
+  const [result, setResult] = useState<CompareResult | null>(null);
+  const [showOptions, setShowOptions] = useState(false);
+  const [showFaq, setShowFaq] = useState<number | null>(null);
+  const [options, setOptions] = useState({
+    caseSensitive: false, trimWhitespace: true, removeDuplicates: true, ignoreEmpty: true,
+  });
+
+  function handleCompare() {
+    if (!listA.trim() && !listB.trim()) return;
+    setResult(compareLists(listA, listB, options));
+  }
+
+  const faqs = [
+    { q: "How do I compare two CSV files?", a: "Upload both CSV files using the file upload buttons, or copy-paste the content directly. If your CSV has multiple columns, select the column you want to compare. Click Compare to see the results instantly." },
+    { q: "Does it work with multi-column CSV files?", a: "Yes. When you upload a CSV with multiple columns, a dropdown appears letting you pick which column to compare (e.g., email, ID, name). Only that column's values are compared." },
+    { q: "What CSV formats are supported?", a: "Standard comma-separated (.csv), tab-separated (.tsv), semicolon-separated, and plain text (.txt) files. Headers are auto-detected and excluded from comparison." },
+    { q: "Is there a file size limit?", a: "No strict limit. The tool handles files with tens of thousands of rows smoothly since all processing happens in your browser." },
+    { q: "Can I export the comparison results?", a: "Yes. Export any result category as CSV or TXT, or use the Full Report option to download everything in a single categorized CSV file." },
+  ];
+
+  return (
+    <div className="min-h-screen">
+      <BreadcrumbSchema items={[{ name: "Home", path: "/" }, { name: "Compare CSV Files", path: "/compare-csv-files" }]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Compare CSV Files - CompareList",
+            description: "Free online tool to compare two CSV files. Find differences, compare specific columns, and export results.",
+            url: "https://comparelist.org/compare-csv-files",
+            applicationCategory: "UtilityApplication",
+            operatingSystem: "Any",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+
+      <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <a href="/" className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+              <ArrowRightLeft size={16} className="text-white" />
+            </div>
+            <span className="font-bold text-xl font-[family-name:var(--font-sora)]">Compare<span className="hero-gradient-text">List</span></span>
+          </a>
+        </div>
+      </header>
+
+      <main className="max-w-[960px] mx-auto px-4 py-12">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-surface/50 text-sm text-text-muted mb-4">
+            <FileSpreadsheet size={14} className="text-primary" />
+            CSV File Comparison
+          </div>
+          <h1 className="text-3xl lg:text-4xl font-bold font-[family-name:var(--font-sora)] mb-4">
+            Compare Two CSV Files Online
+          </h1>
+          <p className="text-text-secondary max-w-xl mx-auto">
+            Find differences between CSV files. Upload .csv, .tsv, or .txt files and compare specific columns. Free and instant.
+          </p>
+        </div>
+
+        <div className="glass-elevated rounded-2xl p-5 lg:p-7 gradient-border">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+            <ListInput label="CSV File A" labelColor="#818cf8" value={listA} onChange={setListA} placeholder="Upload a CSV file or paste content..." />
+            <ListInput label="CSV File B" labelColor="#22d3ee" value={listB} onChange={setListB} placeholder="Upload a CSV file or paste content..." />
+          </div>
+          <div className="flex items-center justify-between">
+            <button onClick={() => setShowOptions(!showOptions)} className="text-sm text-text-muted hover:text-text-secondary flex items-center gap-1.5">
+              {showOptions ? <ChevronUp size={15} /> : <ChevronDown size={15} />} Options
+            </button>
+            <button onClick={handleCompare} disabled={!listA.trim() && !listB.trim()}
+              className="btn-primary px-8 py-2.5 text-sm font-semibold text-white rounded-xl">
+              Compare CSV Files
+            </button>
+          </div>
+          {showOptions && (
+            <div className="mt-4 pt-4 border-t border-border">
+              <OptionsPanel {...options} onChange={setOptions} />
+            </div>
+          )}
+          {result && (
+            <div className="space-y-4 mt-6">
+              <StatsCards stats={result.stats} />
+              <ResultTabs onlyInA={result.onlyInA} onlyInB={result.onlyInB} inBoth={result.inBoth} />
+            </div>
+          )}
+        </div>
+
+        <div className="mt-16 space-y-8">
+          <div className="glass rounded-xl p-6">
+            <h2 className="font-semibold text-lg mb-3 font-[family-name:var(--font-sora)]">CSV Comparison Use Cases</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                { title: "Data Auditing", desc: "Compare data exports from different dates to track changes in records." },
+                { title: "List Reconciliation", desc: "Find items in one dataset but missing from another." },
+                { title: "Deduplication", desc: "Identify overlapping records across multiple CSV files." },
+                { title: "Migration Validation", desc: "Verify all records transferred correctly after data migration." },
+              ].map((uc, i) => (
+                <div key={i} className="bg-surface-alt/30 rounded-lg p-3">
+                  <h3 className="font-medium text-sm mb-1">{uc.title}</h3>
+                  <p className="text-xs text-text-secondary">{uc.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="glass rounded-xl p-6">
+            <h2 className="font-semibold text-lg mb-4 font-[family-name:var(--font-sora)]">FAQ</h2>
+            <div className="space-y-2">
+              {faqs.map((faq, i) => (
+                <div key={i} className="border border-border rounded-lg overflow-hidden">
+                  <button onClick={() => setShowFaq(showFaq === i ? null : i)}
+                    className="w-full px-5 py-4 text-left text-sm font-medium flex items-center justify-between hover:bg-surface-alt/20 transition-colors">
+                    {faq.q}
+                    {showFaq === i ? <ChevronUp size={16} className="text-text-muted shrink-0" /> : <ChevronDown size={16} className="text-text-muted shrink-0" />}
+                  </button>
+                  {showFaq === i && <div className="px-5 pb-4 text-sm text-text-secondary leading-relaxed">{faq.a}</div>}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <RelatedTools current="/compare-csv-files" />
+        </div>
+      </main>
+    </div>
+  );
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, DM_Sans, JetBrains_Mono } from "next/font/google";
 import { PaddleProvider } from "@/lib/paddle/context";
+import Analytics from "@/components/Analytics";
 import "./globals.css";
 
 const sora = Sora({
@@ -94,6 +95,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#030712] bg-grid">
+        <Analytics />
         <PaddleProvider>{children}</PaddleProvider>
       </body>
     </html>

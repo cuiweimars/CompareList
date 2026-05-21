@@ -8,6 +8,7 @@ import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const DEMO_A = `+1 (555) 123-4567
 +1-555-234-5678
@@ -46,6 +47,25 @@ export default function ComparePhoneNumbersPage() {
 
   return (
     <div className="min-h-screen">
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "Compare Phone Numbers", path: "/compare-phone-numbers" },
+      ]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Compare Phone Numbers - CompareList",
+            description: "Find matching, missing, and duplicate phone numbers between two lists. Works with all formats including international numbers.",
+            url: "https://comparelist.org/compare-phone-numbers",
+            applicationCategory: "UtilityApplication",
+            operatingSystem: "Any",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
       <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-3">

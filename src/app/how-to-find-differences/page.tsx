@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRightLeft, ArrowRight, Check } from "lucide-react";
 import RelatedTools from "@/components/RelatedTools";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "How to Find Differences Between Two Lists - Free Guide | CompareList",
@@ -46,6 +47,11 @@ export default function HowToFindDifferencesPage() {
 
   return (
     <div className="min-h-screen">
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "Tutorials", path: "/" },
+        { name: "How to Find Differences", path: "/how-to-find-differences" },
+      ]} />
       <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center gap-3">
           <a href="/" className="flex items-center gap-2.5">

@@ -9,6 +9,7 @@ import VennDiagram from "@/components/VennDiagram";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export default function ListDiffPage() {
   const [listA, setListA] = useState("");
@@ -34,6 +35,25 @@ export default function ListDiffPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "List Diff", path: "/list-diff" },
+      ]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "List Diff - CompareList",
+            description: "Compare two lists and instantly see what's different. Get added items, removed items, and unchanged items.",
+            url: "https://comparelist.org/list-diff",
+            applicationCategory: "UtilityApplication",
+            operatingSystem: "Any",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
       <header className="border-b border-border bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRightLeft, ArrowRight, FileSpreadsheet, Check } from "lucide-react";
 import RelatedTools from "@/components/RelatedTools";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "How to Compare Two CSV Files Online - Free CSV Comparison Guide | CompareList",
@@ -23,6 +24,11 @@ export const metadata: Metadata = {
 export default function HowToCompareCSVFilesPage() {
   return (
     <div className="min-h-screen">
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "Tutorials", path: "/" },
+        { name: "How to Compare CSV Files", path: "/how-to-compare-csv-files" },
+      ]} />
       <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center gap-3">
           <a href="/" className="flex items-center gap-2.5">

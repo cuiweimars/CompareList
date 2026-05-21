@@ -7,12 +7,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolPages = [
     { path: "/compare-email-lists", priority: 0.8, freq: "monthly" as const },
     { path: "/compare-excel-columns", priority: 0.8, freq: "monthly" as const },
+    { path: "/compare-csv-files", priority: 0.8, freq: "monthly" as const },
+    { path: "/compare-two-columns-excel", priority: 0.9, freq: "monthly" as const },
     { path: "/compare-ip-addresses", priority: 0.8, freq: "monthly" as const },
     { path: "/compare-keywords", priority: 0.8, freq: "monthly" as const },
     { path: "/compare-name-lists", priority: 0.8, freq: "monthly" as const },
     { path: "/compare-phone-numbers", priority: 0.8, freq: "monthly" as const },
     { path: "/compare-urls", priority: 0.8, freq: "monthly" as const },
     { path: "/list-diff", priority: 0.8, freq: "monthly" as const },
+    { path: "/remove-duplicates-from-list", priority: 0.9, freq: "monthly" as const },
   ];
 
   const guidePages = [

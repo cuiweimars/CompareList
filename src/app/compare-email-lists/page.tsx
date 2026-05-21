@@ -8,6 +8,7 @@ import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const DEMO_A = `alice@gmail.com
 bob@yahoo.com
@@ -78,6 +79,25 @@ export default function CompareEmailListsPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "Compare Email Lists", path: "/compare-email-lists" },
+      ]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Compare Email Lists - CompareList",
+            description: "Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private.",
+            url: "https://comparelist.org/compare-email-lists",
+            applicationCategory: "UtilityApplication",
+            operatingSystem: "Any",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
       <header className="border-b border-border bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">

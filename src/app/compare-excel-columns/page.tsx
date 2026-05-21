@@ -8,6 +8,7 @@ import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
 import { compareLists, CompareResult } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export default function CompareExcelColumnsPage() {
   const [listA, setListA] = useState("");
@@ -40,6 +41,25 @@ export default function CompareExcelColumnsPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "Compare Excel Columns", path: "/compare-excel-columns" },
+      ]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Compare Excel Columns - CompareList",
+            description: "Quickly find differences between two columns in Excel or Google Sheets. No formulas, no VLOOKUP needed.",
+            url: "https://comparelist.org/compare-excel-columns",
+            applicationCategory: "UtilityApplication",
+            operatingSystem: "Any",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
       <header className="border-b border-border bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
