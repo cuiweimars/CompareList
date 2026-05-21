@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 
+const baseUrl = "https://comparelist.org";
+
 const locales = ["en", "zh", "ja", "es", "fr", "de"];
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com";
 
 const paths = [
   "",
@@ -23,12 +24,7 @@ const paths = [
   "/how-to-find-differences",
 ];
 
-const priorities: Record<string, number> = {
-  "": 1,
-  pricing: 0.6,
-};
-
-const toolPages = [
+const toolPages = new Set([
   "compare-csv-files",
   "compare-email-lists",
   "compare-excel-columns",
@@ -40,21 +36,25 @@ const toolPages = [
   "compare-urls",
   "list-diff",
   "remove-duplicates-from-list",
-];
+]);
 
-const guidePages = [
+const guidePages = new Set([
   "how-to-compare-two-lists",
   "how-to-compare-csv-files",
   "how-to-find-differences",
-];
+]);
 
 function getPriority(path: string): number {
-  if (priorities[path] !== undefined) return priorities[path];
+  if (path === "") return 1;
+  if (path === "/pricing") return 0.6;
   const segment = path.slice(1);
-  if (toolPages.includes(segment)) return 0.8;
-  if (segment.startsWith("compare-") && segment.includes("csv-columns")) return 0.7;
-  if (guidePages.includes(segment)) return 0.7;
+  if (toolPages.has(segment)) return 0.8;
+  if (guidePages.has(segment)) return 0.7;
   return 0.5;
+}
+
+function getFrequency(path: string): "weekly" | "monthly" {
+  return path === "" ? "weekly" : "monthly";
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -64,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     paths.map((path) => ({
       url: `${baseUrl}/${locale}${path}`,
       lastModified: now,
-      changeFrequency: "monthly" as const,
+      changeFrequency: getFrequency(path),
       priority: getPriority(path),
     }))
   );
