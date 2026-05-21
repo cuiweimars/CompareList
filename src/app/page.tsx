@@ -211,9 +211,9 @@ export default function Home() {
             </span>
           </a>
           <nav className="flex items-center gap-4 text-[15px]">
-            <a href="#tool" className="text-text-secondary hover:text-text transition-colors">Tool</a>
-            <a href="#features" className="text-text-secondary hover:text-text transition-colors">Features</a>
-            <a href="#faq" className="text-text-secondary hover:text-text transition-colors">FAQ</a>
+            <a href="#tool" className="text-text-secondary hover:text-text px-3 py-1.5 rounded-lg hover:bg-surface-alt/40 transition-all">Tool</a>
+            <a href="#features" className="text-text-secondary hover:text-text px-3 py-1.5 rounded-lg hover:bg-surface-alt/40 transition-all">Features</a>
+            <a href="#faq" className="text-text-secondary hover:text-text px-3 py-1.5 rounded-lg hover:bg-surface-alt/40 transition-all">FAQ</a>
             <div className="w-px h-5 bg-border mx-1" />
             <button onClick={() => setShowHistory(true)} className="p-2 hover:bg-surface-alt/50 rounded-lg transition-colors" title="History">
               <History size={17} className="text-text-secondary" />
@@ -235,26 +235,26 @@ export default function Home() {
       )}
 
       {/* Hero */}
-      <section className="relative py-14 lg:py-18 text-center overflow-hidden">
+      <section className="relative py-12 lg:py-16 text-center overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/6 rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-6 animate-fade-up">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-surface/50 backdrop-blur-sm text-sm text-text-muted mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-surface/50 backdrop-blur-sm text-sm text-text-muted mb-5">
             <span className="w-2 h-2 rounded-full bg-success animate-pulse-glow" />
             Free &middot; Private &middot; No Signup
           </div>
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold font-[family-name:var(--font-sora)] tracking-tight mb-5 leading-[1.1]">
+          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold font-[family-name:var(--font-sora)] tracking-tight mb-4 leading-[1.1]">
             Compare Two Lists <span className="hero-gradient-text">Instantly</span>
           </h1>
-          <p className="text-text-secondary text-xl max-w-xl mx-auto leading-relaxed">
+          <p className="text-text-secondary text-lg max-w-xl mx-auto leading-relaxed">
             Find differences, common items, and unique entries between any two lists. Powered by AI.
           </p>
         </div>
       </section>
 
-      {/* Tool - max-w-[960px] for proper sizing */}
-      <section id="tool" className="max-w-[960px] mx-auto px-4 pb-20 -mt-2 relative z-10">
-        <div className="glass-elevated rounded-2xl p-5 lg:p-7 glow-primary gradient-border">
+      {/* Tool - 1250px width for spacious layout */}
+      <section id="tool" className="max-w-[1250px] mx-auto px-4 pb-20 -mt-2 relative z-10 w-full">
+        <div className="glass-elevated rounded-2xl p-6 lg:p-8 glow-primary gradient-border">
           {/* Mode Toggle */}
           <div className="flex items-center justify-center mb-5">
             <div className="inline-flex items-center p-1 rounded-xl bg-surface/80 border border-border">

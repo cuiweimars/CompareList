@@ -336,21 +336,17 @@ export default function ListInput({
         </div>
       )}
 
-      {/* Textarea container */}
+      {/* Textarea container - resizable via bottom-right drag handle */}
       <div
-        className="relative rounded-xl transition-all duration-300 overflow-hidden w-full"
-        style={{ height: csvColumns ? "420px" : "460px" }}
+        className={`relative rounded-xl transition-colors duration-300 w-full group/container`}
+        style={{ minHeight: "200px", height: csvColumns ? "420px" : "460px", resize: "vertical", overflow: "hidden" }}
         onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
         onDragLeave={() => setDragOver(false)}
         onDrop={handleDrop}
       >
-        <div
-          className={`absolute inset-0 rounded-xl transition-all duration-300 ${
-            dragOver
-              ? "ring-2 ring-primary/50 bg-primary/5"
-              : "glass hover:border-border-active"
-          }`}
-        />
+        {dragOver && (
+          <div className="absolute inset-0 rounded-xl ring-2 ring-primary/50 bg-primary/5 z-10 pointer-events-none" />
+        )}
         <textarea
           value={value}
           onChange={(e) => { onChange(e.target.value); setFileName(null); setCsvColumns(null); }}

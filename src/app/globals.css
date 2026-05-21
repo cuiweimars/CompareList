@@ -248,6 +248,37 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.08);
 }
 
+/* ---- Resizable container visual hint ---- */
+[style*="resize: vertical"] {
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+}
+
+[style*="resize: vertical"]::-webkit-resizer {
+  background: linear-gradient(
+    135deg,
+    transparent 60%,
+    rgba(129, 140, 248, 0.3) 60%,
+    rgba(129, 140, 248, 0.3) 65%,
+    transparent 65%,
+    transparent 72%,
+    rgba(129, 140, 248, 0.25) 72%,
+    rgba(129, 140, 248, 0.25) 77%,
+    transparent 77%
+  );
+  border-radius: 0 0 12px 0;
+}
+
+[style*="resize: vertical"]:hover {
+  border-color: rgba(129, 140, 248, 0.2);
+}
+
+[style*="resize: vertical"]:active {
+  border-color: rgba(129, 140, 248, 0.4);
+}
+
 /* ---- Button hover ---- */
 .btn-primary {
   background: linear-gradient(135deg, #6366f1, #818cf8);
