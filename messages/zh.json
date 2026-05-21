@@ -2,599 +2,647 @@
   "common": {
     "appName": "CompareList",
     "appNameHtml": "Compare<span>List</span>",
-    "free": "Free",
-    "copy": "Copy",
-    "copied": "Copied!",
-    "clear": "Clear",
-    "delete": "Delete",
-    "edit": "Edit",
-    "reset": "Reset",
-    "all": "All",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "items": "{count} items",
-    "rows": "{count} rows"
+    "free": "免费",
+    "copy": "复制",
+    "copied": "已复制！",
+    "clear": "清除",
+    "delete": "删除",
+    "edit": "编辑",
+    "reset": "重置",
+    "all": "全部",
+    "cancel": "取消",
+    "loading": "加载中...",
+    "items": "{count} 项",
+    "rows": "{count} 行"
   },
   "nav": {
-    "tool": "Tool",
-    "features": "Features",
-    "faq": "FAQ",
-    "history": "History",
-    "pricing": "Pricing"
+    "tool": "工具",
+    "features": "功能",
+    "faq": "常见问题",
+    "history": "历史记录",
+    "pricing": "定价"
   },
   "home": {
     "hero": {
-      "badge": "Free · Private · No Signup",
-      "title": "Compare Two Lists <gradient>Instantly</gradient>",
-      "subtitle": "Find differences, common items, and unique entries between any two lists. Powered by AI."
+      "badge": "免费 · 隐私 · 无需注册",
+      "title": "即时比较两个列表 <gradient>Instantly</gradient>",
+      "subtitle": "查找任意两个列表之间的差异、共同项和独有条目。由 AI 驱动。"
     },
     "tool": {
-      "modeExact": "Exact Match",
-      "modeAi": "AI Match",
-      "modeAiFree": "Free",
-      "listALabel": "List A",
-      "listBLabel": "List B",
-      "listAPlaceholder": "Paste your first list here, one item per line...",
-      "listBPlaceholder": "Paste your second list here, one item per line...",
-      "defaultPlaceholder": "Paste your list here, one item per line...",
-      "swapLists": "Swap lists",
-      "options": "Options",
-      "tryDemo": "Try Demo",
-      "compareLists": "Compare Lists",
-      "compareWithAi": "Compare with AI",
-      "analyzing": "Analyzing...",
-      "results": "Results",
-      "clearResults": "Clear Results"
+      "modeExact": "精确匹配",
+      "modeAi": "AI 匹配",
+      "modeAiFree": "免费",
+      "listALabel": "列表 A",
+      "listBLabel": "列表 B",
+      "listAPlaceholder": "在此粘贴您的第一个列表，每行一项...",
+      "listBPlaceholder": "在此粘贴您的第二个列表，每行一项...",
+      "defaultPlaceholder": "在此粘贴您的列表，每行一项...",
+      "swapLists": "交换列表",
+      "options": "选项",
+      "tryDemo": "试用演示",
+      "compareLists": "比较列表",
+      "compareWithAi": "使用 AI 比较",
+      "analyzing": "分析中...",
+      "results": "结果",
+      "clearResults": "清除结果"
     },
     "dragOverlay": {
-      "title": "Drop files to compare",
-      "subtitle": "Drop 2 files (List A + List B) or 1 file (auto-fills first empty list)"
+      "title": "拖放文件进行比较",
+      "subtitle": "拖放 2 个文件（列表 A + 列表 B）或 1 个文件（自动填入第一个空列表）"
     },
     "aiAnalysis": {
-      "title": "AI Analysis",
-      "unavailableWarning": "AI deep analysis is temporarily unavailable. Showing local fuzzy matching results for free.",
-      "foundFuzzy": "AI found <strong>{count} fuzzy match{plural}</strong> that exact matching missed.",
-      "combinedRate": "Combined rate: <strong>{aiRate}%</strong> (vs {exactRate}% exact).",
-      "fuzzyMatches": "{count} fuzzy match{plural}",
-      "aiError": "AI analysis failed. Showing exact comparison results below."
+      "title": "AI 分析",
+      "unavailableWarning": "AI 深度分析暂时不可用。正在免费显示本地模糊匹配结果。",
+      "foundFuzzy": "AI 发现了精确匹配遗漏的 <strong>{count} 个模糊匹配{plural}</strong>。",
+      "combinedRate": "综合匹配率：<strong>{aiRate}%</strong>（精确匹配为 {exactRate}%）。",
+      "fuzzyMatches": "{count} 个模糊匹配{plural}",
+      "aiError": "AI 分析失败。以下显示精确比较结果。"
     },
     "features": {
-      "sectionTag": "Why CompareList",
-      "sectionTitle": "Built for Speed & Privacy",
       "0": {
-        "title": "Instant Comparison",
-        "desc": "Compare thousands of items in milliseconds. All processing happens in your browser."
+        "title": "即时比较",
+        "desc": "在毫秒内比较数千项数据。所有处理都在您的浏览器中完成。"
       },
       "1": {
-        "title": "100% Private",
-        "desc": "Your data never leaves your device. No tracking, no collection, no server upload."
+        "title": "100% 隐私",
+        "desc": "您的数据永远不会离开您的设备。无追踪、无收集、不上传服务器。"
       },
       "2": {
-        "title": "Any Format",
-        "desc": "Paste text, upload files, drag and drop. Auto-detects delimiters."
+        "title": "任意格式",
+        "desc": "粘贴文本、上传文件、拖放操作。自动检测分隔符。"
       },
       "3": {
-        "title": "AI-Powered",
-        "desc": "DeepSeek AI finds fuzzy matches, typos, and reordered items automatically."
-      }
+        "title": "AI 驱动",
+        "desc": "DeepSeek AI 自动发现模糊匹配、拼写错误和重排序项。"
+      },
+      "sectionTag": "为什么选择 CompareList",
+      "sectionTitle": "为速度和隐私而构建"
     },
     "testimonials": {
-      "sectionTag": "Testimonials",
-      "sectionTitle": "Loved by Thousands",
       "0": {
         "name": "Sarah M.",
-        "role": "Marketing Manager",
-        "text": "Saved me hours deduplicating our 50K email list. The fuzzy matching caught typos I would have never found manually.",
+        "role": "市场营销经理",
+        "text": "帮我节省了为 5 万封邮件列表去重的时间。模糊匹配发现了手动根本找不到的拼写错误。",
         "rating": 5
       },
       "1": {
         "name": "David K.",
-        "role": "Data Analyst",
-        "text": "The CSV column selector is brilliant. I can compare specific fields from different exports without cleaning the data first.",
+        "role": "数据分析师",
+        "text": "CSV 列选择器非常棒。我可以直接比较不同导出文件中的特定字段，无需先清理数据。",
         "rating": 5
       },
       "2": {
         "name": "Emily R.",
-        "role": "E-commerce Owner",
-        "text": "I use this weekly to reconcile product SKUs between our warehouse system and online store. Incredibly fast and reliable.",
+        "role": "电商店主",
+        "text": "我每周都用它来核对仓库系统和在线商店之间的产品 SKU。速度极快且可靠。",
         "rating": 5
       },
       "3": {
         "name": "James L.",
-        "role": "DevOps Engineer",
-        "text": "Perfect for comparing IP whitelists and firewall rules. The symmetric difference view shows exactly what's changed.",
+        "role": "DevOps 工程师",
+        "text": "非常适合比较 IP 白名单和防火墙规则。对称差异视图能准确显示变化内容。",
         "rating": 5
       },
       "4": {
         "name": "Maria C.",
-        "role": "HR Coordinator",
-        "text": "We compare employee lists across departments. The union view gives us a complete headcount in seconds. Love the privacy focus.",
+        "role": "人力资源协调员",
+        "text": "我们用它比较各部门的员工名单。并集视图可以在几秒内给出完整的员工总数。喜欢它的隐私保护。",
         "rating": 5
       },
       "5": {
         "name": "Tom W.",
-        "role": "SEO Specialist",
-        "text": "Comparing keyword lists from different tools used to take me 30 minutes in Excel. Now it takes 10 seconds. Absolute game changer.",
+        "role": "SEO 专家",
+        "text": "以前用 Excel 比较不同工具的关键词列表需要 30 分钟，现在只需 10 秒。绝对的效率神器。",
         "rating": 5
       },
       "6": {
         "name": "Anna P.",
-        "role": "Researcher",
-        "text": "The full report export with all categories in one CSV is exactly what I needed for my research paper data analysis.",
+        "role": "研究人员",
+        "text": "将所有类别导出到单个 CSV 的完整报告功能正是我研究论文数据分析所需要的。",
         "rating": 4
       },
       "7": {
         "name": "Chris B.",
-        "role": "Sales Manager",
-        "text": "Comparing prospect lists before outreach campaigns. No duplicates means no embarrassing double emails to the same lead.",
+        "role": "销售经理",
+        "text": "在外呼活动前比较潜在客户列表。没有重复意味着不会尴尬地向同一个客户发送两封邮件。",
         "rating": 5
       },
       "8": {
         "name": "Lisa T.",
-        "role": "Product Manager",
-        "text": "Clean, fast, no signup required. I've tried 5 different list comparison tools and this is by far the best one.",
+        "role": "产品经理",
+        "text": "简洁、快速、无需注册。我试过 5 种不同的列表比较工具，这是目前为止最好的一个。",
         "rating": 5
       },
       "9": {
         "name": "Ryan H.",
-        "role": "Sysadmin",
-        "text": "Compared two DNS zone files and found 23 orphaned records in seconds. The search filter made it easy to verify each one.",
+        "role": "系统管理员",
+        "text": "比较两个 DNS 区域文件，几秒内就找到了 23 条孤立记录。搜索过滤功能让验证每条记录变得轻松。",
         "rating": 5
-      }
+      },
+      "sectionTag": "用户评价",
+      "sectionTitle": "深受数千用户喜爱"
     },
     "howItWorks": {
-      "sectionTag": "How it works",
-      "sectionTitle": "Three Simple Steps",
       "0": {
         "step": "01",
-        "title": "Paste Your Lists",
-        "desc": "Paste two lists or upload TXT/CSV files. Auto-detects newlines, commas, tabs."
+        "title": "粘贴您的列表",
+        "desc": "粘贴两个列表或上传 TXT/CSV 文件。自动检测换行符、逗号和制表符。"
       },
       "1": {
         "step": "02",
-        "title": "Choose Mode",
-        "desc": "Exact Match for free, or AI Match for fuzzy matching and DeepSeek insights."
+        "title": "选择模式",
+        "desc": "精确匹配免费使用，或使用 AI 匹配进行模糊匹配和 DeepSeek 智能分析。"
       },
       "2": {
         "step": "03",
-        "title": "Get Results",
-        "desc": "See breakdown: items only in A, only in B, and in both. Export as CSV."
-      }
+        "title": "获取结果",
+        "desc": "查看分析结果：仅在 A 中的项、仅在 B 中的项和两者共有的项。可导出为 CSV。"
+      },
+      "sectionTag": "使用方法",
+      "sectionTitle": "简单三步"
     },
     "cta": {
-      "title": "Ready to Compare?",
-      "subtitle": "Join thousands of users who compare lists every day. Free, private, and instant.",
-      "button": "Start Comparing"
+      "title": "准备好开始比较了吗？",
+      "subtitle": "加入每天使用列表比较的数千用户。免费、隐私、即时。",
+      "button": "开始比较"
     },
     "faq": {
-      "sectionTag": "FAQ",
-      "sectionTitle": "Questions & Answers",
       "0": {
-        "q": "Is my data safe?",
-        "a": "Yes. All comparison happens in your browser. Your lists are never sent to any server or stored anywhere."
+        "q": "我的数据安全吗？",
+        "a": "是的。所有比较都在您的浏览器中进行。您的列表永远不会被发送到任何服务器或存储在任何地方。"
       },
       "1": {
-        "q": "What file formats are supported?",
-        "a": "Paste text or upload .txt, .csv, .tsv files. Items can be separated by newlines, commas, semicolons, or tabs."
+        "q": "支持哪些文件格式？",
+        "a": "可以粘贴文本或上传 .txt、.csv、.tsv 文件。条目可以用换行符、逗号、分号或制表符分隔。"
       },
       "2": {
-        "q": "How many items can I compare?",
-        "a": "No hard limit. Handles tens of thousands of items smoothly since all processing is local."
+        "q": "可以比较多少条数据？",
+        "a": "没有硬性限制。由于所有处理都在本地进行，可以轻松处理数万条数据。"
       },
       "3": {
-        "q": "What is AI comparison?",
-        "a": "AI mode uses DeepSeek to find fuzzy matches like 'John Smith' vs 'Smith, John', detect typos, and generate an intelligent analysis summary. Uses 1 credit per comparison."
+        "q": "什么是 AI 比较？",
+        "a": "AI 模式使用 DeepSeek 来发现模糊匹配，例如 'John Smith' 与 'Smith, John'，检测拼写错误，并生成智能分析摘要。每次比较使用 1 个积分。"
       },
       "4": {
-        "q": "How is match rate calculated?",
-        "a": "Uses the Dice coefficient: 2 x (common items) / (total A + total B), giving a percentage of list similarity."
-      }
+        "q": "匹配率是如何计算的？",
+        "a": "使用 Dice 系数公式：2 ×（共同项数）/（A 总数 + B 总数），给出列表相似度的百分比。"
+      },
+      "sectionTag": "常见问题",
+      "sectionTitle": "问答"
     },
     "footer": {
       "copyright": "© {year} CompareList",
-      "processing": "All processing in your browser"
+      "processing": "所有处理都在您的浏览器中完成"
     }
   },
   "compareCsvFiles": {
     "hero": {
-      "badge": "CSV File Comparison",
-      "title": "Compare Two CSV Files Online",
-      "subtitle": "Find differences between CSV files. Upload .csv, .tsv, or .txt files and compare specific columns. Free and instant."
+      "badge": "CSV 文件比较",
+      "title": "在线比较两个 CSV 文件",
+      "subtitle": "查找 CSV 文件之间的差异。上传 .csv、.tsv 或 .txt 文件并比较指定列。免费即时。"
     },
     "listInput": {
-      "listA": "CSV File A",
-      "listB": "CSV File B",
-      "placeholderA": "Upload a CSV file or paste content...",
-      "placeholderB": "Upload a CSV file or paste content..."
+      "listA": "CSV 文件 A",
+      "listB": "CSV 文件 B",
+      "placeholderA": "上传 CSV 文件或粘贴内容...",
+      "placeholderB": "上传 CSV 文件或粘贴内容..."
     },
     "actions": {
-      "compare": "Compare CSV Files",
-      "options": "Options"
+      "compare": "比较 CSV 文件",
+      "options": "选项"
     },
     "useCases": {
-      "heading": "CSV Comparison Use Cases",
       "0": {
-        "title": "Data Auditing",
-        "desc": "Compare data exports from different dates to track changes in records."
+        "title": "数据审计",
+        "desc": "比较不同日期的数据导出文件，追踪记录变化。"
       },
       "1": {
-        "title": "List Reconciliation",
-        "desc": "Find items in one dataset but missing from another."
+        "title": "列表核对",
+        "desc": "查找一个数据集中存在但另一个数据集中缺失的条目。"
       },
       "2": {
-        "title": "Deduplication",
-        "desc": "Identify overlapping records across multiple CSV files."
+        "title": "去重",
+        "desc": "识别多个 CSV 文件之间的重叠记录。"
       },
       "3": {
-        "title": "Migration Validation",
-        "desc": "Verify all records transferred correctly after data migration."
-      }
+        "title": "迁移验证",
+        "desc": "验证数据迁移后所有记录是否正确传输。"
+      },
+      "heading": "CSV 比较使用场景"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two CSV files?",
-        "a": "Upload both CSV files using the file upload buttons, or copy-paste the content directly. If your CSV has multiple columns, select the column you want to compare. Click Compare to see the results instantly."
+        "q": "如何比较两个 CSV 文件？",
+        "a": "使用文件上传按钮上传两个 CSV 文件，或直接复制粘贴内容。如果您的 CSV 有多列，选择要比较的列。点击比较即可即时查看结果。"
       },
       "1": {
-        "q": "Does it work with multi-column CSV files?",
-        "a": "Yes. When you upload a CSV with multiple columns, a dropdown appears letting you pick which column to compare (e.g., email, ID, name). Only that column's values are compared."
+        "q": "支持多列 CSV 文件吗？",
+        "a": "支持。当您上传包含多列的 CSV 文件时，会出现下拉菜单让您选择要比较的列（如邮箱、ID、姓名）。只有该列的值会被比较。"
       },
       "2": {
-        "q": "What CSV formats are supported?",
-        "a": "Standard comma-separated (.csv), tab-separated (.tsv), semicolon-separated, and plain text (.txt) files. Headers are auto-detected and excluded from comparison."
+        "q": "支持哪些 CSV 格式？",
+        "a": "标准的逗号分隔（.csv）、制表符分隔（.tsv）、分号分隔和纯文本（.txt）文件。表头会被自动检测并排除在比较之外。"
       },
       "3": {
-        "q": "Is there a file size limit?",
-        "a": "No strict limit. The tool handles files with tens of thousands of rows smoothly since all processing happens in your browser."
+        "q": "有文件大小限制吗？",
+        "a": "没有严格限制。由于所有处理都在浏览器中进行，该工具可以流畅处理数万行数据的文件。"
       },
       "4": {
-        "q": "Can I export the comparison results?",
-        "a": "Yes. Export any result category as CSV or TXT, or use the Full Report option to download everything in a single categorized CSV file."
-      }
+        "q": "可以导出比较结果吗？",
+        "a": "可以。将任何结果类别导出为 CSV 或 TXT，或使用完整报告选项将所有内容下载为单个分类 CSV 文件。"
+      },
+      "heading": "常见问题"
     },
     "breadcrumbs": {
-      "current": "Compare CSV Files"
+      "current": "比较 CSV 文件"
     },
     "jsonLd": {
-      "name": "Compare CSV Files - CompareList",
-      "description": "Free online tool to compare two CSV files. Find differences, compare specific columns, and export results."
+      "name": "比较 CSV 文件 - CompareList",
+      "description": "免费在线工具，用于比较两个 CSV 文件。查找差异、比较指定列并导出结果。"
     }
   },
   "compareEmailLists": {
     "hero": {
-      "badge": "Email List Comparison",
-      "title": "Compare Two Email Lists Online",
-      "subtitle": "Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private."
+      "badge": "邮箱列表比较",
+      "title": "在线比较两个邮箱列表",
+      "subtitle": "查找两个邮箱列表之间的重复地址、唯一地址和共同订阅者。免费、即时、隐私保护。"
     },
     "listInput": {
-      "listA": "Email List A",
-      "listB": "Email List B",
-      "placeholderA": "Paste your first email list...",
-      "placeholderB": "Paste your second email list..."
+      "listA": "邮箱列表 A",
+      "listB": "邮箱列表 B",
+      "placeholderA": "粘贴您的第一个邮箱列表...",
+      "placeholderB": "粘贴您的第二个邮箱列表..."
     },
     "actions": {
-      "compare": "Compare Email Lists",
-      "tryDemo": "Try Demo",
-      "options": "Options"
+      "compare": "比较邮箱列表",
+      "tryDemo": "试用演示",
+      "options": "选项"
     },
     "useCases": {
-      "heading": "Use Cases",
       "0": {
-        "title": "Email Marketing",
-        "desc": "Compare subscriber lists to find duplicates across campaigns and remove bounced emails from active lists."
+        "title": "邮件营销",
+        "desc": "比较订阅者列表，发现跨活动的重复项并从活跃列表中移除退信邮箱。"
       },
       "1": {
-        "title": "CRM Cleanup",
-        "desc": "Merge contact lists from different sources and identify overlapping entries before importing."
+        "title": "CRM 清理",
+        "desc": "合并来自不同来源的联系人列表，在导入前识别重叠条目。"
       },
       "2": {
-        "title": "Bounce List Check",
-        "desc": "Compare your mailing list against a bounce list to remove invalid addresses before sending."
-      }
+        "title": "退信列表检查",
+        "desc": "将您的邮件列表与退信列表进行比较，在发送前移除无效地址。"
+      },
+      "heading": "使用场景"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two email lists?",
-        "a": "Simply paste your email lists into the two text areas above (one email per line), then click Compare. You'll instantly see which emails are in both lists, which are only in List A, and which are only in List B."
+        "q": "如何比较两个邮箱列表？",
+        "a": "只需将您的邮箱列表粘贴到上方的两个文本区域中（每行一个邮箱），然后点击比较。您将即时看到哪些邮箱同时存在于两个列表中、哪些仅在列表 A 中，以及哪些仅在列表 B 中。"
       },
       "1": {
-        "q": "Can I compare email lists from Excel or CSV?",
-        "a": "Yes! Copy the email column from your Excel or CSV file and paste it directly. You can also drag and drop .csv or .txt files onto the input areas."
+        "q": "可以比较来自 Excel 或 CSV 的邮箱列表吗？",
+        "a": "可以！从 Excel 或 CSV 文件中复制邮箱列并直接粘贴。您还可以将 .csv 或 .txt 文件拖放到输入区域。"
       },
       "2": {
-        "q": "Is my email data safe?",
-        "a": "Absolutely. All processing happens in your browser. Your email addresses are never sent to any server or stored anywhere."
+        "q": "我的邮箱数据安全吗？",
+        "a": "绝对安全。所有处理都在您的浏览器中进行。您的邮箱地址永远不会被发送到任何服务器或存储在任何地方。"
       },
       "3": {
-        "q": "How do I remove duplicate emails?",
-        "a": "The 'Remove Duplicates' option is enabled by default. It automatically deduplicates each list before comparison."
+        "q": "如何移除重复邮箱？",
+        "a": "默认启用“移除重复项”选项。它会在比较前自动对每个列表进行去重。"
       },
       "4": {
-        "q": "Can I export the results?",
-        "a": "Yes. Use the download buttons in the results section to export as CSV or TXT, or copy directly to clipboard."
-      }
+        "q": "可以导出结果吗？",
+        "a": "可以。使用结果部分的下载按钮导出为 CSV 或 TXT，或直接复制到剪贴板。"
+      },
+      "heading": "常见问题"
     },
     "breadcrumbs": {
-      "current": "Compare Email Lists"
+      "current": "比较邮箱列表"
     },
     "jsonLd": {
-      "name": "Compare Email Lists - CompareList",
-      "description": "Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private."
+      "name": "比较邮箱列表 - CompareList",
+      "description": "查找两个邮箱列表之间的重复地址、唯一地址和共同订阅者。免费、即时、隐私保护。"
     }
   },
   "compareExcelColumns": {
     "hero": {
-      "badge": "Excel Column Comparison",
-      "title": "Compare Two Excel Columns Online",
-      "subtitle": "Quickly find differences between two columns in Excel or Google Sheets. No formulas, no VLOOKUP needed."
+      "badge": "Excel 列比较",
+      "title": "在线比较两个 Excel 列",
+      "subtitle": "快速查找 Excel 或 Google Sheets 中两列之间的差异。无需公式，无需 VLOOKUP。"
     },
     "listInput": {
-      "listA": "Column A",
-      "listB": "Column B",
-      "placeholderA": "Paste your first Excel column here...",
-      "placeholderB": "Paste your second Excel column here..."
+      "listA": "列 A",
+      "listB": "列 B",
+      "placeholderA": "在此粘贴您的第一个 Excel 列...",
+      "placeholderB": "在此粘贴您的第二个 Excel 列..."
     },
     "actions": {
-      "compare": "Compare Columns",
-      "options": "Options"
+      "compare": "比较列",
+      "options": "选项"
     },
     "steps": {
-      "heading": "How to Compare Excel Columns",
       "0": {
         "step": "1",
-        "title": "Open Your Excel File",
-        "desc": "Open the Excel or Google Sheets file containing the columns you want to compare."
+        "title": "打开您的 Excel 文件",
+        "desc": "打开包含要比较列的 Excel 或 Google Sheets 文件。"
       },
       "1": {
         "step": "2",
-        "title": "Copy Each Column",
-        "desc": "Select the first column, copy it (Ctrl+C), then paste it into List A. Repeat for the second column into List B."
+        "title": "复制每列数据",
+        "desc": "选择第一列，复制（Ctrl+C），然后粘贴到列表 A。对第二列重复操作粘贴到列表 B。"
       },
       "2": {
         "step": "3",
-        "title": "Compare & Export",
-        "desc": "Click Compare. Download results as CSV to paste back into your spreadsheet."
-      }
+        "title": "比较并导出",
+        "desc": "点击比较。将结果下载为 CSV 以便粘贴回您的电子表格。"
+      },
+      "heading": "如何比较 Excel 列"
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
-        "q": "How do I compare two columns in Excel?",
-        "a": "Copy the first column from your Excel file and paste it into the List A text area. Then copy the second column and paste it into List B. Click Compare to instantly see the differences."
+        "q": "如何比较 Excel 中的两列？",
+        "a": "从您的 Excel 文件中复制第一列并粘贴到列表 A 文本区域。然后复制第二列并粘贴到列表 B。点击比较即可即时查看差异。"
       },
       "1": {
-        "q": "Does this work with Google Sheets?",
-        "a": "Yes. Copy any column from Google Sheets and paste it directly. The tool handles tab-separated and comma-separated data automatically."
+        "q": "支持 Google Sheets 吗？",
+        "a": "支持。从 Google Sheets 复制任意列并直接粘贴。该工具会自动处理制表符分隔和逗号分隔的数据。"
       },
       "2": {
-        "q": "Can I compare columns with numbers?",
-        "a": "Yes. The tool compares items as text by default. Use the Case Sensitive option if you need exact matching, or leave it off for flexible comparison."
+        "q": "可以比较包含数字的列吗？",
+        "a": "可以。该工具默认将条目作为文本进行比较。如需精确匹配，请使用区分大小写选项；如需灵活比较，请保持关闭。"
       },
       "3": {
-        "q": "How do I get results back into Excel?",
-        "a": "Click the download button in the results section to export as CSV. You can then open or paste the CSV back into your Excel file."
-      }
+        "q": "如何将结果导回 Excel？",
+        "a": "点击结果部分的下载按钮导出为 CSV。然后您可以在 Excel 文件中打开或粘贴该 CSV。"
+      },
+      "heading": "常见问题"
     },
     "breadcrumbs": {
-      "current": "Compare Excel Columns"
+      "current": "比较 Excel 列"
     },
     "jsonLd": {
-      "name": "Compare Excel Columns - CompareList",
-      "description": "Quickly find differences between two columns in Excel or Google Sheets. No formulas, no VLOOKUP needed."
+      "name": "比较 Excel 列 - CompareList",
+      "description": "快速查找 Excel 或 Google Sheets 中两列之间的差异。无需公式，无需 VLOOKUP。"
     }
   },
   "compareIpAddresses": {
     "hero": {
-      "badge": "IP Address Comparison",
-      "title": "Compare IP Address Lists",
-      "subtitle": "Find matching, unique, and overlapping IP addresses between two lists. Supports IPv4 addresses with exact matching."
+      "badge": "IP 地址比较",
+      "title": "比较 IP 地址列表",
+      "subtitle": "查找两个列表之间匹配、唯一和重叠的 IP 地址。支持 IPv4 地址的精确匹配。"
     },
     "listInput": {
-      "listA": "Network A",
-      "listB": "Network B",
-      "placeholderA": "Paste IP addresses here...",
-      "placeholderB": "Paste IP addresses here..."
+      "listA": "网络 A",
+      "listB": "网络 B",
+      "placeholderA": "在此粘贴 IP 地址...",
+      "placeholderB": "在此粘贴 IP 地址..."
     },
     "actions": {
-      "compare": "Compare Lists",
-      "tryDemo": "Try Demo",
-      "options": "Options"
+      "compare": "比较列表",
+      "tryDemo": "试用演示",
+      "options": "选项"
     },
     "useCases": {
-      "heading": "IP Address Comparison Use Cases",
       "0": {
-        "title": "Firewall Rule Audit",
-        "desc": "Compare allowed IPs across different firewall configurations."
+        "title": "防火墙规则审计",
+        "desc": "比较不同防火墙配置中的允许 IP。"
       },
       "1": {
-        "title": "Network Inventory",
-        "desc": "Find active IPs present in one scan but missing from another."
+        "title": "网络资产盘点",
+        "desc": "查找一次扫描中存在但另一次扫描中缺失的活动 IP。"
       },
       "2": {
-        "title": "Access Control Review",
-        "desc": "Compare whitelists and blacklists between systems."
+        "title": "访问控制审查",
+        "desc": "比较系统之间的白名单和黑名单。"
       },
       "3": {
-        "title": "Incident Response",
-        "desc": "Cross-reference suspicious IPs against known threat lists."
-      }
+        "title": "事件响应",
+        "desc": "将可疑 IP 与已知威胁列表进行交叉比对。"
+      },
+      "heading": "IP 地址比较使用场景"
     },
     "breadcrumbs": {
-      "current": "Compare IP Addresses"
+      "current": "比较 IP 地址"
     },
     "jsonLd": {
-      "name": "Compare IP Addresses - CompareList",
-      "description": "Find matching, unique, and overlapping IP addresses between two lists. Supports IPv4 addresses with exact matching."
+      "name": "比较 IP 地址 - CompareList",
+      "description": "查找两个列表之间匹配、唯一和重叠的 IP 地址。支持 IPv4 地址的精确匹配。"
     }
   },
   "compareKeywords": {
     "hero": {
-      "badge": "Keyword List Comparison",
-      "title": "Compare Keyword Lists Online",
-      "subtitle": "Find overlapping keywords, keyword gaps, and unique opportunities between two keyword lists. Free SEO tool."
+      "badge": "关键词列表比较",
+      "title": "在线比较关键词列表",
+      "subtitle": "查找两个关键词列表之间的重叠关键词、关键词空白和独特机会。免费 SEO 工具。"
     },
     "listInput": {
-      "listA": "Keyword List A",
-      "listB": "Keyword List B",
-      "placeholderA": "Paste your first keyword list...",
-      "placeholderB": "Paste your second keyword list..."
+      "listA": "关键词列表 A",
+      "listB": "关键词列表 B",
+      "placeholderA": "粘贴您的第一个关键词列表...",
+      "placeholderB": "粘贴您的第二个关键词列表..."
     },
     "actions": {
-      "compare": "Compare Keywords",
-      "options": "Options"
+      "compare": "比较关键词",
+      "options": "选项"
     },
     "useCases": {
-      "heading": "SEO Use Cases",
       "0": {
-        "title": "Keyword Gap Analysis",
-        "desc": "Compare your keyword list with a competitor's to discover keyword opportunities you're missing."
+        "title": "关键词空白分析",
+        "desc": "将您的关键词列表与竞争对手的进行比较，发现您遗漏的关键词机会。"
       },
       "1": {
-        "title": "Content Planning",
-        "desc": "Compare keywords from different topics to find overlapping terms and plan content clusters."
+        "title": "内容规划",
+        "desc": "比较不同主题的关键词，找出重叠术语并规划内容集群。"
       },
       "2": {
-        "title": "Search Console Audit",
-        "desc": "Compare keywords you rank for vs keywords you target to find optimization opportunities."
-      }
+        "title": "搜索控制台审计",
+        "desc": "比较您有排名的关键词与目标关键词，发现优化机会。"
+      },
+      "heading": "SEO 使用场景"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two keyword lists?",
-        "a": "Paste your first keyword list into List A and the second into List B (one keyword per line). Click Compare to see which keywords are shared, unique to each list, and get overlap statistics."
+        "q": "如何比较两个关键词列表？",
+        "a": "将您的第一个关键词列表粘贴到列表 A，第二个粘贴到列表 B（每行一个关键词）。点击比较即可查看哪些关键词是共有的、每个列表独有的，并获取重叠统计信息。"
       },
       "1": {
-        "q": "Can I compare keywords from different SEO tools?",
-        "a": "Yes. Export keyword lists from Ahrefs, SEMrush, Google Search Console, or any other tool, then paste them here to find overlaps and gaps."
+        "q": "可以比较来自不同 SEO 工具的关键词吗？",
+        "a": "可以。从 Ahrefs、SEMrush、Google Search Console 或任何其他工具导出关键词列表，然后在此粘贴以查找重叠和空白。"
       },
       "2": {
-        "q": "Does it handle keyword variations?",
-        "a": "By default, comparison is exact (case-insensitive). For detecting similar keywords like 'running shoes' vs 'shoes for running', use the AI Match mode."
+        "q": "能处理关键词变体吗？",
+        "a": "默认情况下，比较是精确的（不区分大小写）。要检测类似“running shoes”与“shoes for running”的相似关键词，请使用 AI 匹配模式。"
       },
       "3": {
-        "q": "How can I find keyword gaps?",
-        "a": "Compare your target keyword list against a competitor's ranked keywords. Items 'Only in B' represent keyword gaps - keywords your competitor ranks for but you don't target."
-      }
+        "q": "如何发现关键词空白？",
+        "a": "将您的目标关键词列表与竞争对手的排名关键词进行比较。“仅在 B 中”的条目就是关键词空白——即您的竞争对手有排名但您未覆盖的关键词。"
+      },
+      "heading": "常见问题"
     },
     "breadcrumbs": {
-      "current": "Compare Keywords"
+      "current": "比较关键词"
     },
     "jsonLd": {
-      "name": "Compare Keywords - CompareList",
-      "description": "Find overlapping keywords, keyword gaps, and unique opportunities between two keyword lists. Free SEO tool."
+      "name": "比较关键词 - CompareList",
+      "description": "查找两个关键词列表之间的重叠关键词、关键词空白和独特机会。免费 SEO 工具。"
     }
   },
   "compareNameLists": {
     "hero": {
-      "badge": "Name List Comparison",
-      "title": "Compare Two CSV Columns Online",
-      "subtitle": "Find differences between two columns of data from CSV or Excel files. Paste, compare, export."
+      "badge": "姓名列表比较",
+      "title": "在线比较两个 CSV 列",
+      "subtitle": "查找来自 CSV 或 Excel 文件的两列数据之间的差异。粘贴、比较、导出。"
     },
     "listInput": {
-      "listA": "Column A",
-      "listB": "Column B",
-      "placeholderA": "Paste your first column data here...",
-      "placeholderB": "Paste your second column data here..."
+      "listA": "列 A",
+      "listB": "列 B",
+      "placeholderA": "在此粘贴您的第一列数据...",
+      "placeholderB": "在此粘贴您的第二列数据..."
     },
     "actions": {
-      "compare": "Compare Columns",
-      "options": "Options"
+      "compare": "比较列",
+      "options": "选项"
     },
     "steps": {
-      "heading": "How to Compare CSV Columns",
       "0": {
         "step": "1",
-        "title": "Copy Column Data",
-        "desc": "Open your CSV or Excel file, select the column you want to compare, and copy it."
+        "title": "复制列数据",
+        "desc": "打开您的 CSV 或 Excel 文件，选择要比较的列并复制。"
       },
       "1": {
         "step": "2",
-        "title": "Paste Into Tool",
-        "desc": "Paste each column into the respective text area. Data can be separated by newlines, commas, or tabs."
+        "title": "粘贴到工具中",
+        "desc": "将每列粘贴到相应的文本区域。数据可以用换行符、逗号或制表符分隔。"
       },
       "2": {
         "step": "3",
-        "title": "Compare & Export",
-        "desc": "Click Compare to see differences. Export results as CSV for further analysis in your spreadsheet."
-      }
+        "title": "比较并导出",
+        "desc": "点击比较查看差异。将结果导出为 CSV，以便在电子表格中进一步分析。"
+      },
+      "heading": "如何比较 CSV 列"
     },
     "breadcrumbs": {
-      "current": "Compare Name Lists"
+      "current": "比较姓名列表"
     },
     "jsonLd": {
-      "name": "Compare Name Lists - CompareList",
-      "description": "Find differences between two columns of data from CSV or Excel files. Paste, compare, export."
+      "name": "比较姓名列表 - CompareList",
+      "description": "查找来自 CSV 或 Excel 文件的两列数据之间的差异。粘贴、比较、导出。"
     }
   },
   "comparePhoneNumbers": {
     "hero": {
-      "badge": "Phone Number Comparison",
-      "title": "Compare Phone Number Lists Online",
-      "subtitle": "Find matching, missing, and duplicate phone numbers between two lists. Works with all formats including international numbers."
+      "badge": "电话号码比较",
+      "title": "在线比较电话号码列表",
+      "subtitle": "查找两个列表之间匹配、缺失和重复的电话号码。支持包括国际号码在内的所有格式。"
     },
     "listInput": {
-      "listA": "List A",
-      "listB": "List B",
-      "placeholderA": "Paste phone numbers here...",
-      "placeholderB": "Paste phone numbers here..."
+      "listA": "列表 A",
+      "listB": "列表 B",
+      "placeholderA": "在此粘贴电话号码...",
+      "placeholderB": "在此粘贴电话号码..."
     },
     "actions": {
-      "compare": "Compare Lists",
-      "tryDemo": "Try Demo",
-      "options": "Options"
+      "compare": "比较列表",
+      "tryDemo": "试用演示",
+      "options": "选项"
     },
     "howItWorks": {
-      "heading": "How Phone Number Comparison Works",
-      "desc": "Phone numbers can appear in many different formats: with or without country codes, with different separators (dashes, spaces, dots, parentheses), and with or without the + prefix. Our comparison tool normalizes these differences so you can accurately match phone numbers regardless of formatting. For the most accurate results, use case-insensitive comparison and enable whitespace trimming."
+      "heading": "电话号码比较的工作原理",
+      "desc": "电话号码可以有多种不同的格式：带或不带国家代码、使用不同的分隔符（连字符、空格、句点、括号），以及带或不带 + 前缀。我们的比较工具会标准化这些差异，让您可以准确匹配电话号码而无需考虑格式问题。为获得最准确的结果，请使用不区分大小写的比较并启用空白字符修剪。"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
-        "title": "CRM Deduplication",
-        "desc": "Find and merge duplicate contacts across CRM systems."
+        "title": "CRM 去重",
+        "desc": "在不同 CRM 系统中查找并合并重复联系人。"
       },
       "1": {
-        "title": "Call List Reconciliation",
-        "desc": "Compare outreach lists to avoid calling the same number twice."
+        "title": "呼叫名单核对",
+        "desc": "比较外呼列表以避免重复拨打同一个号码。"
       },
       "2": {
-        "title": "Do-Not-Call Compliance",
-        "desc": "Cross-reference your call lists against DNC registries."
+        "title": "禁止来电合规",
+        "desc": "将您的呼叫列表与 DNC（禁止来电）登记册进行交叉比对。"
       },
       "3": {
-        "title": "Contact Migration",
-        "desc": "Verify all phone numbers transferred correctly between systems."
-      }
+        "title": "联系人迁移",
+        "desc": "验证所有电话号码在系统间是否正确传输。"
+      },
+      "heading": "常见使用场景"
     },
     "breadcrumbs": {
-      "current": "Compare Phone Numbers"
+      "current": "比较电话号码"
     },
     "jsonLd": {
-      "name": "Compare Phone Numbers - CompareList",
-      "description": "Find matching, missing, and duplicate phone numbers between two lists. Works with all formats including international numbers."
+      "name": "比较电话号码 - CompareList",
+      "description": "查找两个列表之间匹配、缺失和重复的电话号码。支持包括国际号码在内的所有格式。"
     }
   },
   "compareTwoColumnsExcel": {
     "hero": {
-      "badge": "Excel Column Comparison",
-      "title": "Compare Two Columns in Excel",
-      "subtitle": "Paste two Excel columns to find matching values, unique entries, and duplicates. No formulas needed."
+      "badge": "Excel 列比较",
+      "title": "比较 Excel 中的两列",
+      "subtitle": "粘贴两个 Excel 列以查找匹配值、唯一条目和重复项。无需公式。"
     },
     "listInput": {
-      "listA": "Column A",
-      "listB": "Column B",
-      "placeholderA": "Copy and paste your first Excel column...",
-      "placeholderB": "Copy and paste your second Excel column..."
+      "listA": "列 A",
+      "listB": "列 B",
+      "placeholderA": "复制并粘贴您的第一个 Excel 列...",
+      "placeholderB": "复制并粘贴您的第二个 Excel 列..."
     },
     "actions": {
-      "compare": "Compare Columns",
-      "options": "Options"
+      "compare": "比较列",
+      "options": "选项"
     },
     "benefits": {
-      "heading": "Why Use This Instead of Excel Formulas?",
+      "0": {
+        "title": "无需公式",
+        "desc": "跳过 VLOOKUP、MATCH 和条件格式。只需粘贴并比较。"
+      },
+      "1": {
+        "title": "即时可视化结果",
+        "desc": "在分类标签页中查看匹配和唯一值，一目了然。"
+      },
+      "2": {
+        "title": "导出就绪",
+        "desc": "将结果下载为 CSV，导回 Excel 或与团队共享。"
+      },
+      "3": {
+        "title": "跨文件比较",
+        "desc": "比较来自不同工作簿的列，无需先合并文件。"
+      },
+      "heading": "为什么用这个而不是 Excel 公式？"
+    },
+    "faq": {
+      "0": {
+        "q": "如何比较 Excel 中的两列？",
+        "a": "从 Excel 文件中复制每列的单元格并分别粘贴到上方的列表 A 和列表 B。点击比较即可即时查看匹配值、每列中的唯一条目和统计信息。"
+      },
+      "1": {
+        "q": "粘贴前需要格式化数据吗？",
+        "a": "不需要。只需在 Excel 中选择列单元格，复制（Ctrl+C），然后直接粘贴。该工具会自动检测分隔符并处理空白字符。"
+      },
+      "2": {
+        "q": "可以比较不同 Excel 文件中的列吗？",
+        "a": "可以。打开两个文件，分别从每个文件中复制要比较的列，然后粘贴到列表 A 和列表 B 中。"
+      },
+      "3": {
+        "q": "能找到部分匹配还是只能精确匹配？",
+        "a": "默认查找精确匹配。启用 AI 匹配模式可以找到模糊匹配，如拼写错误、多余空格和重排序文本。"
+      },
+      "4": {
+        "q": "这和 Excel VLOOKUP 有什么不同？",
+        "a": "VLOOKUP 只能检查一个值是否存在于另一列中。本工具为您提供完整的分析：两列共有的条目、仅在列 A 中的条目、仅在列 B 中的条目，以及统计信息和导出选项。"
+      },
+      "heading": "常见问题"
+    },
+    "breadcrumbs": {
+      "current": "比较 Excel 列"
+    },
+    "jsonLd": {
+      "name": "比较 Excel 中的两列 - CompareList",
+      "description": "免费在线工具，用于比较两个 Excel 列。无需公式即可即时查找匹配项、差异和唯一值。"
+    },
+    "whyUse": {
       "0": {
         "title": "No Formulas Needed",
         "desc": "Skip VLOOKUP, MATCH, and conditional formatting. Just paste and compare."
@@ -610,711 +658,714 @@
       "3": {
         "title": "Works Across Files",
         "desc": "Compare columns from different workbooks without merging files first."
-      }
-    },
-    "faq": {
-      "heading": "FAQ",
-      "0": {
-        "q": "How do I compare two columns in Excel?",
-        "a": "Copy the cells from each column in your Excel file and paste them into List A and List B above. Click Compare to instantly see matching values, unique entries in each column, and statistics."
       },
-      "1": {
-        "q": "Do I need to format the data before pasting?",
-        "a": "No. Just select the column cells in Excel, copy (Ctrl+C), and paste directly. The tool auto-detects delimiters and handles whitespace."
-      },
-      "2": {
-        "q": "Can I compare columns from different Excel files?",
-        "a": "Yes. Open both files, copy the column you want from each, and paste into List A and List B respectively."
-      },
-      "3": {
-        "q": "Will it find partial matches or only exact matches?",
-        "a": "By default it finds exact matches. Enable AI Match mode to find fuzzy matches like typos, extra spaces, and reordered text."
-      },
-      "4": {
-        "q": "How is this different from Excel VLOOKUP?",
-        "a": "VLOOKUP only checks if a value exists in another column. This tool gives you a complete breakdown: items in both columns, items only in column A, items only in column B, plus statistics and export options."
-      }
-    },
-    "breadcrumbs": {
-      "current": "Compare Excel Columns"
-    },
-    "jsonLd": {
-      "name": "Compare Two Columns in Excel - CompareList",
-      "description": "Free tool to compare two Excel columns online. Find matches, differences, and unique values instantly without formulas."
+      "heading": "Why Use This Instead of Excel Formulas?"
     }
   },
   "compareUrls": {
     "hero": {
-      "badge": "URL List Comparison",
-      "title": "Compare Two URL Lists Online",
-      "subtitle": "Find differences between two lists of URLs. Compare sitemaps, backlink lists, or crawled pages."
+      "badge": "URL 列表比较",
+      "title": "在线比较两个 URL 列表",
+      "subtitle": "查找两个 URL 列表之间的差异。比较站点地图、反向链接列表或爬取的页面。"
     },
     "listInput": {
-      "listA": "URL List A",
-      "listB": "URL List B",
-      "placeholderA": "Paste your first URL list, one per line...",
-      "placeholderB": "Paste your second URL list, one per line..."
+      "listA": "URL 列表 A",
+      "listB": "URL 列表 B",
+      "placeholderA": "粘贴您的第一个 URL 列表，每行一个...",
+      "placeholderB": "粘贴您的第二个 URL 列表，每行一个..."
     },
     "actions": {
-      "compare": "Compare URLs",
-      "options": "Options"
+      "compare": "比较 URL",
+      "options": "选项"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
-        "title": "SEO & Sitemaps",
-        "desc": "Compare old vs new sitemaps to find missing or new pages after a site migration or redesign."
+        "title": "SEO 与站点地图",
+        "desc": "比较新旧站点地图，在网站迁移或改版后查找缺失或新增的页面。"
       },
       "1": {
-        "title": "Backlink Analysis",
-        "desc": "Compare backlink lists from different tools (Ahrefs, Moz, SEMrush) to find unique and overlapping links."
+        "title": "反向链接分析",
+        "desc": "比较来自不同工具（Ahrefs、Moz、SEMrush）的反向链接列表，查找唯一和重叠的链接。"
       },
       "2": {
-        "title": "Broken Link Audit",
-        "desc": "Compare crawled URLs against your current page inventory to identify broken links and orphan pages."
-      }
+        "title": "断链审计",
+        "desc": "将爬取的 URL 与当前页面清单进行比较，识别断链和孤立页面。"
+      },
+      "heading": "常见使用场景"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two lists of URLs?",
-        "a": "Paste one list of URLs into List A and the other into List B, one URL per line. Click Compare to instantly see which URLs are unique to each list and which appear in both."
+        "q": "如何比较两个 URL 列表？",
+        "a": "将一个 URL 列表粘贴到列表 A，另一个粘贴到列表 B，每行一个 URL。点击比较即可即时查看哪些 URL 是每个列表独有的，哪些同时出现在两个列表中。"
       },
       "1": {
-        "q": "Does it compare full URLs or just domains?",
-        "a": "By default, it compares full URLs as-is. For domain-level comparison, you can enable Case Sensitive off (default) so HTTP vs https differences are handled."
+        "q": "是比较完整 URL 还是只比较域名？",
+        "a": "默认比较完整的 URL。对于域名级别的比较，您可以关闭区分大小写（默认关闭）以处理 HTTP 与 https 的差异。"
       },
       "2": {
-        "q": "Can I compare sitemaps or crawl data?",
-        "a": "Yes. Export URLs from your sitemap XML or crawl tool (like Screaming Frog) as a text list, then paste them here to compare."
+        "q": "可以比较站点地图或爬取数据吗？",
+        "a": "可以。从您的站点地图 XML 或爬取工具（如 Screaming Frog）导出 URL 为文本列表，然后粘贴到此处进行比较。"
       },
       "3": {
-        "q": "What about trailing slashes and www prefixes?",
-        "a": "These are treated as different entries by default. Use the Trim Whitespace option and consider normalizing your URLs before comparing for best results."
-      }
+        "q": "尾斜杠和 www 前缀怎么处理？",
+        "a": "默认情况下这些被视为不同的条目。使用修剪空白字符选项，并考虑在比较前对 URL 进行标准化以获得最佳结果。"
+      },
+      "heading": "常见问题"
     },
     "breadcrumbs": {
-      "current": "Compare URLs"
+      "current": "比较 URL"
     },
     "jsonLd": {
-      "name": "Compare URLs - CompareList",
-      "description": "Find differences between two lists of URLs. Compare sitemaps, backlink lists, or crawled pages."
+      "name": "比较 URL - CompareList",
+      "description": "查找两个 URL 列表之间的差异。比较站点地图、反向链接列表或爬取的页面。"
     }
   },
   "listDiff": {
     "hero": {
-      "badge": "List Diff Tool",
-      "title": "List Diff - Find Differences Between Lists",
-      "subtitle": "Compare two lists and instantly see what's different. Get added items, removed items, and unchanged items."
+      "badge": "列表差异工具",
+      "title": "列表差异 - 查找列表间的不同",
+      "subtitle": "比较两个列表，即时查看差异。获取新增项、删除项和未变更项。"
     },
     "listInput": {
-      "listA": "Original List",
-      "listB": "New List",
-      "placeholderA": "Paste your original list here...",
-      "placeholderB": "Paste your new list here..."
+      "listA": "原始列表",
+      "listB": "新列表",
+      "placeholderA": "在此粘贴您的原始列表...",
+      "placeholderB": "在此粘贴您的新列表..."
     },
     "actions": {
-      "diffLists": "Diff Lists",
-      "options": "Options"
+      "diffLists": "比较差异",
+      "options": "选项"
     },
     "howItWorks": {
-      "heading": "How List Diff Works",
       "0": {
-        "title": "Removed Items",
-        "desc": "Items in your original list that are missing from the new list. Think of these as 'deleted' entries."
+        "title": "已删除的条目",
+        "desc": "原始列表中存在但新列表中缺失的条目。可以理解为“被删除”的条目。"
       },
       "1": {
-        "title": "Added Items",
-        "desc": "Items in your new list that weren't in the original. These are the 'newly added' entries."
+        "title": "新增的条目",
+        "desc": "新列表中存在但原始列表中没有的条目。这些是“新增”的条目。"
       },
       "2": {
-        "title": "Unchanged Items",
-        "desc": "Items present in both lists. These entries stayed the same between versions."
-      }
+        "title": "未变更的条目",
+        "desc": "两个列表中都存在的条目。这些条目在版本之间保持不变。"
+      },
+      "heading": "列表差异的工作原理"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "What is list diff?",
-        "a": "List diff is the process of finding the differences between two lists. It shows you items that exist only in the first list, only in the second list, and items common to both."
+        "q": "什么是列表差异？",
+        "a": "列表差异是查找两个列表之间不同之处的过程。它显示仅存在于第一个列表的条目、仅存在于第二个列表的条目，以及两个列表共有的条目。"
       },
       "1": {
-        "q": "How is this different from text diff?",
-        "a": "Text diff compares text line by line in order. List diff treats each item independently regardless of order, like set operations in math (union, intersection, difference)."
+        "q": "这和文本差异有什么不同？",
+        "a": "文本差异按顺序逐行比较文本。列表差异将每个条目独立处理，不考虑顺序，类似于数学中的集合运算（并集、交集、差集）。"
       },
       "2": {
-        "q": "Can I diff large lists?",
-        "a": "Yes. The tool handles lists with tens of thousands of items smoothly, since all processing happens in your browser using efficient set algorithms."
+        "q": "可以比较大型列表吗？",
+        "a": "可以。该工具可以流畅处理包含数万条数据的列表，因为所有处理都使用高效的集合算法在您的浏览器中完成。"
       },
       "3": {
-        "q": "What output formats are supported?",
-        "a": "You can copy results to clipboard, download as CSV, or download as plain text. Each category (only in A, only in B, common) can be exported separately."
-      }
+        "q": "支持哪些输出格式？",
+        "a": "您可以将结果复制到剪贴板、下载为 CSV 或下载为纯文本。每个类别（仅在 A 中、仅在 B 中、共有）可以单独导出。"
+      },
+      "heading": "常见问题"
     },
     "breadcrumbs": {
-      "current": "List Diff"
+      "current": "列表差异"
     },
     "jsonLd": {
-      "name": "List Diff - CompareList",
-      "description": "Compare two lists and instantly see what's different. Get added items, removed items, and unchanged items."
+      "name": "列表差异 - CompareList",
+      "description": "比较两个列表，即时查看差异。获取新增项、删除项和未变更项。"
     }
   },
   "removeDuplicatesFromList": {
     "hero": {
-      "badge": "Deduplication Tool",
-      "title": "Remove Duplicates from List",
-      "subtitle": "Paste any list to instantly remove duplicate entries. Free, private, and works entirely in your browser."
+      "badge": "去重工具",
+      "title": "移除列表中的重复项",
+      "subtitle": "粘贴任意列表即可即时移除重复条目。免费、隐私保护，完全在浏览器中运行。"
     },
     "listInput": {
-      "listA": "Your List",
-      "listB": "Second List (optional)",
-      "placeholderA": "Paste your list with duplicates...",
-      "placeholderB": "Paste a second list to find cross-list duplicates..."
+      "listA": "您的列表",
+      "listB": "第二个列表（可选）",
+      "placeholderA": "粘贴包含重复项的列表...",
+      "placeholderB": "粘贴第二个列表以查找跨列表重复项..."
     },
     "actions": {
-      "removeDuplicates": "Remove Duplicates",
-      "copyToClipboard": "Copy to clipboard"
+      "removeDuplicates": "移除重复项",
+      "copyToClipboard": "复制到剪贴板"
     },
     "result": {
-      "heading": "Deduplicated Result",
-      "stats": "{count} items ({dupCount} duplicates removed)"
+      "heading": "去重结果",
+      "stats": "{count} 项（已移除 {dupCount} 个重复项）"
     },
     "useCases": {
-      "heading": "Common Deduplication Use Cases",
       "0": {
-        "title": "Email List Cleanup",
-        "desc": "Remove duplicate email addresses before sending campaigns to avoid double-emailing."
+        "title": "邮箱列表清理",
+        "desc": "在发送营销邮件前移除重复的邮箱地址，避免重复发送。"
       },
       "1": {
-        "title": "Contact Deduplication",
-        "desc": "Merge contact lists from different sources and remove overlapping entries."
+        "title": "联系人去重",
+        "desc": "合并来自不同来源的联系人列表并移除重叠条目。"
       },
       "2": {
-        "title": "Data Cleaning",
-        "desc": "Clean up messy datasets by removing repeated values before analysis."
+        "title": "数据清洗",
+        "desc": "在分析前移除混乱数据集中的重复值。"
       },
       "3": {
-        "title": "Inventory Management",
-        "desc": "Find and remove duplicate SKUs or product codes across inventory lists."
-      }
+        "title": "库存管理",
+        "desc": "查找并移除库存列表中的重复 SKU 或产品代码。"
+      },
+      "heading": "常见去重使用场景"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I remove duplicates from a list?",
-        "a": "Paste your list into the text area above (one item per line) and click Remove Duplicates. You'll instantly get a clean list with all duplicates removed."
+        "q": "如何移除列表中的重复项？",
+        "a": "将您的列表粘贴到上方的文本区域中（每行一项），然后点击移除重复项。您将立即获得移除所有重复项后的干净列表。"
       },
       "1": {
-        "q": "Does it remove duplicates across both lists?",
-        "a": "If you paste two lists, the tool shows you which items are shared (duplicates across lists) and which are unique to each. For a single list, it removes internal duplicates."
+        "q": "会移除两个列表之间的重复项吗？",
+        "a": "如果您粘贴了两个列表，工具会显示哪些条目是共有的（跨列表重复）以及哪些是每个列表独有的。对于单个列表，它会移除内部重复项。"
       },
       "2": {
-        "q": "Is it case-sensitive?",
-        "a": "By default, no. 'Apple' and 'apple' are treated as the same item. This matches how most people expect deduplication to work."
+        "q": "区分大小写吗？",
+        "a": "默认不区分。'Apple' 和 'apple' 会被视为相同的条目。这符合大多数人对去重的预期。"
       },
       "3": {
-        "q": "Can I remove duplicates from an Excel column?",
-        "a": "Yes. Copy the column from Excel and paste it directly into the text area. The deduplicated result can be copied back to Excel."
+        "q": "可以从 Excel 列中移除重复项吗？",
+        "a": "可以。从 Excel 中复制列并直接粘贴到文本区域。去重后的结果可以复制回 Excel。"
       },
       "4": {
-        "q": "What counts as a duplicate?",
-        "a": "Items that are identical after trimming whitespace. Empty lines are ignored. By default, comparison is case-insensitive."
-      }
+        "q": "什么算作重复项？",
+        "a": "修剪空白字符后相同的条目。空行会被忽略。默认情况下，比较不区分大小写。"
+      },
+      "heading": "常见问题"
     },
     "breadcrumbs": {
-      "current": "Remove Duplicates from List"
+      "current": "移除列表中的重复项"
     },
     "jsonLd": {
-      "name": "Remove Duplicates from List - CompareList",
-      "description": "Free online tool to remove duplicates from any list. Paste your list and get a clean, deduplicated result instantly."
+      "name": "移除列表中的重复项 - CompareList",
+      "description": "免费在线工具，用于移除任意列表中的重复项。粘贴列表即可即时获得干净的去重结果。"
     }
   },
   "howToCompareTwoLists": {
     "hero": {
-      "badge": "Tutorial",
-      "title": "How to Compare Two Lists Online",
-      "subtitle": "A complete guide to finding differences, common items, and unique entries between any two lists — in under 30 seconds."
+      "badge": "教程",
+      "title": "如何在线比较两个列表",
+      "subtitle": "查找任意两个列表之间的差异、共同项和独有条目的完整指南——30 秒内完成。"
     },
     "quickSummary": {
-      "heading": "Quick Summary",
       "0": {
-        "title": "Instant Results",
-        "desc": "Compare thousands of items in milliseconds, entirely in your browser."
+        "title": "即时结果",
+        "desc": "在毫秒内比较数千条数据，完全在您的浏览器中完成。"
       },
       "1": {
-        "title": "100% Private",
-        "desc": "Your data never leaves your device. No server uploads, no tracking."
+        "title": "100% 隐私",
+        "desc": "您的数据永远不会离开您的设备。无服务器上传，无追踪。"
       },
       "2": {
-        "title": "Any Format",
-        "desc": "Paste text, upload files, drag and drop. Auto-detects delimiters."
-      }
+        "title": "任意格式",
+        "desc": "粘贴文本、上传文件、拖放操作。自动检测分隔符。"
+      },
+      "heading": "快速概览"
     },
     "steps": {
-      "heading": "Step-by-Step Guide",
       "0": {
         "num": "1",
-        "title": "Paste or Upload Your Lists",
-        "desc": "Copy and paste your first list into List A and your second list into List B. You can also upload TXT, CSV, or TSV files by clicking the Upload button or dragging files directly into the input area.",
-        "tip": "Lists can contain emails, names, URLs, numbers, keywords, or any text items. Items are auto-detected regardless of separator (newlines, commas, tabs, semicolons)."
+        "title": "粘贴或上传您的列表",
+        "desc": "将第一个列表复制粘贴到列表 A，第二个列表粘贴到列表 B。您也可以通过点击上传按钮或直接将文件拖放到输入区域来上传 TXT、CSV 或 TSV 文件。",
+        "tip": "列表可以包含邮箱、姓名、URL、数字、关键词或任何文本条目。无论使用什么分隔符（换行符、逗号、制表符、分号），条目都会被自动检测。"
       },
       "1": {
         "num": "2",
-        "title": "Choose Your Comparison Mode",
-        "desc": "Select \"Exact Match\" for precise item-by-item comparison, or \"AI Match\" to find fuzzy matches like typos, reordered names (\"John Smith\" vs \"Smith, John\"), and similar entries using DeepSeek AI.",
-        "tip": "Exact Match is always free. AI Match uses 1 credit per comparison and includes fuzzy matching and intelligent analysis."
+        "title": "选择比较模式",
+        "desc": "选择“精确匹配”进行逐项精确比较，或选择“AI 匹配”使用 DeepSeek AI 发现模糊匹配，如拼写错误、重排序姓名（“John Smith”与“Smith, John”）和相似条目。",
+        "tip": "精确匹配始终免费。AI 匹配每次比较使用 1 个积分，包含模糊匹配和智能分析。"
       },
       "2": {
         "num": "3",
-        "title": "Configure Options (Optional)",
-        "desc": "Click the Options button to toggle case sensitivity, whitespace trimming, duplicate removal, and empty line filtering. Defaults work well for most cases.",
-        "tip": "Enable case-sensitive matching if you need to distinguish between uppercase and lowercase differences."
+        "title": "配置选项（可选）",
+        "desc": "点击选项按钮切换区分大小写、修剪空白字符、移除重复项和过滤空行。默认设置适用于大多数情况。",
+        "tip": "如果需要区分大写和小写差异，请启用区分大小写匹配。"
       },
       "3": {
         "num": "4",
-        "title": "Click Compare",
-        "desc": "Hit the Compare button and get instant results. You'll see statistics, a Venn diagram, and categorized results in tabs.",
-        "tip": "Results are computed entirely in your browser. Your data is never uploaded to any server."
+        "title": "点击比较",
+        "desc": "点击比较按钮即可获得即时结果。您将看到统计信息、韦恩图和分类标签页中的结果。",
+        "tip": "结果完全在您的浏览器中计算。您的数据永远不会上传到任何服务器。"
       },
       "4": {
         "num": "5",
-        "title": "Explore and Export Results",
-        "desc": "Browse results in categorized tabs: Only in A, Only in B, In Both, Union, and Symmetric Difference. Use the search bar to filter, sort alphabetically, and export as CSV, TXT, or a full report.",
-        "tip": "The Full Report export creates a single CSV with all categories clearly labeled — perfect for spreadsheets."
-      }
+        "title": "浏览和导出结果",
+        "desc": "在分类标签页中浏览结果：仅在 A 中、仅在 B 中、两者共有、并集和对称差集。使用搜索栏过滤、按字母排序，并导出为 CSV、TXT 或完整报告。",
+        "tip": "完整报告导出会创建一个包含所有类别的单个 CSV 文件，并清晰标注——非常适合在电子表格中使用。"
+      },
+      "heading": "分步指南",
+      "tipLabel": "Tip"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
-        "title": "Email List Comparison",
-        "desc": "Find subscribers in one list but not another, detect duplicates across campaigns."
+        "title": "邮箱列表比较",
+        "desc": "查找在一个列表但不在另一个列表中的订阅者，检测跨活动的重复项。"
       },
       "1": {
-        "title": "Inventory Reconciliation",
-        "desc": "Compare product SKUs or item lists between systems to find discrepancies."
+        "title": "库存核对",
+        "desc": "比较系统间的产品 SKU 或物品列表，发现差异。"
       },
       "2": {
-        "title": "Data Cleaning",
-        "desc": "Identify and remove duplicate or near-duplicate entries across datasets."
+        "title": "数据清洗",
+        "desc": "识别并移除数据集中的重复或近似重复条目。"
       },
       "3": {
-        "title": "Keyword Research",
-        "desc": "Compare keyword lists from different tools to find unique opportunities."
+        "title": "关键词研究",
+        "desc": "比较来自不同工具的关键词列表，发现独特的机会。"
       },
       "4": {
-        "title": "Name Matching",
-        "desc": "Find matching names across lists with AI fuzzy matching for spelling variations."
+        "title": "姓名匹配",
+        "desc": "利用 AI 模糊匹配在列表间查找拼写变体的匹配姓名。"
       },
       "5": {
-        "title": "URL Comparison",
-        "desc": "Compare sitemaps, backlink lists, or page inventories between sites."
-      }
+        "title": "URL 比较",
+        "desc": "比较站点地图、反向链接列表或网站间的页面清单。"
+      },
+      "heading": "常见使用场景"
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
-        "q": "Is there a file size limit?",
-        "a": "There is no strict limit. The tool handles tens of thousands of items smoothly since all processing happens locally in your browser."
+        "q": "有文件大小限制吗？",
+        "a": "没有严格限制。由于所有处理都在您的浏览器中本地进行，该工具可以流畅处理数万条数据。"
       },
       "1": {
-        "q": "Can I compare more than two lists?",
-        "a": "Currently, the tool compares exactly two lists at a time. For multiple lists, you can compare them pairwise and combine the results."
+        "q": "可以比较两个以上的列表吗？",
+        "a": "目前该工具一次只能比较两个列表。对于多个列表，您可以成对比较并合并结果。"
       },
       "2": {
-        "q": "What is the match rate percentage?",
-        "a": "The match rate uses the Dice coefficient formula: 2 x (common items) / (total A + total B). It gives a percentage showing how similar the two lists are."
+        "q": "匹配率百分比是什么？",
+        "a": "匹配率使用 Dice 系数公式：2 ×（共同项数）/（A 总数 + B 总数）。它给出一个表示两个列表相似程度的百分比。"
       },
       "3": {
-        "q": "How does AI fuzzy matching work?",
-        "a": "AI matching uses a combination of Levenshtein edit distance and Jaccard token similarity to find items that are similar but not identical — like typos, reordered words, or partial matches."
+        "q": "AI 模糊匹配是如何工作的？",
+        "a": "AI 匹配使用 Levenshtein 编辑距离和 Jaccard 令牌相似度的组合来查找相似但不完全相同的条目——如拼写错误、词语重排或部分匹配。"
       },
       "4": {
-        "q": "Is my data stored anywhere?",
-        "a": "No. All comparison happens in your browser. Your lists are never sent to any server. History is stored locally in your browser and can be cleared at any time."
-      }
+        "q": "我的数据会存储在任何地方吗？",
+        "a": "不会。所有比较都在您的浏览器中进行。您的列表永远不会被发送到任何服务器。历史记录存储在您的浏览器本地，可以随时清除。"
+      },
+      "heading": "常见问题"
     },
     "cta": {
-      "title": "Ready to Try It?",
-      "subtitle": "Compare your first two lists in under 30 seconds — free, private, and instant.",
-      "button": "Start Comparing"
+      "title": "准备好试试了吗？",
+      "subtitle": "在 30 秒内比较您的第一对列表——免费、隐私、即时。",
+      "button": "开始比较"
     },
     "breadcrumbs": {
-      "current": "How to Compare Two Lists"
+      "current": "如何比较两个列表"
     },
     "jsonLd": {
-      "name": "How to Compare Two Lists Online",
-      "description": "A complete guide to finding differences, common items, and unique entries between any two lists."
+      "name": "如何在线比较两个列表",
+      "description": "查找任意两个列表之间的差异、共同项和独有条目的完整指南。"
+    },
+    "nav": {
+      "tutorials": "Tutorials"
     }
   },
   "howToCompareCsvFiles": {
     "hero": {
-      "badge": "Tutorial",
-      "title": "How to Compare Two CSV Files",
-      "subtitle": "Compare CSV files to find added, removed, and common rows. Works with any CSV structure and lets you pick specific columns."
+      "badge": "教程",
+      "title": "如何比较两个 CSV 文件",
+      "subtitle": "比较 CSV 文件以查找新增、删除和共有的行。支持任何 CSV 结构，可选择指定列进行比较。"
     },
     "whyCompare": {
-      "heading": "Why Compare CSV Files?",
       "0": {
-        "title": "Data Auditing",
-        "desc": "Verify data changes between exports from different dates or systems."
+        "title": "数据审计",
+        "desc": "验证不同日期或系统的导出数据之间的变化。"
       },
       "1": {
-        "title": "List Reconciliation",
-        "desc": "Find items present in one dataset but missing from another."
+        "title": "列表核对",
+        "desc": "查找一个数据集中存在但另一个数据集中缺失的条目。"
       },
       "2": {
-        "title": "Deduplication",
-        "desc": "Identify overlapping records across multiple CSV files."
+        "title": "去重",
+        "desc": "识别多个 CSV 文件之间的重叠记录。"
       },
       "3": {
-        "title": "Migration Validation",
-        "desc": "Confirm all records transferred correctly after data migration."
-      }
+        "title": "迁移验证",
+        "desc": "确认数据迁移后所有记录是否正确传输。"
+      },
+      "heading": "为什么要比较 CSV 文件？"
     },
     "steps": {
-      "heading": "Steps to Compare CSV Files",
       "0": {
-        "title": "Upload Your CSV Files",
-        "desc": "Click the \"Upload File\" button on each input panel to select a CSV file. You can also drag and drop files directly onto the input areas. When you upload a multi-column CSV, a column selector dropdown appears automatically — pick the column you want to compare."
+        "title": "上传您的 CSV 文件",
+        "desc": "点击每个输入面板上的“上传文件”按钮选择 CSV 文件。您也可以直接将文件拖放到输入区域。上传多列 CSV 时，会自动出现列选择下拉菜单——选择您要比较的列。"
       },
       "1": {
-        "title": "Select the Right Column",
-        "desc": "For multi-column CSVs, use the column selector dropdown to pick which column to compare. This lets you compare specific fields like email addresses, IDs, or product names from within larger datasets."
+        "title": "选择正确的列",
+        "desc": "对于多列 CSV，使用列选择下拉菜单选择要比较的列。这使您可以比较更大数据集中特定字段，如邮箱地址、ID 或产品名称。"
       },
       "2": {
-        "title": "Run the Comparison",
-        "desc": "Click \"Compare Lists\" to get instant results. The tool will show you items only in file A, only in file B, and items present in both files. Statistics and a Venn diagram give you a quick overview."
+        "title": "运行比较",
+        "desc": "点击“比较列表”获取即时结果。工具将显示仅在文件 A 中的条目、仅在文件 B 中的条目以及两个文件共有的条目。统计信息和韦恩图为您提供快速概览。"
       },
       "3": {
-        "title": "Export the Results",
-        "desc": "Export individual categories as CSV or TXT, or use \"Full Report\" to download everything in a single categorized CSV file. You can also copy results directly to your clipboard."
-      }
+        "title": "导出结果",
+        "desc": "将单个类别导出为 CSV 或 TXT，或使用“完整报告”将所有内容下载为单个分类 CSV 文件。您也可以直接将结果复制到剪贴板。"
+      },
+      "heading": "比较 CSV 文件的步骤"
     },
     "formats": {
-      "heading": "Supported File Formats",
       "0": {
         "ext": ".csv",
-        "name": "Comma-Separated Values",
-        "desc": "Standard CSV with header detection and column selection."
+        "name": "逗号分隔值",
+        "desc": "标准 CSV，支持表头检测和列选择。"
       },
       "1": {
         "ext": ".tsv",
-        "name": "Tab-Separated Values",
-        "desc": "Auto-detected tab-delimited files with column support."
+        "name": "制表符分隔值",
+        "desc": "自动检测的制表符分隔文件，支持列选择。"
       },
       "2": {
         "ext": ".txt",
-        "name": "Plain Text",
-        "desc": "One item per line, or comma/semicolon/tab separated."
-      }
+        "name": "纯文本",
+        "desc": "每行一项，或使用逗号/分号/制表符分隔。"
+      },
+      "heading": "支持的文件格式"
     },
     "cta": {
-      "title": "Compare Your CSV Files Now",
-      "subtitle": "Free, instant, and completely private. No signup required.",
-      "button": "Start Comparing"
+      "title": "立即比较您的 CSV 文件",
+      "subtitle": "免费、即时、完全隐私保护。无需注册。",
+      "button": "开始比较"
     },
     "breadcrumbs": {
-      "current": "How to Compare CSV Files"
+      "current": "如何比较 CSV 文件"
     },
     "jsonLd": {
-      "name": "How to Compare Two CSV Files Online",
-      "description": "Compare CSV files to find added, removed, and common rows. Works with any CSV structure and lets you pick specific columns."
+      "name": "如何在线比较两个 CSV 文件",
+      "description": "比较 CSV 文件以查找新增、删除和共有的行。支持任何 CSV 结构，可选择指定列进行比较。"
     }
   },
   "howToFindDifferences": {
     "hero": {
-      "badge": "Tutorial",
-      "title": "How to Find Differences Between Two Lists",
-      "subtitle": "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods."
+      "badge": "教程",
+      "title": "如何查找两个列表之间的差异",
+      "subtitle": "使用精确和 AI 驱动方法，识别任意两个列表之间不同之处和相同之处的实用指南。"
     },
     "methods": {
-      "heading": "Two Ways to Find Differences",
       "0": {
-        "title": "Exact Matching",
-        "badge": "Free",
-        "desc": "Compares items character-by-character. Items match only if they are identical (with optional case-insensitive comparison). Fast and deterministic.",
-        "best": "Emails, IDs, product codes, exact strings"
+        "title": "精确匹配",
+        "badge": "免费",
+        "desc": "逐字符比较条目。只有完全相同的条目才会匹配（可选择不区分大小写）。快速且确定性高。",
+        "best": "邮箱、ID、产品代码、精确字符串"
       },
       "1": {
-        "title": "AI Fuzzy Matching",
-        "badge": "1 Credit",
-        "desc": "Uses Levenshtein distance and token-based similarity to find near-matches. Catches typos, reordered words, and similar entries that exact matching misses.",
-        "best": "Names (\"John Smith\" vs \"Smith, John\"), addresses, keywords with typos"
-      }
+        "title": "AI 模糊匹配",
+        "badge": "1 个积分",
+        "desc": "使用 Levenshtein 距离和基于令牌的相似度查找近似匹配。可以捕获拼写错误、词语重排和精确匹配遗漏的相似条目。",
+        "best": "姓名（“John Smith”与“Smith, John”）、地址、带拼写错误的关键词"
+      },
+      "heading": "查找差异的两种方法"
     },
     "terms": {
-      "heading": "Understanding the Results",
       "0": {
-        "term": "Only in A",
-        "desc": "Items present in List A but not found in List B."
+        "term": "仅在 A 中",
+        "desc": "存在于列表 A 但在列表 B 中未找到的条目。"
       },
       "1": {
-        "term": "Only in B",
-        "desc": "Items present in List B but not found in List A."
+        "term": "仅在 B 中",
+        "desc": "存在于列表 B 但在列表 A 中未找到的条目。"
       },
       "2": {
-        "term": "In Both (Intersection)",
-        "desc": "Items present in both List A and List B."
+        "term": "两者共有（交集）",
+        "desc": "同时存在于列表 A 和列表 B 中的条目。"
       },
       "3": {
-        "term": "Union",
-        "desc": "All unique items from both lists combined."
+        "term": "并集",
+        "desc": "两个列表中所有唯一条目的合集。"
       },
       "4": {
-        "term": "Symmetric Difference",
-        "desc": "Items in either list but not in both (Only in A + Only in B)."
-      }
+        "term": "对称差集",
+        "desc": "存在于任一列表但不同时存在于两个列表的条目（仅在 A 中 + 仅在 B 中）。"
+      },
+      "heading": "理解结果"
     },
     "example": {
-      "heading": "Practical Example",
+      "heading": "实际示例",
       "listA": {
-        "title": "List A (Old Subscribers)"
+        "title": "列表 A（旧订阅者）"
       },
       "listB": {
-        "title": "List B (New Subscribers)"
+        "title": "列表 B（新订阅者）"
       },
       "onlyA": {
-        "title": "Only in A (2)",
-        "desc": "Unsubscribed / Churned"
+        "title": "仅在 A 中（2）",
+        "desc": "已退订 / 流失"
       },
       "onlyB": {
-        "title": "Only in B (2)",
-        "desc": "New subscribers"
+        "title": "仅在 B 中（2）",
+        "desc": "新订阅者"
       },
       "both": {
-        "title": "In Both (2)",
-        "desc": "Retained subscribers"
+        "title": "两者共有（2）",
+        "desc": "留存订阅者"
       }
     },
     "cta": {
-      "title": "Find Differences Now",
-      "subtitle": "Paste your lists and get instant results — free and private.",
-      "button": "Start Comparing"
+      "title": "立即查找差异",
+      "subtitle": "粘贴您的列表即可获取即时结果——免费且隐私保护。",
+      "button": "开始比较"
     },
     "breadcrumbs": {
-      "current": "How to Find Differences"
+      "current": "如何查找差异"
     },
     "jsonLd": {
-      "name": "How to Find Differences Between Two Lists",
-      "description": "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods."
+      "name": "如何查找两个列表之间的差异",
+      "description": "使用精确和 AI 驱动方法，识别任意两个列表之间不同之处和相同之处的实用指南。"
     }
   },
   "pricing": {
     "hero": {
-      "title": "Simple, Transparent Pricing",
-      "subtitle": "Free for exact comparisons. Pay only when you need AI-powered analysis."
+      "title": "简单透明的定价",
+      "subtitle": "精确比较永久免费。仅在需要 AI 驱动分析时付费。"
     },
     "nav": {
-      "backToTool": "Back to Tool"
+      "backToTool": "返回工具"
     },
     "plans": {
       "free": {
-        "name": "Free",
+        "name": "免费版",
         "price": "$0",
-        "period": "forever",
+        "period": "永久",
         "features": {
-          "0": "Exact list comparison",
-          "1": "Unlimited items",
-          "2": "Copy & CSV export",
-          "3": "File upload (TXT, CSV)",
-          "4": "All comparison options",
-          "5": "Privacy-first (client-side)"
+          "0": "精确列表比较",
+          "1": "不限条目数",
+          "2": "复制和 CSV 导出",
+          "3": "文件上传（TXT、CSV）",
+          "4": "所有比较选项",
+          "5": "隐私优先（客户端处理）"
         },
-        "cta": "Start Free"
+        "cta": "免费开始"
       },
       "payPerUse": {
-        "name": "Pay Per Use",
+        "name": "按次付费",
         "price": "$0.99",
-        "period": "per AI comparison",
-        "badge": "Most Popular",
+        "period": "每次 AI 比较",
+        "badge": "最受欢迎",
         "features": {
-          "0": "Everything in Free",
-          "1": "AI fuzzy matching",
-          "2": "Semantic similarity detection",
-          "3": "AI-generated insights",
-          "4": "Typo & reorder detection",
-          "5": "No subscription needed"
+          "0": "包含免费版所有功能",
+          "1": "AI 模糊匹配",
+          "2": "语义相似度检测",
+          "3": "AI 生成的洞察分析",
+          "4": "拼写错误和重排序检测",
+          "5": "无需订阅"
         },
-        "cta": "Buy Credits"
+        "cta": "购买积分"
       },
       "creditPacks": {
-        "name": "Credit Packs",
+        "name": "积分包",
         "price": "$4.99",
-        "period": "10 credits (save 33%)",
+        "period": "10 个积分（省 33%）",
         "features": {
-          "0": "Everything in Pay Per Use",
-          "1": "10 AI comparisons",
-          "2": "Best value per comparison",
-          "3": "Credits never expire",
-          "4": "Priority processing",
-          "5": "Bulk analysis support"
+          "0": "包含按次付费所有功能",
+          "1": "10 次 AI 比较",
+          "2": "每次比较最佳性价比",
+          "3": "积分永不过期",
+          "4": "优先处理",
+          "5": "批量分析支持"
         },
-        "cta": "Get Credit Pack"
+        "cta": "获取积分包"
       }
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
-        "q": "Do credits expire?",
-        "a": "No. Your credits never expire. Use them whenever you need AI comparison."
+        "q": "积分会过期吗？",
+        "a": "不会。您的积分永不过期。随时在需要 AI 比较时使用。"
       },
       "1": {
-        "q": "What counts as one AI comparison?",
-        "a": "One AI comparison means comparing two lists with fuzzy matching, semantic analysis, and AI-generated insights. It uses 1 credit regardless of list size."
+        "q": "什么算一次 AI 比较？",
+        "a": "一次 AI 比较是指对两个列表进行模糊匹配、语义分析和 AI 生成的洞察。无论列表大小，都使用 1 个积分。"
       },
       "2": {
-        "q": "Is the free version limited?",
-        "a": "The free version gives you full exact comparison with no limits on items, file uploads, or exports. AI features (fuzzy matching, insights) require credits."
+        "q": "免费版有限制吗？",
+        "a": "免费版提供完整的精确比较功能，对条目数、文件上传和导出没有限制。AI 功能（模糊匹配、洞察分析）需要积分。"
       },
       "3": {
-        "q": "Can I get a refund?",
-        "a": "Yes. If you're not satisfied with the AI analysis quality, contact us for a full refund."
-      }
+        "q": "可以退款吗？",
+        "a": "可以。如果您对 AI 分析质量不满意，请联系我们获取全额退款。"
+      },
+      "heading": "常见问题"
     }
   },
   "components": {
     "listInput": {
-      "upload": "Upload",
-      "dropFileHere": "Drop file here",
-      "selectColumns": "Select columns",
-      "allColumns": "All columns",
-      "columnsCount": "{count} columns",
-      "previewRow": "Preview (row 1):",
-      "fileTooLarge": "File too large. Please use files under 50MB.",
-      "largeFileConfirm": "This file is {size}MB. Large files may be slow to process. Continue?",
-      "items": "{count} items"
+      "upload": "上传",
+      "dropFileHere": "拖放文件到此处",
+      "selectColumns": "选择列",
+      "allColumns": "所有列",
+      "columnsCount": "{count} 列",
+      "previewRow": "预览（第 1 行）：",
+      "fileTooLarge": "文件过大。请使用 50MB 以下的文件。",
+      "largeFileConfirm": "此文件大小为 {size}MB。大文件处理可能较慢。是否继续？",
+      "items": "{count} 项"
     },
     "resultTabs": {
       "tabs": {
         "onlyA": {
-          "label": "Only in A",
-          "short": "A only"
+          "label": "仅在 A 中",
+          "short": "仅 A"
         },
         "onlyB": {
-          "label": "Only in B",
-          "short": "B only"
+          "label": "仅在 B 中",
+          "short": "仅 B"
         },
         "both": {
-          "label": "In Both",
-          "short": "Both"
+          "label": "两者共有",
+          "short": "共有"
         },
         "union": {
-          "label": "Union (A ∪ B)",
+          "label": "并集 (A ∪ B)",
           "short": "A∪B"
         },
         "symDiff": {
-          "label": "Sym Diff (A △ B)",
+          "label": "对称差集 (A △ B)",
           "short": "A△B"
         },
         "all": {
-          "label": "All Combined",
-          "short": "All"
+          "label": "全部合并",
+          "short": "全部"
         }
       },
-      "filter": "Filter...",
-      "sort": "Sort",
+      "filter": "过滤...",
+      "sort": "排序",
       "sortAsc": "A-Z",
       "sortDesc": "Z-A",
-      "select": "Select all",
-      "deselect": "Deselect all",
-      "copySelected": "Copy selected",
-      "deleteSelected": "Delete selected",
-      "copy": "Copy",
-      "copied": "Copied!",
-      "copyAll": "Copy All",
-      "downloadCsv": "Download CSV",
-      "downloadTxt": "Download TXT",
-      "fullReport": "Full Report",
-      "noItemsFilter": "No items match your filter",
-      "noItemsCategory": "No items in this category",
-      "showingItems": "Showing {visible} of {total} items — scroll to load more"
+      "select": "全选",
+      "deselect": "取消全选",
+      "copySelected": "复制选中",
+      "deleteSelected": "删除选中",
+      "copy": "复制",
+      "copied": "已复制！",
+      "copyAll": "复制全部",
+      "downloadCsv": "下载 CSV",
+      "downloadTxt": "下载 TXT",
+      "fullReport": "完整报告",
+      "noItemsFilter": "没有匹配您过滤条件的条目",
+      "noItemsCategory": "此类别中没有条目",
+      "showingItems": "显示 {visible}/{total} 项 — 滚动加载更多"
     },
     "statsCards": {
-      "matchRate": "Match Rate",
-      "commonItems": "Common Items",
-      "onlyInListA": "Only in List A",
-      "onlyInListB": "Only in List B"
+      "matchRate": "匹配率",
+      "commonItems": "共同项",
+      "onlyInListA": "仅在列表 A 中",
+      "onlyInListB": "仅在列表 B 中"
     },
     "optionsPanel": {
       "caseSensitive": {
-        "label": "Case Sensitive",
-        "desc": "Treat uppercase and lowercase as different"
+        "label": "区分大小写",
+        "desc": "将大写和小写视为不同"
       },
       "trimWhitespace": {
-        "label": "Trim Whitespace",
-        "desc": "Remove leading/trailing spaces"
+        "label": "修剪空白字符",
+        "desc": "移除前导和尾随空格"
       },
       "removeDuplicates": {
-        "label": "Remove Duplicates",
-        "desc": "Deduplicate items before comparing"
+        "label": "移除重复项",
+        "desc": "在比较前对条目去重"
       },
       "ignoreEmpty": {
-        "label": "Ignore Empty Lines",
-        "desc": "Skip blank lines and empty items"
+        "label": "忽略空行",
+        "desc": "跳过空行和空条目"
       }
     },
     "fuzzyMatchTable": {
-      "title": "Fuzzy Matches",
-      "subtitle": "Similar but not identical items",
-      "noMatches": "No fuzzy matches found. Try lowering the similarity threshold.",
-      "moreHidden": "+ {count} more matches hidden"
+      "title": "模糊匹配",
+      "subtitle": "相似但不完全相同的条目",
+      "noMatches": "未找到模糊匹配。请尝试降低相似度阈值。",
+      "moreHidden": "还有 {count} 个匹配被隐藏"
     },
     "aiInsights": {
-      "title": "AI Insights",
-      "fuzzyMatches": "{count} fuzzy match{plural}",
-      "viewAiAnalysis": "View AI Analysis",
-      "free": "Free"
+      "title": "AI 洞察",
+      "fuzzyMatches": "{count} 个模糊匹配{plural}",
+      "viewAiAnalysis": "查看 AI 分析",
+      "free": "免费"
     },
     "relatedTools": {
-      "title": "Related Tools",
+      "title": "相关工具",
       "tools": {
-        "0": { "label": "Compare Email Lists" },
-        "1": { "label": "Compare Excel Columns" },
-        "2": { "label": "Compare CSV Files" },
-        "3": { "label": "Compare Two Columns in Excel" },
-        "4": { "label": "Compare IP Addresses" },
-        "5": { "label": "Compare Keywords" },
-        "6": { "label": "Compare Name Lists" },
-        "7": { "label": "Compare Phone Numbers" },
-        "8": { "label": "Compare URLs" },
-        "9": { "label": "List Diff" },
-        "10": { "label": "Remove Duplicates" }
+        "0": {
+          "label": "比较邮箱列表"
+        },
+        "1": {
+          "label": "比较 Excel 列"
+        },
+        "2": {
+          "label": "比较 CSV 文件"
+        },
+        "3": {
+          "label": "比较 Excel 中的两列"
+        },
+        "4": {
+          "label": "比较 IP 地址"
+        },
+        "5": {
+          "label": "比较关键词"
+        },
+        "6": {
+          "label": "比较姓名列表"
+        },
+        "7": {
+          "label": "比较电话号码"
+        },
+        "8": {
+          "label": "比较 URL"
+        },
+        "9": {
+          "label": "列表差异"
+        },
+        "10": {
+          "label": "移除重复项"
+        }
       },
       "guides": {
-        "0": { "label": "How to Compare Two Lists" },
-        "1": { "label": "How to Compare CSV Files" },
-        "2": { "label": "How to Find Differences" }
+        "0": {
+          "label": "如何比较两个列表"
+        },
+        "1": {
+          "label": "如何比较 CSV 文件"
+        },
+        "2": {
+          "label": "如何查找差异"
+        }
       }
     },
     "vennDiagram": {
-      "title": "Visual Overview",
-      "listATooltip": "List A: {unique} unique, {shared} shared",
-      "listBTooltip": "List B: {unique} unique, {shared} shared",
-      "listALabel": "List A",
-      "listBLabel": "List B"
+      "title": "可视化概览",
+      "listATooltip": "列表 A：{unique} 个独有，{shared} 个共有",
+      "listBTooltip": "列表 B：{unique} 个独有，{shared} 个共有",
+      "listALabel": "列表 A",
+      "listBLabel": "列表 B"
     },
     "historyPanel": {
-      "title": "History",
+      "title": "历史记录",
       "recordCount": "({count})",
-      "clearAll": "Clear All",
-      "noComparisons": "No comparisons yet",
-      "justNow": "Just now",
-      "minutesAgo": "{count}m ago",
-      "hoursAgo": "{count}h ago",
+      "clearAll": "清除全部",
+      "noComparisons": "暂无比较记录",
+      "justNow": "刚刚",
+      "minutesAgo": "{count} 分钟前",
+      "hoursAgo": "{count} 小时前",
       "modeAi": "AI",
-      "modeExact": "Exact",
-      "labelA": "A: {count}",
-      "labelB": "B: {count}",
-      "common": "Common: {count}",
-      "clickToRestore": "Click to restore",
-      "partialData": "(partial data)"
+      "modeExact": "精确",
+      "labelA": "A：{count}",
+      "labelB": "B：{count}",
+      "common": "共同：{count}",
+      "clickToRestore": "点击恢复",
+      "partialData": "（部分数据）"
     },
     "notFound": {
       "title": "404",
-      "subtitle": "Page Not Found",
-      "description": "The page you're looking for doesn't exist. It may have been moved or deleted.",
-      "goHome": "Go Home",
-      "compareLists": "Compare Lists"
+      "subtitle": "页面未找到",
+      "description": "您查找的页面不存在。它可能已被移动或删除。",
+      "goHome": "返回首页",
+      "compareLists": "比较列表"
     }
   }
 }

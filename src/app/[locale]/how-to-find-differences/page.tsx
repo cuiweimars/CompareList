@@ -2,33 +2,47 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRightLeft, ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
-export const metadata: Metadata = {
-  title: "How to Find Differences Between Two Lists - Free Guide | CompareList",
-  description:
-    "Learn how to find differences between two lists. Discover items only in list A, only in list B, and common items. Includes exact and AI-powered fuzzy matching methods.",
-  keywords: [
-    "find differences between lists",
-    "list difference finder",
-    "items only in one list",
-    "compare lists find differences",
-    "list diff tool",
-    "symmetric difference lists",
-  ],
-  openGraph: {
-    title: "How to Find Differences Between Two Lists",
-    description: "Free guide to finding differences between lists using exact matching and AI fuzzy matching.",
-  },
-  alternates: { canonical: "https://comparelist.com/how-to-find-differences" },
-  twitter: {
-    card: "summary_large_image",
-    title: "How to Find Differences Between Two Lists",
-    description: "Free guide to finding differences between lists using exact matching and AI fuzzy matching.",
-  },
-};
+const basePath = "/how-to-find-differences";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com";
+
+  return {
+    title: "How to Find Differences Between Two Lists - Free Guide | CompareList",
+    description:
+      "Learn how to find differences between two lists. Discover items only in list A, only in list B, and common items. Includes exact and AI-powered fuzzy matching methods.",
+    keywords: [
+      "find differences between lists",
+      "list difference finder",
+      "items only in one list",
+      "compare lists find differences",
+      "list diff tool",
+      "symmetric difference lists",
+    ],
+    openGraph: {
+      title: "How to Find Differences Between Two Lists",
+      description: "Free guide to finding differences between lists using exact matching and AI fuzzy matching.",
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: "How to Find Differences Between Two Lists",
+      description: "Free guide to finding differences between lists using exact matching and AI fuzzy matching.",
+    },
+    alternates: {
+      canonical: `${baseUrl}/${locale === "en" ? "" : locale + "/"}${basePath.slice(1)}`,
+      languages: Object.fromEntries(
+        routing.locales.map((l) => [l, `${baseUrl}/${l}${basePath}`])
+      ),
+    },
+  };
+}
 
 export default async function HowToFindDifferencesPage({
   params,
@@ -36,7 +50,6 @@ export default async function HowToFindDifferencesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  setRequestLocale(locale);
   const t = await getTranslations("howToFindDifferences");
 
   return (

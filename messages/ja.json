@@ -2,599 +2,647 @@
   "common": {
     "appName": "CompareList",
     "appNameHtml": "Compare<span>List</span>",
-    "free": "Free",
-    "copy": "Copy",
-    "copied": "Copied!",
-    "clear": "Clear",
-    "delete": "Delete",
-    "edit": "Edit",
-    "reset": "Reset",
-    "all": "All",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "items": "{count} items",
-    "rows": "{count} rows"
+    "free": "無料",
+    "copy": "コピー",
+    "copied": "コピーしました！",
+    "clear": "クリア",
+    "delete": "削除",
+    "edit": "編集",
+    "reset": "リセット",
+    "all": "すべて",
+    "cancel": "キャンセル",
+    "loading": "読み込み中...",
+    "items": "{count}件",
+    "rows": "{count}行"
   },
   "nav": {
-    "tool": "Tool",
-    "features": "Features",
+    "tool": "ツール",
+    "features": "機能",
     "faq": "FAQ",
-    "history": "History",
-    "pricing": "Pricing"
+    "history": "履歴",
+    "pricing": "料金"
   },
   "home": {
     "hero": {
-      "badge": "Free · Private · No Signup",
-      "title": "Compare Two Lists <gradient>Instantly</gradient>",
-      "subtitle": "Find differences, common items, and unique entries between any two lists. Powered by AI."
+      "badge": "無料 · プライベート · 登録不要",
+      "title": "2つのリストを<gradient>一瞬で</gradient>比較",
+      "subtitle": "2つのリスト間の差分、共通項目、一意のエントリを見つけます。AI搭載。"
     },
     "tool": {
-      "modeExact": "Exact Match",
-      "modeAi": "AI Match",
-      "modeAiFree": "Free",
-      "listALabel": "List A",
-      "listBLabel": "List B",
-      "listAPlaceholder": "Paste your first list here, one item per line...",
-      "listBPlaceholder": "Paste your second list here, one item per line...",
-      "defaultPlaceholder": "Paste your list here, one item per line...",
-      "swapLists": "Swap lists",
-      "options": "Options",
-      "tryDemo": "Try Demo",
-      "compareLists": "Compare Lists",
-      "compareWithAi": "Compare with AI",
-      "analyzing": "Analyzing...",
-      "results": "Results",
-      "clearResults": "Clear Results"
+      "modeExact": "完全一致",
+      "modeAi": "AI一致",
+      "modeAiFree": "無料",
+      "listALabel": "リストA",
+      "listBLabel": "リストB",
+      "listAPlaceholder": "1つ目のリストをここに貼り付けてください（1行に1項目）...",
+      "listBPlaceholder": "2つ目のリストをここに貼り付けてください（1行に1項目）...",
+      "defaultPlaceholder": "リストをここに貼り付けてください（1行に1項目）...",
+      "swapLists": "リストを入れ替え",
+      "options": "オプション",
+      "tryDemo": "デモを試す",
+      "compareLists": "リストを比較",
+      "compareWithAi": "AIで比較",
+      "analyzing": "分析中...",
+      "results": "結果",
+      "clearResults": "結果をクリア"
     },
     "dragOverlay": {
-      "title": "Drop files to compare",
-      "subtitle": "Drop 2 files (List A + List B) or 1 file (auto-fills first empty list)"
+      "title": "ファイルをドロップして比較",
+      "subtitle": "2つのファイル（リストA + リストB）または1つのファイル（最初の空のリストに自動入力）をドロップ"
     },
     "aiAnalysis": {
-      "title": "AI Analysis",
-      "unavailableWarning": "AI deep analysis is temporarily unavailable. Showing local fuzzy matching results for free.",
-      "foundFuzzy": "AI found <strong>{count} fuzzy match{plural}</strong> that exact matching missed.",
-      "combinedRate": "Combined rate: <strong>{aiRate}%</strong> (vs {exactRate}% exact).",
-      "fuzzyMatches": "{count} fuzzy match{plural}",
-      "aiError": "AI analysis failed. Showing exact comparison results below."
+      "title": "AI分析",
+      "unavailableWarning": "AI詳細分析は一時的に利用できません。無料でローカルのあいまい一致結果を表示しています。",
+      "foundFuzzy": "AIが完全一致で見逃した<strong>{count}件のあいまい一致</strong>を発見しました。",
+      "combinedRate": "統合率：<strong>{aiRate}%</strong>（完全一致：{exactRate}%）。",
+      "fuzzyMatches": "{count}件のあいまい一致",
+      "aiError": "AI分析に失敗しました。以下に完全一致の比較結果を表示しています。"
     },
     "features": {
-      "sectionTag": "Why CompareList",
-      "sectionTitle": "Built for Speed & Privacy",
       "0": {
-        "title": "Instant Comparison",
-        "desc": "Compare thousands of items in milliseconds. All processing happens in your browser."
+        "title": "一瞬の比較",
+        "desc": "数千項目をミリ秒で比較。すべての処理はブラウザ内で行われます。"
       },
       "1": {
-        "title": "100% Private",
-        "desc": "Your data never leaves your device. No tracking, no collection, no server upload."
+        "title": "100%プライベート",
+        "desc": "データはデバイスから送信されません。追跡なし、収集なし、サーバーアップロードなし。"
       },
       "2": {
-        "title": "Any Format",
-        "desc": "Paste text, upload files, drag and drop. Auto-detects delimiters."
+        "title": "あらゆる形式",
+        "desc": "テキストの貼り付け、ファイルのアップロード、ドラッグ＆ドロップに対応。区切り文字を自動検出。"
       },
       "3": {
-        "title": "AI-Powered",
-        "desc": "DeepSeek AI finds fuzzy matches, typos, and reordered items automatically."
-      }
+        "title": "AI搭載",
+        "desc": "DeepSeek AIがあいまい一致、タイプミス、並べ替えられた項目を自動的に見つけます。"
+      },
+      "sectionTag": "CompareListが選ばれる理由",
+      "sectionTitle": "スピードとプライバシーに特化"
     },
     "testimonials": {
-      "sectionTag": "Testimonials",
-      "sectionTitle": "Loved by Thousands",
       "0": {
         "name": "Sarah M.",
-        "role": "Marketing Manager",
-        "text": "Saved me hours deduplicating our 50K email list. The fuzzy matching caught typos I would have never found manually.",
+        "role": "マーケティングマネージャー",
+        "text": "5万件のメールリストの重複削除に何時間も節約できました。あいまい一致は手動では絶対に見つからなかったタイプミスを検出しました。",
         "rating": 5
       },
       "1": {
         "name": "David K.",
-        "role": "Data Analyst",
-        "text": "The CSV column selector is brilliant. I can compare specific fields from different exports without cleaning the data first.",
+        "role": "データアナリスト",
+        "text": "CSVカラムセレクターは素晴らしいです。データを前処理することなく、異なるエクスポート間の特定のフィールドを比較できます。",
         "rating": 5
       },
       "2": {
         "name": "Emily R.",
-        "role": "E-commerce Owner",
-        "text": "I use this weekly to reconcile product SKUs between our warehouse system and online store. Incredibly fast and reliable.",
+        "role": "ECサイト運営者",
+        "text": "毎週、倉庫システムとオンラインストア間のSKUを照合するために使用しています。信じられないほど速くて信頼性が高いです。",
         "rating": 5
       },
       "3": {
         "name": "James L.",
-        "role": "DevOps Engineer",
-        "text": "Perfect for comparing IP whitelists and firewall rules. The symmetric difference view shows exactly what's changed.",
+        "role": "DevOpsエンジニア",
+        "text": "IPホワイトリストとファイアウォールルールの比較に最適です。対称差分ビューで変更点が正確にわかります。",
         "rating": 5
       },
       "4": {
         "name": "Maria C.",
-        "role": "HR Coordinator",
-        "text": "We compare employee lists across departments. The union view gives us a complete headcount in seconds. Love the privacy focus.",
+        "role": "人事コーディネーター",
+        "text": "部門間の従業員リストを比較しています。ユニオンビューで数秒で完全な人数把握ができます。プライバシー重視が良いですね。",
         "rating": 5
       },
       "5": {
         "name": "Tom W.",
-        "role": "SEO Specialist",
-        "text": "Comparing keyword lists from different tools used to take me 30 minutes in Excel. Now it takes 10 seconds. Absolute game changer.",
+        "role": "SEOスペシャリスト",
+        "text": "異なるツールからのキーワードリストの比較はExcelで30分かかっていました。今は10秒です。完全にゲームチェンジャーです。",
         "rating": 5
       },
       "6": {
         "name": "Anna P.",
-        "role": "Researcher",
-        "text": "The full report export with all categories in one CSV is exactly what I needed for my research paper data analysis.",
+        "role": "研究者",
+        "text": "すべてのカテゴリが1つのCSVに入った完全レポートのエクスポートは、研究論文のデータ分析にまさに必要だったものです。",
         "rating": 4
       },
       "7": {
         "name": "Chris B.",
-        "role": "Sales Manager",
-        "text": "Comparing prospect lists before outreach campaigns. No duplicates means no embarrassing double emails to the same lead.",
+        "role": "営業マネージャー",
+        "text": "アウトリーチキャンペーン前に見込み客リストを比較。重複がないことで、同じリードへの恥ずかしい二重メールを防げます。",
         "rating": 5
       },
       "8": {
         "name": "Lisa T.",
-        "role": "Product Manager",
-        "text": "Clean, fast, no signup required. I've tried 5 different list comparison tools and this is by far the best one.",
+        "role": "プロダクトマネージャー",
+        "text": "シンプルで速く、登録不要。5つのリスト比較ツールを試しましたが、これが圧倒的にベストです。",
         "rating": 5
       },
       "9": {
         "name": "Ryan H.",
-        "role": "Sysadmin",
-        "text": "Compared two DNS zone files and found 23 orphaned records in seconds. The search filter made it easy to verify each one.",
+        "role": "システム管理者",
+        "text": "2つのDNSゾーンファイルを比較して、数秒で23件の孤立レコードを発見しました。検索フィルターで各々の確認が簡単でした。",
         "rating": 5
-      }
+      },
+      "sectionTag": "ユーザーの声",
+      "sectionTitle": "数千人に愛されています"
     },
     "howItWorks": {
-      "sectionTag": "How it works",
-      "sectionTitle": "Three Simple Steps",
       "0": {
         "step": "01",
-        "title": "Paste Your Lists",
-        "desc": "Paste two lists or upload TXT/CSV files. Auto-detects newlines, commas, tabs."
+        "title": "リストを貼り付け",
+        "desc": "2つのリストを貼り付けるか、TXT/CSVファイルをアップロード。改行、カンマ、タブを自動検出。"
       },
       "1": {
         "step": "02",
-        "title": "Choose Mode",
-        "desc": "Exact Match for free, or AI Match for fuzzy matching and DeepSeek insights."
+        "title": "モードを選択",
+        "desc": "無料の完全一致、またはあいまい一致とDeepSeekインサイトのAI一致を選択。"
       },
       "2": {
         "step": "03",
-        "title": "Get Results",
-        "desc": "See breakdown: items only in A, only in B, and in both. Export as CSV."
-      }
+        "title": "結果を取得",
+        "desc": "Aのみ、Bのみ、両方にある項目の内訳を確認。CSVとしてエクスポート。"
+      },
+      "sectionTag": "仕組み",
+      "sectionTitle": "3つの簡単ステップ"
     },
     "cta": {
-      "title": "Ready to Compare?",
-      "subtitle": "Join thousands of users who compare lists every day. Free, private, and instant.",
-      "button": "Start Comparing"
+      "title": "比較してみませんか？",
+      "subtitle": "毎日リストを比較する数千人のユーザーに参加。無料、プライベート、一瞬。",
+      "button": "比較を始める"
     },
     "faq": {
-      "sectionTag": "FAQ",
-      "sectionTitle": "Questions & Answers",
       "0": {
-        "q": "Is my data safe?",
-        "a": "Yes. All comparison happens in your browser. Your lists are never sent to any server or stored anywhere."
+        "q": "データは安全ですか？",
+        "a": "はい。すべての比較はブラウザ内で行われます。リストがサーバーに送信されたり、どこかに保存されることはありません。"
       },
       "1": {
-        "q": "What file formats are supported?",
-        "a": "Paste text or upload .txt, .csv, .tsv files. Items can be separated by newlines, commas, semicolons, or tabs."
+        "q": "対応ファイル形式は？",
+        "a": "テキストの貼り付け、または.txt、.csv、.tsvファイルのアップロードに対応。項目は改行、カンマ、セミコロン、タブで区切ることができます。"
       },
       "2": {
-        "q": "How many items can I compare?",
-        "a": "No hard limit. Handles tens of thousands of items smoothly since all processing is local."
+        "q": "何項目まで比較できますか？",
+        "a": "厳密な上限はありません。すべての処理がローカルで行われるため、数万項目でもスムーズに処理できます。"
       },
       "3": {
-        "q": "What is AI comparison?",
-        "a": "AI mode uses DeepSeek to find fuzzy matches like 'John Smith' vs 'Smith, John', detect typos, and generate an intelligent analysis summary. Uses 1 credit per comparison."
+        "q": "AI比較とは？",
+        "a": "AIモードはDeepSeekを使用して「John Smith」と「Smith, John」のようなあいまい一致を見つけ、タイプミスを検出し、インテリジェントな分析サマリーを生成します。1比較につき1クレジットを消費します。"
       },
       "4": {
-        "q": "How is match rate calculated?",
-        "a": "Uses the Dice coefficient: 2 x (common items) / (total A + total B), giving a percentage of list similarity."
-      }
+        "q": "一致率はどのように計算されますか？",
+        "a": "Dice係数を使用：2 ×（共通項目）/（Aの合計 + Bの合計）、リストの類似度をパーセンテージで示します。"
+      },
+      "sectionTag": "FAQ",
+      "sectionTitle": "よくある質問と回答"
     },
     "footer": {
       "copyright": "© {year} CompareList",
-      "processing": "All processing in your browser"
+      "processing": "すべての処理はブラウザ内で"
     }
   },
   "compareCsvFiles": {
     "hero": {
-      "badge": "CSV File Comparison",
-      "title": "Compare Two CSV Files Online",
-      "subtitle": "Find differences between CSV files. Upload .csv, .tsv, or .txt files and compare specific columns. Free and instant."
+      "badge": "CSVファイル比較",
+      "title": "2つのCSVファイルをオンラインで比較",
+      "subtitle": "CSVファイル間の差分を見つけます。.csv、.tsv、.txtファイルをアップロードして特定のカラムを比較。無料・一瞬。"
     },
     "listInput": {
-      "listA": "CSV File A",
-      "listB": "CSV File B",
-      "placeholderA": "Upload a CSV file or paste content...",
-      "placeholderB": "Upload a CSV file or paste content..."
+      "listA": "CSVファイルA",
+      "listB": "CSVファイルB",
+      "placeholderA": "CSVファイルをアップロードまたは内容を貼り付け...",
+      "placeholderB": "CSVファイルをアップロードまたは内容を貼り付け..."
     },
     "actions": {
-      "compare": "Compare CSV Files",
-      "options": "Options"
+      "compare": "CSVファイルを比較",
+      "options": "オプション"
     },
     "useCases": {
-      "heading": "CSV Comparison Use Cases",
       "0": {
-        "title": "Data Auditing",
-        "desc": "Compare data exports from different dates to track changes in records."
+        "title": "データ監査",
+        "desc": "異なる日付のデータエクスポートを比較してレコードの変更を追跡。"
       },
       "1": {
-        "title": "List Reconciliation",
-        "desc": "Find items in one dataset but missing from another."
+        "title": "リスト照合",
+        "desc": "一方のデータセットにあって他方にない項目を見つける。"
       },
       "2": {
-        "title": "Deduplication",
-        "desc": "Identify overlapping records across multiple CSV files."
+        "title": "重複排除",
+        "desc": "複数のCSVファイル間で重複するレコードを特定。"
       },
       "3": {
-        "title": "Migration Validation",
-        "desc": "Verify all records transferred correctly after data migration."
-      }
+        "title": "移行検証",
+        "desc": "データ移行後にすべてのレコードが正しく転送されたことを確認。"
+      },
+      "heading": "CSV比較のユースケース"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two CSV files?",
-        "a": "Upload both CSV files using the file upload buttons, or copy-paste the content directly. If your CSV has multiple columns, select the column you want to compare. Click Compare to see the results instantly."
+        "q": "2つのCSVファイルを比較するには？",
+        "a": "ファイルアップロードボタンで両方のCSVファイルをアップロードするか、内容を直接コピー＆ペーストしてください。CSVに複数のカラムがある場合は、比較するカラムを選択してください。「比較」をクリックすると結果が一瞬で表示されます。"
       },
       "1": {
-        "q": "Does it work with multi-column CSV files?",
-        "a": "Yes. When you upload a CSV with multiple columns, a dropdown appears letting you pick which column to compare (e.g., email, ID, name). Only that column's values are compared."
+        "q": "複数カラムのCSVファイルに対応していますか？",
+        "a": "はい。複数カラムのCSVをアップロードすると、比較するカラムを選択できるドロップダウンが表示されます（例：メール、ID、名前）。選択したカラムの値のみが比較されます。"
       },
       "2": {
-        "q": "What CSV formats are supported?",
-        "a": "Standard comma-separated (.csv), tab-separated (.tsv), semicolon-separated, and plain text (.txt) files. Headers are auto-detected and excluded from comparison."
+        "q": "対応するCSV形式は？",
+        "a": "標準のカンマ区切り（.csv）、タブ区切り（.tsv）、セミコロン区切り、プレーンテキスト（.txt）ファイル。ヘッダーは自動検出され、比較から除外されます。"
       },
       "3": {
-        "q": "Is there a file size limit?",
-        "a": "No strict limit. The tool handles files with tens of thousands of rows smoothly since all processing happens in your browser."
+        "q": "ファイルサイズの上限は？",
+        "a": "厳密な上限はありません。すべての処理がブラウザ内で行われるため、数万行のファイルでもスムーズに処理できます。"
       },
       "4": {
-        "q": "Can I export the comparison results?",
-        "a": "Yes. Export any result category as CSV or TXT, or use the Full Report option to download everything in a single categorized CSV file."
-      }
+        "q": "比較結果をエクスポートできますか？",
+        "a": "はい。結果カテゴリをCSVまたはTXTとしてエクスポートするか、「完全レポート」オプションですべてを1つの分類済みCSVファイルとしてダウンロードできます。"
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Compare CSV Files"
+      "current": "CSVファイル比較"
     },
     "jsonLd": {
-      "name": "Compare CSV Files - CompareList",
-      "description": "Free online tool to compare two CSV files. Find differences, compare specific columns, and export results."
+      "name": "CSVファイル比較 - CompareList",
+      "description": "2つのCSVファイルを比較する無料のオンラインツール。差分を見つけ、特定のカラムを比較し、結果をエクスポート。"
     }
   },
   "compareEmailLists": {
     "hero": {
-      "badge": "Email List Comparison",
-      "title": "Compare Two Email Lists Online",
-      "subtitle": "Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private."
+      "badge": "メールリスト比較",
+      "title": "2つのメールリストをオンラインで比較",
+      "subtitle": "2つのメールリスト間の重複、一意のアドレス、共通の購読者を見つけます。無料・一瞬・プライベート。"
     },
     "listInput": {
-      "listA": "Email List A",
-      "listB": "Email List B",
-      "placeholderA": "Paste your first email list...",
-      "placeholderB": "Paste your second email list..."
+      "listA": "メールリストA",
+      "listB": "メールリストB",
+      "placeholderA": "1つ目のメールリストを貼り付け...",
+      "placeholderB": "2つ目のメールリストを貼り付け..."
     },
     "actions": {
-      "compare": "Compare Email Lists",
-      "tryDemo": "Try Demo",
-      "options": "Options"
+      "compare": "メールリストを比較",
+      "tryDemo": "デモを試す",
+      "options": "オプション"
     },
     "useCases": {
-      "heading": "Use Cases",
       "0": {
-        "title": "Email Marketing",
-        "desc": "Compare subscriber lists to find duplicates across campaigns and remove bounced emails from active lists."
+        "title": "メールマーケティング",
+        "desc": "購読者リストを比較してキャンペーン間の重複を見つけ、アクティブリストからバウンスメールを削除。"
       },
       "1": {
-        "title": "CRM Cleanup",
-        "desc": "Merge contact lists from different sources and identify overlapping entries before importing."
+        "title": "CRMクリーンアップ",
+        "desc": "異なるソースの連絡先リストを統合し、インポート前に重複エントリを特定。"
       },
       "2": {
-        "title": "Bounce List Check",
-        "desc": "Compare your mailing list against a bounce list to remove invalid addresses before sending."
-      }
+        "title": "バウンスリストチェック",
+        "desc": "メールリストとバウンスリストを比較して、送信前に無効なアドレスを削除。"
+      },
+      "heading": "ユースケース"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two email lists?",
-        "a": "Simply paste your email lists into the two text areas above (one email per line), then click Compare. You'll instantly see which emails are in both lists, which are only in List A, and which are only in List B."
+        "q": "2つのメールリストを比較するには？",
+        "a": "上の2つのテキストエリアにメールリストを貼り付け（1行に1メールアドレス）、「比較」をクリックしてください。両方のリストにあるメール、リストAにだけあるメール、リストBにだけあるメールがすぐに表示されます。"
       },
       "1": {
-        "q": "Can I compare email lists from Excel or CSV?",
-        "a": "Yes! Copy the email column from your Excel or CSV file and paste it directly. You can also drag and drop .csv or .txt files onto the input areas."
+        "q": "ExcelやCSVのメールリストを比較できますか？",
+        "a": "はい！ExcelまたはCSVファイルのメールカラムをコピーして直接貼り付けてください。.csvや.txtファイルを入力エリアにドラッグ＆ドロップすることもできます。"
       },
       "2": {
-        "q": "Is my email data safe?",
-        "a": "Absolutely. All processing happens in your browser. Your email addresses are never sent to any server or stored anywhere."
+        "q": "メールデータは安全ですか？",
+        "a": "もちろんです。すべての処理はブラウザ内で行われます。メールアドレスがサーバーに送信されたり、どこかに保存されることはありません。"
       },
       "3": {
-        "q": "How do I remove duplicate emails?",
-        "a": "The 'Remove Duplicates' option is enabled by default. It automatically deduplicates each list before comparison."
+        "q": "重複メールを削除するには？",
+        "a": "「重複を削除」オプションはデフォルトで有効です。比較前に各リストの重複を自動的に排除します。"
       },
       "4": {
-        "q": "Can I export the results?",
-        "a": "Yes. Use the download buttons in the results section to export as CSV or TXT, or copy directly to clipboard."
-      }
+        "q": "結果をエクスポートできますか？",
+        "a": "はい。結果セクションのダウンロードボタンでCSVまたはTXTとしてエクスポートするか、クリップボードに直接コピーできます。"
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Compare Email Lists"
+      "current": "メールリスト比較"
     },
     "jsonLd": {
-      "name": "Compare Email Lists - CompareList",
-      "description": "Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private."
+      "name": "メールリスト比較 - CompareList",
+      "description": "2つのメールリスト間の重複、一意のアドレス、共通の購読者を見つけます。無料・一瞬・プライベート。"
     }
   },
   "compareExcelColumns": {
     "hero": {
-      "badge": "Excel Column Comparison",
-      "title": "Compare Two Excel Columns Online",
-      "subtitle": "Quickly find differences between two columns in Excel or Google Sheets. No formulas, no VLOOKUP needed."
+      "badge": "Excelカラム比較",
+      "title": "2つのExcelカラムをオンラインで比較",
+      "subtitle": "ExcelやGoogleスプレッドシートの2つのカラム間の差分を素早く見つけます。数式もVLOOKUPも不要。"
     },
     "listInput": {
-      "listA": "Column A",
-      "listB": "Column B",
-      "placeholderA": "Paste your first Excel column here...",
-      "placeholderB": "Paste your second Excel column here..."
+      "listA": "カラムA",
+      "listB": "カラムB",
+      "placeholderA": "1つ目のExcelカラムをここに貼り付け...",
+      "placeholderB": "2つ目のExcelカラムをここに貼り付け..."
     },
     "actions": {
-      "compare": "Compare Columns",
-      "options": "Options"
+      "compare": "カラムを比較",
+      "options": "オプション"
     },
     "steps": {
-      "heading": "How to Compare Excel Columns",
       "0": {
         "step": "1",
-        "title": "Open Your Excel File",
-        "desc": "Open the Excel or Google Sheets file containing the columns you want to compare."
+        "title": "Excelファイルを開く",
+        "desc": "比較したいカラムを含むExcelまたはGoogleスプレッドシートのファイルを開きます。"
       },
       "1": {
         "step": "2",
-        "title": "Copy Each Column",
-        "desc": "Select the first column, copy it (Ctrl+C), then paste it into List A. Repeat for the second column into List B."
+        "title": "各カラムをコピー",
+        "desc": "最初のカラムを選択してコピー（Ctrl+C）し、リストAに貼り付けます。2つ目のカラムも同様にリストBに貼り付けます。"
       },
       "2": {
         "step": "3",
-        "title": "Compare & Export",
-        "desc": "Click Compare. Download results as CSV to paste back into your spreadsheet."
-      }
+        "title": "比較してエクスポート",
+        "desc": "「比較」をクリック。結果をCSVとしてダウンロードし、スプレッドシートに貼り戻せます。"
+      },
+      "heading": "Excelカラムの比較方法"
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
-        "q": "How do I compare two columns in Excel?",
-        "a": "Copy the first column from your Excel file and paste it into the List A text area. Then copy the second column and paste it into List B. Click Compare to instantly see the differences."
+        "q": "Excelの2つのカラムを比較するには？",
+        "a": "Excelファイルの最初のカラムをコピーしてリストAのテキストエリアに貼り付けます。次に2つ目のカラムをコピーしてリストBに貼り付けます。「比較」をクリックすると差分がすぐに表示されます。"
       },
       "1": {
-        "q": "Does this work with Google Sheets?",
-        "a": "Yes. Copy any column from Google Sheets and paste it directly. The tool handles tab-separated and comma-separated data automatically."
+        "q": "Googleスプレッドシートでも使えますか？",
+        "a": "はい。Googleスプレッドシートの任意のカラムをコピーして直接貼り付けてください。タブ区切りとカンマ区切りのデータを自動的に処理します。"
       },
       "2": {
-        "q": "Can I compare columns with numbers?",
-        "a": "Yes. The tool compares items as text by default. Use the Case Sensitive option if you need exact matching, or leave it off for flexible comparison."
+        "q": "数値を含むカラムを比較できますか？",
+        "a": "はい。デフォルトではテキストとして項目を比較します。正確な一致が必要な場合は「大文字小文字を区別」オプションを使用し、柔軟な比較の場合はオフのままにしてください。"
       },
       "3": {
-        "q": "How do I get results back into Excel?",
-        "a": "Click the download button in the results section to export as CSV. You can then open or paste the CSV back into your Excel file."
-      }
+        "q": "結果をExcelに戻すには？",
+        "a": "結果セクションのダウンロードボタンをクリックしてCSVとしてエクスポートします。その後、CSVをExcelファイルに開くか貼り付けることができます。"
+      },
+      "heading": "よくある質問"
     },
     "breadcrumbs": {
-      "current": "Compare Excel Columns"
+      "current": "Excelカラム比較"
     },
     "jsonLd": {
-      "name": "Compare Excel Columns - CompareList",
-      "description": "Quickly find differences between two columns in Excel or Google Sheets. No formulas, no VLOOKUP needed."
+      "name": "Excelカラム比較 - CompareList",
+      "description": "ExcelやGoogleスプレッドシートの2つのカラム間の差分を素早く見つけます。数式もVLOOKUPも不要。"
     }
   },
   "compareIpAddresses": {
     "hero": {
-      "badge": "IP Address Comparison",
-      "title": "Compare IP Address Lists",
-      "subtitle": "Find matching, unique, and overlapping IP addresses between two lists. Supports IPv4 addresses with exact matching."
+      "badge": "IPアドレス比較",
+      "title": "IPアドレスリストを比較",
+      "subtitle": "2つのリスト間で一致、一意、重複するIPアドレスを見つけます。IPv4アドレスの完全一致に対応。"
     },
     "listInput": {
-      "listA": "Network A",
-      "listB": "Network B",
-      "placeholderA": "Paste IP addresses here...",
-      "placeholderB": "Paste IP addresses here..."
+      "listA": "ネットワークA",
+      "listB": "ネットワークB",
+      "placeholderA": "IPアドレスをここに貼り付け...",
+      "placeholderB": "IPアドレスをここに貼り付け..."
     },
     "actions": {
-      "compare": "Compare Lists",
-      "tryDemo": "Try Demo",
-      "options": "Options"
+      "compare": "リストを比較",
+      "tryDemo": "デモを試す",
+      "options": "オプション"
     },
     "useCases": {
-      "heading": "IP Address Comparison Use Cases",
       "0": {
-        "title": "Firewall Rule Audit",
-        "desc": "Compare allowed IPs across different firewall configurations."
+        "title": "ファイアウォールルール監査",
+        "desc": "異なるファイアウォール設定間で許可されたIPを比較。"
       },
       "1": {
-        "title": "Network Inventory",
-        "desc": "Find active IPs present in one scan but missing from another."
+        "title": "ネットワークインベントリ",
+        "desc": "一方のスキャンにあって他方にないアクティブなIPを見つける。"
       },
       "2": {
-        "title": "Access Control Review",
-        "desc": "Compare whitelists and blacklists between systems."
+        "title": "アクセス制御レビュー",
+        "desc": "システム間のホワイトリストとブラックリストを比較。"
       },
       "3": {
-        "title": "Incident Response",
-        "desc": "Cross-reference suspicious IPs against known threat lists."
-      }
+        "title": "インシデント対応",
+        "desc": "疑わしいIPを既知の脅威リストと照合。"
+      },
+      "heading": "IPアドレス比較のユースケース"
     },
     "breadcrumbs": {
-      "current": "Compare IP Addresses"
+      "current": "IPアドレス比較"
     },
     "jsonLd": {
-      "name": "Compare IP Addresses - CompareList",
-      "description": "Find matching, unique, and overlapping IP addresses between two lists. Supports IPv4 addresses with exact matching."
+      "name": "IPアドレス比較 - CompareList",
+      "description": "2つのリスト間で一致、一意、重複するIPアドレスを見つけます。IPv4アドレスの完全一致に対応。"
     }
   },
   "compareKeywords": {
     "hero": {
-      "badge": "Keyword List Comparison",
-      "title": "Compare Keyword Lists Online",
-      "subtitle": "Find overlapping keywords, keyword gaps, and unique opportunities between two keyword lists. Free SEO tool."
+      "badge": "キーワードリスト比較",
+      "title": "キーワードリストをオンラインで比較",
+      "subtitle": "2つのキーワードリスト間の重複キーワード、キーワードギャップ、独自の機会を見つけます。無料のSEOツール。"
     },
     "listInput": {
-      "listA": "Keyword List A",
-      "listB": "Keyword List B",
-      "placeholderA": "Paste your first keyword list...",
-      "placeholderB": "Paste your second keyword list..."
+      "listA": "キーワードリストA",
+      "listB": "キーワードリストB",
+      "placeholderA": "1つ目のキーワードリストを貼り付け...",
+      "placeholderB": "2つ目のキーワードリストを貼り付け..."
     },
     "actions": {
-      "compare": "Compare Keywords",
-      "options": "Options"
+      "compare": "キーワードを比較",
+      "options": "オプション"
     },
     "useCases": {
-      "heading": "SEO Use Cases",
       "0": {
-        "title": "Keyword Gap Analysis",
-        "desc": "Compare your keyword list with a competitor's to discover keyword opportunities you're missing."
+        "title": "キーワードギャップ分析",
+        "desc": "自社のキーワードリストと競合のリストを比較して、見落としているキーワード機会を発見。"
       },
       "1": {
-        "title": "Content Planning",
-        "desc": "Compare keywords from different topics to find overlapping terms and plan content clusters."
+        "title": "コンテンツ計画",
+        "desc": "異なるトピックのキーワードを比較して重複する用語を見つけ、コンテンツクラスターを計画。"
       },
       "2": {
-        "title": "Search Console Audit",
-        "desc": "Compare keywords you rank for vs keywords you target to find optimization opportunities."
-      }
+        "title": "Search Console監査",
+        "desc": "順位付けされているキーワードとターゲットキーワードを比較して最適化の機会を発見。"
+      },
+      "heading": "SEOユースケース"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two keyword lists?",
-        "a": "Paste your first keyword list into List A and the second into List B (one keyword per line). Click Compare to see which keywords are shared, unique to each list, and get overlap statistics."
+        "q": "2つのキーワードリストを比較するには？",
+        "a": "1つ目のキーワードリストをリストAに、2つ目をリストBに貼り付け（1行に1キーワード）。「比較」をクリックすると、共通キーワード、各リストに固有のキーワード、重複統計が表示されます。"
       },
       "1": {
-        "q": "Can I compare keywords from different SEO tools?",
-        "a": "Yes. Export keyword lists from Ahrefs, SEMrush, Google Search Console, or any other tool, then paste them here to find overlaps and gaps."
+        "q": "異なるSEOツールのキーワードを比較できますか？",
+        "a": "はい。Ahrefs、SEMrush、Google Search Console、その他のツールからキーワードリストをエクスポートし、ここに貼り付けて重複とギャップを見つけてください。"
       },
       "2": {
-        "q": "Does it handle keyword variations?",
-        "a": "By default, comparison is exact (case-insensitive). For detecting similar keywords like 'running shoes' vs 'shoes for running', use the AI Match mode."
+        "q": "キーワードのバリエーションに対応していますか？",
+        "a": "デフォルトでは、完全一致（大文字小文字を区別しない）で比較します。「ランニングシューズ」と「シューズ ランニング」のような類似キーワードを検出するには、AI一致モードを使用してください。"
       },
       "3": {
-        "q": "How can I find keyword gaps?",
-        "a": "Compare your target keyword list against a competitor's ranked keywords. Items 'Only in B' represent keyword gaps - keywords your competitor ranks for but you don't target."
-      }
+        "q": "キーワードギャップを見つけるには？",
+        "a": "ターゲットキーワードリストと競合の順位付けキーワードを比較してください。「Bにだけある」項目がキーワードギャップ、つまり競合は順位付けされているがあなたがターゲットしていないキーワードです。"
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Compare Keywords"
+      "current": "キーワード比較"
     },
     "jsonLd": {
-      "name": "Compare Keywords - CompareList",
-      "description": "Find overlapping keywords, keyword gaps, and unique opportunities between two keyword lists. Free SEO tool."
+      "name": "キーワード比較 - CompareList",
+      "description": "2つのキーワードリスト間の重複キーワード、キーワードギャップ、独自の機会を見つけます。無料のSEOツール。"
     }
   },
   "compareNameLists": {
     "hero": {
-      "badge": "Name List Comparison",
-      "title": "Compare Two CSV Columns Online",
-      "subtitle": "Find differences between two columns of data from CSV or Excel files. Paste, compare, export."
+      "badge": "名前リスト比較",
+      "title": "2つのCSVカラムをオンラインで比較",
+      "subtitle": "CSVまたはExcelファイルの2つのデータカラム間の差分を見つけます。貼り付け、比較、エクスポート。"
     },
     "listInput": {
-      "listA": "Column A",
-      "listB": "Column B",
-      "placeholderA": "Paste your first column data here...",
-      "placeholderB": "Paste your second column data here..."
+      "listA": "カラムA",
+      "listB": "カラムB",
+      "placeholderA": "1つ目のカラムデータをここに貼り付け...",
+      "placeholderB": "2つ目のカラムデータをここに貼り付け..."
     },
     "actions": {
-      "compare": "Compare Columns",
-      "options": "Options"
+      "compare": "カラムを比較",
+      "options": "オプション"
     },
     "steps": {
-      "heading": "How to Compare CSV Columns",
       "0": {
         "step": "1",
-        "title": "Copy Column Data",
-        "desc": "Open your CSV or Excel file, select the column you want to compare, and copy it."
+        "title": "カラムデータをコピー",
+        "desc": "CSVまたはExcelファイルを開き、比較するカラムを選択してコピー。"
       },
       "1": {
         "step": "2",
-        "title": "Paste Into Tool",
-        "desc": "Paste each column into the respective text area. Data can be separated by newlines, commas, or tabs."
+        "title": "ツールに貼り付け",
+        "desc": "各カラムをそれぞれのテキストエリアに貼り付け。データは改行、カンマ、タブで区切ることができます。"
       },
       "2": {
         "step": "3",
-        "title": "Compare & Export",
-        "desc": "Click Compare to see differences. Export results as CSV for further analysis in your spreadsheet."
-      }
+        "title": "比較してエクスポート",
+        "desc": "「比較」をクリックして差分を確認。結果をCSVとしてエクスポートしてスプレッドシートでさらに分析。"
+      },
+      "heading": "CSVカラムの比較方法"
     },
     "breadcrumbs": {
-      "current": "Compare Name Lists"
+      "current": "名前リスト比較"
     },
     "jsonLd": {
-      "name": "Compare Name Lists - CompareList",
-      "description": "Find differences between two columns of data from CSV or Excel files. Paste, compare, export."
+      "name": "名前リスト比較 - CompareList",
+      "description": "CSVまたはExcelファイルの2つのデータカラム間の差分を見つけます。貼り付け、比較、エクスポート。"
     }
   },
   "comparePhoneNumbers": {
     "hero": {
-      "badge": "Phone Number Comparison",
-      "title": "Compare Phone Number Lists Online",
-      "subtitle": "Find matching, missing, and duplicate phone numbers between two lists. Works with all formats including international numbers."
+      "badge": "電話番号比較",
+      "title": "電話番号リストをオンラインで比較",
+      "subtitle": "2つのリスト間で一致、欠落、重複する電話番号を見つけます。国際番号を含むすべての形式に対応。"
     },
     "listInput": {
-      "listA": "List A",
-      "listB": "List B",
-      "placeholderA": "Paste phone numbers here...",
-      "placeholderB": "Paste phone numbers here..."
+      "listA": "リストA",
+      "listB": "リストB",
+      "placeholderA": "電話番号をここに貼り付け...",
+      "placeholderB": "電話番号をここに貼り付け..."
     },
     "actions": {
-      "compare": "Compare Lists",
-      "tryDemo": "Try Demo",
-      "options": "Options"
+      "compare": "リストを比較",
+      "tryDemo": "デモを試す",
+      "options": "オプション"
     },
     "howItWorks": {
-      "heading": "How Phone Number Comparison Works",
-      "desc": "Phone numbers can appear in many different formats: with or without country codes, with different separators (dashes, spaces, dots, parentheses), and with or without the + prefix. Our comparison tool normalizes these differences so you can accurately match phone numbers regardless of formatting. For the most accurate results, use case-insensitive comparison and enable whitespace trimming."
+      "heading": "電話番号比較の仕組み",
+      "desc": "電話番号はさまざまな形式で入力される可能性があります：国コードの有無、異なる区切り文字（ハイフン、スペース、ドット、括弧）、+プレフィックスの有無など。この比較ツールはこれらの違いを正規化するため、書式に関係なく電話番号を正確に一致させることができます。最も正確な結果を得るために、大文字小文字を区別しない比較を使用し、空白のトリミングを有効にしてください。"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
-        "title": "CRM Deduplication",
-        "desc": "Find and merge duplicate contacts across CRM systems."
+        "title": "CRM重複排除",
+        "desc": "CRMシステム間で重複する連絡先を見つけて統合。"
       },
       "1": {
-        "title": "Call List Reconciliation",
-        "desc": "Compare outreach lists to avoid calling the same number twice."
+        "title": "発信リスト照合",
+        "desc": "アウトリーチリストを比較して同じ番号に二重発信を防止。"
       },
       "2": {
-        "title": "Do-Not-Call Compliance",
-        "desc": "Cross-reference your call lists against DNC registries."
+        "title": "発信禁止リスト準拠",
+        "desc": "発信リストをDNC登録簿と照合。"
       },
       "3": {
-        "title": "Contact Migration",
-        "desc": "Verify all phone numbers transferred correctly between systems."
-      }
+        "title": "連絡先移行",
+        "desc": "すべての電話番号がシステム間で正しく転送されたことを確認。"
+      },
+      "heading": "一般的なユースケース"
     },
     "breadcrumbs": {
-      "current": "Compare Phone Numbers"
+      "current": "電話番号比較"
     },
     "jsonLd": {
-      "name": "Compare Phone Numbers - CompareList",
-      "description": "Find matching, missing, and duplicate phone numbers between two lists. Works with all formats including international numbers."
+      "name": "電話番号比較 - CompareList",
+      "description": "2つのリスト間で一致、欠落、重複する電話番号を見つけます。国際番号を含むすべての形式に対応。"
     }
   },
   "compareTwoColumnsExcel": {
     "hero": {
-      "badge": "Excel Column Comparison",
-      "title": "Compare Two Columns in Excel",
-      "subtitle": "Paste two Excel columns to find matching values, unique entries, and duplicates. No formulas needed."
+      "badge": "Excelカラム比較",
+      "title": "Excelの2つのカラムを比較",
+      "subtitle": "2つのExcelカラムを貼り付けて、一致する値、一意のエントリ、重複を見つけます。数式不要。"
     },
     "listInput": {
-      "listA": "Column A",
-      "listB": "Column B",
-      "placeholderA": "Copy and paste your first Excel column...",
-      "placeholderB": "Copy and paste your second Excel column..."
+      "listA": "カラムA",
+      "listB": "カラムB",
+      "placeholderA": "1つ目のExcelカラムをコピー＆ペースト...",
+      "placeholderB": "2つ目のExcelカラムをコピー＆ペースト..."
     },
     "actions": {
-      "compare": "Compare Columns",
-      "options": "Options"
+      "compare": "カラムを比較",
+      "options": "オプション"
     },
     "benefits": {
-      "heading": "Why Use This Instead of Excel Formulas?",
+      "0": {
+        "title": "数式不要",
+        "desc": "VLOOKUP、MATCH、条件付き書式は不要。貼り付けるだけですぐに比較。"
+      },
+      "1": {
+        "title": "即座の視覚的結果",
+        "desc": "カテゴリ別タブで一致する値と一意の値を明確な概要で確認。"
+      },
+      "2": {
+        "title": "エクスポート対応",
+        "desc": "結果をCSVとしてダウンロードしてExcelに戻すか、チームと共有。"
+      },
+      "3": {
+        "title": "ファイル間比較",
+        "desc": "ファイルを結合することなく、異なるワークブックのカラムを比較。"
+      },
+      "heading": "Excelの数式の代わりにこれを使う理由は？"
+    },
+    "faq": {
+      "0": {
+        "q": "Excelの2つのカラムを比較するには？",
+        "a": "Excelファイルの各カラムのセルをコピーして、上のリストAとリストBに貼り付けてください。「比較」をクリックすると、一致する値、各カラムに固有のエントリ、統計がすぐに表示されます。"
+      },
+      "1": {
+        "q": "貼り付け前にデータを整形する必要がありますか？",
+        "a": "いいえ。Excelのカラムセルを選択してコピー（Ctrl+C）し、そのまま貼り付けてください。ツールが区切り文字を自動検出し、空白を処理します。"
+      },
+      "2": {
+        "q": "異なるExcelファイルのカラムを比較できますか？",
+        "a": "はい。両方のファイルを開き、それぞれから比較したいカラムをコピーして、リストAとリストBに貼り付けてください。"
+      },
+      "3": {
+        "q": "部分一致または完全一致のみ見つかりますか？",
+        "a": "デフォルトでは完全一致を見つけます。タイプミス、余分なスペース、並べ替えられたテキストのようなあいまい一致を見つけるには、AI一致モードを有効にしてください。"
+      },
+      "4": {
+        "q": "ExcelのVLOOKUPとどう違いますか？",
+        "a": "VLOOKUPは値が別のカラムに存在するかどうかを確認するだけです。このツールは完全な内訳を提供します：両方のカラムにある項目、カラムAにだけある項目、カラムBにだけある項目に加えて、統計とエクスポートオプション。"
+      },
+      "heading": "FAQ"
+    },
+    "breadcrumbs": {
+      "current": "Excelカラム比較"
+    },
+    "jsonLd": {
+      "name": "Excelの2つのカラムを比較 - CompareList",
+      "description": "Excelの2つのカラムをオンラインで比較する無料ツール。数式なしで一致、差分、一意の値を一瞬で見つけます。"
+    },
+    "whyUse": {
       "0": {
         "title": "No Formulas Needed",
         "desc": "Skip VLOOKUP, MATCH, and conditional formatting. Just paste and compare."
@@ -610,711 +658,714 @@
       "3": {
         "title": "Works Across Files",
         "desc": "Compare columns from different workbooks without merging files first."
-      }
-    },
-    "faq": {
-      "heading": "FAQ",
-      "0": {
-        "q": "How do I compare two columns in Excel?",
-        "a": "Copy the cells from each column in your Excel file and paste them into List A and List B above. Click Compare to instantly see matching values, unique entries in each column, and statistics."
       },
-      "1": {
-        "q": "Do I need to format the data before pasting?",
-        "a": "No. Just select the column cells in Excel, copy (Ctrl+C), and paste directly. The tool auto-detects delimiters and handles whitespace."
-      },
-      "2": {
-        "q": "Can I compare columns from different Excel files?",
-        "a": "Yes. Open both files, copy the column you want from each, and paste into List A and List B respectively."
-      },
-      "3": {
-        "q": "Will it find partial matches or only exact matches?",
-        "a": "By default it finds exact matches. Enable AI Match mode to find fuzzy matches like typos, extra spaces, and reordered text."
-      },
-      "4": {
-        "q": "How is this different from Excel VLOOKUP?",
-        "a": "VLOOKUP only checks if a value exists in another column. This tool gives you a complete breakdown: items in both columns, items only in column A, items only in column B, plus statistics and export options."
-      }
-    },
-    "breadcrumbs": {
-      "current": "Compare Excel Columns"
-    },
-    "jsonLd": {
-      "name": "Compare Two Columns in Excel - CompareList",
-      "description": "Free tool to compare two Excel columns online. Find matches, differences, and unique values instantly without formulas."
+      "heading": "Why Use This Instead of Excel Formulas?"
     }
   },
   "compareUrls": {
     "hero": {
-      "badge": "URL List Comparison",
-      "title": "Compare Two URL Lists Online",
-      "subtitle": "Find differences between two lists of URLs. Compare sitemaps, backlink lists, or crawled pages."
+      "badge": "URLリスト比較",
+      "title": "2つのURLリストをオンラインで比較",
+      "subtitle": "2つのURLリスト間の差分を見つけます。サイトマップ、バックリンクリスト、クロール済みページを比較。"
     },
     "listInput": {
-      "listA": "URL List A",
-      "listB": "URL List B",
-      "placeholderA": "Paste your first URL list, one per line...",
-      "placeholderB": "Paste your second URL list, one per line..."
+      "listA": "URLリストA",
+      "listB": "URLリストB",
+      "placeholderA": "1つ目のURLリストを貼り付け（1行に1つ）...",
+      "placeholderB": "2つ目のURLリストを貼り付け（1行に1つ）..."
     },
     "actions": {
-      "compare": "Compare URLs",
-      "options": "Options"
+      "compare": "URLを比較",
+      "options": "オプション"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
-        "title": "SEO & Sitemaps",
-        "desc": "Compare old vs new sitemaps to find missing or new pages after a site migration or redesign."
+        "title": "SEO・サイトマップ",
+        "desc": "サイト移行やリデザイン後に新旧サイトマップを比較して、欠落ページや新規ページを見つける。"
       },
       "1": {
-        "title": "Backlink Analysis",
-        "desc": "Compare backlink lists from different tools (Ahrefs, Moz, SEMrush) to find unique and overlapping links."
+        "title": "バックリンク分析",
+        "desc": "異なるツール（Ahrefs、Moz、SEMrush）のバックリンクリストを比較して、一意のリンクと重複リンクを見つける。"
       },
       "2": {
-        "title": "Broken Link Audit",
-        "desc": "Compare crawled URLs against your current page inventory to identify broken links and orphan pages."
-      }
+        "title": "リンク切れ監査",
+        "desc": "クロール済みURLと現在のページインベントリを比較して、リンク切れや孤立ページを特定。"
+      },
+      "heading": "一般的なユースケース"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two lists of URLs?",
-        "a": "Paste one list of URLs into List A and the other into List B, one URL per line. Click Compare to instantly see which URLs are unique to each list and which appear in both."
+        "q": "2つのURLリストを比較するには？",
+        "a": "1つのURLリストをリストAに、もう1つをリストBに（1行に1URL）貼り付けてください。「比較」をクリックすると、各リストに固有のURLと両方にあるURLがすぐに表示されます。"
       },
       "1": {
-        "q": "Does it compare full URLs or just domains?",
-        "a": "By default, it compares full URLs as-is. For domain-level comparison, you can enable Case Sensitive off (default) so HTTP vs https differences are handled."
+        "q": "完全なURLまたはドメインのみを比較しますか？",
+        "a": "デフォルトでは、完全なURLをそのまま比較します。ドメインレベルの比較には、大文字小文字を区別しない（デフォルト）設定を利用して、HTTPとhttpsの違いを処理できます。"
       },
       "2": {
-        "q": "Can I compare sitemaps or crawl data?",
-        "a": "Yes. Export URLs from your sitemap XML or crawl tool (like Screaming Frog) as a text list, then paste them here to compare."
+        "q": "サイトマップやクロールデータを比較できますか？",
+        "a": "はい。サイトマップXMLやクロールツール（Screaming Frogなど）からURLをテキストリストとしてエクスポートし、ここに貼り付けて比較してください。"
       },
       "3": {
-        "q": "What about trailing slashes and www prefixes?",
-        "a": "These are treated as different entries by default. Use the Trim Whitespace option and consider normalizing your URLs before comparing for best results."
-      }
+        "q": "末尾のスラッシュやwwwプレフィックスはどうなりますか？",
+        "a": "デフォルトでは異なるエントリとして扱われます。「空白をトリム」オプションを使用し、最良の結果を得るために比較前にURLを正規化することを検討してください。"
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Compare URLs"
+      "current": "URL比較"
     },
     "jsonLd": {
-      "name": "Compare URLs - CompareList",
-      "description": "Find differences between two lists of URLs. Compare sitemaps, backlink lists, or crawled pages."
+      "name": "URL比較 - CompareList",
+      "description": "2つのURLリスト間の差分を見つけます。サイトマップ、バックリンクリスト、クロール済みページを比較。"
     }
   },
   "listDiff": {
     "hero": {
-      "badge": "List Diff Tool",
-      "title": "List Diff - Find Differences Between Lists",
-      "subtitle": "Compare two lists and instantly see what's different. Get added items, removed items, and unchanged items."
+      "badge": "リスト差分ツール",
+      "title": "リスト差分 - リスト間の違いを見つける",
+      "subtitle": "2つのリストを比較して、違いを一瞬で確認。追加された項目、削除された項目、変更されていない項目を取得。"
     },
     "listInput": {
-      "listA": "Original List",
-      "listB": "New List",
-      "placeholderA": "Paste your original list here...",
-      "placeholderB": "Paste your new list here..."
+      "listA": "元のリスト",
+      "listB": "新しいリスト",
+      "placeholderA": "元のリストをここに貼り付け...",
+      "placeholderB": "新しいリストをここに貼り付け..."
     },
     "actions": {
-      "diffLists": "Diff Lists",
-      "options": "Options"
+      "diffLists": "差分を取得",
+      "options": "オプション"
     },
     "howItWorks": {
-      "heading": "How List Diff Works",
       "0": {
-        "title": "Removed Items",
-        "desc": "Items in your original list that are missing from the new list. Think of these as 'deleted' entries."
+        "title": "削除された項目",
+        "desc": "元のリストにあって新しいリストにない項目。「削除された」エントリと考えてください。"
       },
       "1": {
-        "title": "Added Items",
-        "desc": "Items in your new list that weren't in the original. These are the 'newly added' entries."
+        "title": "追加された項目",
+        "desc": "新しいリストにあって元のリストになかった項目。「新しく追加された」エントリです。"
       },
       "2": {
-        "title": "Unchanged Items",
-        "desc": "Items present in both lists. These entries stayed the same between versions."
-      }
+        "title": "変更されていない項目",
+        "desc": "両方のリストに存在する項目。バージョン間で同じままのエントリです。"
+      },
+      "heading": "リスト差分の仕組み"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "What is list diff?",
-        "a": "List diff is the process of finding the differences between two lists. It shows you items that exist only in the first list, only in the second list, and items common to both."
+        "q": "リスト差分とは？",
+        "a": "リスト差分とは、2つのリスト間の違いを見つけるプロセスです。最初のリストにだけある項目、2つ目のリストにだけある項目、両方に共通する項目を表示します。"
       },
       "1": {
-        "q": "How is this different from text diff?",
-        "a": "Text diff compares text line by line in order. List diff treats each item independently regardless of order, like set operations in math (union, intersection, difference)."
+        "q": "テキスト差分とどう違いますか？",
+        "a": "テキスト差分はテキストを行ごとに順番に比較します。リスト差分は各項目を順序に関係なく独立して扱い、数学の集合演算（和集合、積集合、差集合）のようになります。"
       },
       "2": {
-        "q": "Can I diff large lists?",
-        "a": "Yes. The tool handles lists with tens of thousands of items smoothly, since all processing happens in your browser using efficient set algorithms."
+        "q": "大きなリストの差分を取得できますか？",
+        "a": "はい。すべての処理がブラウザ内で効率的な集合アルゴリズムを使用して行われるため、数万項目のリストでもスムーズに処理できます。"
       },
       "3": {
-        "q": "What output formats are supported?",
-        "a": "You can copy results to clipboard, download as CSV, or download as plain text. Each category (only in A, only in B, common) can be exported separately."
-      }
+        "q": "対応する出力形式は？",
+        "a": "結果をクリップボードにコピー、CSVとしてダウンロード、またはプレーンテキストとしてダウンロードできます。各カテゴリ（Aにだけある、Bにだけある、共通）は個別にエクスポートできます。"
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "List Diff"
+      "current": "リスト差分"
     },
     "jsonLd": {
-      "name": "List Diff - CompareList",
-      "description": "Compare two lists and instantly see what's different. Get added items, removed items, and unchanged items."
+      "name": "リスト差分 - CompareList",
+      "description": "2つのリストを比較して違いを一瞬で確認。追加、削除、変更されていない項目を取得。"
     }
   },
   "removeDuplicatesFromList": {
     "hero": {
-      "badge": "Deduplication Tool",
-      "title": "Remove Duplicates from List",
-      "subtitle": "Paste any list to instantly remove duplicate entries. Free, private, and works entirely in your browser."
+      "badge": "重複排除ツール",
+      "title": "リストから重複を削除",
+      "subtitle": "任意のリストを貼り付けて重複エントリを一瞬で削除。無料、プライベート、ブラウザ内で完全に動作。"
     },
     "listInput": {
-      "listA": "Your List",
-      "listB": "Second List (optional)",
-      "placeholderA": "Paste your list with duplicates...",
-      "placeholderB": "Paste a second list to find cross-list duplicates..."
+      "listA": "あなたのリスト",
+      "listB": "2つ目のリスト（オプション）",
+      "placeholderA": "重複を含むリストを貼り付け...",
+      "placeholderB": "リスト間の重複を見つけるために2つ目のリストを貼り付け..."
     },
     "actions": {
-      "removeDuplicates": "Remove Duplicates",
-      "copyToClipboard": "Copy to clipboard"
+      "removeDuplicates": "重複を削除",
+      "copyToClipboard": "クリップボードにコピー"
     },
     "result": {
-      "heading": "Deduplicated Result",
-      "stats": "{count} items ({dupCount} duplicates removed)"
+      "heading": "重複削除結果",
+      "stats": "{count}件（{dupCount}件の重複を削除）"
     },
     "useCases": {
-      "heading": "Common Deduplication Use Cases",
       "0": {
-        "title": "Email List Cleanup",
-        "desc": "Remove duplicate email addresses before sending campaigns to avoid double-emailing."
+        "title": "メールリストクリーンアップ",
+        "desc": "キャンペーン送信前に重複するメールアドレスを削除して二重送信を防止。"
       },
       "1": {
-        "title": "Contact Deduplication",
-        "desc": "Merge contact lists from different sources and remove overlapping entries."
+        "title": "連絡先重複排除",
+        "desc": "異なるソースの連絡先リストを統合し、重複エントリを削除。"
       },
       "2": {
-        "title": "Data Cleaning",
-        "desc": "Clean up messy datasets by removing repeated values before analysis."
+        "title": "データクリーニング",
+        "desc": "分析前に繰り返し値を削除して乱雑なデータセットを整理。"
       },
       "3": {
-        "title": "Inventory Management",
-        "desc": "Find and remove duplicate SKUs or product codes across inventory lists."
-      }
+        "title": "在庫管理",
+        "desc": "在庫リスト間で重複するSKUや製品コードを見つけて削除。"
+      },
+      "heading": "重複排除の一般的なユースケース"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I remove duplicates from a list?",
-        "a": "Paste your list into the text area above (one item per line) and click Remove Duplicates. You'll instantly get a clean list with all duplicates removed."
+        "q": "リストから重複を削除するには？",
+        "a": "上のテキストエリアにリストを貼り付け（1行に1項目）、「重複を削除」をクリックしてください。重複がすべて削除されたクリーンなリストがすぐに表示されます。"
       },
       "1": {
-        "q": "Does it remove duplicates across both lists?",
-        "a": "If you paste two lists, the tool shows you which items are shared (duplicates across lists) and which are unique to each. For a single list, it removes internal duplicates."
+        "q": "両方のリスト間で重複を削除しますか？",
+        "a": "2つのリストを貼り付けた場合、ツールは共有されている項目（リスト間の重複）と各リストに固有の項目を表示します。1つのリストの場合は、内部の重複を削除します。"
       },
       "2": {
-        "q": "Is it case-sensitive?",
-        "a": "By default, no. 'Apple' and 'apple' are treated as the same item. This matches how most people expect deduplication to work."
+        "q": "大文字小文字を区別しますか？",
+        "a": "デフォルトでは区別しません。「Apple」と「apple」は同じ項目として扱われます。これはほとんどの人が重複排除に期待する動作です。"
       },
       "3": {
-        "q": "Can I remove duplicates from an Excel column?",
-        "a": "Yes. Copy the column from Excel and paste it directly into the text area. The deduplicated result can be copied back to Excel."
+        "q": "Excelカラムから重複を削除できますか？",
+        "a": "はい。Excelからカラムをコピーしてテキストエリアに直接貼り付けてください。重複削除結果はExcelにコピーし戻せます。"
       },
       "4": {
-        "q": "What counts as a duplicate?",
-        "a": "Items that are identical after trimming whitespace. Empty lines are ignored. By default, comparison is case-insensitive."
-      }
+        "q": "何が重複とみなされますか？",
+        "a": "空白をトリムした後に同一の項目。空行は無視されます。デフォルトでは、大文字小文字を区別しない比較です。"
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Remove Duplicates from List"
+      "current": "リストから重複を削除"
     },
     "jsonLd": {
-      "name": "Remove Duplicates from List - CompareList",
-      "description": "Free online tool to remove duplicates from any list. Paste your list and get a clean, deduplicated result instantly."
+      "name": "リストから重複を削除 - CompareList",
+      "description": "任意のリストから重複を削除する無料のオンラインツール。リストを貼り付けて重複なしのクリーンな結果をすぐに取得。"
     }
   },
   "howToCompareTwoLists": {
     "hero": {
-      "badge": "Tutorial",
-      "title": "How to Compare Two Lists Online",
-      "subtitle": "A complete guide to finding differences, common items, and unique entries between any two lists — in under 30 seconds."
+      "badge": "チュートリアル",
+      "title": "2つのリストをオンラインで比較する方法",
+      "subtitle": "2つのリスト間の差分、共通項目、一意のエントリを見つける完全ガイド — 30秒以内に。"
     },
     "quickSummary": {
-      "heading": "Quick Summary",
       "0": {
-        "title": "Instant Results",
-        "desc": "Compare thousands of items in milliseconds, entirely in your browser."
+        "title": "即座の結果",
+        "desc": "数千項目をミリ秒で比較、すべてブラウザ内で。"
       },
       "1": {
-        "title": "100% Private",
-        "desc": "Your data never leaves your device. No server uploads, no tracking."
+        "title": "100%プライベート",
+        "desc": "データはデバイスから送信されません。サーバーアップロードなし、追跡なし。"
       },
       "2": {
-        "title": "Any Format",
-        "desc": "Paste text, upload files, drag and drop. Auto-detects delimiters."
-      }
+        "title": "あらゆる形式",
+        "desc": "テキストの貼り付け、ファイルのアップロード、ドラッグ＆ドロップに対応。区切り文字を自動検出。"
+      },
+      "heading": "概要"
     },
     "steps": {
-      "heading": "Step-by-Step Guide",
       "0": {
         "num": "1",
-        "title": "Paste or Upload Your Lists",
-        "desc": "Copy and paste your first list into List A and your second list into List B. You can also upload TXT, CSV, or TSV files by clicking the Upload button or dragging files directly into the input area.",
-        "tip": "Lists can contain emails, names, URLs, numbers, keywords, or any text items. Items are auto-detected regardless of separator (newlines, commas, tabs, semicolons)."
+        "title": "リストを貼り付けまたはアップロード",
+        "desc": "1つ目のリストをリストAに、2つ目のリストをリストBにコピー＆ペーストしてください。アップロードボタンをクリックするか、ファイルを入力エリアに直接ドラッグしてTXT、CSV、TSVファイルをアップロードすることもできます。",
+        "tip": "リストにはメール、名前、URL、番号、キーワード、任意のテキスト項目を含めることができます。項目は区切り文字（改行、カンマ、タブ、セミコロン）に関係なく自動検出されます。"
       },
       "1": {
         "num": "2",
-        "title": "Choose Your Comparison Mode",
-        "desc": "Select \"Exact Match\" for precise item-by-item comparison, or \"AI Match\" to find fuzzy matches like typos, reordered names (\"John Smith\" vs \"Smith, John\"), and similar entries using DeepSeek AI.",
-        "tip": "Exact Match is always free. AI Match uses 1 credit per comparison and includes fuzzy matching and intelligent analysis."
+        "title": "比較モードを選択",
+        "desc": "項目ごとの正確な比較には「完全一致」を、タイプミス、並べ替えられた名前（「John Smith」と「Smith, John」）、類似エントリを見つけるには「AI一致」をDeepSeek AIで選択してください。",
+        "tip": "完全一致は常に無料です。AI一致は1比較につき1クレジットを消費し、あいまい一致とインテリジェント分析が含まれます。"
       },
       "2": {
         "num": "3",
-        "title": "Configure Options (Optional)",
-        "desc": "Click the Options button to toggle case sensitivity, whitespace trimming, duplicate removal, and empty line filtering. Defaults work well for most cases.",
-        "tip": "Enable case-sensitive matching if you need to distinguish between uppercase and lowercase differences."
+        "title": "オプションを設定（オプション）",
+        "desc": "オプションボタンをクリックして、大文字小文字の区別、空白のトリム、重複削除、空行フィルタリングを切り替えます。デフォルトはほとんどの場合に適しています。",
+        "tip": "大文字と小文字の違いを区別する必要がある場合は、大文字小文字を区別するマッチングを有効にしてください。"
       },
       "3": {
         "num": "4",
-        "title": "Click Compare",
-        "desc": "Hit the Compare button and get instant results. You'll see statistics, a Venn diagram, and categorized results in tabs.",
-        "tip": "Results are computed entirely in your browser. Your data is never uploaded to any server."
+        "title": "比較をクリック",
+        "desc": "「比較」ボタンを押して即座に結果を取得。統計、ベン図、タブのカテゴリ別結果が表示されます。",
+        "tip": "結果はすべてブラウザ内で計算されます。データがサーバーにアップロードされることはありません。"
       },
       "4": {
         "num": "5",
-        "title": "Explore and Export Results",
-        "desc": "Browse results in categorized tabs: Only in A, Only in B, In Both, Union, and Symmetric Difference. Use the search bar to filter, sort alphabetically, and export as CSV, TXT, or a full report.",
-        "tip": "The Full Report export creates a single CSV with all categories clearly labeled — perfect for spreadsheets."
-      }
+        "title": "結果を確認してエクスポート",
+        "desc": "カテゴリ別タブで結果を閲覧：Aにだけある、Bにだけある、両方にある、ユニオン、対称差分。検索バーでフィルタ、アルファベット順に並べ替え、CSV、TXT、または完全レポートとしてエクスポート。",
+        "tip": "完全レポートエクスポートは、すべてのカテゴリが明確にラベル付けされた1つのCSVを作成します — スプレッドシートに最適。"
+      },
+      "heading": "ステップバイステップガイド",
+      "tipLabel": "Tip"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
-        "title": "Email List Comparison",
-        "desc": "Find subscribers in one list but not another, detect duplicates across campaigns."
+        "title": "メールリスト比較",
+        "desc": "一方のリストにあって他方にない購読者を見つけ、キャンペーン間の重複を検出。"
       },
       "1": {
-        "title": "Inventory Reconciliation",
-        "desc": "Compare product SKUs or item lists between systems to find discrepancies."
+        "title": "在庫照合",
+        "desc": "システム間でSKUやアイテムリストを比較して不一致を見つける。"
       },
       "2": {
-        "title": "Data Cleaning",
-        "desc": "Identify and remove duplicate or near-duplicate entries across datasets."
+        "title": "データクリーニング",
+        "desc": "データセット間で重複またはほぼ重複するエントリを特定して削除。"
       },
       "3": {
-        "title": "Keyword Research",
-        "desc": "Compare keyword lists from different tools to find unique opportunities."
+        "title": "キーワード調査",
+        "desc": "異なるツールからのキーワードリストを比較して独自の機会を見つける。"
       },
       "4": {
-        "title": "Name Matching",
-        "desc": "Find matching names across lists with AI fuzzy matching for spelling variations."
+        "title": "名前マッチング",
+        "desc": "AIあいまい一致でスペルのバリエーションを含むリスト間の名前を見つける。"
       },
       "5": {
-        "title": "URL Comparison",
-        "desc": "Compare sitemaps, backlink lists, or page inventories between sites."
-      }
+        "title": "URL比較",
+        "desc": "サイト間のサイトマップ、バックリンクリスト、ページインベントリを比較。"
+      },
+      "heading": "一般的なユースケース"
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
-        "q": "Is there a file size limit?",
-        "a": "There is no strict limit. The tool handles tens of thousands of items smoothly since all processing happens locally in your browser."
+        "q": "ファイルサイズの上限は？",
+        "a": "厳密な上限はありません。すべての処理がブラウザ内でローカルに行われるため、数万項目でもスムーズに処理できます。"
       },
       "1": {
-        "q": "Can I compare more than two lists?",
-        "a": "Currently, the tool compares exactly two lists at a time. For multiple lists, you can compare them pairwise and combine the results."
+        "q": "2つ以上のリストを比較できますか？",
+        "a": "現在、ツールは一度に正確に2つのリストを比較します。複数のリストがある場合は、ペアごとに比較して結果を組み合わせてください。"
       },
       "2": {
-        "q": "What is the match rate percentage?",
-        "a": "The match rate uses the Dice coefficient formula: 2 x (common items) / (total A + total B). It gives a percentage showing how similar the two lists are."
+        "q": "一致率のパーセンテージとは？",
+        "a": "一致率はDice係数の公式を使用します：2 ×（共通項目）/（Aの合計 + Bの合計）。2つのリストがどれだけ類似しているかをパーセンテージで示します。"
       },
       "3": {
-        "q": "How does AI fuzzy matching work?",
-        "a": "AI matching uses a combination of Levenshtein edit distance and Jaccard token similarity to find items that are similar but not identical — like typos, reordered words, or partial matches."
+        "q": "AIあいまい一致はどのように機能しますか？",
+        "a": "AIマッチングはLevenshtein編集距離とJaccardトークン類似度の組み合わせを使用して、同一ではないが類似した項目（タイプミス、並べ替えられた単語、部分一致など）を見つけます。"
       },
       "4": {
-        "q": "Is my data stored anywhere?",
-        "a": "No. All comparison happens in your browser. Your lists are never sent to any server. History is stored locally in your browser and can be cleared at any time."
-      }
+        "q": "データはどこかに保存されますか？",
+        "a": "いいえ。すべての比較はブラウザ内で行われます。リストがサーバーに送信されることはありません。履歴はブラウザにローカル保存され、いつでもクリアできます。"
+      },
+      "heading": "よくある質問"
     },
     "cta": {
-      "title": "Ready to Try It?",
-      "subtitle": "Compare your first two lists in under 30 seconds — free, private, and instant.",
-      "button": "Start Comparing"
+      "title": "試してみませんか？",
+      "subtitle": "30秒以内に最初のリスト比較 — 無料、プライベート、一瞬。",
+      "button": "比較を始める"
     },
     "breadcrumbs": {
-      "current": "How to Compare Two Lists"
+      "current": "2つのリストを比較する方法"
     },
     "jsonLd": {
-      "name": "How to Compare Two Lists Online",
-      "description": "A complete guide to finding differences, common items, and unique entries between any two lists."
+      "name": "2つのリストをオンラインで比較する方法",
+      "description": "2つのリスト間の差分、共通項目、一意のエントリを見つける完全ガイド。"
+    },
+    "nav": {
+      "tutorials": "Tutorials"
     }
   },
   "howToCompareCsvFiles": {
     "hero": {
-      "badge": "Tutorial",
-      "title": "How to Compare Two CSV Files",
-      "subtitle": "Compare CSV files to find added, removed, and common rows. Works with any CSV structure and lets you pick specific columns."
+      "badge": "チュートリアル",
+      "title": "2つのCSVファイルを比較する方法",
+      "subtitle": "CSVファイルを比較して、追加、削除、共通の行を見つけます。任意のCSV構造に対応し、特定のカラムを選択できます。"
     },
     "whyCompare": {
-      "heading": "Why Compare CSV Files?",
       "0": {
-        "title": "Data Auditing",
-        "desc": "Verify data changes between exports from different dates or systems."
+        "title": "データ監査",
+        "desc": "異なる日付やシステムからのエクスポート間でデータの変更を確認。"
       },
       "1": {
-        "title": "List Reconciliation",
-        "desc": "Find items present in one dataset but missing from another."
+        "title": "リスト照合",
+        "desc": "一方のデータセットにあって他方にない項目を見つける。"
       },
       "2": {
-        "title": "Deduplication",
-        "desc": "Identify overlapping records across multiple CSV files."
+        "title": "重複排除",
+        "desc": "複数のCSVファイル間で重複するレコードを特定。"
       },
       "3": {
-        "title": "Migration Validation",
-        "desc": "Confirm all records transferred correctly after data migration."
-      }
+        "title": "移行検証",
+        "desc": "データ移行後にすべてのレコードが正しく転送されたことを確認。"
+      },
+      "heading": "CSVファイルを比較する理由"
     },
     "steps": {
-      "heading": "Steps to Compare CSV Files",
       "0": {
-        "title": "Upload Your CSV Files",
-        "desc": "Click the \"Upload File\" button on each input panel to select a CSV file. You can also drag and drop files directly onto the input areas. When you upload a multi-column CSV, a column selector dropdown appears automatically — pick the column you want to compare."
+        "title": "CSVファイルをアップロード",
+        "desc": "各入力パネルの「ファイルをアップロード」ボタンをクリックしてCSVファイルを選択します。ファイルを入力エリアに直接ドラッグ＆ドロップすることもできます。複数カラムのCSVをアップロードすると、カラムセレクターのドロップダウンが自動的に表示されます — 比較するカラムを選択してください。"
       },
       "1": {
-        "title": "Select the Right Column",
-        "desc": "For multi-column CSVs, use the column selector dropdown to pick which column to compare. This lets you compare specific fields like email addresses, IDs, or product names from within larger datasets."
+        "title": "適切なカラムを選択",
+        "desc": "複数カラムのCSVの場合、カラムセレクターのドロップダウンを使用して比較するカラムを選択します。これにより、大規模なデータセット内からメールアドレス、ID、製品名などの特定のフィールドを比較できます。"
       },
       "2": {
-        "title": "Run the Comparison",
-        "desc": "Click \"Compare Lists\" to get instant results. The tool will show you items only in file A, only in file B, and items present in both files. Statistics and a Venn diagram give you a quick overview."
+        "title": "比較を実行",
+        "desc": "「リストを比較」をクリックして即座に結果を取得。ツールはファイルAにだけある項目、ファイルBにだけある項目、両方のファイルにある項目を表示します。統計とベン図で素早い概要が得られます。"
       },
       "3": {
-        "title": "Export the Results",
-        "desc": "Export individual categories as CSV or TXT, or use \"Full Report\" to download everything in a single categorized CSV file. You can also copy results directly to your clipboard."
-      }
+        "title": "結果をエクスポート",
+        "desc": "個別のカテゴリをCSVまたはTXTとしてエクスポートするか、「完全レポート」ですべてを1つの分類済みCSVファイルとしてダウンロードできます。結果をクリップボードに直接コピーすることもできます。"
+      },
+      "heading": "CSVファイルを比較する手順"
     },
     "formats": {
-      "heading": "Supported File Formats",
       "0": {
         "ext": ".csv",
-        "name": "Comma-Separated Values",
-        "desc": "Standard CSV with header detection and column selection."
+        "name": "カンマ区切り値",
+        "desc": "ヘッダー検出とカラム選択を備えた標準CSV。"
       },
       "1": {
         "ext": ".tsv",
-        "name": "Tab-Separated Values",
-        "desc": "Auto-detected tab-delimited files with column support."
+        "name": "タブ区切り値",
+        "desc": "カラムサポート付きの自動検出タブ区切りファイル。"
       },
       "2": {
         "ext": ".txt",
-        "name": "Plain Text",
-        "desc": "One item per line, or comma/semicolon/tab separated."
-      }
+        "name": "プレーンテキスト",
+        "desc": "1行に1項目、またはカンマ/セミコロン/タブ区切り。"
+      },
+      "heading": "対応ファイル形式"
     },
     "cta": {
-      "title": "Compare Your CSV Files Now",
-      "subtitle": "Free, instant, and completely private. No signup required.",
-      "button": "Start Comparing"
+      "title": "今すぐCSVファイルを比較",
+      "subtitle": "無料、一瞬、完全にプライベート。登録不要。",
+      "button": "比較を始める"
     },
     "breadcrumbs": {
-      "current": "How to Compare CSV Files"
+      "current": "CSVファイルを比較する方法"
     },
     "jsonLd": {
-      "name": "How to Compare Two CSV Files Online",
-      "description": "Compare CSV files to find added, removed, and common rows. Works with any CSV structure and lets you pick specific columns."
+      "name": "2つのCSVファイルをオンラインで比較する方法",
+      "description": "CSVファイルを比較して追加、削除、共通の行を見つけます。任意のCSV構造に対応し、特定のカラムを選択できます。"
     }
   },
   "howToFindDifferences": {
     "hero": {
-      "badge": "Tutorial",
-      "title": "How to Find Differences Between Two Lists",
-      "subtitle": "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods."
+      "badge": "チュートリアル",
+      "title": "2つのリスト間の差分を見つける方法",
+      "subtitle": "完全一致とAI搭載の両方の方法を使用して、2つのリスト間で何が異なり何が同じかを特定する実践ガイド。"
     },
     "methods": {
-      "heading": "Two Ways to Find Differences",
       "0": {
-        "title": "Exact Matching",
-        "badge": "Free",
-        "desc": "Compares items character-by-character. Items match only if they are identical (with optional case-insensitive comparison). Fast and deterministic.",
-        "best": "Emails, IDs, product codes, exact strings"
+        "title": "完全一致",
+        "badge": "無料",
+        "desc": "項目を文字ごとに比較します。項目は同一の場合のみ一致します（大文字小文字を区別しない比較も選択可能）。高速で決定論的。",
+        "best": "メール、ID、製品コード、正確な文字列"
       },
       "1": {
-        "title": "AI Fuzzy Matching",
-        "badge": "1 Credit",
-        "desc": "Uses Levenshtein distance and token-based similarity to find near-matches. Catches typos, reordered words, and similar entries that exact matching misses.",
-        "best": "Names (\"John Smith\" vs \"Smith, John\"), addresses, keywords with typos"
-      }
+        "title": "AIあいまい一致",
+        "badge": "1クレジット",
+        "desc": "Levenshtein距離とトークンベースの類似度を使用して近似一致を見つけます。タイプミス、並べ替えられた単語、完全一致で見逃される類似エントリを検出。",
+        "best": "名前（「John Smith」と「Smith, John」）、住所、タイプミスのあるキーワード"
+      },
+      "heading": "差分を見つける2つの方法"
     },
     "terms": {
-      "heading": "Understanding the Results",
       "0": {
-        "term": "Only in A",
-        "desc": "Items present in List A but not found in List B."
+        "term": "Aにだけある",
+        "desc": "リストAにあってリストBに見つからない項目。"
       },
       "1": {
-        "term": "Only in B",
-        "desc": "Items present in List B but not found in List A."
+        "term": "Bにだけある",
+        "desc": "リストBにあってリストAに見つからない項目。"
       },
       "2": {
-        "term": "In Both (Intersection)",
-        "desc": "Items present in both List A and List B."
+        "term": "両方にある（積集合）",
+        "desc": "リストAとリストBの両方にある項目。"
       },
       "3": {
-        "term": "Union",
-        "desc": "All unique items from both lists combined."
+        "term": "和集合",
+        "desc": "両方のリストを組み合わせたすべての一意の項目。"
       },
       "4": {
-        "term": "Symmetric Difference",
-        "desc": "Items in either list but not in both (Only in A + Only in B)."
-      }
+        "term": "対称差分",
+        "desc": "どちらかのリストにあるが両方にはない項目（Aにだけある + Bにだけある）。"
+      },
+      "heading": "結果の理解"
     },
     "example": {
-      "heading": "Practical Example",
+      "heading": "実践例",
       "listA": {
-        "title": "List A (Old Subscribers)"
+        "title": "リストA（旧購読者）"
       },
       "listB": {
-        "title": "List B (New Subscribers)"
+        "title": "リストB（新購読者）"
       },
       "onlyA": {
-        "title": "Only in A (2)",
-        "desc": "Unsubscribed / Churned"
+        "title": "Aにだけある（2）",
+        "desc": "購読解除 / 離脱"
       },
       "onlyB": {
-        "title": "Only in B (2)",
-        "desc": "New subscribers"
+        "title": "Bにだけある（2）",
+        "desc": "新規購読者"
       },
       "both": {
-        "title": "In Both (2)",
-        "desc": "Retained subscribers"
+        "title": "両方にある（2）",
+        "desc": "維持された購読者"
       }
     },
     "cta": {
-      "title": "Find Differences Now",
-      "subtitle": "Paste your lists and get instant results — free and private.",
-      "button": "Start Comparing"
+      "title": "今すぐ差分を見つける",
+      "subtitle": "リストを貼り付けて即座に結果を取得 — 無料、プライベート。",
+      "button": "比較を始める"
     },
     "breadcrumbs": {
-      "current": "How to Find Differences"
+      "current": "差分を見つける方法"
     },
     "jsonLd": {
-      "name": "How to Find Differences Between Two Lists",
-      "description": "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods."
+      "name": "2つのリスト間の差分を見つける方法",
+      "description": "完全一致とAI搭載の両方の方法を使用して、2つのリスト間で何が異なり何が同じかを特定する実践ガイド。"
     }
   },
   "pricing": {
     "hero": {
-      "title": "Simple, Transparent Pricing",
-      "subtitle": "Free for exact comparisons. Pay only when you need AI-powered analysis."
+      "title": "シンプルで透明な料金",
+      "subtitle": "完全一致の比較は無料。AI搭載の分析が必要な場合のみお支払い。"
     },
     "nav": {
-      "backToTool": "Back to Tool"
+      "backToTool": "ツールに戻る"
     },
     "plans": {
       "free": {
-        "name": "Free",
+        "name": "無料",
         "price": "$0",
-        "period": "forever",
+        "period": "永久",
         "features": {
-          "0": "Exact list comparison",
-          "1": "Unlimited items",
-          "2": "Copy & CSV export",
-          "3": "File upload (TXT, CSV)",
-          "4": "All comparison options",
-          "5": "Privacy-first (client-side)"
+          "0": "正確なリスト比較",
+          "1": "項目数無制限",
+          "2": "コピー＆CSVエクスポート",
+          "3": "ファイルアップロード（TXT、CSV）",
+          "4": "すべての比較オプション",
+          "5": "プライバシー優先（クライアント側）"
         },
-        "cta": "Start Free"
+        "cta": "無料で始める"
       },
       "payPerUse": {
-        "name": "Pay Per Use",
+        "name": "従量課金",
         "price": "$0.99",
-        "period": "per AI comparison",
-        "badge": "Most Popular",
+        "period": "AI比較1回あたり",
+        "badge": "最も人気",
         "features": {
-          "0": "Everything in Free",
-          "1": "AI fuzzy matching",
-          "2": "Semantic similarity detection",
-          "3": "AI-generated insights",
-          "4": "Typo & reorder detection",
-          "5": "No subscription needed"
+          "0": "無料プランのすべて",
+          "1": "AIあいまい一致",
+          "2": "意味的類似度検出",
+          "3": "AI生成インサイト",
+          "4": "タイプミス・並べ替え検出",
+          "5": "サブスクリプション不要"
         },
-        "cta": "Buy Credits"
+        "cta": "クレジットを購入"
       },
       "creditPacks": {
-        "name": "Credit Packs",
+        "name": "クレジットパック",
         "price": "$4.99",
-        "period": "10 credits (save 33%)",
+        "period": "10クレジット（33%お得）",
         "features": {
-          "0": "Everything in Pay Per Use",
-          "1": "10 AI comparisons",
-          "2": "Best value per comparison",
-          "3": "Credits never expire",
-          "4": "Priority processing",
-          "5": "Bulk analysis support"
+          "0": "従量課金プランのすべて",
+          "1": "10回のAI比較",
+          "2": "1比較あたりの最安値",
+          "3": "クレジットの有効期限なし",
+          "4": "優先処理",
+          "5": "一括分析サポート"
         },
-        "cta": "Get Credit Pack"
+        "cta": "クレジットパックを購入"
       }
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
-        "q": "Do credits expire?",
-        "a": "No. Your credits never expire. Use them whenever you need AI comparison."
+        "q": "クレジットの有効期限はありますか？",
+        "a": "ありません。クレジットは永久に有効です。AI比較が必要なときにいつでも使用できます。"
       },
       "1": {
-        "q": "What counts as one AI comparison?",
-        "a": "One AI comparison means comparing two lists with fuzzy matching, semantic analysis, and AI-generated insights. It uses 1 credit regardless of list size."
+        "q": "AI比較1回とは？",
+        "a": "AI比較1回とは、あいまい一致、意味分析、AI生成インサイトを含む2つのリストの比較です。リストサイズに関係なく1クレジットを消費します。"
       },
       "2": {
-        "q": "Is the free version limited?",
-        "a": "The free version gives you full exact comparison with no limits on items, file uploads, or exports. AI features (fuzzy matching, insights) require credits."
+        "q": "無料版に制限はありますか？",
+        "a": "無料版では、項目数、ファイルアップロード、エクスポートに制限のない完全な完全一致比較が利用できます。AI機能（あいまい一致、インサイト）にはクレジットが必要です。"
       },
       "3": {
-        "q": "Can I get a refund?",
-        "a": "Yes. If you're not satisfied with the AI analysis quality, contact us for a full refund."
-      }
+        "q": "返金してもらえますか？",
+        "a": "はい。AI分析の品質に満足できない場合は、ご連絡ください。全額返金いたします。"
+      },
+      "heading": "よくある質問"
     }
   },
   "components": {
     "listInput": {
-      "upload": "Upload",
-      "dropFileHere": "Drop file here",
-      "selectColumns": "Select columns",
-      "allColumns": "All columns",
-      "columnsCount": "{count} columns",
-      "previewRow": "Preview (row 1):",
-      "fileTooLarge": "File too large. Please use files under 50MB.",
-      "largeFileConfirm": "This file is {size}MB. Large files may be slow to process. Continue?",
-      "items": "{count} items"
+      "upload": "アップロード",
+      "dropFileHere": "ファイルをここにドロップ",
+      "selectColumns": "カラムを選択",
+      "allColumns": "すべてのカラム",
+      "columnsCount": "{count}カラム",
+      "previewRow": "プレビュー（1行目）：",
+      "fileTooLarge": "ファイルが大きすぎます。50MB以下のファイルを使用してください。",
+      "largeFileConfirm": "このファイルは{size}MBです。大きなファイルは処理に時間がかかる場合があります。続行しますか？",
+      "items": "{count}件"
     },
     "resultTabs": {
       "tabs": {
         "onlyA": {
-          "label": "Only in A",
-          "short": "A only"
+          "label": "Aにだけある",
+          "short": "Aのみ"
         },
         "onlyB": {
-          "label": "Only in B",
-          "short": "B only"
+          "label": "Bにだけある",
+          "short": "Bのみ"
         },
         "both": {
-          "label": "In Both",
-          "short": "Both"
+          "label": "両方にある",
+          "short": "両方"
         },
         "union": {
-          "label": "Union (A ∪ B)",
+          "label": "和集合（A ∪ B）",
           "short": "A∪B"
         },
         "symDiff": {
-          "label": "Sym Diff (A △ B)",
+          "label": "対称差分（A △ B）",
           "short": "A△B"
         },
         "all": {
-          "label": "All Combined",
-          "short": "All"
+          "label": "すべて",
+          "short": "全て"
         }
       },
-      "filter": "Filter...",
-      "sort": "Sort",
+      "filter": "フィルター...",
+      "sort": "並べ替え",
       "sortAsc": "A-Z",
       "sortDesc": "Z-A",
-      "select": "Select all",
-      "deselect": "Deselect all",
-      "copySelected": "Copy selected",
-      "deleteSelected": "Delete selected",
-      "copy": "Copy",
-      "copied": "Copied!",
-      "copyAll": "Copy All",
-      "downloadCsv": "Download CSV",
-      "downloadTxt": "Download TXT",
-      "fullReport": "Full Report",
-      "noItemsFilter": "No items match your filter",
-      "noItemsCategory": "No items in this category",
-      "showingItems": "Showing {visible} of {total} items — scroll to load more"
+      "select": "すべて選択",
+      "deselect": "すべて解除",
+      "copySelected": "選択をコピー",
+      "deleteSelected": "選択を削除",
+      "copy": "コピー",
+      "copied": "コピーしました！",
+      "copyAll": "すべてコピー",
+      "downloadCsv": "CSVをダウンロード",
+      "downloadTxt": "TXTをダウンロード",
+      "fullReport": "完全レポート",
+      "noItemsFilter": "フィルターに一致する項目がありません",
+      "noItemsCategory": "このカテゴリには項目がありません",
+      "showingItems": "{total}件中{visible}件を表示 — スクロールしてさらに読み込み"
     },
     "statsCards": {
-      "matchRate": "Match Rate",
-      "commonItems": "Common Items",
-      "onlyInListA": "Only in List A",
-      "onlyInListB": "Only in List B"
+      "matchRate": "一致率",
+      "commonItems": "共通項目",
+      "onlyInListA": "リストAにだけある",
+      "onlyInListB": "リストBにだけある"
     },
     "optionsPanel": {
       "caseSensitive": {
-        "label": "Case Sensitive",
-        "desc": "Treat uppercase and lowercase as different"
+        "label": "大文字小文字を区別",
+        "desc": "大文字と小文字を異なるものとして扱う"
       },
       "trimWhitespace": {
-        "label": "Trim Whitespace",
-        "desc": "Remove leading/trailing spaces"
+        "label": "空白をトリム",
+        "desc": "前後のスペースを削除"
       },
       "removeDuplicates": {
-        "label": "Remove Duplicates",
-        "desc": "Deduplicate items before comparing"
+        "label": "重複を削除",
+        "desc": "比較前に項目の重複を排除"
       },
       "ignoreEmpty": {
-        "label": "Ignore Empty Lines",
-        "desc": "Skip blank lines and empty items"
+        "label": "空行を無視",
+        "desc": "空白行と空の項目をスキップ"
       }
     },
     "fuzzyMatchTable": {
-      "title": "Fuzzy Matches",
-      "subtitle": "Similar but not identical items",
-      "noMatches": "No fuzzy matches found. Try lowering the similarity threshold.",
-      "moreHidden": "+ {count} more matches hidden"
+      "title": "あいまい一致",
+      "subtitle": "類似しているが同一ではない項目",
+      "noMatches": "あいまい一致が見つかりませんでした。類似度の閾値を下げてみてください。",
+      "moreHidden": "+ {count}件の一致が非表示"
     },
     "aiInsights": {
-      "title": "AI Insights",
-      "fuzzyMatches": "{count} fuzzy match{plural}",
-      "viewAiAnalysis": "View AI Analysis",
-      "free": "Free"
+      "title": "AIインサイト",
+      "fuzzyMatches": "{count}件のあいまい一致",
+      "viewAiAnalysis": "AI分析を表示",
+      "free": "無料"
     },
     "relatedTools": {
-      "title": "Related Tools",
+      "title": "関連ツール",
       "tools": {
-        "0": { "label": "Compare Email Lists" },
-        "1": { "label": "Compare Excel Columns" },
-        "2": { "label": "Compare CSV Files" },
-        "3": { "label": "Compare Two Columns in Excel" },
-        "4": { "label": "Compare IP Addresses" },
-        "5": { "label": "Compare Keywords" },
-        "6": { "label": "Compare Name Lists" },
-        "7": { "label": "Compare Phone Numbers" },
-        "8": { "label": "Compare URLs" },
-        "9": { "label": "List Diff" },
-        "10": { "label": "Remove Duplicates" }
+        "0": {
+          "label": "メールリスト比較"
+        },
+        "1": {
+          "label": "Excelカラム比較"
+        },
+        "2": {
+          "label": "CSVファイル比較"
+        },
+        "3": {
+          "label": "Excelの2カラム比較"
+        },
+        "4": {
+          "label": "IPアドレス比較"
+        },
+        "5": {
+          "label": "キーワード比較"
+        },
+        "6": {
+          "label": "名前リスト比較"
+        },
+        "7": {
+          "label": "電話番号比較"
+        },
+        "8": {
+          "label": "URL比較"
+        },
+        "9": {
+          "label": "リスト差分"
+        },
+        "10": {
+          "label": "重複削除"
+        }
       },
       "guides": {
-        "0": { "label": "How to Compare Two Lists" },
-        "1": { "label": "How to Compare CSV Files" },
-        "2": { "label": "How to Find Differences" }
+        "0": {
+          "label": "2つのリストを比較する方法"
+        },
+        "1": {
+          "label": "CSVファイルを比較する方法"
+        },
+        "2": {
+          "label": "差分を見つける方法"
+        }
       }
     },
     "vennDiagram": {
-      "title": "Visual Overview",
-      "listATooltip": "List A: {unique} unique, {shared} shared",
-      "listBTooltip": "List B: {unique} unique, {shared} shared",
-      "listALabel": "List A",
-      "listBLabel": "List B"
+      "title": "視覚的概要",
+      "listATooltip": "リストA：{unique}個固有、{shared}個共有",
+      "listBTooltip": "リストB：{unique}個固有、{shared}個共有",
+      "listALabel": "リストA",
+      "listBLabel": "リストB"
     },
     "historyPanel": {
-      "title": "History",
+      "title": "履歴",
       "recordCount": "({count})",
-      "clearAll": "Clear All",
-      "noComparisons": "No comparisons yet",
-      "justNow": "Just now",
-      "minutesAgo": "{count}m ago",
-      "hoursAgo": "{count}h ago",
+      "clearAll": "すべてクリア",
+      "noComparisons": "まだ比較がありません",
+      "justNow": "たった今",
+      "minutesAgo": "{count}分前",
+      "hoursAgo": "{count}時間前",
       "modeAi": "AI",
-      "modeExact": "Exact",
+      "modeExact": "完全",
       "labelA": "A: {count}",
       "labelB": "B: {count}",
-      "common": "Common: {count}",
-      "clickToRestore": "Click to restore",
-      "partialData": "(partial data)"
+      "common": "共通: {count}",
+      "clickToRestore": "クリックして復元",
+      "partialData": "(部分データ)"
     },
     "notFound": {
       "title": "404",
-      "subtitle": "Page Not Found",
-      "description": "The page you're looking for doesn't exist. It may have been moved or deleted.",
-      "goHome": "Go Home",
-      "compareLists": "Compare Lists"
+      "subtitle": "ページが見つかりません",
+      "description": "お探しのページは存在しません。移動または削除された可能性があります。",
+      "goHome": "ホームへ",
+      "compareLists": "リストを比較"
     }
   }
 }

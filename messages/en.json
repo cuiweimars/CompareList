@@ -59,8 +59,6 @@
       "aiError": "AI analysis failed. Showing exact comparison results below."
     },
     "features": {
-      "sectionTag": "Why CompareList",
-      "sectionTitle": "Built for Speed & Privacy",
       "0": {
         "title": "Instant Comparison",
         "desc": "Compare thousands of items in milliseconds. All processing happens in your browser."
@@ -76,11 +74,11 @@
       "3": {
         "title": "AI-Powered",
         "desc": "DeepSeek AI finds fuzzy matches, typos, and reordered items automatically."
-      }
+      },
+      "sectionTag": "Why CompareList",
+      "sectionTitle": "Built for Speed & Privacy"
     },
     "testimonials": {
-      "sectionTag": "Testimonials",
-      "sectionTitle": "Loved by Thousands",
       "0": {
         "name": "Sarah M.",
         "role": "Marketing Manager",
@@ -140,11 +138,11 @@
         "role": "Sysadmin",
         "text": "Compared two DNS zone files and found 23 orphaned records in seconds. The search filter made it easy to verify each one.",
         "rating": 5
-      }
+      },
+      "sectionTag": "Testimonials",
+      "sectionTitle": "Loved by Thousands"
     },
     "howItWorks": {
-      "sectionTag": "How it works",
-      "sectionTitle": "Three Simple Steps",
       "0": {
         "step": "01",
         "title": "Paste Your Lists",
@@ -159,7 +157,9 @@
         "step": "03",
         "title": "Get Results",
         "desc": "See breakdown: items only in A, only in B, and in both. Export as CSV."
-      }
+      },
+      "sectionTag": "How it works",
+      "sectionTitle": "Three Simple Steps"
     },
     "cta": {
       "title": "Ready to Compare?",
@@ -167,8 +167,6 @@
       "button": "Start Comparing"
     },
     "faq": {
-      "sectionTag": "FAQ",
-      "sectionTitle": "Questions & Answers",
       "0": {
         "q": "Is my data safe?",
         "a": "Yes. All comparison happens in your browser. Your lists are never sent to any server or stored anywhere."
@@ -188,7 +186,9 @@
       "4": {
         "q": "How is match rate calculated?",
         "a": "Uses the Dice coefficient: 2 x (common items) / (total A + total B), giving a percentage of list similarity."
-      }
+      },
+      "sectionTag": "FAQ",
+      "sectionTitle": "Questions & Answers"
     },
     "footer": {
       "copyright": "© {year} CompareList",
@@ -212,7 +212,6 @@
       "options": "Options"
     },
     "useCases": {
-      "heading": "CSV Comparison Use Cases",
       "0": {
         "title": "Data Auditing",
         "desc": "Compare data exports from different dates to track changes in records."
@@ -228,10 +227,10 @@
       "3": {
         "title": "Migration Validation",
         "desc": "Verify all records transferred correctly after data migration."
-      }
+      },
+      "heading": "CSV Comparison Use Cases"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
         "q": "How do I compare two CSV files?",
         "a": "Upload both CSV files using the file upload buttons, or copy-paste the content directly. If your CSV has multiple columns, select the column you want to compare. Click Compare to see the results instantly."
@@ -251,7 +250,8 @@
       "4": {
         "q": "Can I export the comparison results?",
         "a": "Yes. Export any result category as CSV or TXT, or use the Full Report option to download everything in a single categorized CSV file."
-      }
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
       "current": "Compare CSV Files"
@@ -279,7 +279,6 @@
       "options": "Options"
     },
     "useCases": {
-      "heading": "Use Cases",
       "0": {
         "title": "Email Marketing",
         "desc": "Compare subscriber lists to find duplicates across campaigns and remove bounced emails from active lists."
@@ -291,10 +290,10 @@
       "2": {
         "title": "Bounce List Check",
         "desc": "Compare your mailing list against a bounce list to remove invalid addresses before sending."
-      }
+      },
+      "heading": "Use Cases"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
         "q": "How do I compare two email lists?",
         "a": "Simply paste your email lists into the two text areas above (one email per line), then click Compare. You'll instantly see which emails are in both lists, which are only in List A, and which are only in List B."
@@ -314,7 +313,8 @@
       "4": {
         "q": "Can I export the results?",
         "a": "Yes. Use the download buttons in the results section to export as CSV or TXT, or copy directly to clipboard."
-      }
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
       "current": "Compare Email Lists"
@@ -341,7 +341,6 @@
       "options": "Options"
     },
     "steps": {
-      "heading": "How to Compare Excel Columns",
       "0": {
         "step": "1",
         "title": "Open Your Excel File",
@@ -356,10 +355,10 @@
         "step": "3",
         "title": "Compare & Export",
         "desc": "Click Compare. Download results as CSV to paste back into your spreadsheet."
-      }
+      },
+      "heading": "How to Compare Excel Columns"
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
         "q": "How do I compare two columns in Excel?",
         "a": "Copy the first column from your Excel file and paste it into the List A text area. Then copy the second column and paste it into List B. Click Compare to instantly see the differences."
@@ -375,7 +374,8 @@
       "3": {
         "q": "How do I get results back into Excel?",
         "a": "Click the download button in the results section to export as CSV. You can then open or paste the CSV back into your Excel file."
-      }
+      },
+      "heading": "Frequently Asked Questions"
     },
     "breadcrumbs": {
       "current": "Compare Excel Columns"
@@ -403,7 +403,6 @@
       "options": "Options"
     },
     "useCases": {
-      "heading": "IP Address Comparison Use Cases",
       "0": {
         "title": "Firewall Rule Audit",
         "desc": "Compare allowed IPs across different firewall configurations."
@@ -419,7 +418,8 @@
       "3": {
         "title": "Incident Response",
         "desc": "Cross-reference suspicious IPs against known threat lists."
-      }
+      },
+      "heading": "IP Address Comparison Use Cases"
     },
     "breadcrumbs": {
       "current": "Compare IP Addresses"
@@ -446,7 +446,6 @@
       "options": "Options"
     },
     "useCases": {
-      "heading": "SEO Use Cases",
       "0": {
         "title": "Keyword Gap Analysis",
         "desc": "Compare your keyword list with a competitor's to discover keyword opportunities you're missing."
@@ -458,10 +457,10 @@
       "2": {
         "title": "Search Console Audit",
         "desc": "Compare keywords you rank for vs keywords you target to find optimization opportunities."
-      }
+      },
+      "heading": "SEO Use Cases"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
         "q": "How do I compare two keyword lists?",
         "a": "Paste your first keyword list into List A and the second into List B (one keyword per line). Click Compare to see which keywords are shared, unique to each list, and get overlap statistics."
@@ -477,7 +476,8 @@
       "3": {
         "q": "How can I find keyword gaps?",
         "a": "Compare your target keyword list against a competitor's ranked keywords. Items 'Only in B' represent keyword gaps - keywords your competitor ranks for but you don't target."
-      }
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
       "current": "Compare Keywords"
@@ -504,7 +504,6 @@
       "options": "Options"
     },
     "steps": {
-      "heading": "How to Compare CSV Columns",
       "0": {
         "step": "1",
         "title": "Copy Column Data",
@@ -519,7 +518,8 @@
         "step": "3",
         "title": "Compare & Export",
         "desc": "Click Compare to see differences. Export results as CSV for further analysis in your spreadsheet."
-      }
+      },
+      "heading": "How to Compare CSV Columns"
     },
     "breadcrumbs": {
       "current": "Compare Name Lists"
@@ -551,7 +551,6 @@
       "desc": "Phone numbers can appear in many different formats: with or without country codes, with different separators (dashes, spaces, dots, parentheses), and with or without the + prefix. Our comparison tool normalizes these differences so you can accurately match phone numbers regardless of formatting. For the most accurate results, use case-insensitive comparison and enable whitespace trimming."
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
         "title": "CRM Deduplication",
         "desc": "Find and merge duplicate contacts across CRM systems."
@@ -567,7 +566,8 @@
       "3": {
         "title": "Contact Migration",
         "desc": "Verify all phone numbers transferred correctly between systems."
-      }
+      },
+      "heading": "Common Use Cases"
     },
     "breadcrumbs": {
       "current": "Compare Phone Numbers"
@@ -594,7 +594,6 @@
       "options": "Options"
     },
     "benefits": {
-      "heading": "Why Use This Instead of Excel Formulas?",
       "0": {
         "title": "No Formulas Needed",
         "desc": "Skip VLOOKUP, MATCH, and conditional formatting. Just paste and compare."
@@ -610,10 +609,10 @@
       "3": {
         "title": "Works Across Files",
         "desc": "Compare columns from different workbooks without merging files first."
-      }
+      },
+      "heading": "Why Use This Instead of Excel Formulas?"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
         "q": "How do I compare two columns in Excel?",
         "a": "Copy the cells from each column in your Excel file and paste them into List A and List B above. Click Compare to instantly see matching values, unique entries in each column, and statistics."
@@ -633,7 +632,8 @@
       "4": {
         "q": "How is this different from Excel VLOOKUP?",
         "a": "VLOOKUP only checks if a value exists in another column. This tool gives you a complete breakdown: items in both columns, items only in column A, items only in column B, plus statistics and export options."
-      }
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
       "current": "Compare Excel Columns"
@@ -641,6 +641,25 @@
     "jsonLd": {
       "name": "Compare Two Columns in Excel - CompareList",
       "description": "Free tool to compare two Excel columns online. Find matches, differences, and unique values instantly without formulas."
+    },
+    "whyUse": {
+      "0": {
+        "title": "No Formulas Needed",
+        "desc": "Skip VLOOKUP, MATCH, and conditional formatting. Just paste and compare."
+      },
+      "1": {
+        "title": "Instant Visual Results",
+        "desc": "See matching and unique values in categorized tabs with a clear overview."
+      },
+      "2": {
+        "title": "Export Ready",
+        "desc": "Download results as CSV to bring back into Excel or share with your team."
+      },
+      "3": {
+        "title": "Works Across Files",
+        "desc": "Compare columns from different workbooks without merging files first."
+      },
+      "heading": "Why Use This Instead of Excel Formulas?"
     }
   },
   "compareUrls": {
@@ -660,7 +679,6 @@
       "options": "Options"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
         "title": "SEO & Sitemaps",
         "desc": "Compare old vs new sitemaps to find missing or new pages after a site migration or redesign."
@@ -672,10 +690,10 @@
       "2": {
         "title": "Broken Link Audit",
         "desc": "Compare crawled URLs against your current page inventory to identify broken links and orphan pages."
-      }
+      },
+      "heading": "Common Use Cases"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
         "q": "How do I compare two lists of URLs?",
         "a": "Paste one list of URLs into List A and the other into List B, one URL per line. Click Compare to instantly see which URLs are unique to each list and which appear in both."
@@ -691,7 +709,8 @@
       "3": {
         "q": "What about trailing slashes and www prefixes?",
         "a": "These are treated as different entries by default. Use the Trim Whitespace option and consider normalizing your URLs before comparing for best results."
-      }
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
       "current": "Compare URLs"
@@ -718,7 +737,6 @@
       "options": "Options"
     },
     "howItWorks": {
-      "heading": "How List Diff Works",
       "0": {
         "title": "Removed Items",
         "desc": "Items in your original list that are missing from the new list. Think of these as 'deleted' entries."
@@ -730,10 +748,10 @@
       "2": {
         "title": "Unchanged Items",
         "desc": "Items present in both lists. These entries stayed the same between versions."
-      }
+      },
+      "heading": "How List Diff Works"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
         "q": "What is list diff?",
         "a": "List diff is the process of finding the differences between two lists. It shows you items that exist only in the first list, only in the second list, and items common to both."
@@ -749,7 +767,8 @@
       "3": {
         "q": "What output formats are supported?",
         "a": "You can copy results to clipboard, download as CSV, or download as plain text. Each category (only in A, only in B, common) can be exported separately."
-      }
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
       "current": "List Diff"
@@ -780,7 +799,6 @@
       "stats": "{count} items ({dupCount} duplicates removed)"
     },
     "useCases": {
-      "heading": "Common Deduplication Use Cases",
       "0": {
         "title": "Email List Cleanup",
         "desc": "Remove duplicate email addresses before sending campaigns to avoid double-emailing."
@@ -796,10 +814,10 @@
       "3": {
         "title": "Inventory Management",
         "desc": "Find and remove duplicate SKUs or product codes across inventory lists."
-      }
+      },
+      "heading": "Common Deduplication Use Cases"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
         "q": "How do I remove duplicates from a list?",
         "a": "Paste your list into the text area above (one item per line) and click Remove Duplicates. You'll instantly get a clean list with all duplicates removed."
@@ -819,7 +837,8 @@
       "4": {
         "q": "What counts as a duplicate?",
         "a": "Items that are identical after trimming whitespace. Empty lines are ignored. By default, comparison is case-insensitive."
-      }
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
       "current": "Remove Duplicates from List"
@@ -836,7 +855,6 @@
       "subtitle": "A complete guide to finding differences, common items, and unique entries between any two lists — in under 30 seconds."
     },
     "quickSummary": {
-      "heading": "Quick Summary",
       "0": {
         "title": "Instant Results",
         "desc": "Compare thousands of items in milliseconds, entirely in your browser."
@@ -848,10 +866,10 @@
       "2": {
         "title": "Any Format",
         "desc": "Paste text, upload files, drag and drop. Auto-detects delimiters."
-      }
+      },
+      "heading": "Quick Summary"
     },
     "steps": {
-      "heading": "Step-by-Step Guide",
       "0": {
         "num": "1",
         "title": "Paste or Upload Your Lists",
@@ -881,10 +899,11 @@
         "title": "Explore and Export Results",
         "desc": "Browse results in categorized tabs: Only in A, Only in B, In Both, Union, and Symmetric Difference. Use the search bar to filter, sort alphabetically, and export as CSV, TXT, or a full report.",
         "tip": "The Full Report export creates a single CSV with all categories clearly labeled — perfect for spreadsheets."
-      }
+      },
+      "heading": "Step-by-Step Guide",
+      "tipLabel": "Tip"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
         "title": "Email List Comparison",
         "desc": "Find subscribers in one list but not another, detect duplicates across campaigns."
@@ -908,10 +927,10 @@
       "5": {
         "title": "URL Comparison",
         "desc": "Compare sitemaps, backlink lists, or page inventories between sites."
-      }
+      },
+      "heading": "Common Use Cases"
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
         "q": "Is there a file size limit?",
         "a": "There is no strict limit. The tool handles tens of thousands of items smoothly since all processing happens locally in your browser."
@@ -931,7 +950,8 @@
       "4": {
         "q": "Is my data stored anywhere?",
         "a": "No. All comparison happens in your browser. Your lists are never sent to any server. History is stored locally in your browser and can be cleared at any time."
-      }
+      },
+      "heading": "Frequently Asked Questions"
     },
     "cta": {
       "title": "Ready to Try It?",
@@ -944,6 +964,9 @@
     "jsonLd": {
       "name": "How to Compare Two Lists Online",
       "description": "A complete guide to finding differences, common items, and unique entries between any two lists."
+    },
+    "nav": {
+      "tutorials": "Tutorials"
     }
   },
   "howToCompareCsvFiles": {
@@ -953,7 +976,6 @@
       "subtitle": "Compare CSV files to find added, removed, and common rows. Works with any CSV structure and lets you pick specific columns."
     },
     "whyCompare": {
-      "heading": "Why Compare CSV Files?",
       "0": {
         "title": "Data Auditing",
         "desc": "Verify data changes between exports from different dates or systems."
@@ -969,10 +991,10 @@
       "3": {
         "title": "Migration Validation",
         "desc": "Confirm all records transferred correctly after data migration."
-      }
+      },
+      "heading": "Why Compare CSV Files?"
     },
     "steps": {
-      "heading": "Steps to Compare CSV Files",
       "0": {
         "title": "Upload Your CSV Files",
         "desc": "Click the \"Upload File\" button on each input panel to select a CSV file. You can also drag and drop files directly onto the input areas. When you upload a multi-column CSV, a column selector dropdown appears automatically — pick the column you want to compare."
@@ -988,10 +1010,10 @@
       "3": {
         "title": "Export the Results",
         "desc": "Export individual categories as CSV or TXT, or use \"Full Report\" to download everything in a single categorized CSV file. You can also copy results directly to your clipboard."
-      }
+      },
+      "heading": "Steps to Compare CSV Files"
     },
     "formats": {
-      "heading": "Supported File Formats",
       "0": {
         "ext": ".csv",
         "name": "Comma-Separated Values",
@@ -1006,7 +1028,8 @@
         "ext": ".txt",
         "name": "Plain Text",
         "desc": "One item per line, or comma/semicolon/tab separated."
-      }
+      },
+      "heading": "Supported File Formats"
     },
     "cta": {
       "title": "Compare Your CSV Files Now",
@@ -1028,7 +1051,6 @@
       "subtitle": "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods."
     },
     "methods": {
-      "heading": "Two Ways to Find Differences",
       "0": {
         "title": "Exact Matching",
         "badge": "Free",
@@ -1040,10 +1062,10 @@
         "badge": "1 Credit",
         "desc": "Uses Levenshtein distance and token-based similarity to find near-matches. Catches typos, reordered words, and similar entries that exact matching misses.",
         "best": "Names (\"John Smith\" vs \"Smith, John\"), addresses, keywords with typos"
-      }
+      },
+      "heading": "Two Ways to Find Differences"
     },
     "terms": {
-      "heading": "Understanding the Results",
       "0": {
         "term": "Only in A",
         "desc": "Items present in List A but not found in List B."
@@ -1063,7 +1085,8 @@
       "4": {
         "term": "Symmetric Difference",
         "desc": "Items in either list but not in both (Only in A + Only in B)."
-      }
+      },
+      "heading": "Understanding the Results"
     },
     "example": {
       "heading": "Practical Example",
@@ -1153,7 +1176,6 @@
       }
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
         "q": "Do credits expire?",
         "a": "No. Your credits never expire. Use them whenever you need AI comparison."
@@ -1169,7 +1191,8 @@
       "3": {
         "q": "Can I get a refund?",
         "a": "Yes. If you're not satisfied with the AI analysis quality, contact us for a full refund."
-      }
+      },
+      "heading": "Frequently Asked Questions"
     }
   },
   "components": {
@@ -1268,22 +1291,50 @@
     "relatedTools": {
       "title": "Related Tools",
       "tools": {
-        "0": { "label": "Compare Email Lists" },
-        "1": { "label": "Compare Excel Columns" },
-        "2": { "label": "Compare CSV Files" },
-        "3": { "label": "Compare Two Columns in Excel" },
-        "4": { "label": "Compare IP Addresses" },
-        "5": { "label": "Compare Keywords" },
-        "6": { "label": "Compare Name Lists" },
-        "7": { "label": "Compare Phone Numbers" },
-        "8": { "label": "Compare URLs" },
-        "9": { "label": "List Diff" },
-        "10": { "label": "Remove Duplicates" }
+        "0": {
+          "label": "Compare Email Lists"
+        },
+        "1": {
+          "label": "Compare Excel Columns"
+        },
+        "2": {
+          "label": "Compare CSV Files"
+        },
+        "3": {
+          "label": "Compare Two Columns in Excel"
+        },
+        "4": {
+          "label": "Compare IP Addresses"
+        },
+        "5": {
+          "label": "Compare Keywords"
+        },
+        "6": {
+          "label": "Compare Name Lists"
+        },
+        "7": {
+          "label": "Compare Phone Numbers"
+        },
+        "8": {
+          "label": "Compare URLs"
+        },
+        "9": {
+          "label": "List Diff"
+        },
+        "10": {
+          "label": "Remove Duplicates"
+        }
       },
       "guides": {
-        "0": { "label": "How to Compare Two Lists" },
-        "1": { "label": "How to Compare CSV Files" },
-        "2": { "label": "How to Find Differences" }
+        "0": {
+          "label": "How to Compare Two Lists"
+        },
+        "1": {
+          "label": "How to Compare CSV Files"
+        },
+        "2": {
+          "label": "How to Find Differences"
+        }
       }
     },
     "vennDiagram": {

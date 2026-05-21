@@ -2,32 +2,46 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRightLeft, Zap, Shield, Globe, ArrowRight, Check } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
-export const metadata: Metadata = {
-  title: "How to Compare Two Lists Online - Free Step-by-Step Guide | CompareList",
-  description:
-    "Learn how to compare two lists online for free. Find common items, differences, and unique entries between any two lists instantly. Step-by-step tutorial with examples.",
-  keywords: [
-    "how to compare two lists",
-    "compare two lists online",
-    "compare two lists step by step",
-    "find common items in two lists",
-    "list comparison tutorial",
-  ],
-  openGraph: {
-    title: "How to Compare Two Lists Online - Free Guide",
-    description: "Step-by-step tutorial for comparing two lists online. Find differences, common items, and unique entries instantly.",
-  },
-  alternates: { canonical: "https://comparelist.com/how-to-compare-two-lists" },
-  twitter: {
-    card: "summary_large_image",
-    title: "How to Compare Two Lists Online - Free Guide",
-    description: "Step-by-step tutorial for comparing two lists online. Find differences, common items, and unique entries instantly.",
-  },
-};
+const basePath = "/how-to-compare-two-lists";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com";
+
+  return {
+    title: "How to Compare Two Lists Online - Free Step-by-Step Guide | CompareList",
+    description:
+      "Learn how to compare two lists online for free. Find common items, differences, and unique entries between any two lists instantly. Step-by-step tutorial with examples.",
+    keywords: [
+      "how to compare two lists",
+      "compare two lists online",
+      "compare two lists step by step",
+      "find common items in two lists",
+      "list comparison tutorial",
+    ],
+    openGraph: {
+      title: "How to Compare Two Lists Online - Free Guide",
+      description: "Step-by-step tutorial for comparing two lists online. Find differences, common items, and unique entries instantly.",
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: "How to Compare Two Lists Online - Free Guide",
+      description: "Step-by-step tutorial for comparing two lists online. Find differences, common items, and unique entries instantly.",
+    },
+    alternates: {
+      canonical: `${baseUrl}/${locale === "en" ? "" : locale + "/"}${basePath.slice(1)}`,
+      languages: Object.fromEntries(
+        routing.locales.map((l) => [l, `${baseUrl}/${l}${basePath}`])
+      ),
+    },
+  };
+}
 
 export default async function HowToCompareTwoListsPage({
   params,
@@ -35,7 +49,6 @@ export default async function HowToCompareTwoListsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  setRequestLocale(locale);
   const t = await getTranslations("howToCompareTwoLists");
 
   return (

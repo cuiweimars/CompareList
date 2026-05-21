@@ -2,33 +2,47 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRightLeft, ArrowRight, FileSpreadsheet, Check } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
-export const metadata: Metadata = {
-  title: "How to Compare Two CSV Files Online - Free CSV Comparison Guide | CompareList",
-  description:
-    "Learn how to compare two CSV files online for free. Find differences between CSV files, compare specific columns, and export comparison results. Step-by-step tutorial.",
-  keywords: [
-    "compare csv files",
-    "compare two csv files",
-    "csv comparison tool",
-    "find differences in csv",
-    "compare csv columns",
-    "csv diff tool",
-  ],
-  openGraph: {
-    title: "How to Compare Two CSV Files Online",
-    description: "Free guide to comparing CSV files. Find differences, compare columns, and export results instantly.",
-  },
-  alternates: { canonical: "https://comparelist.com/how-to-compare-csv-files" },
-  twitter: {
-    card: "summary_large_image",
-    title: "How to Compare Two CSV Files Online",
-    description: "Free guide to comparing CSV files. Find differences, compare columns, and export results instantly.",
-  },
-};
+const basePath = "/how-to-compare-csv-files";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com";
+
+  return {
+    title: "How to Compare Two CSV Files Online - Free CSV Comparison Guide | CompareList",
+    description:
+      "Learn how to compare two CSV files online for free. Find differences between CSV files, compare specific columns, and export comparison results. Step-by-step tutorial.",
+    keywords: [
+      "compare csv files",
+      "compare two csv files",
+      "csv comparison tool",
+      "find differences in csv",
+      "compare csv columns",
+      "csv diff tool",
+    ],
+    openGraph: {
+      title: "How to Compare Two CSV Files Online",
+      description: "Free guide to comparing CSV files. Find differences, compare columns, and export results instantly.",
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: "How to Compare Two CSV Files Online",
+      description: "Free guide to comparing CSV files. Find differences, compare columns, and export results instantly.",
+    },
+    alternates: {
+      canonical: `${baseUrl}/${locale === "en" ? "" : locale + "/"}${basePath.slice(1)}`,
+      languages: Object.fromEntries(
+        routing.locales.map((l) => [l, `${baseUrl}/${l}${basePath}`])
+      ),
+    },
+  };
+}
 
 export default async function HowToCompareCSVFilesPage({
   params,
@@ -36,7 +50,6 @@ export default async function HowToCompareCSVFilesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  setRequestLocale(locale);
   const t = await getTranslations("howToCompareCsvFiles");
 
   return (

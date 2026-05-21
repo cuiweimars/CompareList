@@ -2,599 +2,647 @@
   "common": {
     "appName": "CompareList",
     "appNameHtml": "Compare<span>List</span>",
-    "free": "Free",
-    "copy": "Copy",
-    "copied": "Copied!",
-    "clear": "Clear",
-    "delete": "Delete",
-    "edit": "Edit",
-    "reset": "Reset",
-    "all": "All",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "items": "{count} items",
-    "rows": "{count} rows"
+    "free": "Kostenlos",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "clear": "Leeren",
+    "delete": "Loschen",
+    "edit": "Bearbeiten",
+    "reset": "Zurucksetzen",
+    "all": "Alle",
+    "cancel": "Abbrechen",
+    "loading": "Laden...",
+    "items": "{count} Elemente",
+    "rows": "{count} Zeilen"
   },
   "nav": {
-    "tool": "Tool",
-    "features": "Features",
+    "tool": "Werkzeug",
+    "features": "Funktionen",
     "faq": "FAQ",
-    "history": "History",
-    "pricing": "Pricing"
+    "history": "Verlauf",
+    "pricing": "Preise"
   },
   "home": {
     "hero": {
-      "badge": "Free · Private · No Signup",
-      "title": "Compare Two Lists <gradient>Instantly</gradient>",
-      "subtitle": "Find differences, common items, and unique entries between any two lists. Powered by AI."
+      "badge": "Kostenlos · Privat · Keine Anmeldung",
+      "title": "Zwei Listen <gradient>sofort</gradient> vergleichen",
+      "subtitle": "Finden Sie Unterschiede, gemeinsame Elemente und eindeutige Eintrage zwischen zwei Listen. KI-betrieben."
     },
     "tool": {
-      "modeExact": "Exact Match",
-      "modeAi": "AI Match",
-      "modeAiFree": "Free",
-      "listALabel": "List A",
-      "listBLabel": "List B",
-      "listAPlaceholder": "Paste your first list here, one item per line...",
-      "listBPlaceholder": "Paste your second list here, one item per line...",
-      "defaultPlaceholder": "Paste your list here, one item per line...",
-      "swapLists": "Swap lists",
-      "options": "Options",
-      "tryDemo": "Try Demo",
-      "compareLists": "Compare Lists",
-      "compareWithAi": "Compare with AI",
-      "analyzing": "Analyzing...",
-      "results": "Results",
-      "clearResults": "Clear Results"
+      "modeExact": "Exakte Ubereinstimmung",
+      "modeAi": "KI-Ubereinstimmung",
+      "modeAiFree": "Kostenlos",
+      "listALabel": "Liste A",
+      "listBLabel": "Liste B",
+      "listAPlaceholder": "Fugen Sie Ihre erste Liste hier ein, ein Element pro Zeile...",
+      "listBPlaceholder": "Fugen Sie Ihre zweite Liste hier ein, ein Element pro Zeile...",
+      "defaultPlaceholder": "Fugen Sie Ihre Liste hier ein, ein Element pro Zeile...",
+      "swapLists": "Listen tauschen",
+      "options": "Optionen",
+      "tryDemo": "Demo testen",
+      "compareLists": "Listen vergleichen",
+      "compareWithAi": "Mit KI vergleichen",
+      "analyzing": "Analyse...",
+      "results": "Ergebnisse",
+      "clearResults": "Ergebnisse loschen"
     },
     "dragOverlay": {
-      "title": "Drop files to compare",
-      "subtitle": "Drop 2 files (List A + List B) or 1 file (auto-fills first empty list)"
+      "title": "Dateien zum Vergleichen ablegen",
+      "subtitle": "2 Dateien (Liste A + Liste B) oder 1 Datei ablegen (fuellt die erste leere Liste automatisch)"
     },
     "aiAnalysis": {
-      "title": "AI Analysis",
-      "unavailableWarning": "AI deep analysis is temporarily unavailable. Showing local fuzzy matching results for free.",
-      "foundFuzzy": "AI found <strong>{count} fuzzy match{plural}</strong> that exact matching missed.",
-      "combinedRate": "Combined rate: <strong>{aiRate}%</strong> (vs {exactRate}% exact).",
-      "fuzzyMatches": "{count} fuzzy match{plural}",
-      "aiError": "AI analysis failed. Showing exact comparison results below."
+      "title": "KI-Analyse",
+      "unavailableWarning": "Die tiefgehende KI-Analyse ist vorubergehend nicht verfugbar. Lokale Fuzzy-Matching-Ergebnisse werden kostenlos angezeigt.",
+      "foundFuzzy": "KI hat <strong>{count} Fuzzy-Ubereinstimmung{plural}</strong> gefunden, die die exakte Suche ubersehen hat.",
+      "combinedRate": "Kombinierte Rate: <strong>{aiRate}%</strong> (vs. {exactRate}% exakt).",
+      "fuzzyMatches": "{count} Fuzzy-Ubereinstimmung{plural}",
+      "aiError": "KI-Analyse fehlgeschlagen. Exakte Vergleichsergebnisse werden unten angezeigt."
     },
     "features": {
-      "sectionTag": "Why CompareList",
-      "sectionTitle": "Built for Speed & Privacy",
       "0": {
-        "title": "Instant Comparison",
-        "desc": "Compare thousands of items in milliseconds. All processing happens in your browser."
+        "title": "Sofortiger Vergleich",
+        "desc": "Vergleichen Sie Tausende von Elementen in Millisekunden. Die gesamte Verarbeitung erfolgt in Ihrem Browser."
       },
       "1": {
-        "title": "100% Private",
-        "desc": "Your data never leaves your device. No tracking, no collection, no server upload."
+        "title": "100% privat",
+        "desc": "Ihre Daten verlassen niemals Ihr Geraet. Kein Tracking, keine Datenerfassung, kein Server-Upload."
       },
       "2": {
-        "title": "Any Format",
-        "desc": "Paste text, upload files, drag and drop. Auto-detects delimiters."
+        "title": "Jedes Format",
+        "desc": "Text einfugen, Dateien hochladen, Drag & Drop. Trennzeichen werden automatisch erkannt."
       },
       "3": {
-        "title": "AI-Powered",
-        "desc": "DeepSeek AI finds fuzzy matches, typos, and reordered items automatically."
-      }
+        "title": "KI-betrieben",
+        "desc": "DeepSeek KI findet automatisch Fuzzy-Ubereinstimmungen, Tippfehler und neu angeordnete Elemente."
+      },
+      "sectionTag": "Warum CompareList",
+      "sectionTitle": "Fur Geschwindigkeit & Datenschutz gebaut"
     },
     "testimonials": {
-      "sectionTag": "Testimonials",
-      "sectionTitle": "Loved by Thousands",
       "0": {
         "name": "Sarah M.",
-        "role": "Marketing Manager",
-        "text": "Saved me hours deduplicating our 50K email list. The fuzzy matching caught typos I would have never found manually.",
+        "role": "Marketing Managerin",
+        "text": "Hat mir Stunden beim Deduplizieren unserer 50K-E-Mail-Liste gespart. Das Fuzzy-Matching hat Tippfehler gefunden, die ich manuell nie entdeckt hattete.",
         "rating": 5
       },
       "1": {
         "name": "David K.",
-        "role": "Data Analyst",
-        "text": "The CSV column selector is brilliant. I can compare specific fields from different exports without cleaning the data first.",
+        "role": "Datenanalyst",
+        "text": "Der CSV-Spaltenwaehler ist brillant. Ich kann bestimmte Felder aus verschiedenen Exporten vergleichen, ohne die Daten vorher zu bereinigen.",
         "rating": 5
       },
       "2": {
         "name": "Emily R.",
-        "role": "E-commerce Owner",
-        "text": "I use this weekly to reconcile product SKUs between our warehouse system and online store. Incredibly fast and reliable.",
+        "role": "E-Commerce-Inhaberin",
+        "text": "Ich nutze dies wochentlich zum Abstimmen von Produkt-SKUs zwischen unserem Lagersystem und dem Onlineshop. Unglaublich schnell und zuverlassig.",
         "rating": 5
       },
       "3": {
         "name": "James L.",
-        "role": "DevOps Engineer",
-        "text": "Perfect for comparing IP whitelists and firewall rules. The symmetric difference view shows exactly what's changed.",
+        "role": "DevOps-Ingenieur",
+        "text": "Perfekt zum Vergleichen von IP-Whitelists und Firewall-Regeln. Die symmetrische Differenzansicht zeigt genau, was sich geandert hat.",
         "rating": 5
       },
       "4": {
         "name": "Maria C.",
-        "role": "HR Coordinator",
-        "text": "We compare employee lists across departments. The union view gives us a complete headcount in seconds. Love the privacy focus.",
+        "role": "HR-Koordinatorin",
+        "text": "Wir vergleichen Mitarbeiterlisten abteilungsuebergreifend. Die Vereinigungsansicht gibt uns in Sekunden eine vollstandige Kopfzahl. Toll, dass der Datenschutz im Fokus steht.",
         "rating": 5
       },
       "5": {
         "name": "Tom W.",
-        "role": "SEO Specialist",
-        "text": "Comparing keyword lists from different tools used to take me 30 minutes in Excel. Now it takes 10 seconds. Absolute game changer.",
+        "role": "SEO-Spezialist",
+        "text": "Der Vergleich von Schluesselwortlisten aus verschiedenen Tools dauerte in Excel 30 Minuten. Jetzt dauert es 10 Sekunden. Ein absoluter Gamechanger.",
         "rating": 5
       },
       "6": {
         "name": "Anna P.",
-        "role": "Researcher",
-        "text": "The full report export with all categories in one CSV is exactly what I needed for my research paper data analysis.",
+        "role": "Forscherin",
+        "text": "Der vollstandige Berichtsexport mit allen Kategorien in einer CSV ist genau das, was ich fur die Datenanalyse meiner Forschungsarbeit brauchte.",
         "rating": 4
       },
       "7": {
         "name": "Chris B.",
-        "role": "Sales Manager",
-        "text": "Comparing prospect lists before outreach campaigns. No duplicates means no embarrassing double emails to the same lead.",
+        "role": "Vertriebsleiter",
+        "text": "Ich vergleiche Interessentenlisten vor Outreach-Kampagnen. Keine Duplikate bedeutet keine peinlichen Doppel-E-Mails an denselben Lead.",
         "rating": 5
       },
       "8": {
         "name": "Lisa T.",
-        "role": "Product Manager",
-        "text": "Clean, fast, no signup required. I've tried 5 different list comparison tools and this is by far the best one.",
+        "role": "Produktmanagerin",
+        "text": "Aufgeraumt, schnell, keine Anmeldung erforderlich. Ich habe 5 verschiedene Listenvergleichstools ausprobiert und dieses ist mit Abstand das beste.",
         "rating": 5
       },
       "9": {
         "name": "Ryan H.",
-        "role": "Sysadmin",
-        "text": "Compared two DNS zone files and found 23 orphaned records in seconds. The search filter made it easy to verify each one.",
+        "role": "Systemadministrator",
+        "text": "Zwei DNS-Zonendateien verglichen und in Sekunden 23 verwaiste Eintrage gefunden. Der Suchfilter machte die Uberprufung jedes einzelnen einfach.",
         "rating": 5
-      }
+      },
+      "sectionTag": "Referenzen",
+      "sectionTitle": "Von Tausenden geliebt"
     },
     "howItWorks": {
-      "sectionTag": "How it works",
-      "sectionTitle": "Three Simple Steps",
       "0": {
         "step": "01",
-        "title": "Paste Your Lists",
-        "desc": "Paste two lists or upload TXT/CSV files. Auto-detects newlines, commas, tabs."
+        "title": "Listen einfugen",
+        "desc": "Fugen Sie zwei Listen ein oder laden Sie TXT/CSV-Dateien hoch. Zeilenumbruche, Kommas und Tabulatoren werden automatisch erkannt."
       },
       "1": {
         "step": "02",
-        "title": "Choose Mode",
-        "desc": "Exact Match for free, or AI Match for fuzzy matching and DeepSeek insights."
+        "title": "Modus wahlen",
+        "desc": "Exakte Ubereinstimmung kostenlos, oder KI-Ubereinstimmung fur Fuzzy-Matching und DeepSeek-Einblicke."
       },
       "2": {
         "step": "03",
-        "title": "Get Results",
-        "desc": "See breakdown: items only in A, only in B, and in both. Export as CSV."
-      }
+        "title": "Ergebnisse erhalten",
+        "desc": "Siehe Aufschluesselung: Elemente nur in A, nur in B und in beiden. Als CSV exportieren."
+      },
+      "sectionTag": "So funktioniert es",
+      "sectionTitle": "Drei einfache Schritte"
     },
     "cta": {
-      "title": "Ready to Compare?",
-      "subtitle": "Join thousands of users who compare lists every day. Free, private, and instant.",
-      "button": "Start Comparing"
+      "title": "Bereit zum Vergleichen?",
+      "subtitle": "Schliessen Sie sich Tausenden von Nutzern an, die taglich Listen vergleichen. Kostenlos, privat und sofort.",
+      "button": "Vergleich starten"
     },
     "faq": {
-      "sectionTag": "FAQ",
-      "sectionTitle": "Questions & Answers",
       "0": {
-        "q": "Is my data safe?",
-        "a": "Yes. All comparison happens in your browser. Your lists are never sent to any server or stored anywhere."
+        "q": "Sind meine Daten sicher?",
+        "a": "Ja. Der gesamte Vergleich findet in Ihrem Browser statt. Ihre Listen werden niemals an einen Server gesendet oder irgendwo gespeichert."
       },
       "1": {
-        "q": "What file formats are supported?",
-        "a": "Paste text or upload .txt, .csv, .tsv files. Items can be separated by newlines, commas, semicolons, or tabs."
+        "q": "Welche Dateiformate werden unterstutzt?",
+        "a": "Text einfugen oder .txt-, .csv-, .tsv-Dateien hochladen. Elemente konnen durch Zeilenumbruche, Kommas, Semikolons oder Tabulatoren getrennt sein."
       },
       "2": {
-        "q": "How many items can I compare?",
-        "a": "No hard limit. Handles tens of thousands of items smoothly since all processing is local."
+        "q": "Wie viele Elemente kann ich vergleichen?",
+        "a": "Kein festes Limit. Verarbeitet reibungslos Zehntausende von Elementen, da die gesamte Verarbeitung lokal erfolgt."
       },
       "3": {
-        "q": "What is AI comparison?",
-        "a": "AI mode uses DeepSeek to find fuzzy matches like 'John Smith' vs 'Smith, John', detect typos, and generate an intelligent analysis summary. Uses 1 credit per comparison."
+        "q": "Was ist der KI-Vergleich?",
+        "a": "Der KI-Modus nutzt DeepSeek, um Fuzzy-Ubereinstimmungen wie 'John Smith' vs. 'Smith, John' zu finden, Tippfehler zu erkennen und eine intelligente Analysezusammenfassung zu erstellen. Verbraucht 1 Guthaben pro Vergleich."
       },
       "4": {
-        "q": "How is match rate calculated?",
-        "a": "Uses the Dice coefficient: 2 x (common items) / (total A + total B), giving a percentage of list similarity."
-      }
+        "q": "Wie wird die Ubereinstimmungsrate berechnet?",
+        "a": "Verwendet das Dice-Koeffizient: 2 x (gemeinsame Elemente) / (Gesamt A + Gesamt B), ergibt einen Prozentsatz der Listenahnlichkeit."
+      },
+      "sectionTag": "FAQ",
+      "sectionTitle": "Fragen & Antworten"
     },
     "footer": {
       "copyright": "© {year} CompareList",
-      "processing": "All processing in your browser"
+      "processing": "Gesamte Verarbeitung in Ihrem Browser"
     }
   },
   "compareCsvFiles": {
     "hero": {
-      "badge": "CSV File Comparison",
-      "title": "Compare Two CSV Files Online",
-      "subtitle": "Find differences between CSV files. Upload .csv, .tsv, or .txt files and compare specific columns. Free and instant."
+      "badge": "CSV-Dateivergleich",
+      "title": "Zwei CSV-Dateien online vergleichen",
+      "subtitle": "Unterschiede zwischen CSV-Dateien finden. .csv-, .tsv- oder .txt-Dateien hochladen und bestimmte Spalten vergleichen. Kostenlos und sofort."
     },
     "listInput": {
-      "listA": "CSV File A",
-      "listB": "CSV File B",
-      "placeholderA": "Upload a CSV file or paste content...",
-      "placeholderB": "Upload a CSV file or paste content..."
+      "listA": "CSV-Datei A",
+      "listB": "CSV-Datei B",
+      "placeholderA": "CSV-Datei hochladen oder Inhalt einfugen...",
+      "placeholderB": "CSV-Datei hochladen oder Inhalt einfugen..."
     },
     "actions": {
-      "compare": "Compare CSV Files",
-      "options": "Options"
+      "compare": "CSV-Dateien vergleichen",
+      "options": "Optionen"
     },
     "useCases": {
-      "heading": "CSV Comparison Use Cases",
       "0": {
-        "title": "Data Auditing",
-        "desc": "Compare data exports from different dates to track changes in records."
+        "title": "Datenprufung",
+        "desc": "Datenexporte verschiedener Daten vergleichen, um Anderungen in Datensatzen zu verfolgen."
       },
       "1": {
-        "title": "List Reconciliation",
-        "desc": "Find items in one dataset but missing from another."
+        "title": "Listenabstimmung",
+        "desc": "Elemente finden, die in einem Datensatz vorhanden, aber in einem anderen fehlen."
       },
       "2": {
-        "title": "Deduplication",
-        "desc": "Identify overlapping records across multiple CSV files."
+        "title": "Deduplizierung",
+        "desc": "Ubereinanderlappende Datensatze in mehreren CSV-Dateien identifizieren."
       },
       "3": {
-        "title": "Migration Validation",
-        "desc": "Verify all records transferred correctly after data migration."
-      }
+        "title": "Migrationsvalidierung",
+        "desc": "Uberprufen, ob alle Datensatze nach einer Datenmigration korrekt ubertragen wurden."
+      },
+      "heading": "CSV-Vergleich — Anwendungsfalle"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two CSV files?",
-        "a": "Upload both CSV files using the file upload buttons, or copy-paste the content directly. If your CSV has multiple columns, select the column you want to compare. Click Compare to see the results instantly."
+        "q": "Wie vergleiche ich zwei CSV-Dateien?",
+        "a": "Laden Sie beide CSV-Dateien uber die Upload-Schaltflachen hoch, oder kopieren Sie den Inhalt direkt einfugen. Wenn Ihre CSV mehrere Spalten hat, wahlen Sie die zu vergleichende Spalte aus. Klicken Sie auf Vergleichen, um die Ergebnisse sofort zu sehen."
       },
       "1": {
-        "q": "Does it work with multi-column CSV files?",
-        "a": "Yes. When you upload a CSV with multiple columns, a dropdown appears letting you pick which column to compare (e.g., email, ID, name). Only that column's values are compared."
+        "q": "Funktioniert es mit mehrspaltigen CSV-Dateien?",
+        "a": "Ja. Beim Upload einer CSV mit mehreren Spalten erscheint ein Dropdown-Menue, mit dem Sie die zu vergleichende Spalte auswahlen konnen (z.B. E-Mail, ID, Name). Nur die Werte dieser Spalte werden verglichen."
       },
       "2": {
-        "q": "What CSV formats are supported?",
-        "a": "Standard comma-separated (.csv), tab-separated (.tsv), semicolon-separated, and plain text (.txt) files. Headers are auto-detected and excluded from comparison."
+        "q": "Welche CSV-Formate werden unterstutzt?",
+        "a": "Standard kommagetrennt (.csv), tabulatorgetrennt (.tsv), semikolongetrennt und Klartext (.txt). Kopfzeilen werden automatisch erkannt und vom Vergleich ausgeschlossen."
       },
       "3": {
-        "q": "Is there a file size limit?",
-        "a": "No strict limit. The tool handles files with tens of thousands of rows smoothly since all processing happens in your browser."
+        "q": "Gibt es eine Dateigroessenbeschraenkung?",
+        "a": "Keine strenge Begrenzung. Das Tool verarbeitet Dateien mit Zehntausenden von Zeilen reibungslos, da die gesamte Verarbeitung in Ihrem Browser erfolgt."
       },
       "4": {
-        "q": "Can I export the comparison results?",
-        "a": "Yes. Export any result category as CSV or TXT, or use the Full Report option to download everything in a single categorized CSV file."
-      }
+        "q": "Kann ich die Vergleichsergebnisse exportieren?",
+        "a": "Ja. Exportieren Sie jede Ergebniskategorie als CSV oder TXT, oder nutzen Sie die Option Vollstandiger Bericht, um alles in einer einzigen kategorisierten CSV-Datei herunterzuladen."
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Compare CSV Files"
+      "current": "CSV-Dateien vergleichen"
     },
     "jsonLd": {
-      "name": "Compare CSV Files - CompareList",
-      "description": "Free online tool to compare two CSV files. Find differences, compare specific columns, and export results."
+      "name": "CSV-Dateien vergleichen - CompareList",
+      "description": "Kostenloses Online-Tool zum Vergleichen zweier CSV-Dateien. Unterschiede finden, bestimmte Spalten vergleichen und Ergebnisse exportieren."
     }
   },
   "compareEmailLists": {
     "hero": {
-      "badge": "Email List Comparison",
-      "title": "Compare Two Email Lists Online",
-      "subtitle": "Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private."
+      "badge": "E-Mail-Listenvergleich",
+      "title": "Zwei E-Mail-Listen online vergleichen",
+      "subtitle": "Duplikate, eindeutige Adressen und gemeinsame Abonnenten zwischen zwei E-Mail-Listen finden. Kostenlos, sofort und privat."
     },
     "listInput": {
-      "listA": "Email List A",
-      "listB": "Email List B",
-      "placeholderA": "Paste your first email list...",
-      "placeholderB": "Paste your second email list..."
+      "listA": "E-Mail-Liste A",
+      "listB": "E-Mail-Liste B",
+      "placeholderA": "Ihre erste E-Mail-Liste einfugen...",
+      "placeholderB": "Ihre zweite E-Mail-Liste einfugen..."
     },
     "actions": {
-      "compare": "Compare Email Lists",
-      "tryDemo": "Try Demo",
-      "options": "Options"
+      "compare": "E-Mail-Listen vergleichen",
+      "tryDemo": "Demo testen",
+      "options": "Optionen"
     },
     "useCases": {
-      "heading": "Use Cases",
       "0": {
-        "title": "Email Marketing",
-        "desc": "Compare subscriber lists to find duplicates across campaigns and remove bounced emails from active lists."
+        "title": "E-Mail-Marketing",
+        "desc": "Abonnentenlisten vergleichen, um Duplikate kampagnenuebergreifend zu finden und bounced E-Mails aus aktiven Listen zu entfernen."
       },
       "1": {
-        "title": "CRM Cleanup",
-        "desc": "Merge contact lists from different sources and identify overlapping entries before importing."
+        "title": "CRM-Bereinigung",
+        "desc": "Kontaktlisten aus verschiedenen Quellen zusammenfuhren und ubereinanderlappende Eintrage vor dem Import identifizieren."
       },
       "2": {
-        "title": "Bounce List Check",
-        "desc": "Compare your mailing list against a bounce list to remove invalid addresses before sending."
-      }
+        "title": "Bounce-Listenprufung",
+        "desc": "Ihre Mailingliste mit einer Bounce-Liste vergleichen, um ungultige Adressen vor dem Versenden zu entfernen."
+      },
+      "heading": "Anwendungsfalle"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two email lists?",
-        "a": "Simply paste your email lists into the two text areas above (one email per line), then click Compare. You'll instantly see which emails are in both lists, which are only in List A, and which are only in List B."
+        "q": "Wie vergleiche ich zwei E-Mail-Listen?",
+        "a": "Fugen Sie Ihre E-Mail-Listen einfach in die beiden Textbereiche oben ein (eine E-Mail pro Zeile) und klicken Sie auf Vergleichen. Sie sehen sofort, welche E-Mails in beiden Listen sind, welche nur in Liste A und welche nur in Liste B."
       },
       "1": {
-        "q": "Can I compare email lists from Excel or CSV?",
-        "a": "Yes! Copy the email column from your Excel or CSV file and paste it directly. You can also drag and drop .csv or .txt files onto the input areas."
+        "q": "Kann ich E-Mail-Listen aus Excel oder CSV vergleichen?",
+        "a": "Ja! Kopieren Sie die E-Mail-Spalte aus Ihrer Excel- oder CSV-Datei und fugen Sie sie direkt ein. Sie konnen auch .csv- oder .txt-Dateien per Drag & Drop auf die Eingabefelder ziehen."
       },
       "2": {
-        "q": "Is my email data safe?",
-        "a": "Absolutely. All processing happens in your browser. Your email addresses are never sent to any server or stored anywhere."
+        "q": "Sind meine E-Mail-Daten sicher?",
+        "a": "Absolut. Die gesamte Verarbeitung erfolgt in Ihrem Browser. Ihre E-Mail-Adressen werden niemals an einen Server gesendet oder irgendwo gespeichert."
       },
       "3": {
-        "q": "How do I remove duplicate emails?",
-        "a": "The 'Remove Duplicates' option is enabled by default. It automatically deduplicates each list before comparison."
+        "q": "Wie entferne ich doppelte E-Mails?",
+        "a": "Die Option 'Duplikate entfernen' ist standardmassig aktiviert. Sie dedupliziert automatisch jede Liste vor dem Vergleich."
       },
       "4": {
-        "q": "Can I export the results?",
-        "a": "Yes. Use the download buttons in the results section to export as CSV or TXT, or copy directly to clipboard."
-      }
+        "q": "Kann ich die Ergebnisse exportieren?",
+        "a": "Ja. Verwenden Sie die Download-Schaltflachen im Ergebnisbereich, um als CSV oder TXT zu exportieren, oder kopieren Sie direkt in die Zwischenablage."
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Compare Email Lists"
+      "current": "E-Mail-Listen vergleichen"
     },
     "jsonLd": {
-      "name": "Compare Email Lists - CompareList",
-      "description": "Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private."
+      "name": "E-Mail-Listen vergleichen - CompareList",
+      "description": "Duplikate, eindeutige Adressen und gemeinsame Abonnenten zwischen zwei E-Mail-Listen finden. Kostenlos, sofort und privat."
     }
   },
   "compareExcelColumns": {
     "hero": {
-      "badge": "Excel Column Comparison",
-      "title": "Compare Two Excel Columns Online",
-      "subtitle": "Quickly find differences between two columns in Excel or Google Sheets. No formulas, no VLOOKUP needed."
+      "badge": "Excel-Spaltenvergleich",
+      "title": "Zwei Excel-Spalten online vergleichen",
+      "subtitle": "Schnell Unterschiede zwischen zwei Spalten in Excel oder Google Sheets finden. Keine Formeln, kein VLOOKUP notig."
     },
     "listInput": {
-      "listA": "Column A",
-      "listB": "Column B",
-      "placeholderA": "Paste your first Excel column here...",
-      "placeholderB": "Paste your second Excel column here..."
+      "listA": "Spalte A",
+      "listB": "Spalte B",
+      "placeholderA": "Ihre erste Excel-Spalte hier einfugen...",
+      "placeholderB": "Ihre zweite Excel-Spalte hier einfugen..."
     },
     "actions": {
-      "compare": "Compare Columns",
-      "options": "Options"
+      "compare": "Spalten vergleichen",
+      "options": "Optionen"
     },
     "steps": {
-      "heading": "How to Compare Excel Columns",
       "0": {
         "step": "1",
-        "title": "Open Your Excel File",
-        "desc": "Open the Excel or Google Sheets file containing the columns you want to compare."
+        "title": "Excel-Datei offnen",
+        "desc": "Offnen Sie die Excel- oder Google Sheets-Datei mit den Spalten, die Sie vergleichen mochten."
       },
       "1": {
         "step": "2",
-        "title": "Copy Each Column",
-        "desc": "Select the first column, copy it (Ctrl+C), then paste it into List A. Repeat for the second column into List B."
+        "title": "Jede Spalte kopieren",
+        "desc": "Wahlen Sie die erste Spalte aus, kopieren Sie sie (Strg+C) und fugen Sie sie in Liste A ein. Wiederholen Sie dies fur die zweite Spalte in Liste B."
       },
       "2": {
         "step": "3",
-        "title": "Compare & Export",
-        "desc": "Click Compare. Download results as CSV to paste back into your spreadsheet."
-      }
+        "title": "Vergleichen & exportieren",
+        "desc": "Klicken Sie auf Vergleichen. Laden Sie die Ergebnisse als CSV herunter, um sie in Ihre Tabelle einzufugen."
+      },
+      "heading": "Excel-Spalten vergleichen — So geht's"
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
-        "q": "How do I compare two columns in Excel?",
-        "a": "Copy the first column from your Excel file and paste it into the List A text area. Then copy the second column and paste it into List B. Click Compare to instantly see the differences."
+        "q": "Wie vergleiche ich zwei Spalten in Excel?",
+        "a": "Kopieren Sie die erste Spalte aus Ihrer Excel-Datei und fugen Sie sie in den Textbereich Liste A ein. Kopieren Sie dann die zweite Spalte und fugen Sie sie in Liste B ein. Klicken Sie auf Vergleichen, um die Unterschiede sofort zu sehen."
       },
       "1": {
-        "q": "Does this work with Google Sheets?",
-        "a": "Yes. Copy any column from Google Sheets and paste it directly. The tool handles tab-separated and comma-separated data automatically."
+        "q": "Funktioniert das mit Google Sheets?",
+        "a": "Ja. Kopieren Sie eine beliebige Spalte aus Google Sheets und fugen Sie sie direkt ein. Das Tool verarbeitet tabulator- und kommabetrennte Daten automatisch."
       },
       "2": {
-        "q": "Can I compare columns with numbers?",
-        "a": "Yes. The tool compares items as text by default. Use the Case Sensitive option if you need exact matching, or leave it off for flexible comparison."
+        "q": "Kann ich Spalten mit Zahlen vergleichen?",
+        "a": "Ja. Das Tool vergleicht Elemente standardmassig als Text. Verwenden Sie die Option Gross-/Kleinschreibung beachten, wenn Sie exakte Ubereinstimmung benotigen, oder lassen Sie sie fur flexiblen Vergleich deaktiviert."
       },
       "3": {
-        "q": "How do I get results back into Excel?",
-        "a": "Click the download button in the results section to export as CSV. You can then open or paste the CSV back into your Excel file."
-      }
+        "q": "Wie bekomme ich die Ergebnisse zuruck in Excel?",
+        "a": "Klicken Sie auf die Download-Schaltflache im Ergebnisbereich, um als CSV zu exportieren. Sie konnen die CSV dann offnen oder in Ihre Excel-Datei einfugen."
+      },
+      "heading": "Haufig gestellte Fragen"
     },
     "breadcrumbs": {
-      "current": "Compare Excel Columns"
+      "current": "Excel-Spalten vergleichen"
     },
     "jsonLd": {
-      "name": "Compare Excel Columns - CompareList",
-      "description": "Quickly find differences between two columns in Excel or Google Sheets. No formulas, no VLOOKUP needed."
+      "name": "Excel-Spalten vergleichen - CompareList",
+      "description": "Schnell Unterschiede zwischen zwei Spalten in Excel oder Google Sheets finden. Keine Formeln, kein VLOOKUP notig."
     }
   },
   "compareIpAddresses": {
     "hero": {
-      "badge": "IP Address Comparison",
-      "title": "Compare IP Address Lists",
-      "subtitle": "Find matching, unique, and overlapping IP addresses between two lists. Supports IPv4 addresses with exact matching."
+      "badge": "IP-Adressen-Vergleich",
+      "title": "IP-Adresslisten vergleichen",
+      "subtitle": "Ubereinstimmende, eindeutige und ubereinanderlappende IP-Adressen zwischen zwei Listen finden. Unterstutzt IPv4-Adressen mit exakter Ubereinstimmung."
     },
     "listInput": {
-      "listA": "Network A",
-      "listB": "Network B",
-      "placeholderA": "Paste IP addresses here...",
-      "placeholderB": "Paste IP addresses here..."
+      "listA": "Netzwerk A",
+      "listB": "Netzwerk B",
+      "placeholderA": "IP-Adressen hier einfugen...",
+      "placeholderB": "IP-Adressen hier einfugen..."
     },
     "actions": {
-      "compare": "Compare Lists",
-      "tryDemo": "Try Demo",
-      "options": "Options"
+      "compare": "Listen vergleichen",
+      "tryDemo": "Demo testen",
+      "options": "Optionen"
     },
     "useCases": {
-      "heading": "IP Address Comparison Use Cases",
       "0": {
-        "title": "Firewall Rule Audit",
-        "desc": "Compare allowed IPs across different firewall configurations."
+        "title": "Firewall-Regel-Audit",
+        "desc": "Zugelassene IPs uber verschiedene Firewall-Konfigurationen hinweg vergleichen."
       },
       "1": {
-        "title": "Network Inventory",
-        "desc": "Find active IPs present in one scan but missing from another."
+        "title": "Netzwerkinventar",
+        "desc": "Aktive IPs finden, die in einem Scan vorhanden, aber in einem anderen fehlen."
       },
       "2": {
-        "title": "Access Control Review",
-        "desc": "Compare whitelists and blacklists between systems."
+        "title": "Zugriffskontrolle prufen",
+        "desc": "Whitelists und Blacklists zwischen Systemen vergleichen."
       },
       "3": {
         "title": "Incident Response",
-        "desc": "Cross-reference suspicious IPs against known threat lists."
-      }
+        "desc": "Verdaechtige IPs mit bekannten Bedrohungslisten abgleichen."
+      },
+      "heading": "IP-Adressen-Vergleich — Anwendungsfalle"
     },
     "breadcrumbs": {
-      "current": "Compare IP Addresses"
+      "current": "IP-Adressen vergleichen"
     },
     "jsonLd": {
-      "name": "Compare IP Addresses - CompareList",
-      "description": "Find matching, unique, and overlapping IP addresses between two lists. Supports IPv4 addresses with exact matching."
+      "name": "IP-Adressen vergleichen - CompareList",
+      "description": "Ubereinstimmende, eindeutige und ubereinanderlappende IP-Adressen zwischen zwei Listen finden. Unterstutzt IPv4-Adressen mit exakter Ubereinstimmung."
     }
   },
   "compareKeywords": {
     "hero": {
-      "badge": "Keyword List Comparison",
-      "title": "Compare Keyword Lists Online",
-      "subtitle": "Find overlapping keywords, keyword gaps, and unique opportunities between two keyword lists. Free SEO tool."
+      "badge": "Schluesselwort-Listenvergleich",
+      "title": "Schluesselwortlisten online vergleichen",
+      "subtitle": "Ubereinanderlappende Schluesselworter, Schluesselwortlucken und einzigartige Gelegenheiten zwischen zwei Listen finden. Kostenloses SEO-Tool."
     },
     "listInput": {
-      "listA": "Keyword List A",
-      "listB": "Keyword List B",
-      "placeholderA": "Paste your first keyword list...",
-      "placeholderB": "Paste your second keyword list..."
+      "listA": "Schluesselwortliste A",
+      "listB": "Schluesselwortliste B",
+      "placeholderA": "Ihre erste Schluesselwortliste einfugen...",
+      "placeholderB": "Ihre zweite Schluesselwortliste einfugen..."
     },
     "actions": {
-      "compare": "Compare Keywords",
-      "options": "Options"
+      "compare": "Schluesselworter vergleichen",
+      "options": "Optionen"
     },
     "useCases": {
-      "heading": "SEO Use Cases",
       "0": {
-        "title": "Keyword Gap Analysis",
-        "desc": "Compare your keyword list with a competitor's to discover keyword opportunities you're missing."
+        "title": "Schluesselwort-Luckenanalyse",
+        "desc": "Vergleichen Sie Ihre Schluesselwortliste mit der eines Mitbewerbers, um Chancen zu entdecken, die Ihnen fehlen."
       },
       "1": {
-        "title": "Content Planning",
-        "desc": "Compare keywords from different topics to find overlapping terms and plan content clusters."
+        "title": "Content-Planung",
+        "desc": "Schluesselworter aus verschiedenen Themen vergleichen, um ubereinanderlappende Begriffe zu finden und Content-Cluster zu planen."
       },
       "2": {
-        "title": "Search Console Audit",
-        "desc": "Compare keywords you rank for vs keywords you target to find optimization opportunities."
-      }
+        "title": "Search-Console-Audit",
+        "desc": "Schluesselworter, fur die Sie ranken, vs. Schluesselworter, die Sie anvisieren, vergleichen, um Optimierungschancen zu finden."
+      },
+      "heading": "SEO-Anwendungsfalle"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two keyword lists?",
-        "a": "Paste your first keyword list into List A and the second into List B (one keyword per line). Click Compare to see which keywords are shared, unique to each list, and get overlap statistics."
+        "q": "Wie vergleiche ich zwei Schluesselwortlisten?",
+        "a": "Fugen Sie Ihre erste Schluesselwortliste in Liste A und die zweite in Liste B ein (ein Schluesselwort pro Zeile). Klicken Sie auf Vergleichen, um zu sehen, welche Schluesselworter geteilt, in jeder Liste eindeutig sind, und Uberlappungsstatistiken zu erhalten."
       },
       "1": {
-        "q": "Can I compare keywords from different SEO tools?",
-        "a": "Yes. Export keyword lists from Ahrefs, SEMrush, Google Search Console, or any other tool, then paste them here to find overlaps and gaps."
+        "q": "Kann ich Schluesselworter aus verschiedenen SEO-Tools vergleichen?",
+        "a": "Ja. Exportieren Sie Schluesselwortlisten aus Ahrefs, SEMrush, Google Search Console oder einem anderen Tool und fugen Sie sie hier ein, um Uberlappungen und Lucken zu finden."
       },
       "2": {
-        "q": "Does it handle keyword variations?",
-        "a": "By default, comparison is exact (case-insensitive). For detecting similar keywords like 'running shoes' vs 'shoes for running', use the AI Match mode."
+        "q": "Werden Schluesselwort-Varianten berucksichtigt?",
+        "a": "Standardmassig ist der Vergleich exakt (gross-/kleinschreibungsunabhangig). Fur die Erkennung ahnlicher Schluesselworter wie 'Laufschuhe' vs. 'Schuhe zum Laufen' verwenden Sie den KI-Ubereinstimmungsmodus."
       },
       "3": {
-        "q": "How can I find keyword gaps?",
-        "a": "Compare your target keyword list against a competitor's ranked keywords. Items 'Only in B' represent keyword gaps - keywords your competitor ranks for but you don't target."
-      }
+        "q": "Wie finde ich Schluesselwortlucken?",
+        "a": "Vergleichen Sie Ihre Ziel-Schluesselwortliste mit den rankenden Schluesselwortern eines Mitbewerbers. Elemente 'Nur in B' stellen Schluesselwortlucken dar — Schluesselworter, fur die Ihr Mitbewerber rankt, Sie aber nicht anvisieren."
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Compare Keywords"
+      "current": "Schluesselworter vergleichen"
     },
     "jsonLd": {
-      "name": "Compare Keywords - CompareList",
-      "description": "Find overlapping keywords, keyword gaps, and unique opportunities between two keyword lists. Free SEO tool."
+      "name": "Schluesselworter vergleichen - CompareList",
+      "description": "Ubereinanderlappende Schluesselworter, Schluesselwortlucken und einzigartige Gelegenheiten zwischen zwei Listen finden. Kostenloses SEO-Tool."
     }
   },
   "compareNameLists": {
     "hero": {
-      "badge": "Name List Comparison",
-      "title": "Compare Two CSV Columns Online",
-      "subtitle": "Find differences between two columns of data from CSV or Excel files. Paste, compare, export."
+      "badge": "Namenslistenvergleich",
+      "title": "Zwei CSV-Spalten online vergleichen",
+      "subtitle": "Unterschiede zwischen zwei Datenspalten aus CSV- oder Excel-Dateien finden. Einfugen, vergleichen, exportieren."
     },
     "listInput": {
-      "listA": "Column A",
-      "listB": "Column B",
-      "placeholderA": "Paste your first column data here...",
-      "placeholderB": "Paste your second column data here..."
+      "listA": "Spalte A",
+      "listB": "Spalte B",
+      "placeholderA": "Ihre ersten Spaltendaten hier einfugen...",
+      "placeholderB": "Ihre zweiten Spaltendaten hier einfugen..."
     },
     "actions": {
-      "compare": "Compare Columns",
-      "options": "Options"
+      "compare": "Spalten vergleichen",
+      "options": "Optionen"
     },
     "steps": {
-      "heading": "How to Compare CSV Columns",
       "0": {
         "step": "1",
-        "title": "Copy Column Data",
-        "desc": "Open your CSV or Excel file, select the column you want to compare, and copy it."
+        "title": "Spaltendaten kopieren",
+        "desc": "Offnen Sie Ihre CSV- oder Excel-Datei, wahlen Sie die zu vergleichende Spalte aus und kopieren Sie sie."
       },
       "1": {
         "step": "2",
-        "title": "Paste Into Tool",
-        "desc": "Paste each column into the respective text area. Data can be separated by newlines, commas, or tabs."
+        "title": "In das Tool einfugen",
+        "desc": "Fugen Sie jede Spalte in den jeweiligen Textbereich ein. Daten konnen durch Zeilenumbruche, Kommas oder Tabulatoren getrennt sein."
       },
       "2": {
         "step": "3",
-        "title": "Compare & Export",
-        "desc": "Click Compare to see differences. Export results as CSV for further analysis in your spreadsheet."
-      }
+        "title": "Vergleichen & exportieren",
+        "desc": "Klicken Sie auf Vergleichen, um Unterschiede zu sehen. Exportieren Sie Ergebnisse als CSV fur weitere Analyse in Ihrer Tabelle."
+      },
+      "heading": "CSV-Spalten vergleichen — So geht's"
     },
     "breadcrumbs": {
-      "current": "Compare Name Lists"
+      "current": "Namenslisten vergleichen"
     },
     "jsonLd": {
-      "name": "Compare Name Lists - CompareList",
-      "description": "Find differences between two columns of data from CSV or Excel files. Paste, compare, export."
+      "name": "Namenslisten vergleichen - CompareList",
+      "description": "Unterschiede zwischen zwei Datenspalten aus CSV- oder Excel-Dateien finden. Einfugen, vergleichen, exportieren."
     }
   },
   "comparePhoneNumbers": {
     "hero": {
-      "badge": "Phone Number Comparison",
-      "title": "Compare Phone Number Lists Online",
-      "subtitle": "Find matching, missing, and duplicate phone numbers between two lists. Works with all formats including international numbers."
+      "badge": "Telefonnummern-Vergleich",
+      "title": "Telefonnummernlisten online vergleichen",
+      "subtitle": "Ubereinstimmende, fehlende und doppelte Telefonnummern zwischen zwei Listen finden. Funktioniert mit allen Formaten einschliesslich internationaler Nummern."
     },
     "listInput": {
-      "listA": "List A",
-      "listB": "List B",
-      "placeholderA": "Paste phone numbers here...",
-      "placeholderB": "Paste phone numbers here..."
+      "listA": "Liste A",
+      "listB": "Liste B",
+      "placeholderA": "Telefonnummern hier einfugen...",
+      "placeholderB": "Telefonnummern hier einfugen..."
     },
     "actions": {
-      "compare": "Compare Lists",
-      "tryDemo": "Try Demo",
-      "options": "Options"
+      "compare": "Listen vergleichen",
+      "tryDemo": "Demo testen",
+      "options": "Optionen"
     },
     "howItWorks": {
-      "heading": "How Phone Number Comparison Works",
-      "desc": "Phone numbers can appear in many different formats: with or without country codes, with different separators (dashes, spaces, dots, parentheses), and with or without the + prefix. Our comparison tool normalizes these differences so you can accurately match phone numbers regardless of formatting. For the most accurate results, use case-insensitive comparison and enable whitespace trimming."
+      "heading": "Wie der Telefonnummern-Vergleich funktioniert",
+      "desc": "Telefonnummern konnen in vielen verschiedenen Formaten vorliegen: mit oder ohne Landesvorwahl, mit verschiedenen Trennzeichen (Bindestriche, Lehrzeichen, Punkte, Klammern) und mit oder ohne das +-Prfix. Unser Vergleichstool normalisiert diese Unterschiede, sodass Sie Telefonnummern unabhangig vom Format genau zuordnen konnen. Fur die genauesten Ergebnisse verwenden Sie gross-/kleinschreibungsunabhangigen Vergleich und aktivieren Sie das Trimmen von Lehrzeichen."
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
-        "title": "CRM Deduplication",
-        "desc": "Find and merge duplicate contacts across CRM systems."
+        "title": "CRM-Deduplizierung",
+        "desc": "Doppelte Kontakte in CRM-Systemen finden und zusammenfuhren."
       },
       "1": {
-        "title": "Call List Reconciliation",
-        "desc": "Compare outreach lists to avoid calling the same number twice."
+        "title": "Anruflisten-Abstimmung",
+        "desc": "Outreach-Listen vergleichen, um zu vermeiden, dieselbe Nummer zweimal anzurufen."
       },
       "2": {
-        "title": "Do-Not-Call Compliance",
-        "desc": "Cross-reference your call lists against DNC registries."
+        "title": "Robocall-Verbots-Compliance",
+        "desc": "Ihre Anruflisten mit DNC-Registern abgleichen."
       },
       "3": {
-        "title": "Contact Migration",
-        "desc": "Verify all phone numbers transferred correctly between systems."
-      }
+        "title": "Kontaktmigration",
+        "desc": "Uberprufen, ob alle Telefonnummern korrekt zwischen Systemen ubertragen wurden."
+      },
+      "heading": "Haufige Anwendungsfalle"
     },
     "breadcrumbs": {
-      "current": "Compare Phone Numbers"
+      "current": "Telefonnummern vergleichen"
     },
     "jsonLd": {
-      "name": "Compare Phone Numbers - CompareList",
-      "description": "Find matching, missing, and duplicate phone numbers between two lists. Works with all formats including international numbers."
+      "name": "Telefonnummern vergleichen - CompareList",
+      "description": "Ubereinstimmende, fehlende und doppelte Telefonnummern zwischen zwei Listen finden. Funktioniert mit allen Formaten einschliesslich internationaler Nummern."
     }
   },
   "compareTwoColumnsExcel": {
     "hero": {
-      "badge": "Excel Column Comparison",
-      "title": "Compare Two Columns in Excel",
-      "subtitle": "Paste two Excel columns to find matching values, unique entries, and duplicates. No formulas needed."
+      "badge": "Excel-Spaltenvergleich",
+      "title": "Zwei Spalten in Excel vergleichen",
+      "subtitle": "Zwei Excel-Spalten einfugen, um ubereinstimmende Werte, eindeutige Eintrage und Duplikate zu finden. Keine Formeln notig."
     },
     "listInput": {
-      "listA": "Column A",
-      "listB": "Column B",
-      "placeholderA": "Copy and paste your first Excel column...",
-      "placeholderB": "Copy and paste your second Excel column..."
+      "listA": "Spalte A",
+      "listB": "Spalte B",
+      "placeholderA": "Erste Excel-Spalte kopieren und einfugen...",
+      "placeholderB": "Zweite Excel-Spalte kopieren und einfugen..."
     },
     "actions": {
-      "compare": "Compare Columns",
-      "options": "Options"
+      "compare": "Spalten vergleichen",
+      "options": "Optionen"
     },
     "benefits": {
-      "heading": "Why Use This Instead of Excel Formulas?",
+      "0": {
+        "title": "Keine Formeln notig",
+        "desc": "VLOOKUP, MATCH und bedingte Formatierung uberspringen. Einfach einfugen und vergleichen."
+      },
+      "1": {
+        "title": "Sofortige visuelle Ergebnisse",
+        "desc": "Ubereinstimmende und eindeutige Werte in kategorisierten Tabs mit klarer Ubersicht sehen."
+      },
+      "2": {
+        "title": "Exportbereit",
+        "desc": "Ergebnisse als CSV herunterladen, um sie in Excel zuruckzuholen oder mit Ihrem Team zu teilen."
+      },
+      "3": {
+        "title": "Dateiuebergreifend",
+        "desc": "Spalten aus verschiedenen Arbeitsmappen vergleichen, ohne Dateien vorher zusammenzufuhren."
+      },
+      "heading": "Warum dieses Tool statt Excel-Formeln?"
+    },
+    "faq": {
+      "0": {
+        "q": "Wie vergleiche ich zwei Spalten in Excel?",
+        "a": "Kopieren Sie die Zellen jeder Spalte aus Ihrer Excel-Datei und fugen Sie sie oben in Liste A und Liste B ein. Klicken Sie auf Vergleichen, um sofort ubereinstimmende Werte, eindeutige Eintrage in jeder Spalte und Statistiken zu sehen."
+      },
+      "1": {
+        "q": "Muss ich die Daten vor dem Einfugen formatieren?",
+        "a": "Nein. Wahlen Sie einfach die Spaltenzellen in Excel aus, kopieren Sie (Strg+C) und fugen Sie direkt ein. Das Tool erkennt Trennzeichen automatisch und verarbeitet Lehrzeichen."
+      },
+      "2": {
+        "q": "Kann ich Spalten aus verschiedenen Excel-Dateien vergleichen?",
+        "a": "Ja. Offnen Sie beide Dateien, kopieren Sie die gewunschte Spalte aus jeder und fugen Sie sie in Liste A bzw. Liste B ein."
+      },
+      "3": {
+        "q": "Findet es teilweise oder nur exakte Ubereinstimmungen?",
+        "a": "Standardmassig findet es exakte Ubereinstimmungen. Aktivieren Sie den KI-Ubereinstimmungsmodus, um Fuzzy-Ubereinstimmungen wie Tippfehler, zusatzliche Lehrzeichen und umgestellten Text zu finden."
+      },
+      "4": {
+        "q": "Worin unterscheidet sich das vom Excel VLOOKUP?",
+        "a": "VLOOKUP pruft nur, ob ein Wert in einer anderen Spalte existiert. Dieses Tool gibt Ihnen eine vollstandige Ubersicht: Elemente in beiden Spalten, nur in Spalte A, nur in Spalte B, plus Statistiken und Exportoptionen."
+      },
+      "heading": "FAQ"
+    },
+    "breadcrumbs": {
+      "current": "Excel-Spalten vergleichen"
+    },
+    "jsonLd": {
+      "name": "Zwei Spalten in Excel vergleichen - CompareList",
+      "description": "Kostenloses Tool zum Online-Vergleich zweier Excel-Spalten. Sofort Ubereinstimmungen, Unterschiede und eindeutige Werte ohne Formeln finden."
+    },
+    "whyUse": {
       "0": {
         "title": "No Formulas Needed",
         "desc": "Skip VLOOKUP, MATCH, and conditional formatting. Just paste and compare."
@@ -610,711 +658,714 @@
       "3": {
         "title": "Works Across Files",
         "desc": "Compare columns from different workbooks without merging files first."
-      }
-    },
-    "faq": {
-      "heading": "FAQ",
-      "0": {
-        "q": "How do I compare two columns in Excel?",
-        "a": "Copy the cells from each column in your Excel file and paste them into List A and List B above. Click Compare to instantly see matching values, unique entries in each column, and statistics."
       },
-      "1": {
-        "q": "Do I need to format the data before pasting?",
-        "a": "No. Just select the column cells in Excel, copy (Ctrl+C), and paste directly. The tool auto-detects delimiters and handles whitespace."
-      },
-      "2": {
-        "q": "Can I compare columns from different Excel files?",
-        "a": "Yes. Open both files, copy the column you want from each, and paste into List A and List B respectively."
-      },
-      "3": {
-        "q": "Will it find partial matches or only exact matches?",
-        "a": "By default it finds exact matches. Enable AI Match mode to find fuzzy matches like typos, extra spaces, and reordered text."
-      },
-      "4": {
-        "q": "How is this different from Excel VLOOKUP?",
-        "a": "VLOOKUP only checks if a value exists in another column. This tool gives you a complete breakdown: items in both columns, items only in column A, items only in column B, plus statistics and export options."
-      }
-    },
-    "breadcrumbs": {
-      "current": "Compare Excel Columns"
-    },
-    "jsonLd": {
-      "name": "Compare Two Columns in Excel - CompareList",
-      "description": "Free tool to compare two Excel columns online. Find matches, differences, and unique values instantly without formulas."
+      "heading": "Why Use This Instead of Excel Formulas?"
     }
   },
   "compareUrls": {
     "hero": {
-      "badge": "URL List Comparison",
-      "title": "Compare Two URL Lists Online",
-      "subtitle": "Find differences between two lists of URLs. Compare sitemaps, backlink lists, or crawled pages."
+      "badge": "URL-Listenvergleich",
+      "title": "Zwei URL-Listen online vergleichen",
+      "subtitle": "Unterschiede zwischen zwei URL-Listen finden. Sitemaps, Backlink-Listen oder gecrawlte Seiten vergleichen."
     },
     "listInput": {
-      "listA": "URL List A",
-      "listB": "URL List B",
-      "placeholderA": "Paste your first URL list, one per line...",
-      "placeholderB": "Paste your second URL list, one per line..."
+      "listA": "URL-Liste A",
+      "listB": "URL-Liste B",
+      "placeholderA": "Ihre erste URL-Liste einfugen, eine pro Zeile...",
+      "placeholderB": "Ihre zweite URL-Liste einfugen, eine pro Zeile..."
     },
     "actions": {
-      "compare": "Compare URLs",
-      "options": "Options"
+      "compare": "URLs vergleichen",
+      "options": "Optionen"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
         "title": "SEO & Sitemaps",
-        "desc": "Compare old vs new sitemaps to find missing or new pages after a site migration or redesign."
+        "desc": "Alte vs. neue Sitemaps vergleichen, um fehlende oder neue Seiten nach einer Migration oder einem Redesign zu finden."
       },
       "1": {
-        "title": "Backlink Analysis",
-        "desc": "Compare backlink lists from different tools (Ahrefs, Moz, SEMrush) to find unique and overlapping links."
+        "title": "Backlink-Analyse",
+        "desc": "Backlink-Listen aus verschiedenen Tools (Ahrefs, Moz, SEMrush) vergleichen, um eindeutige und ubereinanderlappende Links zu finden."
       },
       "2": {
-        "title": "Broken Link Audit",
-        "desc": "Compare crawled URLs against your current page inventory to identify broken links and orphan pages."
-      }
+        "title": "Defekte-Links-Audit",
+        "desc": "Gecrawlte URLs mit Ihrem aktuellen Seitenbestand vergleichen, um defekte Links und verwaiste Seiten zu identifizieren."
+      },
+      "heading": "Haufige Anwendungsfalle"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I compare two lists of URLs?",
-        "a": "Paste one list of URLs into List A and the other into List B, one URL per line. Click Compare to instantly see which URLs are unique to each list and which appear in both."
+        "q": "Wie vergleiche ich zwei URL-Listen?",
+        "a": "Fugen Sie eine URL-Liste in Liste A und die andere in Liste B ein, eine URL pro Zeile. Klicken Sie auf Vergleichen, um sofort zu sehen, welche URLs in jeder Liste eindeutig sind und in beiden vorkommen."
       },
       "1": {
-        "q": "Does it compare full URLs or just domains?",
-        "a": "By default, it compares full URLs as-is. For domain-level comparison, you can enable Case Sensitive off (default) so HTTP vs https differences are handled."
+        "q": "Vergleicht es vollstandige URLs oder nur Domains?",
+        "a": "Standardmassig vergleicht es vollstandige URLs wie sie sind. Fur Domain-Level-Vergleich konnen Sie Gross-/Kleinschreibung deaktivieren (Standard), sodass HTTP-vs-https-Unterschiede berucksichtigt werden."
       },
       "2": {
-        "q": "Can I compare sitemaps or crawl data?",
-        "a": "Yes. Export URLs from your sitemap XML or crawl tool (like Screaming Frog) as a text list, then paste them here to compare."
+        "q": "Kann ich Sitemaps oder Crawl-Daten vergleichen?",
+        "a": "Ja. Exportieren Sie URLs aus Ihrer Sitemap-XML oder Ihrem Crawl-Tool (wie Screaming Frog) als Textliste und fugen Sie sie hier zum Vergleichen ein."
       },
       "3": {
-        "q": "What about trailing slashes and www prefixes?",
-        "a": "These are treated as different entries by default. Use the Trim Whitespace option and consider normalizing your URLs before comparing for best results."
-      }
+        "q": "Was ist mit nachgestellten Schragstrichen und www-Prafixen?",
+        "a": "Diese werden standardmassig als verschiedene Eintrage behandelt. Verwenden Sie die Option Lehrzeichen trimmen und erwagen Sie, Ihre URLs vor dem Vergleich zu normalisieren, um optimale Ergebnisse zu erzielen."
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Compare URLs"
+      "current": "URLs vergleichen"
     },
     "jsonLd": {
-      "name": "Compare URLs - CompareList",
-      "description": "Find differences between two lists of URLs. Compare sitemaps, backlink lists, or crawled pages."
+      "name": "URLs vergleichen - CompareList",
+      "description": "Unterschiede zwischen zwei URL-Listen finden. Sitemaps, Backlink-Listen oder gecrawlte Seiten vergleichen."
     }
   },
   "listDiff": {
     "hero": {
-      "badge": "List Diff Tool",
-      "title": "List Diff - Find Differences Between Lists",
-      "subtitle": "Compare two lists and instantly see what's different. Get added items, removed items, and unchanged items."
+      "badge": "Listen-Diff-Tool",
+      "title": "List Diff — Unterschiede zwischen Listen finden",
+      "subtitle": "Zwei Listen vergleichen und sofort sehen, was unterschiedlich ist. Hinzugefugte, entfernte und unveranderte Elemente erhalten."
     },
     "listInput": {
-      "listA": "Original List",
-      "listB": "New List",
-      "placeholderA": "Paste your original list here...",
-      "placeholderB": "Paste your new list here..."
+      "listA": "Originalliste",
+      "listB": "Neue Liste",
+      "placeholderA": "Ihre Originalliste hier einfugen...",
+      "placeholderB": "Ihre neue Liste hier einfugen..."
     },
     "actions": {
-      "diffLists": "Diff Lists",
-      "options": "Options"
+      "diffLists": "Listen diffen",
+      "options": "Optionen"
     },
     "howItWorks": {
-      "heading": "How List Diff Works",
       "0": {
-        "title": "Removed Items",
-        "desc": "Items in your original list that are missing from the new list. Think of these as 'deleted' entries."
+        "title": "Entfernte Elemente",
+        "desc": "Elemente in Ihrer Originalliste, die in der neuen Liste fehlen. Betrachten Sie diese als 'geloschte' Eintrage."
       },
       "1": {
-        "title": "Added Items",
-        "desc": "Items in your new list that weren't in the original. These are the 'newly added' entries."
+        "title": "Hinzugefugte Elemente",
+        "desc": "Elemente in Ihrer neuen Liste, die nicht im Original waren. Dies sind die 'neu hinzugefugten' Eintrage."
       },
       "2": {
-        "title": "Unchanged Items",
-        "desc": "Items present in both lists. These entries stayed the same between versions."
-      }
+        "title": "Unveranderte Elemente",
+        "desc": "Elemente, die in beiden Listen vorhanden sind. Diese Eintrage blieben zwischen den Versionen gleich."
+      },
+      "heading": "Wie List Diff funktioniert"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "What is list diff?",
-        "a": "List diff is the process of finding the differences between two lists. It shows you items that exist only in the first list, only in the second list, and items common to both."
+        "q": "Was ist Listen-Diff?",
+        "a": "Listen-Diff ist der Prozess, die Unterschiede zwischen zwei Listen zu finden. Es zeigt Ihnen Elemente, die nur in der ersten Liste, nur in der zweiten Liste und in beiden Listen vorhanden sind."
       },
       "1": {
-        "q": "How is this different from text diff?",
-        "a": "Text diff compares text line by line in order. List diff treats each item independently regardless of order, like set operations in math (union, intersection, difference)."
+        "q": "Worin unterscheidet sich das vom Text-Diff?",
+        "a": "Text-Diff vergleicht Text zeilenweise in Reihenfolge. Listen-Diff behandelt jedes Element unabhangig von der Reihenfolge, wie Mengenoperationen in der Mathematik (Vereinigung, Schnittmenge, Differenz)."
       },
       "2": {
-        "q": "Can I diff large lists?",
-        "a": "Yes. The tool handles lists with tens of thousands of items smoothly, since all processing happens in your browser using efficient set algorithms."
+        "q": "Kann ich grosse Listen diffen?",
+        "a": "Ja. Das Tool verarbeitet Listen mit Zehntausenden von Elementen reibungslos, da die gesamte Verarbeitung in Ihrem Browser mit effizienten Mengenalgorithmen erfolgt."
       },
       "3": {
-        "q": "What output formats are supported?",
-        "a": "You can copy results to clipboard, download as CSV, or download as plain text. Each category (only in A, only in B, common) can be exported separately."
-      }
+        "q": "Welche Ausgabeformate werden unterstutzt?",
+        "a": "Sie konnen Ergebnisse in die Zwischenablage kopieren, als CSV herunterladen oder als Klartext herunterladen. Jede Kategorie (nur in A, nur in B, gemeinsam) kann separat exportiert werden."
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
       "current": "List Diff"
     },
     "jsonLd": {
       "name": "List Diff - CompareList",
-      "description": "Compare two lists and instantly see what's different. Get added items, removed items, and unchanged items."
+      "description": "Zwei Listen vergleichen und sofort sehen, was unterschiedlich ist. Hinzugefugte, entfernte und unveranderte Elemente erhalten."
     }
   },
   "removeDuplicatesFromList": {
     "hero": {
-      "badge": "Deduplication Tool",
-      "title": "Remove Duplicates from List",
-      "subtitle": "Paste any list to instantly remove duplicate entries. Free, private, and works entirely in your browser."
+      "badge": "Deduplizierungs-Tool",
+      "title": "Duplikate aus einer Liste entfernen",
+      "subtitle": "Beliebige Liste einfugen, um sofort doppelte Eintrage zu entfernen. Kostenlos, privat und funktioniert vollstandig in Ihrem Browser."
     },
     "listInput": {
-      "listA": "Your List",
-      "listB": "Second List (optional)",
-      "placeholderA": "Paste your list with duplicates...",
-      "placeholderB": "Paste a second list to find cross-list duplicates..."
+      "listA": "Ihre Liste",
+      "listB": "Zweite Liste (optional)",
+      "placeholderA": "Ihre Liste mit Duplikaten einfugen...",
+      "placeholderB": "Eine zweite Liste einfugen, um listenubergreifende Duplikate zu finden..."
     },
     "actions": {
-      "removeDuplicates": "Remove Duplicates",
-      "copyToClipboard": "Copy to clipboard"
+      "removeDuplicates": "Duplikate entfernen",
+      "copyToClipboard": "In Zwischenablage kopieren"
     },
     "result": {
-      "heading": "Deduplicated Result",
-      "stats": "{count} items ({dupCount} duplicates removed)"
+      "heading": "Dedupliziertes Ergebnis",
+      "stats": "{count} Elemente ({dupCount} Duplikate entfernt)"
     },
     "useCases": {
-      "heading": "Common Deduplication Use Cases",
       "0": {
-        "title": "Email List Cleanup",
-        "desc": "Remove duplicate email addresses before sending campaigns to avoid double-emailing."
+        "title": "E-Mail-Listen-Bereinigung",
+        "desc": "Doppelte E-Mail-Adressen vor dem Kampagnenversand entfernen, um Doppelmails zu vermeiden."
       },
       "1": {
-        "title": "Contact Deduplication",
-        "desc": "Merge contact lists from different sources and remove overlapping entries."
+        "title": "Kontakt-Deduplizierung",
+        "desc": "Kontaktlisten aus verschiedenen Quellen zusammenfuhren und ubereinanderlappende Eintrage entfernen."
       },
       "2": {
-        "title": "Data Cleaning",
-        "desc": "Clean up messy datasets by removing repeated values before analysis."
+        "title": "Datenbereinigung",
+        "desc": "Unubersichtliche Datensatze bereinigen, indem wiederholte Werte vor der Analyse entfernt werden."
       },
       "3": {
-        "title": "Inventory Management",
-        "desc": "Find and remove duplicate SKUs or product codes across inventory lists."
-      }
+        "title": "Bestandsverwaltung",
+        "desc": "Doppelte SKUs oder Produktcodes in Bestandslisten finden und entfernen."
+      },
+      "heading": "Haufige Deduplizierungs-Anwendungsfalle"
     },
     "faq": {
-      "heading": "FAQ",
       "0": {
-        "q": "How do I remove duplicates from a list?",
-        "a": "Paste your list into the text area above (one item per line) and click Remove Duplicates. You'll instantly get a clean list with all duplicates removed."
+        "q": "Wie entferne ich Duplikate aus einer Liste?",
+        "a": "Fugen Sie Ihre Liste in den Textbereich oben ein (ein Element pro Zeile) und klicken Sie auf Duplikate entfernen. Sie erhalten sofort eine bereinigte Liste ohne Duplikate."
       },
       "1": {
-        "q": "Does it remove duplicates across both lists?",
-        "a": "If you paste two lists, the tool shows you which items are shared (duplicates across lists) and which are unique to each. For a single list, it removes internal duplicates."
+        "q": "Werden Duplikate ubergreifend uber beide Listen entfernt?",
+        "a": "Wenn Sie zwei Listen einfugen, zeigt das Tool an, welche Elemente geteilt sind (Duplikate zwischen Listen) und welche in jeder eindeutig sind. Fur eine einzelne Liste werden interne Duplikate entfernt."
       },
       "2": {
-        "q": "Is it case-sensitive?",
-        "a": "By default, no. 'Apple' and 'apple' are treated as the same item. This matches how most people expect deduplication to work."
+        "q": "Wird Gross-/Kleinschreibung beachtet?",
+        "a": "Standardmassig nein. 'Apfel' und 'apfel' werden als dasselbe Element behandelt. Dies entspricht der Erwartung der meisten Nutzer an die Deduplizierung."
       },
       "3": {
-        "q": "Can I remove duplicates from an Excel column?",
-        "a": "Yes. Copy the column from Excel and paste it directly into the text area. The deduplicated result can be copied back to Excel."
+        "q": "Kann ich Duplikate aus einer Excel-Spalte entfernen?",
+        "a": "Ja. Kopieren Sie die Spalte aus Excel und fugen Sie sie direkt in den Textbereich ein. Das deduplizierte Ergebnis kann zuruck nach Excel kopiert werden."
       },
       "4": {
-        "q": "What counts as a duplicate?",
-        "a": "Items that are identical after trimming whitespace. Empty lines are ignored. By default, comparison is case-insensitive."
-      }
+        "q": "Was zaehlt als Duplikat?",
+        "a": "Elemente, die nach dem Trimmen von Lehrzeichen identisch sind. Leerzeilen werden ignoriert. Standardmassig ist der Vergleich gross-/kleinschreibungsunabhangig."
+      },
+      "heading": "FAQ"
     },
     "breadcrumbs": {
-      "current": "Remove Duplicates from List"
+      "current": "Duplikate aus Liste entfernen"
     },
     "jsonLd": {
-      "name": "Remove Duplicates from List - CompareList",
-      "description": "Free online tool to remove duplicates from any list. Paste your list and get a clean, deduplicated result instantly."
+      "name": "Duplikate aus Liste entfernen - CompareList",
+      "description": "Kostenloses Online-Tool zum Entfernen von Duplikaten aus beliebigen Listen. Liste einfugen und sofort ein bereinigtes Ergebnis erhalten."
     }
   },
   "howToCompareTwoLists": {
     "hero": {
       "badge": "Tutorial",
-      "title": "How to Compare Two Lists Online",
-      "subtitle": "A complete guide to finding differences, common items, and unique entries between any two lists — in under 30 seconds."
+      "title": "Zwei Listen online vergleichen — Anleitung",
+      "subtitle": "Eine vollstandige Anleitung zum Finden von Unterschieden, gemeinsamen Elementen und eindeutigen Eintragen zwischen zwei Listen — in unter 30 Sekunden."
     },
     "quickSummary": {
-      "heading": "Quick Summary",
       "0": {
-        "title": "Instant Results",
-        "desc": "Compare thousands of items in milliseconds, entirely in your browser."
+        "title": "Sofortige Ergebnisse",
+        "desc": "Tausende Elemente in Millisekunden vergleichen, vollstandig in Ihrem Browser."
       },
       "1": {
-        "title": "100% Private",
-        "desc": "Your data never leaves your device. No server uploads, no tracking."
+        "title": "100% privat",
+        "desc": "Ihre Daten verlassen niemals Ihr Geraet. Keine Server-Uploads, kein Tracking."
       },
       "2": {
-        "title": "Any Format",
-        "desc": "Paste text, upload files, drag and drop. Auto-detects delimiters."
-      }
+        "title": "Jedes Format",
+        "desc": "Text einfugen, Dateien hochladen, Drag & Drop. Trennzeichen werden automatisch erkannt."
+      },
+      "heading": "Kurzusammenfassung"
     },
     "steps": {
-      "heading": "Step-by-Step Guide",
       "0": {
         "num": "1",
-        "title": "Paste or Upload Your Lists",
-        "desc": "Copy and paste your first list into List A and your second list into List B. You can also upload TXT, CSV, or TSV files by clicking the Upload button or dragging files directly into the input area.",
-        "tip": "Lists can contain emails, names, URLs, numbers, keywords, or any text items. Items are auto-detected regardless of separator (newlines, commas, tabs, semicolons)."
+        "title": "Listen einfugen oder hochladen",
+        "desc": "Kopieren und fugen Sie Ihre erste Liste in Liste A und Ihre zweite Liste in Liste B ein. Sie konnen auch TXT-, CSV- oder TSV-Dateien hochladen, indem Sie auf die Schaltflache Hochladen klicken oder Dateien direkt in den Eingabebereich ziehen.",
+        "tip": "Listen konnen E-Mails, Namen, URLs, Zahlen, Schluesselworter oder beliebige Textelemente enthalten. Elemente werden unabhangig vom Trennzeichen automatisch erkannt (Zeilenumbruche, Kommas, Tabulatoren, Semikolons)."
       },
       "1": {
         "num": "2",
-        "title": "Choose Your Comparison Mode",
-        "desc": "Select \"Exact Match\" for precise item-by-item comparison, or \"AI Match\" to find fuzzy matches like typos, reordered names (\"John Smith\" vs \"Smith, John\"), and similar entries using DeepSeek AI.",
-        "tip": "Exact Match is always free. AI Match uses 1 credit per comparison and includes fuzzy matching and intelligent analysis."
+        "title": "Vergleichsmodus wahlen",
+        "desc": "Wahlen Sie \"Exakte Ubereinstimmung\" fur prazisen Element-fur-Element-Vergleich oder \"KI-Ubereinstimmung\", um Fuzzy-Matches wie Tippfehler, neu angeordnete Namen (\"John Smith\" vs. \"Smith, John\") und ahnliche Eintrage mit DeepSeek KI zu finden.",
+        "tip": "Exakte Ubereinstimmung ist immer kostenlos. KI-Ubereinstimmung verbraucht 1 Guthaben pro Vergleich und enthalt Fuzzy-Matching und intelligente Analyse."
       },
       "2": {
         "num": "3",
-        "title": "Configure Options (Optional)",
-        "desc": "Click the Options button to toggle case sensitivity, whitespace trimming, duplicate removal, and empty line filtering. Defaults work well for most cases.",
-        "tip": "Enable case-sensitive matching if you need to distinguish between uppercase and lowercase differences."
+        "title": "Optionen konfigurieren (optional)",
+        "desc": "Klicken Sie auf die Schaltflache Optionen, um Gross-/Kleinschreibung, Lehrzeichen-Trimming, Duplikatentfernung und Leerzeilenfilterung umzuschalten. Die Standardeinstellungen funktionieren fur die meisten Falle gut.",
+        "tip": "Aktivieren Sie gross-/kleinschreibungsensitives Matching, wenn Sie zwischen Gross- und Kleinschreibungsunterscheiden mussen."
       },
       "3": {
         "num": "4",
-        "title": "Click Compare",
-        "desc": "Hit the Compare button and get instant results. You'll see statistics, a Venn diagram, and categorized results in tabs.",
-        "tip": "Results are computed entirely in your browser. Your data is never uploaded to any server."
+        "title": "Auf Vergleichen klicken",
+        "desc": "Drucken Sie die Schaltflache Vergleichen und erhalten Sie sofortige Ergebnisse. Sie sehen Statistiken, ein Venn-Diagramm und kategorisierte Ergebnisse in Tabs.",
+        "tip": "Ergebnisse werden vollstandig in Ihrem Browser berechnet. Ihre Daten werden nie auf einen Server hochgeladen."
       },
       "4": {
         "num": "5",
-        "title": "Explore and Export Results",
-        "desc": "Browse results in categorized tabs: Only in A, Only in B, In Both, Union, and Symmetric Difference. Use the search bar to filter, sort alphabetically, and export as CSV, TXT, or a full report.",
-        "tip": "The Full Report export creates a single CSV with all categories clearly labeled — perfect for spreadsheets."
-      }
+        "title": "Ergebnisse erkunden und exportieren",
+        "desc": "Durchsuchen Sie Ergebnisse in kategorisierten Tabs: Nur in A, Nur in B, In beiden, Vereinigung und Symmetrische Differenz. Verwenden Sie die Suchleiste zum Filtern, alphabetischen Sortieren und Exportieren als CSV, TXT oder vollstandiger Bericht.",
+        "tip": "Der Vollstandiger-Bericht-Export erstellt eine einzige CSV mit allen klar beschrifteten Kategorien — perfekt fur Tabellenkalkulationen."
+      },
+      "heading": "Schritt-fur-Schritt-Anleitung",
+      "tipLabel": "Tip"
     },
     "useCases": {
-      "heading": "Common Use Cases",
       "0": {
-        "title": "Email List Comparison",
-        "desc": "Find subscribers in one list but not another, detect duplicates across campaigns."
+        "title": "E-Mail-Listenvergleich",
+        "desc": "Abonnenten in einer Liste finden, die in einer anderen fehlen, Duplikate kampagnenuebergreifend erkennen."
       },
       "1": {
-        "title": "Inventory Reconciliation",
-        "desc": "Compare product SKUs or item lists between systems to find discrepancies."
+        "title": "Bestandsabstimmung",
+        "desc": "Produkt-SKUs oder Artikellisten zwischen Systemen vergleichen, um Diskrepanzen zu finden."
       },
       "2": {
-        "title": "Data Cleaning",
-        "desc": "Identify and remove duplicate or near-duplicate entries across datasets."
+        "title": "Datenbereinigung",
+        "desc": "Doppelte oder nahezu doppelte Eintrage in Datensatzen identifizieren und entfernen."
       },
       "3": {
-        "title": "Keyword Research",
-        "desc": "Compare keyword lists from different tools to find unique opportunities."
+        "title": "Schluesselwortrecherche",
+        "desc": "Schluesselwortlisten aus verschiedenen Tools vergleichen, um einzigartige Gelegenheiten zu finden."
       },
       "4": {
-        "title": "Name Matching",
-        "desc": "Find matching names across lists with AI fuzzy matching for spelling variations."
+        "title": "Namensabgleich",
+        "desc": "Ubereinstimmende Namen listenuebergreifend mit KI-Fuzzy-Matching fur Schreibvariationen finden."
       },
       "5": {
-        "title": "URL Comparison",
-        "desc": "Compare sitemaps, backlink lists, or page inventories between sites."
-      }
+        "title": "URL-Vergleich",
+        "desc": "Sitemaps, Backlink-Listen oder Seitenbestande zwischen Sites vergleichen."
+      },
+      "heading": "Haufige Anwendungsfalle"
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
-        "q": "Is there a file size limit?",
-        "a": "There is no strict limit. The tool handles tens of thousands of items smoothly since all processing happens locally in your browser."
+        "q": "Gibt es eine Dateigroessenbeschraenkung?",
+        "a": "Es gibt keine strenge Begrenzung. Das Tool verarbeitet Zehntausende von Elementen reibungslos, da die gesamte Verarbeitung lokal in Ihrem Browser erfolgt."
       },
       "1": {
-        "q": "Can I compare more than two lists?",
-        "a": "Currently, the tool compares exactly two lists at a time. For multiple lists, you can compare them pairwise and combine the results."
+        "q": "Kann ich mehr als zwei Listen vergleichen?",
+        "a": "Aktuell vergleicht das Tool genau zwei Listen gleichzeitig. Fur mehrere Listen konnen Sie diese paarweise vergleichen und die Ergebnisse kombinieren."
       },
       "2": {
-        "q": "What is the match rate percentage?",
-        "a": "The match rate uses the Dice coefficient formula: 2 x (common items) / (total A + total B). It gives a percentage showing how similar the two lists are."
+        "q": "Was ist der Ubereinstimmungsrate-Prozentsatz?",
+        "a": "Die Ubereinstimmungsrate verwendet die Dice-Koeffizient-Formel: 2 x (gemeinsame Elemente) / (Gesamt A + Gesamt B). Sie gibt einen Prozentsatz an, der zeigt, wie ahnlich die beiden Listen sind."
       },
       "3": {
-        "q": "How does AI fuzzy matching work?",
-        "a": "AI matching uses a combination of Levenshtein edit distance and Jaccard token similarity to find items that are similar but not identical — like typos, reordered words, or partial matches."
+        "q": "Wie funktioniert KI-Fuzzy-Matching?",
+        "a": "KI-Matching verwendet eine Kombination aus Levenshtein-Editierdistanz und Jaccard-Token-Ahnlichkeit, um Elemente zu finden, die ahnlich, aber nicht identisch sind — wie Tippfehler, umgestellte Worter oder teilweise Ubereinstimmungen."
       },
       "4": {
-        "q": "Is my data stored anywhere?",
-        "a": "No. All comparison happens in your browser. Your lists are never sent to any server. History is stored locally in your browser and can be cleared at any time."
-      }
+        "q": "Werden meine Daten irgendwo gespeichert?",
+        "a": "Nein. Der gesamte Vergleich erfolgt in Ihrem Browser. Ihre Listen werden niemals an einen Server gesendet. Der Verlauf wird lokal in Ihrem Browser gespeichert und kann jederzeit geloscht werden."
+      },
+      "heading": "Haufig gestellte Fragen"
     },
     "cta": {
-      "title": "Ready to Try It?",
-      "subtitle": "Compare your first two lists in under 30 seconds — free, private, and instant.",
-      "button": "Start Comparing"
+      "title": "Bereit zum Ausprobieren?",
+      "subtitle": "Vergleichen Sie Ihre ersten zwei Listen in unter 30 Sekunden — kostenlos, privat und sofort.",
+      "button": "Vergleich starten"
     },
     "breadcrumbs": {
-      "current": "How to Compare Two Lists"
+      "current": "Zwei Listen vergleichen — Anleitung"
     },
     "jsonLd": {
-      "name": "How to Compare Two Lists Online",
-      "description": "A complete guide to finding differences, common items, and unique entries between any two lists."
+      "name": "Zwei Listen online vergleichen — Anleitung",
+      "description": "Eine vollstandige Anleitung zum Finden von Unterschieden, gemeinsamen Elementen und eindeutigen Eintragen zwischen zwei Listen."
+    },
+    "nav": {
+      "tutorials": "Tutorials"
     }
   },
   "howToCompareCsvFiles": {
     "hero": {
       "badge": "Tutorial",
-      "title": "How to Compare Two CSV Files",
-      "subtitle": "Compare CSV files to find added, removed, and common rows. Works with any CSV structure and lets you pick specific columns."
+      "title": "Zwei CSV-Dateien vergleichen — Anleitung",
+      "subtitle": "CSV-Dateien vergleichen, um hinzugefugte, entfernte und gemeinsame Zeilen zu finden. Funktioniert mit jeder CSV-Struktur und lasst Sie bestimmte Spalten auswahlen."
     },
     "whyCompare": {
-      "heading": "Why Compare CSV Files?",
       "0": {
-        "title": "Data Auditing",
-        "desc": "Verify data changes between exports from different dates or systems."
+        "title": "Datenprufung",
+        "desc": "Datenderungen zwischen Exporten von verschiedenen Daten oder Systemen uberprufen."
       },
       "1": {
-        "title": "List Reconciliation",
-        "desc": "Find items present in one dataset but missing from another."
+        "title": "Listenabstimmung",
+        "desc": "Elemente finden, die in einem Datensatz vorhanden, aber in einem anderen fehlen."
       },
       "2": {
-        "title": "Deduplication",
-        "desc": "Identify overlapping records across multiple CSV files."
+        "title": "Deduplizierung",
+        "desc": "Ubereinanderlappende Datensatze in mehreren CSV-Dateien identifizieren."
       },
       "3": {
-        "title": "Migration Validation",
-        "desc": "Confirm all records transferred correctly after data migration."
-      }
+        "title": "Migrationsvalidierung",
+        "desc": "Bestatigen, dass alle Datensatze nach einer Datenmigration korrekt ubertragen wurden."
+      },
+      "heading": "Warum CSV-Dateien vergleichen?"
     },
     "steps": {
-      "heading": "Steps to Compare CSV Files",
       "0": {
-        "title": "Upload Your CSV Files",
-        "desc": "Click the \"Upload File\" button on each input panel to select a CSV file. You can also drag and drop files directly onto the input areas. When you upload a multi-column CSV, a column selector dropdown appears automatically — pick the column you want to compare."
+        "title": "CSV-Dateien hochladen",
+        "desc": "Klicken Sie auf die Schaltflache \"Datei hochladen\" in jedem Eingabefeld, um eine CSV-Datei auszuwahlen. Sie konnen auch Dateien per Drag & Drop direkt auf die Eingabebereiche ziehen. Beim Upload einer mehrspaltigen CSV erscheint automatisch ein Spaltenauswahl-Dropdown — wahlen Sie die Spalte, die Sie vergleichen mochten."
       },
       "1": {
-        "title": "Select the Right Column",
-        "desc": "For multi-column CSVs, use the column selector dropdown to pick which column to compare. This lets you compare specific fields like email addresses, IDs, or product names from within larger datasets."
+        "title": "Die richtige Spalte wahlen",
+        "desc": "Verwenden Sie bei mehrspaltigen CSVs das Spaltenauswahl-Dropdown, um die zu vergleichende Spalte zu wahlen. So konnen Sie bestimmte Felder wie E-Mail-Adressen, IDs oder Produktnamen innerhalb grosserer Datensatze vergleichen."
       },
       "2": {
-        "title": "Run the Comparison",
-        "desc": "Click \"Compare Lists\" to get instant results. The tool will show you items only in file A, only in file B, and items present in both files. Statistics and a Venn diagram give you a quick overview."
+        "title": "Vergleich ausfuhren",
+        "desc": "Klicken Sie auf \"Listen vergleichen\", um sofortige Ergebnisse zu erhalten. Das Tool zeigt Ihnen Elemente nur in Datei A, nur in Datei B und Elemente in beiden Dateien. Statistiken und ein Venn-Diagramm geben Ihnen einen schnellen Uberblick."
       },
       "3": {
-        "title": "Export the Results",
-        "desc": "Export individual categories as CSV or TXT, or use \"Full Report\" to download everything in a single categorized CSV file. You can also copy results directly to your clipboard."
-      }
+        "title": "Ergebnisse exportieren",
+        "desc": "Einzelne Kategorien als CSV oder TXT exportieren oder \"Vollstandiger Bericht\" verwenden, um alles in einer einzigen kategorisierten CSV-Datei herunterzuladen. Sie konnen Ergebnisse auch direkt in die Zwischenablage kopieren."
+      },
+      "heading": "Schritte zum Vergleichen von CSV-Dateien"
     },
     "formats": {
-      "heading": "Supported File Formats",
       "0": {
         "ext": ".csv",
-        "name": "Comma-Separated Values",
-        "desc": "Standard CSV with header detection and column selection."
+        "name": "Kommagetrennte Werte",
+        "desc": "Standard-CSV mit Kopfzeilenerkennung und Spaltenauswahl."
       },
       "1": {
         "ext": ".tsv",
-        "name": "Tab-Separated Values",
-        "desc": "Auto-detected tab-delimited files with column support."
+        "name": "Tabulatorgetrennte Werte",
+        "desc": "Automatisch erkannte tabulatorgetrennte Dateien mit Spaltenunterstutzung."
       },
       "2": {
         "ext": ".txt",
-        "name": "Plain Text",
-        "desc": "One item per line, or comma/semicolon/tab separated."
-      }
+        "name": "Klartext",
+        "desc": "Ein Element pro Zeile oder komma-/semikolon-/tabulatorgetrennt."
+      },
+      "heading": "Unterstutzte Dateiformate"
     },
     "cta": {
-      "title": "Compare Your CSV Files Now",
-      "subtitle": "Free, instant, and completely private. No signup required.",
-      "button": "Start Comparing"
+      "title": "Vergleichen Sie jetzt Ihre CSV-Dateien",
+      "subtitle": "Kostenlos, sofort und vollstandig privat. Keine Anmeldung erforderlich.",
+      "button": "Vergleich starten"
     },
     "breadcrumbs": {
-      "current": "How to Compare CSV Files"
+      "current": "CSV-Dateien vergleichen — Anleitung"
     },
     "jsonLd": {
-      "name": "How to Compare Two CSV Files Online",
-      "description": "Compare CSV files to find added, removed, and common rows. Works with any CSV structure and lets you pick specific columns."
+      "name": "Zwei CSV-Dateien online vergleichen — Anleitung",
+      "description": "CSV-Dateien vergleichen, um hinzugefugte, entfernte und gemeinsame Zeilen zu finden. Funktioniert mit jeder CSV-Struktur und lasst Sie bestimmte Spalten auswahlen."
     }
   },
   "howToFindDifferences": {
     "hero": {
       "badge": "Tutorial",
-      "title": "How to Find Differences Between Two Lists",
-      "subtitle": "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods."
+      "title": "Unterschiede zwischen zwei Listen finden — Anleitung",
+      "subtitle": "Ein praktischer Leitfaden, um zu identifizieren, was unterschiedlich und was gleich ist zwischen zwei Listen, mit exakten und KI-basierten Methoden."
     },
     "methods": {
-      "heading": "Two Ways to Find Differences",
       "0": {
-        "title": "Exact Matching",
-        "badge": "Free",
-        "desc": "Compares items character-by-character. Items match only if they are identical (with optional case-insensitive comparison). Fast and deterministic.",
-        "best": "Emails, IDs, product codes, exact strings"
+        "title": "Exakte Ubereinstimmung",
+        "badge": "Kostenlos",
+        "desc": "Vergleicht Elemente zeichenweise. Elemente stimmen nur uberein, wenn sie identisch sind (mit optionaler gross-/kleinschreibungsunabhangiger Vergleich). Schnell und deterministisch.",
+        "best": "E-Mails, IDs, Produktcodes, exakte Zeichenketten"
       },
       "1": {
-        "title": "AI Fuzzy Matching",
-        "badge": "1 Credit",
-        "desc": "Uses Levenshtein distance and token-based similarity to find near-matches. Catches typos, reordered words, and similar entries that exact matching misses.",
-        "best": "Names (\"John Smith\" vs \"Smith, John\"), addresses, keywords with typos"
-      }
+        "title": "KI-Fuzzy-Matching",
+        "badge": "1 Guthaben",
+        "desc": "Verwendet Levenshtein-Distanz und tokenbasierte Ahnlichkeit, um Nahe-Ubereinstimmungen zu finden. Erkennt Tippfehler, umgestellte Worter und ahnliche Eintrage, die die exakte Suche verpasst.",
+        "best": "Namen (\"John Smith\" vs. \"Smith, John\"), Adressen, Schluesselworter mit Tippfehlern"
+      },
+      "heading": "Zwei Wege, um Unterschiede zu finden"
     },
     "terms": {
-      "heading": "Understanding the Results",
       "0": {
-        "term": "Only in A",
-        "desc": "Items present in List A but not found in List B."
+        "term": "Nur in A",
+        "desc": "Elemente, die in Liste A vorhanden, aber nicht in Liste B gefunden wurden."
       },
       "1": {
-        "term": "Only in B",
-        "desc": "Items present in List B but not found in List A."
+        "term": "Nur in B",
+        "desc": "Elemente, die in Liste B vorhanden, aber nicht in Liste A gefunden wurden."
       },
       "2": {
-        "term": "In Both (Intersection)",
-        "desc": "Items present in both List A and List B."
+        "term": "In beiden (Schnittmenge)",
+        "desc": "Elemente, die sowohl in Liste A als auch in Liste B vorhanden sind."
       },
       "3": {
-        "term": "Union",
-        "desc": "All unique items from both lists combined."
+        "term": "Vereinigung",
+        "desc": "Alle eindeutigen Elemente aus beiden Listen kombiniert."
       },
       "4": {
-        "term": "Symmetric Difference",
-        "desc": "Items in either list but not in both (Only in A + Only in B)."
-      }
+        "term": "Symmetrische Differenz",
+        "desc": "Elemente in einer der Listen, aber nicht in beiden (Nur in A + Nur in B)."
+      },
+      "heading": "Die Ergebnisse verstehen"
     },
     "example": {
-      "heading": "Practical Example",
+      "heading": "Praktisches Beispiel",
       "listA": {
-        "title": "List A (Old Subscribers)"
+        "title": "Liste A (Alte Abonnenten)"
       },
       "listB": {
-        "title": "List B (New Subscribers)"
+        "title": "Liste B (Neue Abonnenten)"
       },
       "onlyA": {
-        "title": "Only in A (2)",
-        "desc": "Unsubscribed / Churned"
+        "title": "Nur in A (2)",
+        "desc": "Abgemeldet / Abwanderung"
       },
       "onlyB": {
-        "title": "Only in B (2)",
-        "desc": "New subscribers"
+        "title": "Nur in B (2)",
+        "desc": "Neue Abonnenten"
       },
       "both": {
-        "title": "In Both (2)",
-        "desc": "Retained subscribers"
+        "title": "In beiden (2)",
+        "desc": "Behaltene Abonnenten"
       }
     },
     "cta": {
-      "title": "Find Differences Now",
-      "subtitle": "Paste your lists and get instant results — free and private.",
-      "button": "Start Comparing"
+      "title": "Jetzt Unterschiede finden",
+      "subtitle": "Listen einfugen und sofortige Ergebnisse erhalten — kostenlos und privat.",
+      "button": "Vergleich starten"
     },
     "breadcrumbs": {
-      "current": "How to Find Differences"
+      "current": "Unterschiede finden — Anleitung"
     },
     "jsonLd": {
-      "name": "How to Find Differences Between Two Lists",
-      "description": "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods."
+      "name": "Unterschiede zwischen zwei Listen finden — Anleitung",
+      "description": "Ein praktischer Leitfaden, um zu identifizieren, was unterschiedlich und was gleich ist zwischen zwei Listen, mit exakten und KI-basierten Methoden."
     }
   },
   "pricing": {
     "hero": {
-      "title": "Simple, Transparent Pricing",
-      "subtitle": "Free for exact comparisons. Pay only when you need AI-powered analysis."
+      "title": "Einfache, transparente Preise",
+      "subtitle": "Kostenlos fur exakte Vergleiche. Zahlen Sie nur, wenn Sie KI-betriebene Analyse benotigen."
     },
     "nav": {
-      "backToTool": "Back to Tool"
+      "backToTool": "Zuruck zum Tool"
     },
     "plans": {
       "free": {
-        "name": "Free",
+        "name": "Kostenlos",
         "price": "$0",
-        "period": "forever",
+        "period": "fur immer",
         "features": {
-          "0": "Exact list comparison",
-          "1": "Unlimited items",
-          "2": "Copy & CSV export",
-          "3": "File upload (TXT, CSV)",
-          "4": "All comparison options",
-          "5": "Privacy-first (client-side)"
+          "0": "Exakter Listenvergleich",
+          "1": "Unbegrenzte Elemente",
+          "2": "Kopieren & CSV-Export",
+          "3": "Dateiupload (TXT, CSV)",
+          "4": "Alle Vergleichsoptionen",
+          "5": "Datenschutz zuerst (clientseitig)"
         },
-        "cta": "Start Free"
+        "cta": "Kostenlos starten"
       },
       "payPerUse": {
-        "name": "Pay Per Use",
+        "name": "Nutzungsbezahlt",
         "price": "$0.99",
-        "period": "per AI comparison",
-        "badge": "Most Popular",
+        "period": "pro KI-Vergleich",
+        "badge": "Am beliebtesten",
         "features": {
-          "0": "Everything in Free",
-          "1": "AI fuzzy matching",
-          "2": "Semantic similarity detection",
-          "3": "AI-generated insights",
-          "4": "Typo & reorder detection",
-          "5": "No subscription needed"
+          "0": "Alles im kostenlosen Plan",
+          "1": "KI-Fuzzy-Matching",
+          "2": "Semantische Ahnlichkeitserkennung",
+          "3": "KI-generierte Einblicke",
+          "4": "Tippfehler- und Neuordnungs-Erkennung",
+          "5": "Kein Abonnement notig"
         },
-        "cta": "Buy Credits"
+        "cta": "Guthaben kaufen"
       },
       "creditPacks": {
-        "name": "Credit Packs",
+        "name": "Guthabenpakete",
         "price": "$4.99",
-        "period": "10 credits (save 33%)",
+        "period": "10 Guthaben (33% sparen)",
         "features": {
-          "0": "Everything in Pay Per Use",
-          "1": "10 AI comparisons",
-          "2": "Best value per comparison",
-          "3": "Credits never expire",
-          "4": "Priority processing",
-          "5": "Bulk analysis support"
+          "0": "Alles im Nutzungsbezahlt-Plan",
+          "1": "10 KI-Vergleiche",
+          "2": "Bestes Preis-Leistungs-Verhaltnis",
+          "3": "Guthaben verfallt nie",
+          "4": "Prioritatsverarbeitung",
+          "5": "Massenanalyse-Unterstutzung"
         },
-        "cta": "Get Credit Pack"
+        "cta": "Guthabenpaket holen"
       }
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
       "0": {
-        "q": "Do credits expire?",
-        "a": "No. Your credits never expire. Use them whenever you need AI comparison."
+        "q": "Verfallt mein Guthaben?",
+        "a": "Nein. Ihr Guthaben verfallt nie. Verwenden Sie es, wann immer Sie KI-Vergleich benotigen."
       },
       "1": {
-        "q": "What counts as one AI comparison?",
-        "a": "One AI comparison means comparing two lists with fuzzy matching, semantic analysis, and AI-generated insights. It uses 1 credit regardless of list size."
+        "q": "Was zaht als ein KI-Vergleich?",
+        "a": "Ein KI-Vergleich bedeutet den Vergleich zweier Listen mit Fuzzy-Matching, semantischer Analyse und KI-generierten Einblicken. Er verbraucht 1 Guthaben unabhangig von der Listengrosse."
       },
       "2": {
-        "q": "Is the free version limited?",
-        "a": "The free version gives you full exact comparison with no limits on items, file uploads, or exports. AI features (fuzzy matching, insights) require credits."
+        "q": "Ist die kostenlose Version eingeschrankt?",
+        "a": "Die kostenlose Version bietet vollstandigen exakten Vergleich ohne Begrenzung bei Elementen, Datei-Uploads oder Exporten. KI-Funktionen (Fuzzy-Matching, Einblicke) erfordern Guthaben."
       },
       "3": {
-        "q": "Can I get a refund?",
-        "a": "Yes. If you're not satisfied with the AI analysis quality, contact us for a full refund."
-      }
+        "q": "Kann ich eine Ruckerstattung erhalten?",
+        "a": "Ja. Wenn Sie mit der Qualitat der KI-Analyse nicht zufrieden sind, kontaktieren Sie uns fur eine vollstandige Ruckerstattung."
+      },
+      "heading": "Haufig gestellte Fragen"
     }
   },
   "components": {
     "listInput": {
-      "upload": "Upload",
-      "dropFileHere": "Drop file here",
-      "selectColumns": "Select columns",
-      "allColumns": "All columns",
-      "columnsCount": "{count} columns",
-      "previewRow": "Preview (row 1):",
-      "fileTooLarge": "File too large. Please use files under 50MB.",
-      "largeFileConfirm": "This file is {size}MB. Large files may be slow to process. Continue?",
-      "items": "{count} items"
+      "upload": "Hochladen",
+      "dropFileHere": "Datei hier ablegen",
+      "selectColumns": "Spalten auswahlen",
+      "allColumns": "Alle Spalten",
+      "columnsCount": "{count} Spalten",
+      "previewRow": "Vorschau (Zeile 1):",
+      "fileTooLarge": "Datei zu gross. Bitte verwenden Sie Dateien unter 50MB.",
+      "largeFileConfirm": "Diese Datei ist {size}MB. Grosse Dateien konnen langsam verarbeitet werden. Fortfahren?",
+      "items": "{count} Elemente"
     },
     "resultTabs": {
       "tabs": {
         "onlyA": {
-          "label": "Only in A",
-          "short": "A only"
+          "label": "Nur in A",
+          "short": "Nur A"
         },
         "onlyB": {
-          "label": "Only in B",
-          "short": "B only"
+          "label": "Nur in B",
+          "short": "Nur B"
         },
         "both": {
-          "label": "In Both",
-          "short": "Both"
+          "label": "In beiden",
+          "short": "Beide"
         },
         "union": {
-          "label": "Union (A ∪ B)",
+          "label": "Vereinigung (A ∪ B)",
           "short": "A∪B"
         },
         "symDiff": {
-          "label": "Sym Diff (A △ B)",
+          "label": "Sym. Diff. (A △ B)",
           "short": "A△B"
         },
         "all": {
-          "label": "All Combined",
-          "short": "All"
+          "label": "Alle kombiniert",
+          "short": "Alle"
         }
       },
-      "filter": "Filter...",
-      "sort": "Sort",
+      "filter": "Filtern...",
+      "sort": "Sortieren",
       "sortAsc": "A-Z",
       "sortDesc": "Z-A",
-      "select": "Select all",
-      "deselect": "Deselect all",
-      "copySelected": "Copy selected",
-      "deleteSelected": "Delete selected",
-      "copy": "Copy",
-      "copied": "Copied!",
-      "copyAll": "Copy All",
-      "downloadCsv": "Download CSV",
-      "downloadTxt": "Download TXT",
-      "fullReport": "Full Report",
-      "noItemsFilter": "No items match your filter",
-      "noItemsCategory": "No items in this category",
-      "showingItems": "Showing {visible} of {total} items — scroll to load more"
+      "select": "Alle auswahlen",
+      "deselect": "Alle abwahlen",
+      "copySelected": "Auswahl kopieren",
+      "deleteSelected": "Auswahl loschen",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "copyAll": "Alles kopieren",
+      "downloadCsv": "CSV herunterladen",
+      "downloadTxt": "TXT herunterladen",
+      "fullReport": "Vollstandiger Bericht",
+      "noItemsFilter": "Keine Elemente entsprechen Ihrem Filter",
+      "noItemsCategory": "Keine Elemente in dieser Kategorie",
+      "showingItems": "{visible} von {total} Elementen angezeigt — scrollen fur mehr"
     },
     "statsCards": {
-      "matchRate": "Match Rate",
-      "commonItems": "Common Items",
-      "onlyInListA": "Only in List A",
-      "onlyInListB": "Only in List B"
+      "matchRate": "Ubereinstimmungsrate",
+      "commonItems": "Gemeinsame Elemente",
+      "onlyInListA": "Nur in Liste A",
+      "onlyInListB": "Nur in Liste B"
     },
     "optionsPanel": {
       "caseSensitive": {
-        "label": "Case Sensitive",
-        "desc": "Treat uppercase and lowercase as different"
+        "label": "Gross-/Kleinschreibung",
+        "desc": "Gross- und Kleinschreibung als unterschiedlich behandeln"
       },
       "trimWhitespace": {
-        "label": "Trim Whitespace",
-        "desc": "Remove leading/trailing spaces"
+        "label": "Lehrzeichen trimmen",
+        "desc": "Fuhrende/abschliessende Lehrzeichen entfernen"
       },
       "removeDuplicates": {
-        "label": "Remove Duplicates",
-        "desc": "Deduplicate items before comparing"
+        "label": "Duplikate entfernen",
+        "desc": "Elemente vor dem Vergleich deduplizieren"
       },
       "ignoreEmpty": {
-        "label": "Ignore Empty Lines",
-        "desc": "Skip blank lines and empty items"
+        "label": "Leerzeilen ignorieren",
+        "desc": "Leere Zeilen und leere Elemente uberspringen"
       }
     },
     "fuzzyMatchTable": {
-      "title": "Fuzzy Matches",
-      "subtitle": "Similar but not identical items",
-      "noMatches": "No fuzzy matches found. Try lowering the similarity threshold.",
-      "moreHidden": "+ {count} more matches hidden"
+      "title": "Fuzzy-Ubereinstimmungen",
+      "subtitle": "Ahnliche, aber nicht identische Elemente",
+      "noMatches": "Keine Fuzzy-Ubereinstimmungen gefunden. Versuchen Sie, den Ahnlichkeitsschwellenwert zu senken.",
+      "moreHidden": "+ {count} weitere Ubereinstimmungen ausgeblendet"
     },
     "aiInsights": {
-      "title": "AI Insights",
-      "fuzzyMatches": "{count} fuzzy match{plural}",
-      "viewAiAnalysis": "View AI Analysis",
-      "free": "Free"
+      "title": "KI-Einblicke",
+      "fuzzyMatches": "{count} Fuzzy-Ubereinstimmung{plural}",
+      "viewAiAnalysis": "KI-Analyse anzeigen",
+      "free": "Kostenlos"
     },
     "relatedTools": {
-      "title": "Related Tools",
+      "title": "Verwandte Tools",
       "tools": {
-        "0": { "label": "Compare Email Lists" },
-        "1": { "label": "Compare Excel Columns" },
-        "2": { "label": "Compare CSV Files" },
-        "3": { "label": "Compare Two Columns in Excel" },
-        "4": { "label": "Compare IP Addresses" },
-        "5": { "label": "Compare Keywords" },
-        "6": { "label": "Compare Name Lists" },
-        "7": { "label": "Compare Phone Numbers" },
-        "8": { "label": "Compare URLs" },
-        "9": { "label": "List Diff" },
-        "10": { "label": "Remove Duplicates" }
+        "0": {
+          "label": "E-Mail-Listen vergleichen"
+        },
+        "1": {
+          "label": "Excel-Spalten vergleichen"
+        },
+        "2": {
+          "label": "CSV-Dateien vergleichen"
+        },
+        "3": {
+          "label": "Zwei Excel-Spalten vergleichen"
+        },
+        "4": {
+          "label": "IP-Adressen vergleichen"
+        },
+        "5": {
+          "label": "Schluesselworter vergleichen"
+        },
+        "6": {
+          "label": "Namenslisten vergleichen"
+        },
+        "7": {
+          "label": "Telefonnummern vergleichen"
+        },
+        "8": {
+          "label": "URLs vergleichen"
+        },
+        "9": {
+          "label": "List Diff"
+        },
+        "10": {
+          "label": "Duplikate entfernen"
+        }
       },
       "guides": {
-        "0": { "label": "How to Compare Two Lists" },
-        "1": { "label": "How to Compare CSV Files" },
-        "2": { "label": "How to Find Differences" }
+        "0": {
+          "label": "Zwei Listen vergleichen — Anleitung"
+        },
+        "1": {
+          "label": "CSV-Dateien vergleichen — Anleitung"
+        },
+        "2": {
+          "label": "Unterschiede finden — Anleitung"
+        }
       }
     },
     "vennDiagram": {
-      "title": "Visual Overview",
-      "listATooltip": "List A: {unique} unique, {shared} shared",
-      "listBTooltip": "List B: {unique} unique, {shared} shared",
-      "listALabel": "List A",
-      "listBLabel": "List B"
+      "title": "Visuelle Ubersicht",
+      "listATooltip": "Liste A: {unique} eindeutig, {shared} gemeinsam",
+      "listBTooltip": "Liste B: {unique} eindeutig, {shared} gemeinsam",
+      "listALabel": "Liste A",
+      "listBLabel": "Liste B"
     },
     "historyPanel": {
-      "title": "History",
+      "title": "Verlauf",
       "recordCount": "({count})",
-      "clearAll": "Clear All",
-      "noComparisons": "No comparisons yet",
-      "justNow": "Just now",
-      "minutesAgo": "{count}m ago",
-      "hoursAgo": "{count}h ago",
-      "modeAi": "AI",
-      "modeExact": "Exact",
+      "clearAll": "Alles loschen",
+      "noComparisons": "Noch keine Vergleiche",
+      "justNow": "Gerade eben",
+      "minutesAgo": "vor {count} Min.",
+      "hoursAgo": "vor {count} Std.",
+      "modeAi": "KI",
+      "modeExact": "Exakt",
       "labelA": "A: {count}",
       "labelB": "B: {count}",
-      "common": "Common: {count}",
-      "clickToRestore": "Click to restore",
-      "partialData": "(partial data)"
+      "common": "Gemeinsam: {count}",
+      "clickToRestore": "Klicken zum Wiederherstellen",
+      "partialData": "(teilweise Daten)"
     },
     "notFound": {
       "title": "404",
-      "subtitle": "Page Not Found",
-      "description": "The page you're looking for doesn't exist. It may have been moved or deleted.",
-      "goHome": "Go Home",
-      "compareLists": "Compare Lists"
+      "subtitle": "Seite nicht gefunden",
+      "description": "Die gesuchte Seite existiert nicht. Sie wurde moglicherweise verschoben oder geloscht.",
+      "goHome": "Zur Startseite",
+      "compareLists": "Listen vergleichen"
     }
   }
 }
