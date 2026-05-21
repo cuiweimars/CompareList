@@ -9,6 +9,12 @@ export const metadata: Metadata = {
     title: "CompareList Pricing - Free List Comparison Tool",
     description: "CompareList is completely free. Compare two lists instantly with exact matching and AI-powered fuzzy matching.",
   },
+  alternates: { canonical: "https://comparelist.com/pricing" },
+  twitter: {
+    card: "summary_large_image",
+    title: "CompareList Pricing - Free List Comparison Tool",
+    description: "CompareList is completely free. Compare two lists instantly with exact matching and AI-powered fuzzy matching.",
+  },
 };
 
 export default function PricingLayout({ children }: { children: React.ReactNode }) {

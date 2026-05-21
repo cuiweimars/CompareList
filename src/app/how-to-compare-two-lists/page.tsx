@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     title: "How to Compare Two Lists Online - Free Guide",
     description: "Step-by-step tutorial for comparing two lists online. Find differences, common items, and unique entries instantly.",
   },
+  alternates: { canonical: "https://comparelist.com/how-to-compare-two-lists" },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Compare Two Lists Online - Free Guide",
+    description: "Step-by-step tutorial for comparing two lists online. Find differences, common items, and unique entries instantly.",
+  },
 };
 
 export default function HowToCompareTwoListsPage() {
@@ -70,6 +76,43 @@ export default function HowToCompareTwoListsPage() {
         { name: "Tutorials", path: "/" },
         { name: "How to Compare Two Lists", path: "/how-to-compare-two-lists" },
       ]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            name: "How to Compare Two Lists Online",
+            description: "A complete guide to finding differences, common items, and unique entries between any two lists.",
+            totalTime: "PT2M",
+            step: steps.map((step) => ({
+              "@type": "HowToStep",
+              name: step.title,
+              text: step.desc,
+            })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              { q: "Is there a file size limit?", a: "There is no strict limit. The tool handles tens of thousands of items smoothly since all processing happens locally in your browser." },
+              { q: "Can I compare more than two lists?", a: "Currently, the tool compares exactly two lists at a time. For multiple lists, you can compare them pairwise and combine the results." },
+              { q: "What is the match rate percentage?", a: "The match rate uses the Dice coefficient formula: 2 × (common items) / (total A + total B). It gives a percentage showing how similar the two lists are." },
+              { q: "How does AI fuzzy matching work?", a: "AI matching uses a combination of Levenshtein edit distance and Jaccard token similarity to find items that are similar but not identical — like typos, reordered words, or partial matches." },
+              { q: "Is my data stored anywhere?", a: "No. All comparison happens in your browser. Your lists are never sent to any server. History is stored locally in your browser and can be cleared at any time." },
+            ].map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
+          }),
+        }}
+      />
       {/* Header */}
       <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center gap-3">

@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     title: "List Diff - Find Differences Between Two Lists",
     description: "Compare two lists and instantly see what's different. Added, removed, and unchanged items.",
   },
+  alternates: { canonical: "https://comparelist.com/list-diff" },
+  twitter: {
+    card: "summary_large_image",
+    title: "List Diff - Find Differences Between Two Lists",
+    description: "Compare two lists and instantly see what's different. Added, removed, and unchanged items.",
+  },
 };
 
 export default function ListDiffLayout({ children }: { children: React.ReactNode }) {

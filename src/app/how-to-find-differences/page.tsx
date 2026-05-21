@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     title: "How to Find Differences Between Two Lists",
     description: "Free guide to finding differences between lists using exact matching and AI fuzzy matching.",
   },
+  alternates: { canonical: "https://comparelist.com/how-to-find-differences" },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Find Differences Between Two Lists",
+    description: "Free guide to finding differences between lists using exact matching and AI fuzzy matching.",
+  },
 };
 
 export default function HowToFindDifferencesPage() {
@@ -52,6 +58,19 @@ export default function HowToFindDifferencesPage() {
         { name: "Tutorials", path: "/" },
         { name: "How to Find Differences", path: "/how-to-find-differences" },
       ]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "How to Find Differences Between Two Lists",
+            description: "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods.",
+            author: { "@type": "Organization", name: "CompareList" },
+            publisher: { "@type": "Organization", name: "CompareList", logo: { "@type": "ImageObject", url: "https://comparelist.com/favicon-32.png" } },
+          }),
+        }}
+      />
       <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center gap-3">
           <a href="/" className="flex items-center gap-2.5">

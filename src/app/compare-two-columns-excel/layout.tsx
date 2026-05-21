@@ -9,6 +9,12 @@ export const metadata: Metadata = {
     title: "Compare Two Excel Columns Online - Free Tool",
     description: "Paste two Excel columns to find matches, differences, and duplicates. No formulas needed.",
   },
+  alternates: { canonical: "https://comparelist.com/compare-two-columns-excel" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare Two Excel Columns Online - Free Tool",
+    description: "Paste two Excel columns to find matches, differences, and duplicates. No formulas needed.",
+  },
 };
 
 export default function CompareTwoColumnsExcelLayout({ children }: { children: React.ReactNode }) {

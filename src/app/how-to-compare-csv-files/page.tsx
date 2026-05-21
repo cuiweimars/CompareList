@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     title: "How to Compare Two CSV Files Online",
     description: "Free guide to comparing CSV files. Find differences, compare columns, and export results instantly.",
   },
+  alternates: { canonical: "https://comparelist.com/how-to-compare-csv-files" },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Compare Two CSV Files Online",
+    description: "Free guide to comparing CSV files. Find differences, compare columns, and export results instantly.",
+  },
 };
 
 export default function HowToCompareCSVFilesPage() {
@@ -29,6 +35,24 @@ export default function HowToCompareCSVFilesPage() {
         { name: "Tutorials", path: "/" },
         { name: "How to Compare CSV Files", path: "/how-to-compare-csv-files" },
       ]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            name: "How to Compare Two CSV Files Online",
+            description: "Compare CSV files to find added, removed, and common rows. Works with any CSV structure and lets you pick specific columns.",
+            totalTime: "PT2M",
+            step: [
+              { "@type": "HowToStep", name: "Upload Your CSV Files", text: "Click the Upload File button on each input panel to select a CSV file. You can also drag and drop files directly onto the input areas." },
+              { "@type": "HowToStep", name: "Select the Right Column", text: "For multi-column CSVs, use the column selector dropdown to pick which column to compare." },
+              { "@type": "HowToStep", name: "Run the Comparison", text: "Click Compare Lists to get instant results showing items only in file A, only in file B, and items present in both." },
+              { "@type": "HowToStep", name: "Export the Results", text: "Export individual categories as CSV or TXT, or use Full Report to download everything in a single categorized CSV file." },
+            ],
+          }),
+        }}
+      />
       <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center gap-3">
           <a href="/" className="flex items-center gap-2.5">

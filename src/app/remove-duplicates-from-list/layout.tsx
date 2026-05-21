@@ -9,6 +9,12 @@ export const metadata: Metadata = {
     title: "Remove Duplicates from List - Free Online Tool",
     description: "Paste any list to instantly remove duplicate entries. Free, private, and instant.",
   },
+  alternates: { canonical: "https://comparelist.com/remove-duplicates-from-list" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Remove Duplicates from List - Free Online Tool",
+    description: "Paste any list to instantly remove duplicate entries. Free, private, and instant.",
+  },
 };
 
 export default function RemoveDuplicatesLayout({ children }: { children: React.ReactNode }) {

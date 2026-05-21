@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     title: "Compare Two Excel Columns Online - Free Tool",
     description: "Find matching values, unique entries, and differences between two Excel columns. No formulas needed.",
   },
+  alternates: { canonical: "https://comparelist.com/compare-excel-columns" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare Two Excel Columns Online - Free Tool",
+    description: "Find matching values, unique entries, and differences between two Excel columns. No formulas needed.",
+  },
 };
 
 export default function CompareExcelColumnsLayout({ children }: { children: React.ReactNode }) {

@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     title: "Compare IP Address Lists Online - Free Tool",
     description: "Find matching, unique, and overlapping IPs between two lists instantly. Free and private.",
   },
+  alternates: { canonical: "https://comparelist.com/compare-ip-addresses" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare IP Address Lists Online - Free Tool",
+    description: "Find matching, unique, and overlapping IPs between two lists instantly. Free and private.",
+  },
 };
 
 export default function CompareIpAddressesLayout({ children }: { children: React.ReactNode }) {

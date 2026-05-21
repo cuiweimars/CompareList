@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     title: "Compare Keyword Lists Online - Free SEO Tool",
     description: "Find overlapping keywords, keyword gaps, and unique opportunities between two keyword lists.",
   },
+  alternates: { canonical: "https://comparelist.com/compare-keywords" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare Keyword Lists Online - Free SEO Tool",
+    description: "Find overlapping keywords, keyword gaps, and unique opportunities between two keyword lists.",
+  },
 };
 
 export default function CompareKeywordsLayout({ children }: { children: React.ReactNode }) {

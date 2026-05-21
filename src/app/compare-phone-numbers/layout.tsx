@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     title: "Compare Phone Number Lists Online - Free Tool",
     description: "Find matching, missing, and duplicate phone numbers between two lists instantly.",
   },
+  alternates: { canonical: "https://comparelist.com/compare-phone-numbers" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare Phone Number Lists Online - Free Tool",
+    description: "Find matching, missing, and duplicate phone numbers between two lists instantly.",
+  },
 };
 
 export default function ComparePhoneNumbersLayout({ children }: { children: React.ReactNode }) {

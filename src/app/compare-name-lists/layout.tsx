@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     title: "Compare Two Name Lists Online - Free Tool",
     description: "Find matching names, unique entries, and duplicates between two name lists instantly.",
   },
+  alternates: { canonical: "https://comparelist.com/compare-name-lists" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare Two Name Lists Online - Free Tool",
+    description: "Find matching names, unique entries, and duplicates between two name lists instantly.",
+  },
 };
 
 export default function CompareNameListsLayout({ children }: { children: React.ReactNode }) {

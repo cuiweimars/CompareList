@@ -9,6 +9,12 @@ export const metadata: Metadata = {
     title: "Compare Two CSV Files Online - Free Tool",
     description: "Upload two CSV files and find differences instantly. Compare specific columns and export results.",
   },
+  alternates: { canonical: "https://comparelist.com/compare-csv-files" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare Two CSV Files Online - Free Tool",
+    description: "Upload two CSV files and find differences instantly. Compare specific columns and export results.",
+  },
 };
 
 export default function CompareCsvLayout({ children }: { children: React.ReactNode }) {

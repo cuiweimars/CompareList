@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     title: "Compare Two URL Lists Online - Free Tool",
     description: "Find differences between two URL lists. Compare sitemaps, backlinks, or crawled pages.",
   },
+  alternates: { canonical: "https://comparelist.com/compare-urls" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare Two URL Lists Online - Free Tool",
+    description: "Find differences between two URL lists. Compare sitemaps, backlinks, or crawled pages.",
+  },
 };
 
 export default function CompareUrlsLayout({ children }: { children: React.ReactNode }) {
