@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { ArrowRightLeft, Mail, ChevronDown, ChevronUp } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ListInput from "@/components/ListInput";
 import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
@@ -30,6 +33,7 @@ karen@gmail.com
 leo@yahoo.com`;
 
 export default function CompareEmailListsPage() {
+  const t = useTranslations("compareEmailLists");
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
@@ -55,33 +59,18 @@ export default function CompareEmailListsPage() {
   }
 
   const faqs = [
-    {
-      q: "How do I compare two email lists?",
-      a: "Simply paste your email lists into the two text areas above (one email per line), then click Compare. You'll instantly see which emails are in both lists, which are only in List A, and which are only in List B.",
-    },
-    {
-      q: "Can I compare email lists from Excel or CSV?",
-      a: "Yes! Copy the email column from your Excel or CSV file and paste it directly. You can also drag and drop .csv or .txt files onto the input areas.",
-    },
-    {
-      q: "Is my email data safe?",
-      a: "Absolutely. All processing happens in your browser. Your email addresses are never sent to any server or stored anywhere.",
-    },
-    {
-      q: "How do I remove duplicate emails?",
-      a: "The 'Remove Duplicates' option is enabled by default. It automatically deduplicates each list before comparison.",
-    },
-    {
-      q: "Can I export the results?",
-      a: "Yes. Use the download buttons in the results section to export as CSV or TXT, or copy directly to clipboard.",
-    },
+    { q: t('faq.0.q'), a: t('faq.0.a') },
+    { q: t('faq.1.q'), a: t('faq.1.a') },
+    { q: t('faq.2.q'), a: t('faq.2.a') },
+    { q: t('faq.3.q'), a: t('faq.3.a') },
+    { q: t('faq.4.q'), a: t('faq.4.a') },
   ];
 
   return (
     <div className="flex flex-col min-h-screen">
       <BreadcrumbSchema items={[
         { name: "Home", path: "/" },
-        { name: "Compare Email Lists", path: "/compare-email-lists" },
+        { name: t('breadcrumbs.current'), path: "/compare-email-lists" },
       ]} />
       <script
         type="application/ld+json"
@@ -89,8 +78,8 @@ export default function CompareEmailListsPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            name: "Compare Email Lists - CompareList",
-            description: "Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private.",
+            name: t('jsonLd.name'),
+            description: t('jsonLd.description'),
             url: "https://comparelist.com/compare-email-lists",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
@@ -114,17 +103,15 @@ export default function CompareEmailListsPage() {
       />
       <header className="border-b border-border bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <ArrowRightLeft size={16} className="text-white" />
             </div>
             <span className="font-bold text-lg">
               Compare<span className="text-primary">List</span>
             </span>
-          </a>
-          <a href="/" className="text-sm text-text-secondary hover:text-text transition-colors">
-            All Tools
-          </a>
+          </Link>
+          <LanguageSwitcher />
         </div>
       </header>
 
@@ -134,10 +121,10 @@ export default function CompareEmailListsPage() {
             <Mail size={24} />
           </div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-3">
-            Compare Two Email Lists Online
+            {t('hero.title')}
           </h1>
           <p className="text-text-secondary text-lg">
-            Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private.
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -145,8 +132,8 @@ export default function CompareEmailListsPage() {
       <section className="max-w-5xl mx-auto px-4 pb-12 -mt-2">
         <div className="bg-white rounded-2xl border border-border shadow-lg p-4 lg:p-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-            <ListInput label="Email List A" labelColor="#6366f1" value={listA} onChange={setListA} placeholder="Paste your first email list..." />
-            <ListInput label="Email List B" labelColor="#06b6d4" value={listB} onChange={setListB} placeholder="Paste your second email list..." />
+            <ListInput label={t('listInput.listA')} labelColor="#6366f1" value={listA} onChange={setListA} placeholder={t('listInput.placeholderA')} />
+            <ListInput label={t('listInput.listB')} labelColor="#06b6d4" value={listB} onChange={setListB} placeholder={t('listInput.placeholderB')} />
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
             <button
@@ -154,7 +141,7 @@ export default function CompareEmailListsPage() {
               className="text-xs text-text-secondary hover:text-text flex items-center gap-1 transition-colors"
             >
               {showOptions ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-              Options
+              {t('actions.options')}
             </button>
             {showOptions && (
               <div className="mt-2">
@@ -163,14 +150,14 @@ export default function CompareEmailListsPage() {
             )}
             <div className="flex items-center gap-2">
               <button onClick={handleDemo} className="px-4 py-2 text-sm text-text-secondary border border-border rounded-lg hover:bg-gray-50 transition-all">
-                Try Demo
+                {t('actions.tryDemo')}
               </button>
               <button
                 onClick={handleCompare}
                 disabled={!listA.trim() && !listB.trim()}
                 className="px-6 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-dark rounded-lg transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
               >
-                Compare Email Lists
+                {t('actions.compare')}
               </button>
             </div>
           </div>
@@ -185,12 +172,12 @@ export default function CompareEmailListsPage() {
 
       <section className="py-12 bg-white border-t border-border">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-6">Use Cases</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">{t('useCases.heading')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { title: "Email Marketing", desc: "Compare subscriber lists to find duplicates across campaigns and remove bounced emails from active lists." },
-              { title: "CRM Cleanup", desc: "Merge contact lists from different sources and identify overlapping entries before importing." },
-              { title: "Bounce List Check", desc: "Compare your mailing list against a bounce list to remove invalid addresses before sending." },
+              { title: t('useCases.0.title'), desc: t('useCases.0.desc') },
+              { title: t('useCases.1.title'), desc: t('useCases.1.desc') },
+              { title: t('useCases.2.title'), desc: t('useCases.2.desc') },
             ].map((uc) => (
               <div key={uc.title} className="p-5 rounded-xl border border-border">
                 <h3 className="font-semibold mb-2">{uc.title}</h3>
@@ -202,7 +189,7 @@ export default function CompareEmailListsPage() {
       </section>
 
       <section className="py-12 max-w-3xl mx-auto px-4">
-        <h2 className="text-2xl font-bold text-center mb-6">FAQ</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">{t('faq.heading')}</h2>
         <div className="space-y-2">
           {faqs.map((faq, i) => (
             <div key={i} className="border border-border rounded-lg overflow-hidden">
@@ -226,7 +213,7 @@ export default function CompareEmailListsPage() {
       </section>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
-        <a href="/" className="hover:text-text transition-colors">CompareList</a> &middot; Free Online List Comparison Tool
+        <Link href="/" className="hover:text-text transition-colors">CompareList</Link> &middot; {t('footer.tagline')}
       </footer>
     </div>
   );

@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { ArrowRightLeft, FileSpreadsheet, ChevronDown, ChevronUp } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ListInput from "@/components/ListInput";
 import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
@@ -11,6 +14,7 @@ import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export default function CompareCsvFilesPage() {
+  const t = useTranslations("compareCsvFiles");
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
@@ -26,24 +30,24 @@ export default function CompareCsvFilesPage() {
   }
 
   const faqs = [
-    { q: "How do I compare two CSV files?", a: "Upload both CSV files using the file upload buttons, or copy-paste the content directly. If your CSV has multiple columns, select the column you want to compare. Click Compare to see the results instantly." },
-    { q: "Does it work with multi-column CSV files?", a: "Yes. When you upload a CSV with multiple columns, a dropdown appears letting you pick which column to compare (e.g., email, ID, name). Only that column's values are compared." },
-    { q: "What CSV formats are supported?", a: "Standard comma-separated (.csv), tab-separated (.tsv), semicolon-separated, and plain text (.txt) files. Headers are auto-detected and excluded from comparison." },
-    { q: "Is there a file size limit?", a: "No strict limit. The tool handles files with tens of thousands of rows smoothly since all processing happens in your browser." },
-    { q: "Can I export the comparison results?", a: "Yes. Export any result category as CSV or TXT, or use the Full Report option to download everything in a single categorized CSV file." },
+    { q: t('faq.0.q'), a: t('faq.0.a') },
+    { q: t('faq.1.q'), a: t('faq.1.a') },
+    { q: t('faq.2.q'), a: t('faq.2.a') },
+    { q: t('faq.3.q'), a: t('faq.3.a') },
+    { q: t('faq.4.q'), a: t('faq.4.a') },
   ];
 
   return (
     <div className="min-h-screen">
-      <BreadcrumbSchema items={[{ name: "Home", path: "/" }, { name: "Compare CSV Files", path: "/compare-csv-files" }]} />
+      <BreadcrumbSchema items={[{ name: "Home", path: "/" }, { name: t('breadcrumbs.current'), path: "/compare-csv-files" }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            name: "Compare CSV Files - CompareList",
-            description: "Free online tool to compare two CSV files. Find differences, compare specific columns, and export results.",
+            name: t('jsonLd.name'),
+            description: t('jsonLd.description'),
             url: "https://comparelist.com/compare-csv-files",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
@@ -68,12 +72,13 @@ export default function CompareCsvFilesPage() {
 
       <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
               <ArrowRightLeft size={16} className="text-white" />
             </div>
             <span className="font-bold text-xl font-[family-name:var(--font-sora)]">Compare<span className="hero-gradient-text">List</span></span>
-          </a>
+          </Link>
+          <LanguageSwitcher />
         </div>
       </header>
 
@@ -81,28 +86,28 @@ export default function CompareCsvFilesPage() {
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-surface/50 text-sm text-text-muted mb-4">
             <FileSpreadsheet size={14} className="text-primary" />
-            CSV File Comparison
+            {t('hero.badge')}
           </div>
           <h1 className="text-3xl lg:text-4xl font-bold font-[family-name:var(--font-sora)] mb-4">
-            Compare Two CSV Files Online
+            {t('hero.title')}
           </h1>
           <p className="text-text-secondary max-w-xl mx-auto">
-            Find differences between CSV files. Upload .csv, .tsv, or .txt files and compare specific columns. Free and instant.
+            {t('hero.subtitle')}
           </p>
         </div>
 
         <div className="glass-elevated rounded-2xl p-5 lg:p-7 gradient-border">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
-            <ListInput label="CSV File A" labelColor="#818cf8" value={listA} onChange={setListA} placeholder="Upload a CSV file or paste content..." />
-            <ListInput label="CSV File B" labelColor="#22d3ee" value={listB} onChange={setListB} placeholder="Upload a CSV file or paste content..." />
+            <ListInput label={t('listInput.listA')} labelColor="#818cf8" value={listA} onChange={setListA} placeholder={t('listInput.placeholderA')} />
+            <ListInput label={t('listInput.listB')} labelColor="#22d3ee" value={listB} onChange={setListB} placeholder={t('listInput.placeholderB')} />
           </div>
           <div className="flex items-center justify-between">
             <button onClick={() => setShowOptions(!showOptions)} className="text-sm text-text-muted hover:text-text-secondary flex items-center gap-1.5">
-              {showOptions ? <ChevronUp size={15} /> : <ChevronDown size={15} />} Options
+              {showOptions ? <ChevronUp size={15} /> : <ChevronDown size={15} />} {t('actions.options')}
             </button>
             <button onClick={handleCompare} disabled={!listA.trim() && !listB.trim()}
               className="btn-primary px-8 py-2.5 text-sm font-semibold text-white rounded-xl">
-              Compare CSV Files
+              {t('actions.compare')}
             </button>
           </div>
           {showOptions && (
@@ -120,13 +125,13 @@ export default function CompareCsvFilesPage() {
 
         <div className="mt-16 space-y-8">
           <div className="glass rounded-xl p-6">
-            <h2 className="font-semibold text-lg mb-3 font-[family-name:var(--font-sora)]">CSV Comparison Use Cases</h2>
+            <h2 className="font-semibold text-lg mb-3 font-[family-name:var(--font-sora)]">{t('useCases.heading')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {[
-                { title: "Data Auditing", desc: "Compare data exports from different dates to track changes in records." },
-                { title: "List Reconciliation", desc: "Find items in one dataset but missing from another." },
-                { title: "Deduplication", desc: "Identify overlapping records across multiple CSV files." },
-                { title: "Migration Validation", desc: "Verify all records transferred correctly after data migration." },
+                { title: t('useCases.0.title'), desc: t('useCases.0.desc') },
+                { title: t('useCases.1.title'), desc: t('useCases.1.desc') },
+                { title: t('useCases.2.title'), desc: t('useCases.2.desc') },
+                { title: t('useCases.3.title'), desc: t('useCases.3.desc') },
               ].map((uc, i) => (
                 <div key={i} className="bg-surface-alt/30 rounded-lg p-3">
                   <h3 className="font-medium text-sm mb-1">{uc.title}</h3>
@@ -137,7 +142,7 @@ export default function CompareCsvFilesPage() {
           </div>
 
           <div className="glass rounded-xl p-6">
-            <h2 className="font-semibold text-lg mb-4 font-[family-name:var(--font-sora)]">FAQ</h2>
+            <h2 className="font-semibold text-lg mb-4 font-[family-name:var(--font-sora)]">{t('faq.heading')}</h2>
             <div className="space-y-2">
               {faqs.map((faq, i) => (
                 <div key={i} className="border border-border rounded-lg overflow-hidden">

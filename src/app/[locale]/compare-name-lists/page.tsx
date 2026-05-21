@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { ArrowRightLeft, FileSpreadsheet, ChevronDown, ChevronUp } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ListInput from "@/components/ListInput";
 import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
@@ -10,7 +13,8 @@ import { compareLists, CompareResult } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
-export default function CompareCSVColumnsPage() {
+export default function CompareNameListsPage() {
+  const t = useTranslations("compareNameLists");
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
@@ -31,7 +35,7 @@ export default function CompareCSVColumnsPage() {
     <div className="flex flex-col min-h-screen">
       <BreadcrumbSchema items={[
         { name: "Home", path: "/" },
-        { name: "Compare Name Lists", path: "/compare-name-lists" },
+        { name: t('breadcrumbs.current'), path: "/compare-name-lists" },
       ]} />
       <script
         type="application/ld+json"
@@ -39,8 +43,8 @@ export default function CompareCSVColumnsPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            name: "Compare Name Lists - CompareList",
-            description: "Find differences between two columns of data from CSV or Excel files. Paste, compare, export.",
+            name: t('jsonLd.name'),
+            description: t('jsonLd.description'),
             url: "https://comparelist.com/compare-name-lists",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
@@ -50,15 +54,15 @@ export default function CompareCSVColumnsPage() {
       />
       <header className="border-b border-border bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <ArrowRightLeft size={16} className="text-white" />
             </div>
             <span className="font-bold text-lg">
               Compare<span className="text-primary">List</span>
             </span>
-          </a>
-          <a href="/" className="text-sm text-text-secondary hover:text-text transition-colors">All Tools</a>
+          </Link>
+          <LanguageSwitcher />
         </div>
       </header>
 
@@ -68,10 +72,10 @@ export default function CompareCSVColumnsPage() {
             <FileSpreadsheet size={24} />
           </div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-3">
-            Compare Two CSV Columns Online
+            {t('hero.title')}
           </h1>
           <p className="text-text-secondary text-lg">
-            Find differences between two columns of data from CSV or Excel files. Paste, compare, export.
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -79,8 +83,8 @@ export default function CompareCSVColumnsPage() {
       <section className="max-w-5xl mx-auto px-4 pb-12">
         <div className="bg-white rounded-2xl border border-border shadow-lg p-4 lg:p-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-            <ListInput label="Column A" labelColor="#6366f1" value={listA} onChange={setListA} placeholder="Paste your first column data here..." />
-            <ListInput label="Column B" labelColor="#06b6d4" value={listB} onChange={setListB} placeholder="Paste your second column data here..." />
+            <ListInput label={t('listInput.listA')} labelColor="#6366f1" value={listA} onChange={setListA} placeholder={t('listInput.placeholderA')} />
+            <ListInput label={t('listInput.listB')} labelColor="#06b6d4" value={listB} onChange={setListB} placeholder={t('listInput.placeholderB')} />
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
             <button
@@ -88,7 +92,7 @@ export default function CompareCSVColumnsPage() {
               className="text-xs text-text-secondary hover:text-text flex items-center gap-1 transition-colors"
             >
               {showOptions ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-              Options
+              {t('actions.options')}
             </button>
             {showOptions && <OptionsPanel {...options} onChange={setOptions} />}
             <button
@@ -96,7 +100,7 @@ export default function CompareCSVColumnsPage() {
               disabled={!listA.trim() && !listB.trim()}
               className="px-6 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-dark rounded-lg transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
             >
-              Compare Columns
+              {t('actions.compare')}
             </button>
           </div>
           {result && (
@@ -110,12 +114,12 @@ export default function CompareCSVColumnsPage() {
 
       <section className="py-12 bg-white border-t border-border">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-6">How to Compare CSV Columns</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">{t('steps.heading')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { step: "1", title: "Copy Column Data", desc: "Open your CSV or Excel file, select the column you want to compare, and copy it." },
-              { step: "2", title: "Paste Into Tool", desc: "Paste each column into the respective text area. Data can be separated by newlines, commas, or tabs." },
-              { step: "3", title: "Compare & Export", desc: "Click Compare to see differences. Export results as CSV for further analysis in your spreadsheet." },
+              { step: "1", title: t('steps.0.title'), desc: t('steps.0.desc') },
+              { step: "2", title: t('steps.1.title'), desc: t('steps.1.desc') },
+              { step: "3", title: t('steps.2.title'), desc: t('steps.2.desc') },
             ].map((s) => (
               <div key={s.step} className="text-center">
                 <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 text-sm font-bold">
@@ -134,7 +138,7 @@ export default function CompareCSVColumnsPage() {
       </div>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
-        <a href="/" className="hover:text-text transition-colors">CompareList</a> &middot; Free Online List Comparison Tool
+        <Link href="/" className="hover:text-text transition-colors">CompareList</Link> &middot; {t('footer.tagline')}
       </footer>
     </div>
   );

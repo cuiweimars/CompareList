@@ -1,63 +1,67 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { ArrowRightLeft, Check, Sparkles, Zap, Crown } from "lucide-react";
-import Link from "next/link";
-
-const plans = [
-  {
-    name: "Free",
-    price: "$0",
-    period: "forever",
-    icon: <Zap size={20} />,
-    features: [
-      "Exact list comparison",
-      "Unlimited items",
-      "Copy & CSV export",
-      "File upload (TXT, CSV)",
-      "All comparison options",
-      "Privacy-first (client-side)",
-    ],
-    cta: "Start Free",
-    href: "/#tool",
-    highlighted: false,
-  },
-  {
-    name: "Pay Per Use",
-    price: "$0.99",
-    period: "per AI comparison",
-    icon: <Sparkles size={20} />,
-    features: [
-      "Everything in Free",
-      "AI fuzzy matching",
-      "Semantic similarity detection",
-      "AI-generated insights",
-      "Typo & reorder detection",
-      "No subscription needed",
-    ],
-    cta: "Buy Credits",
-    href: "/#tool",
-    highlighted: true,
-  },
-  {
-    name: "Credit Packs",
-    price: "$4.99",
-    period: "10 credits (save 33%)",
-    icon: <Crown size={20} />,
-    features: [
-      "Everything in Pay Per Use",
-      "10 AI comparisons",
-      "Best value per comparison",
-      "Credits never expire",
-      "Priority processing",
-      "Bulk analysis support",
-    ],
-    cta: "Get Credit Pack",
-    href: "/#tool",
-    highlighted: false,
-  },
-];
+import { Link } from "@/i18n/navigation";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function PricingPage() {
+  const t = useTranslations("pricing");
+
+  const plans = [
+    {
+      name: t("plans.0.name"),
+      price: t("plans.0.price"),
+      period: t("plans.0.period"),
+      icon: <Zap size={20} />,
+      features: [
+        t("plans.0.features.0"),
+        t("plans.0.features.1"),
+        t("plans.0.features.2"),
+        t("plans.0.features.3"),
+        t("plans.0.features.4"),
+        t("plans.0.features.5"),
+      ],
+      cta: t("plans.0.cta"),
+      href: "/#tool",
+      highlighted: false,
+    },
+    {
+      name: t("plans.1.name"),
+      price: t("plans.1.price"),
+      period: t("plans.1.period"),
+      icon: <Sparkles size={20} />,
+      features: [
+        t("plans.1.features.0"),
+        t("plans.1.features.1"),
+        t("plans.1.features.2"),
+        t("plans.1.features.3"),
+        t("plans.1.features.4"),
+        t("plans.1.features.5"),
+      ],
+      cta: t("plans.1.cta"),
+      href: "/#tool",
+      highlighted: true,
+    },
+    {
+      name: t("plans.2.name"),
+      price: t("plans.2.price"),
+      period: t("plans.2.period"),
+      icon: <Crown size={20} />,
+      features: [
+        t("plans.2.features.0"),
+        t("plans.2.features.1"),
+        t("plans.2.features.2"),
+        t("plans.2.features.3"),
+        t("plans.2.features.4"),
+        t("plans.2.features.5"),
+      ],
+      cta: t("plans.2.cta"),
+      href: "/#tool",
+      highlighted: false,
+    },
+  ];
+
   return (
     <div className="flex flex-col min-h-screen bg-surface text-text">
       <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
@@ -70,19 +74,22 @@ export default function PricingPage() {
               Compare<span className="hero-gradient-text">List</span>
             </span>
           </Link>
-          <Link href="/" className="text-sm text-text-secondary hover:text-text transition-colors">
-            Back to Tool
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/" className="text-sm text-text-secondary hover:text-text transition-colors">
+              {t('nav.backToTool')}
+            </Link>
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
       <section className="py-16 text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h1 className="text-3xl lg:text-4xl font-bold mb-3">
-            Simple, Transparent Pricing
+            {t('hero.title')}
           </h1>
           <p className="text-text-secondary text-lg">
-            Free for exact comparisons. Pay only when you need AI-powered analysis.
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -100,7 +107,7 @@ export default function PricingPage() {
             >
               {plan.highlighted && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">
-                  Most Popular
+                  {t('plans.popular')}
                 </div>
               )}
               <div className="flex items-center gap-2 mb-4">
@@ -142,17 +149,12 @@ export default function PricingPage() {
 
       <section className="py-12 bg-surface-alt/30 border-t border-border">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-xl font-bold mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-xl font-bold mb-4">{t('faq.heading')}</h2>
           <div className="space-y-4 text-left">
-            {[
-              { q: "Do credits expire?", a: "No. Your credits never expire. Use them whenever you need AI comparison." },
-              { q: "What counts as one AI comparison?", a: "One AI comparison means comparing two lists with fuzzy matching, semantic analysis, and AI-generated insights. It uses 1 credit regardless of list size." },
-              { q: "Is the free version limited?", a: "The free version gives you full exact comparison with no limits on items, file uploads, or exports. AI features (fuzzy matching, insights) require credits." },
-              { q: "Can I get a refund?", a: "Yes. If you're not satisfied with the AI analysis quality, contact us for a full refund." },
-            ].map((faq) => (
-              <div key={faq.q}>
-                <h4 className="font-medium text-sm mb-1">{faq.q}</h4>
-                <p className="text-sm text-text-secondary">{faq.a}</p>
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i}>
+                <h4 className="font-medium text-sm mb-1">{t(`faq.${i}.q`)}</h4>
+                <p className="text-sm text-text-secondary">{t(`faq.${i}.a`)}</p>
               </div>
             ))}
           </div>
@@ -160,7 +162,7 @@ export default function PricingPage() {
       </section>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
-        <Link href="/" className="hover:text-text transition-colors">CompareList</Link> &middot; Free Online List Comparison Tool
+        <Link href="/" className="hover:text-text transition-colors">CompareList</Link> &middot; {t('footer.tagline')}
       </footer>
     </div>
   );
