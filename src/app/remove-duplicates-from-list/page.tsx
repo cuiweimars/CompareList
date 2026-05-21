@@ -46,10 +46,24 @@ export default function RemoveDuplicatesFromListPage() {
             "@type": "WebApplication",
             name: "Remove Duplicates from List - CompareList",
             description: "Free online tool to remove duplicates from any list. Paste your list and get a clean, deduplicated result instantly.",
-            url: "https://comparelist.org/remove-duplicates-from-list",
+            url: "https://comparelist.com/remove-duplicates-from-list",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
           }),
         }}
       />

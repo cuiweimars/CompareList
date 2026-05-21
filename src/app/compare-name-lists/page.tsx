@@ -41,7 +41,7 @@ export default function CompareCSVColumnsPage() {
             "@type": "WebApplication",
             name: "Compare Name Lists - CompareList",
             description: "Find differences between two columns of data from CSV or Excel files. Paste, compare, export.",
-            url: "https://comparelist.org/compare-name-lists",
+            url: "https://comparelist.com/compare-name-lists",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

@@ -47,10 +47,24 @@ export default function CompareKeywordsPage() {
             "@type": "WebApplication",
             name: "Compare Keywords - CompareList",
             description: "Find overlapping keywords, keyword gaps, and unique opportunities between two keyword lists. Free SEO tool.",
-            url: "https://comparelist.org/compare-keywords",
+            url: "https://comparelist.com/compare-keywords",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
           }),
         }}
       />

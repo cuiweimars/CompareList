@@ -61,7 +61,7 @@ export default function CompareIPAddressesPage() {
             "@type": "WebApplication",
             name: "Compare IP Addresses - CompareList",
             description: "Find matching, unique, and overlapping IP addresses between two lists. Supports IPv4 addresses with exact matching.",
-            url: "https://comparelist.org/compare-ip-addresses",
+            url: "https://comparelist.com/compare-ip-addresses",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

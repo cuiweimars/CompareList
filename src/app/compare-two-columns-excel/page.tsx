@@ -44,10 +44,24 @@ export default function CompareTwoColumnsExcelPage() {
             "@type": "WebApplication",
             name: "Compare Two Columns in Excel - CompareList",
             description: "Free tool to compare two Excel columns online. Find matches, differences, and unique values instantly without formulas.",
-            url: "https://comparelist.org/compare-two-columns-excel",
+            url: "https://comparelist.com/compare-two-columns-excel",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
           }),
         }}
       />

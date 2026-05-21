@@ -53,10 +53,24 @@ export default function CompareExcelColumnsPage() {
             "@type": "WebApplication",
             name: "Compare Excel Columns - CompareList",
             description: "Quickly find differences between two columns in Excel or Google Sheets. No formulas, no VLOOKUP needed.",
-            url: "https://comparelist.org/compare-excel-columns",
+            url: "https://comparelist.com/compare-excel-columns",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
           }),
         }}
       />

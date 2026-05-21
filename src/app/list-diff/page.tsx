@@ -47,10 +47,24 @@ export default function ListDiffPage() {
             "@type": "WebApplication",
             name: "List Diff - CompareList",
             description: "Compare two lists and instantly see what's different. Get added items, removed items, and unchanged items.",
-            url: "https://comparelist.org/list-diff",
+            url: "https://comparelist.com/list-diff",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
           }),
         }}
       />

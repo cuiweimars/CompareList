@@ -91,10 +91,24 @@ export default function CompareEmailListsPage() {
             "@type": "WebApplication",
             name: "Compare Email Lists - CompareList",
             description: "Find duplicates, unique addresses, and common subscribers between two email lists. Free, instant, and private.",
-            url: "https://comparelist.org/compare-email-lists",
+            url: "https://comparelist.com/compare-email-lists",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
           }),
         }}
       />

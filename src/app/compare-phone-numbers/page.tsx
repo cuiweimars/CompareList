@@ -59,7 +59,7 @@ export default function ComparePhoneNumbersPage() {
             "@type": "WebApplication",
             name: "Compare Phone Numbers - CompareList",
             description: "Find matching, missing, and duplicate phone numbers between two lists. Works with all formats including international numbers.",
-            url: "https://comparelist.org/compare-phone-numbers",
+            url: "https://comparelist.com/compare-phone-numbers",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

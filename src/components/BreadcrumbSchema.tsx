@@ -1,5 +1,5 @@
 export default function BreadcrumbSchema({ items }: { items: { name: string; path: string }[] }) {
-  const baseUrl = "https://comparelist.org";
+  const baseUrl = "https://comparelist.com";
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

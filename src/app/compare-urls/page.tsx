@@ -46,10 +46,24 @@ export default function CompareUrlsPage() {
             "@type": "WebApplication",
             name: "Compare URLs - CompareList",
             description: "Find differences between two lists of URLs. Compare sitemaps, backlink lists, or crawled pages.",
-            url: "https://comparelist.org/compare-urls",
+            url: "https://comparelist.com/compare-urls",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
           }),
         }}
       />

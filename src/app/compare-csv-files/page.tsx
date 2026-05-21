@@ -44,10 +44,24 @@ export default function CompareCsvFilesPage() {
             "@type": "WebApplication",
             name: "Compare CSV Files - CompareList",
             description: "Free online tool to compare two CSV files. Find differences, compare specific columns, and export results.",
-            url: "https://comparelist.org/compare-csv-files",
+            url: "https://comparelist.com/compare-csv-files",
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
           }),
         }}
       />
