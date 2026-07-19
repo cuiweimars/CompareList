@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowRightLeft, Phone, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -9,9 +9,10 @@ import ListInput from "@/components/ListInput";
 import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
-import { compareLists, CompareResult } from "@/lib/compare";
+import { compareLists, CompareResult, type CompareUiOptions } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { localizedUrl, safeJsonLd } from "@/lib/seo";
 
 const DEMO_A = `+1 (555) 123-4567
 +1-555-234-5678
@@ -31,12 +32,14 @@ const DEMO_B = `+15551234567
 
 export default function ComparePhoneNumbersPage() {
   const t = useTranslations("comparePhoneNumbers");
+  const locale = useLocale();
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
   const [showOptions, setShowOptions] = useState(false);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<CompareUiOptions>({
     caseSensitive: false, trimWhitespace: true, removeDuplicates: true, ignoreEmpty: true,
+    delimiter: "auto", customDelimiter: "", normalization: "phone",
   });
 
   function handleCompare() {
@@ -58,12 +61,12 @@ export default function ComparePhoneNumbersPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: t("jsonLd.name"),
             description: t("jsonLd.description"),
-            url: "https://comparelist.com/compare-phone-numbers",
+            url: localizedUrl(locale, "/compare-phone-numbers"),
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

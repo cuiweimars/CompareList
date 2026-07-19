@@ -20,18 +20,24 @@
     "features": "Features",
     "faq": "FAQ",
     "history": "History",
-    "pricing": "Pricing"
+    "pricing": "Pricing",
+    "about": "About",
+    "privacy": "Privacy"
   },
   "home": {
+    "seo": {
+      "title": "Compare Two Lists Online Free - Differences & Matches | CompareList",
+      "description": "Compare two lists online to find common, unique, added, and removed items. Includes private local smart matching, CSV and Excel import, and free export."
+    },
     "hero": {
       "badge": "Free · Private · No Signup",
       "title": "Compare Two Lists <gradient>Instantly</gradient>",
-      "subtitle": "Find differences, common items, and unique entries between any two lists. Powered by AI."
+      "subtitle": "Find differences, common items, and unique entries between any two lists. Fast, private, and processed locally."
     },
     "tool": {
       "modeExact": "Exact Match",
-      "modeAi": "AI Match",
-      "modeAiFree": "Free",
+      "modeAi": "Smart Match",
+      "modeAiFree": "Local",
       "listALabel": "List A",
       "listBLabel": "List B",
       "listAPlaceholder": "Paste your first list here, one item per line...",
@@ -41,22 +47,23 @@
       "options": "Options",
       "tryDemo": "Try Demo",
       "compareLists": "Compare Lists",
-      "compareWithAi": "Compare with AI",
+      "compareWithAi": "Smart Compare",
       "analyzing": "Analyzing...",
       "results": "Results",
-      "clearResults": "Clear Results"
+      "clearResults": "Clear Results",
+      "similarityThreshold": "Minimum similarity"
     },
     "dragOverlay": {
       "title": "Drop files to compare",
       "subtitle": "Drop 2 files (List A + List B) or 1 file (auto-fills first empty list)"
     },
     "aiAnalysis": {
-      "title": "AI Analysis",
-      "unavailableWarning": "AI deep analysis is temporarily unavailable. Showing local fuzzy matching results for free.",
-      "foundFuzzy": "AI found <strong>{count} fuzzy match{plural}</strong> that exact matching missed.",
+      "title": "Smart Match Results",
+      "unavailableWarning": "Smart matching runs locally in your browser.",
+      "foundFuzzy": "Smart Match found <strong>{count} similar match{plural}</strong> that exact matching missed.",
       "combinedRate": "Combined rate: <strong>{aiRate}%</strong> (vs {exactRate}% exact).",
       "fuzzyMatches": "{count} fuzzy match{plural}",
-      "aiError": "AI analysis failed. Showing exact comparison results below."
+      "aiError": "Smart matching failed. Showing exact comparison results below."
     },
     "features": {
       "0": {
@@ -65,15 +72,15 @@
       },
       "1": {
         "title": "100% Private",
-        "desc": "Your data never leaves your device. No tracking, no collection, no server upload."
+        "desc": "Your list contents never leave your device. Comparison values are not collected or uploaded."
       },
       "2": {
         "title": "Any Format",
         "desc": "Paste text, upload files, drag and drop. Auto-detects delimiters."
       },
       "3": {
-        "title": "AI-Powered",
-        "desc": "DeepSeek AI finds fuzzy matches, typos, and reordered items automatically."
+        "title": "Smart Matching",
+        "desc": "Local similarity matching finds typos, minor differences, and reordered items without uploading your lists."
       },
       "sectionTag": "Why CompareList",
       "sectionTitle": "Built for Speed & Privacy"
@@ -151,7 +158,7 @@
       "1": {
         "step": "02",
         "title": "Choose Mode",
-        "desc": "Exact Match for free, or AI Match for fuzzy matching and DeepSeek insights."
+        "desc": "Use Exact Match for strict comparison or Smart Match for local similarity detection."
       },
       "2": {
         "step": "03",
@@ -180,8 +187,8 @@
         "a": "No hard limit. Handles tens of thousands of items smoothly since all processing is local."
       },
       "3": {
-        "q": "What is AI comparison?",
-        "a": "AI mode uses DeepSeek to find fuzzy matches like 'John Smith' vs 'Smith, John', detect typos, and generate an intelligent analysis summary. Uses 1 credit per comparison."
+        "q": "What is Smart Match?",
+        "a": "Smart Match runs locally in your browser to find similar entries such as 'John Smith' and 'Smith, John', minor typos, and reordered words. It is free and does not upload your lists."
       },
       "4": {
         "q": "How is match rate calculated?",
@@ -471,7 +478,7 @@
       },
       "2": {
         "q": "Does it handle keyword variations?",
-        "a": "By default, comparison is exact (case-insensitive). For detecting similar keywords like 'running shoes' vs 'shoes for running', use the AI Match mode."
+        "a": "By default, comparison is exact (case-insensitive). To detect similar keywords like 'running shoes' and 'shoes for running', use Smart Match, which runs locally."
       },
       "3": {
         "q": "How can I find keyword gaps?",
@@ -490,8 +497,8 @@
   "compareNameLists": {
     "hero": {
       "badge": "Name List Comparison",
-      "title": "Compare Two CSV Columns Online",
-      "subtitle": "Find differences between two columns of data from CSV or Excel files. Paste, compare, export."
+      "title": "Compare Two Name Lists Online",
+      "subtitle": "Find matching names, spelling variants, and unique entries. Ignore accents or name order when needed."
     },
     "listInput": {
       "listA": "Column A",
@@ -792,7 +799,8 @@
     },
     "actions": {
       "removeDuplicates": "Remove Duplicates",
-      "copyToClipboard": "Copy to clipboard"
+      "copyToClipboard": "Copy to clipboard",
+      "download": "Download TXT"
     },
     "result": {
       "heading": "Deduplicated Result",
@@ -820,11 +828,11 @@
     "faq": {
       "0": {
         "q": "How do I remove duplicates from a list?",
-        "a": "Paste your list into the text area above (one item per line) and click Remove Duplicates. You'll instantly get a clean list with all duplicates removed."
+        "a": "Paste your list into the text area above. The clean result updates instantly and can be copied or downloaded as TXT."
       },
       "1": {
-        "q": "Does it remove duplicates across both lists?",
-        "a": "If you paste two lists, the tool shows you which items are shared (duplicates across lists) and which are unique to each. For a single list, it removes internal duplicates."
+        "q": "Which separators are supported?",
+        "a": "Use one item per line. Single-line comma, semicolon, and tab-separated input is also detected automatically."
       },
       "2": {
         "q": "Is it case-sensitive?",
@@ -861,7 +869,7 @@
       },
       "1": {
         "title": "100% Private",
-        "desc": "Your data never leaves your device. No server uploads, no tracking."
+        "desc": "Your list contents remain on your device and are not included in optional page analytics."
       },
       "2": {
         "title": "Any Format",
@@ -879,8 +887,8 @@
       "1": {
         "num": "2",
         "title": "Choose Your Comparison Mode",
-        "desc": "Select \"Exact Match\" for precise item-by-item comparison, or \"AI Match\" to find fuzzy matches like typos, reordered names (\"John Smith\" vs \"Smith, John\"), and similar entries using DeepSeek AI.",
-        "tip": "Exact Match is always free. AI Match uses 1 credit per comparison and includes fuzzy matching and intelligent analysis."
+        "desc": "Select \"Exact Match\" for strict item-by-item comparison, or \"Smart Match\" to find typos, reordered names (\"John Smith\" vs \"Smith, John\"), and similar entries locally.",
+        "tip": "Both modes are free and run in your browser. Smart Match reports a confidence score and reason for each suggested pair."
       },
       "2": {
         "num": "3",
@@ -922,7 +930,7 @@
       },
       "4": {
         "title": "Name Matching",
-        "desc": "Find matching names across lists with AI fuzzy matching for spelling variations."
+        "desc": "Find matching names across lists with local similarity matching for spelling variations."
       },
       "5": {
         "title": "URL Comparison",
@@ -944,8 +952,8 @@
         "a": "The match rate uses the Dice coefficient formula: 2 x (common items) / (total A + total B). It gives a percentage showing how similar the two lists are."
       },
       "3": {
-        "q": "How does AI fuzzy matching work?",
-        "a": "AI matching uses a combination of Levenshtein edit distance and Jaccard token similarity to find items that are similar but not identical — like typos, reordered words, or partial matches."
+        "q": "How does Smart Match work?",
+        "a": "Smart Match combines Levenshtein edit distance and Jaccard token similarity to find items that are similar but not identical, such as typos or reordered words. It runs locally and pairs each item at most once."
       },
       "4": {
         "q": "Is my data stored anywhere?",
@@ -1048,7 +1056,7 @@
     "hero": {
       "badge": "Tutorial",
       "title": "How to Find Differences Between Two Lists",
-      "subtitle": "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods."
+      "subtitle": "A practical guide to identifying what's different and what's the same between any two lists, using exact and local smart matching methods."
     },
     "methods": {
       "0": {
@@ -1058,12 +1066,13 @@
         "best": "Emails, IDs, product codes, exact strings"
       },
       "1": {
-        "title": "AI Fuzzy Matching",
-        "badge": "1 Credit",
+        "title": "Local Smart Matching",
+        "badge": "Free",
         "desc": "Uses Levenshtein distance and token-based similarity to find near-matches. Catches typos, reordered words, and similar entries that exact matching misses.",
         "best": "Names (\"John Smith\" vs \"Smith, John\"), addresses, keywords with typos"
       },
-      "heading": "Two Ways to Find Differences"
+      "heading": "Two Ways to Find Differences",
+      "bestFor": "Best for:"
     },
     "terms": {
       "0": {
@@ -1119,7 +1128,7 @@
     },
     "jsonLd": {
       "name": "How to Find Differences Between Two Lists",
-      "description": "A practical guide to identifying what's different and what's the same between any two lists, using both exact and AI-powered methods."
+      "description": "A practical guide to identifying what's different and what's the same between any two lists, using exact and local smart matching methods."
     }
   },
   "pricing": {
@@ -1205,7 +1214,9 @@
       "previewRow": "Preview (row 1):",
       "fileTooLarge": "File too large. Please use files under 50MB.",
       "largeFileConfirm": "This file is {size}MB. Large files may be slow to process. Continue?",
-      "items": "{count} items"
+      "items": "{count} items",
+      "sheet": "Sheet",
+      "unsupportedFileType": "Unsupported file type. Use TXT, CSV, TSV, or XLSX."
     },
     "resultTabs": {
       "tabs": {
@@ -1256,7 +1267,8 @@
       "matchRate": "Match Rate",
       "commonItems": "Common Items",
       "onlyInListA": "Only in List A",
-      "onlyInListB": "Only in List B"
+      "onlyInListB": "Only in List B",
+      "diagnostics": "Input diagnostics: {duplicates} duplicate rows, {invalid} invalid values, and {empty} empty items. Review options before exporting."
     },
     "optionsPanel": {
       "caseSensitive": {
@@ -1274,13 +1286,46 @@
       "ignoreEmpty": {
         "label": "Ignore Empty Lines",
         "desc": "Skip blank lines and empty items"
+      },
+      "delimiter": {
+        "label": "Item separator",
+        "auto": "Auto detect",
+        "newline": "New line",
+        "comma": "Comma",
+        "semicolon": "Semicolon",
+        "tab": "Tab",
+        "custom": "Custom",
+        "customValue": "Custom value"
+      },
+      "normalization": {
+        "label": "Data type",
+        "generic": "Generic text",
+        "email": "Email",
+        "phone": "Phone number",
+        "url": "URL",
+        "name": "Person name",
+        "ip": "IP address",
+        "keyword": "Keyword"
+      },
+      "advanced": {
+        "ignoreDiacritics": { "label": "Ignore accents", "desc": "Treat e and é as the same" },
+        "reorderNameTokens": { "label": "Ignore name order", "desc": "Match John Smith with Smith, John" },
+        "defaultCountryCode": { "label": "Default country code", "desc": "Add this code to local phone numbers" },
+        "ignoreUrlProtocol": { "label": "Ignore protocol", "desc": "Treat HTTP and HTTPS as the same" },
+        "ignoreUrlWww": { "label": "Ignore www", "desc": "Treat www.example.com and example.com as the same" },
+        "ignoreUrlTrailingSlash": { "label": "Ignore trailing slash", "desc": "Treat /page and /page/ as the same" },
+        "ignoreUrlHash": { "label": "Ignore URL fragment", "desc": "Ignore the part after #" }
       }
+    },
+    "tableCompare": {
+      "title": "Row-level comparison", "description": "Choose one or more key columns to classify complete rows as added, removed, changed, or unchanged.", "keyA": "Key columns in file A", "keyB": "Key columns in file B", "unnamedColumn": "Column {index}", "compositeHint": "Select multiple columns to create a composite key.", "compareRows": "Compare rows", "added": "Added", "removed": "Removed", "changed": "Changed", "unchanged": "Unchanged", "duplicateKeys": "Duplicate keys detected: {a} in A and {b} in B. Duplicate rows are paired in source order.", "key": "Key", "field": "Changed field", "before": "Before", "after": "After", "exportReport": "Export row report"
     },
     "fuzzyMatchTable": {
       "title": "Fuzzy Matches",
       "subtitle": "Similar but not identical items",
       "noMatches": "No fuzzy matches found. Try lowering the similarity threshold.",
-      "moreHidden": "+ {count} more matches hidden"
+      "moreHidden": "+ {count} more matches hidden",
+      "reasons": { "exact": "Exact after normalization", "tokenOrder": "Same words, different order", "minorDifference": "Minor text difference", "similarStructure": "Similar text structure" }
     },
     "aiInsights": {
       "title": "AI Insights",
@@ -1352,7 +1397,8 @@
       "justNow": "Just now",
       "minutesAgo": "{count}m ago",
       "hoursAgo": "{count}h ago",
-      "modeAi": "AI",
+      "modeAi": "Smart",
+      "privacyNote": "Only counts and settings are saved on this device. New history records never store your list contents.",
       "modeExact": "Exact",
       "labelA": "A: {count}",
       "labelB": "B: {count}",

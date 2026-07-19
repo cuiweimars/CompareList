@@ -20,18 +20,24 @@
     "features": "功能",
     "faq": "常见问题",
     "history": "历史记录",
-    "pricing": "定价"
+    "pricing": "定价",
+    "about": "关于",
+    "privacy": "隐私"
   },
   "home": {
+    "seo": {
+      "title": "在线免费比较两个列表 - 查找差异与相同项 | CompareList",
+      "description": "在线比较两个列表，查找相同项、独有项、新增项和删除项。支持本地智能匹配、CSV 与 Excel 导入和免费导出。"
+    },
     "hero": {
       "badge": "免费 · 隐私 · 无需注册",
       "title": "即时比较两个列表 <gradient>Instantly</gradient>",
-      "subtitle": "查找任意两个列表之间的差异、共同项和独有条目。由 AI 驱动。"
+      "subtitle": "查找任意两个列表之间的差异、共同项和独有条目。快速、私密，全部在本地处理。"
     },
     "tool": {
       "modeExact": "精确匹配",
-      "modeAi": "AI 匹配",
-      "modeAiFree": "免费",
+      "modeAi": "智能匹配",
+      "modeAiFree": "本地",
       "listALabel": "列表 A",
       "listBLabel": "列表 B",
       "listAPlaceholder": "在此粘贴您的第一个列表，每行一项...",
@@ -41,22 +47,23 @@
       "options": "选项",
       "tryDemo": "试用演示",
       "compareLists": "比较列表",
-      "compareWithAi": "使用 AI 比较",
+      "compareWithAi": "智能比较",
       "analyzing": "分析中...",
       "results": "结果",
-      "clearResults": "清除结果"
+      "clearResults": "清除结果",
+      "similarityThreshold": "最低相似度"
     },
     "dragOverlay": {
       "title": "拖放文件进行比较",
       "subtitle": "拖放 2 个文件（列表 A + 列表 B）或 1 个文件（自动填入第一个空列表）"
     },
     "aiAnalysis": {
-      "title": "AI 分析",
-      "unavailableWarning": "AI 深度分析暂时不可用。正在免费显示本地模糊匹配结果。",
-      "foundFuzzy": "AI 发现了精确匹配遗漏的 <strong>{count} 个模糊匹配{plural}</strong>。",
+      "title": "智能匹配结果",
+      "unavailableWarning": "智能匹配在浏览器本地运行。",
+      "foundFuzzy": "智能匹配发现了精确匹配遗漏的 <strong>{count} 个相似匹配{plural}</strong>。",
       "combinedRate": "综合匹配率：<strong>{aiRate}%</strong>（精确匹配为 {exactRate}%）。",
       "fuzzyMatches": "{count} 个模糊匹配{plural}",
-      "aiError": "AI 分析失败。以下显示精确比较结果。"
+      "aiError": "智能匹配失败。以下显示精确比较结果。"
     },
     "features": {
       "0": {
@@ -65,15 +72,15 @@
       },
       "1": {
         "title": "100% 隐私",
-        "desc": "您的数据永远不会离开您的设备。无追踪、无收集、不上传服务器。"
+        "desc": "列表内容始终留在您的设备上，比较值不会被收集或上传。"
       },
       "2": {
         "title": "任意格式",
         "desc": "粘贴文本、上传文件、拖放操作。自动检测分隔符。"
       },
       "3": {
-        "title": "AI 驱动",
-        "desc": "DeepSeek AI 自动发现模糊匹配、拼写错误和重排序项。"
+        "title": "智能匹配",
+        "desc": "本地相似度匹配可发现拼写错误、细微差异和重排序项，列表不会被上传。"
       },
       "sectionTag": "为什么选择 CompareList",
       "sectionTitle": "为速度和隐私而构建"
@@ -151,7 +158,7 @@
       "1": {
         "step": "02",
         "title": "选择模式",
-        "desc": "精确匹配免费使用，或使用 AI 匹配进行模糊匹配和 DeepSeek 智能分析。"
+        "desc": "使用精确匹配进行严格比较，或使用智能匹配在本地发现相似项。"
       },
       "2": {
         "step": "03",
@@ -180,8 +187,8 @@
         "a": "没有硬性限制。由于所有处理都在本地进行，可以轻松处理数万条数据。"
       },
       "3": {
-        "q": "什么是 AI 比较？",
-        "a": "AI 模式使用 DeepSeek 来发现模糊匹配，例如 'John Smith' 与 'Smith, John'，检测拼写错误，并生成智能分析摘要。每次比较使用 1 个积分。"
+        "q": "什么是智能匹配？",
+        "a": "智能匹配在浏览器本地运行，可发现 'John Smith' 与 'Smith, John' 这类相似项、轻微拼写错误和词序变化。完全免费且不会上传列表。"
       },
       "4": {
         "q": "匹配率是如何计算的？",
@@ -471,7 +478,7 @@
       },
       "2": {
         "q": "能处理关键词变体吗？",
-        "a": "默认情况下，比较是精确的（不区分大小写）。要检测类似“running shoes”与“shoes for running”的相似关键词，请使用 AI 匹配模式。"
+        "a": "默认使用不区分大小写的精确比较。要检测“running shoes”与“shoes for running”这类相似关键词，请使用在本地运行的智能匹配。"
       },
       "3": {
         "q": "如何发现关键词空白？",
@@ -490,8 +497,8 @@
   "compareNameLists": {
     "hero": {
       "badge": "姓名列表比较",
-      "title": "在线比较两个 CSV 列",
-      "subtitle": "查找来自 CSV 或 Excel 文件的两列数据之间的差异。粘贴、比较、导出。"
+      "title": "在线比较两个姓名列表",
+      "subtitle": "查找匹配姓名、拼写变体和独有条目，并可按需忽略重音符号或姓名顺序。"
     },
     "listInput": {
       "listA": "列 A",
@@ -792,7 +799,8 @@
     },
     "actions": {
       "removeDuplicates": "移除重复项",
-      "copyToClipboard": "复制到剪贴板"
+      "copyToClipboard": "复制到剪贴板",
+      "download": "下载 TXT"
     },
     "result": {
       "heading": "去重结果",
@@ -820,11 +828,11 @@
     "faq": {
       "0": {
         "q": "如何移除列表中的重复项？",
-        "a": "将您的列表粘贴到上方的文本区域中（每行一项），然后点击移除重复项。您将立即获得移除所有重复项后的干净列表。"
+        "a": "将列表粘贴到上方文本区域，去重结果会即时更新，并可复制或下载为 TXT。"
       },
       "1": {
-        "q": "会移除两个列表之间的重复项吗？",
-        "a": "如果您粘贴了两个列表，工具会显示哪些条目是共有的（跨列表重复）以及哪些是每个列表独有的。对于单个列表，它会移除内部重复项。"
+        "q": "支持哪些分隔符？",
+        "a": "建议每行一项；单行逗号、分号和制表符分隔的数据也会自动识别。"
       },
       "2": {
         "q": "区分大小写吗？",
@@ -861,7 +869,7 @@
       },
       "1": {
         "title": "100% 隐私",
-        "desc": "您的数据永远不会离开您的设备。无服务器上传，无追踪。"
+        "desc": "列表内容保留在您的设备上，也不会加入可选的页面访问分析。"
       },
       "2": {
         "title": "任意格式",
@@ -879,8 +887,8 @@
       "1": {
         "num": "2",
         "title": "选择比较模式",
-        "desc": "选择“精确匹配”进行逐项精确比较，或选择“AI 匹配”使用 DeepSeek AI 发现模糊匹配，如拼写错误、重排序姓名（“John Smith”与“Smith, John”）和相似条目。",
-        "tip": "精确匹配始终免费。AI 匹配每次比较使用 1 个积分，包含模糊匹配和智能分析。"
+        "desc": "选择“精确匹配”进行严格的逐项比较，或选择“智能匹配”在本地发现拼写错误、重排序姓名和相似条目。",
+        "tip": "两种模式都免费且在浏览器中运行。智能匹配会为每对建议给出置信度和原因。"
       },
       "2": {
         "num": "3",
@@ -922,7 +930,7 @@
       },
       "4": {
         "title": "姓名匹配",
-        "desc": "利用 AI 模糊匹配在列表间查找拼写变体的匹配姓名。"
+        "desc": "使用本地相似度匹配查找列表间存在拼写变体的姓名。"
       },
       "5": {
         "title": "URL 比较",
@@ -944,8 +952,8 @@
         "a": "匹配率使用 Dice 系数公式：2 ×（共同项数）/（A 总数 + B 总数）。它给出一个表示两个列表相似程度的百分比。"
       },
       "3": {
-        "q": "AI 模糊匹配是如何工作的？",
-        "a": "AI 匹配使用 Levenshtein 编辑距离和 Jaccard 令牌相似度的组合来查找相似但不完全相同的条目——如拼写错误、词语重排或部分匹配。"
+        "q": "智能匹配如何工作？",
+        "a": "智能匹配结合 Levenshtein 编辑距离和 Jaccard 词元相似度，发现拼写错误或词语重排等相似但不完全相同的条目。它在本地运行，每项最多配对一次。"
       },
       "4": {
         "q": "我的数据会存储在任何地方吗？",
@@ -1048,7 +1056,7 @@
     "hero": {
       "badge": "教程",
       "title": "如何查找两个列表之间的差异",
-      "subtitle": "使用精确和 AI 驱动方法，识别任意两个列表之间不同之处和相同之处的实用指南。"
+      "subtitle": "使用精确匹配和本地智能匹配，识别任意两个列表之间相同与不同之处的实用指南。"
     },
     "methods": {
       "0": {
@@ -1058,12 +1066,13 @@
         "best": "邮箱、ID、产品代码、精确字符串"
       },
       "1": {
-        "title": "AI 模糊匹配",
+        "title": "本地智能匹配",
         "badge": "1 个积分",
         "desc": "使用 Levenshtein 距离和基于令牌的相似度查找近似匹配。可以捕获拼写错误、词语重排和精确匹配遗漏的相似条目。",
         "best": "姓名（“John Smith”与“Smith, John”）、地址、带拼写错误的关键词"
       },
-      "heading": "查找差异的两种方法"
+      "heading": "查找差异的两种方法",
+      "bestFor": "适合："
     },
     "terms": {
       "0": {
@@ -1119,7 +1128,7 @@
     },
     "jsonLd": {
       "name": "如何查找两个列表之间的差异",
-      "description": "使用精确和 AI 驱动方法，识别任意两个列表之间不同之处和相同之处的实用指南。"
+      "description": "使用精确匹配和本地智能匹配，识别任意两个列表之间相同与不同之处的实用指南。"
     }
   },
   "pricing": {
@@ -1205,7 +1214,9 @@
       "previewRow": "预览（第 1 行）：",
       "fileTooLarge": "文件过大。请使用 50MB 以下的文件。",
       "largeFileConfirm": "此文件大小为 {size}MB。大文件处理可能较慢。是否继续？",
-      "items": "{count} 项"
+      "items": "{count} 项",
+      "sheet": "工作表",
+      "unsupportedFileType": "不支持此文件类型，请使用 TXT、CSV、TSV 或 XLSX。"
     },
     "resultTabs": {
       "tabs": {
@@ -1256,7 +1267,8 @@
       "matchRate": "匹配率",
       "commonItems": "共同项",
       "onlyInListA": "仅在列表 A 中",
-      "onlyInListB": "仅在列表 B 中"
+      "onlyInListB": "仅在列表 B 中",
+      "diagnostics": "输入诊断：{duplicates} 个重复项、{invalid} 个无效值、{empty} 个空项。导出前请检查比较选项。"
     },
     "optionsPanel": {
       "caseSensitive": {
@@ -1274,13 +1286,46 @@
       "ignoreEmpty": {
         "label": "忽略空行",
         "desc": "跳过空行和空条目"
+      },
+      "delimiter": {
+        "label": "条目分隔符",
+        "auto": "自动检测",
+        "newline": "换行",
+        "comma": "逗号",
+        "semicolon": "分号",
+        "tab": "制表符",
+        "custom": "自定义",
+        "customValue": "自定义内容"
+      },
+      "normalization": {
+        "label": "数据类型",
+        "generic": "通用文本",
+        "email": "邮箱",
+        "phone": "电话号码",
+        "url": "网址",
+        "name": "姓名",
+        "ip": "IP 地址",
+        "keyword": "关键词"
+      },
+      "advanced": {
+        "ignoreDiacritics": { "label": "忽略重音符号", "desc": "将 e 与 é 视为相同" },
+        "reorderNameTokens": { "label": "忽略姓名顺序", "desc": "将 John Smith 与 Smith, John 匹配" },
+        "defaultCountryCode": { "label": "默认国家代码", "desc": "为本地电话号码添加此前缀" },
+        "ignoreUrlProtocol": { "label": "忽略协议", "desc": "将 HTTP 与 HTTPS 视为相同" },
+        "ignoreUrlWww": { "label": "忽略 www", "desc": "将带 www 与不带 www 的域名视为相同" },
+        "ignoreUrlTrailingSlash": { "label": "忽略末尾斜杠", "desc": "将 /page 与 /page/ 视为相同" },
+        "ignoreUrlHash": { "label": "忽略 URL 片段", "desc": "忽略 # 后的内容" }
       }
+    },
+    "tableCompare": {
+      "title": "按行比较", "description": "选择一个或多个键列，将完整数据行分类为新增、删除、修改或未变。", "keyA": "文件 A 的键列", "keyB": "文件 B 的键列", "unnamedColumn": "第 {index} 列", "compositeHint": "可选择多列组成复合键。", "compareRows": "比较数据行", "added": "新增", "removed": "删除", "changed": "修改", "unchanged": "未变", "duplicateKeys": "检测到重复键：A 中 {a} 个，B 中 {b} 个。重复行按原始顺序配对。", "key": "键", "field": "修改字段", "before": "修改前", "after": "修改后", "exportReport": "导出行级报告"
     },
     "fuzzyMatchTable": {
       "title": "模糊匹配",
       "subtitle": "相似但不完全相同的条目",
       "noMatches": "未找到模糊匹配。请尝试降低相似度阈值。",
-      "moreHidden": "还有 {count} 个匹配被隐藏"
+      "moreHidden": "还有 {count} 个匹配被隐藏",
+      "reasons": { "exact": "归一化后完全一致", "tokenOrder": "词语相同，顺序不同", "minorDifference": "轻微文本差异", "similarStructure": "文本结构相似" }
     },
     "aiInsights": {
       "title": "AI 洞察",
@@ -1352,7 +1397,8 @@
       "justNow": "刚刚",
       "minutesAgo": "{count} 分钟前",
       "hoursAgo": "{count} 小时前",
-      "modeAi": "AI",
+      "modeAi": "智能",
+      "privacyNote": "仅在此设备保存统计数量和设置。新的历史记录不会保存列表内容。",
       "modeExact": "精确",
       "labelA": "A：{count}",
       "labelB": "B：{count}",

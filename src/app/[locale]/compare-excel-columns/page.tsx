@@ -2,25 +2,32 @@
 
 import { useState } from "react";
 import { ArrowRightLeft, Table, ChevronDown, ChevronUp } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ListInput from "@/components/ListInput";
 import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
-import { compareLists, CompareResult } from "@/lib/compare";
+import TableComparePanel from "@/components/TableComparePanel";
+import { compareLists, CompareResult, type CompareUiOptions } from "@/lib/compare";
+import type { TableData } from "@/lib/table-compare";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { localizedUrl, safeJsonLd } from "@/lib/seo";
 
 export default function CompareExcelColumnsPage() {
   const t = useTranslations("compareExcelColumns");
+  const locale = useLocale();
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
+  const [tableA, setTableA] = useState<TableData | null>(null);
+  const [tableB, setTableB] = useState<TableData | null>(null);
   const [showOptions, setShowOptions] = useState(false);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<CompareUiOptions>({
     caseSensitive: false, trimWhitespace: true, removeDuplicates: true, ignoreEmpty: true,
+    delimiter: "auto", customDelimiter: "", normalization: "generic",
   });
 
   function handleCompare() {
@@ -52,12 +59,12 @@ export default function CompareExcelColumnsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: t('jsonLd.name'),
             description: t('jsonLd.description'),
-            url: "https://comparelist.com/compare-excel-columns",
+            url: localizedUrl(locale, "/compare-excel-columns"),
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -67,7 +74,7 @@ export default function CompareExcelColumnsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: faqs.map((faq) => ({
@@ -78,7 +85,7 @@ export default function CompareExcelColumnsPage() {
           }),
         }}
       />
-      <header className="border-b border-border bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-border bg-surface/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -103,10 +110,10 @@ export default function CompareExcelColumnsPage() {
       </section>
 
       <section className="max-w-5xl mx-auto px-4 pb-12 -mt-2">
-        <div className="bg-white rounded-2xl border border-border shadow-lg p-4 lg:p-6">
+        <div className="glass-elevated rounded-2xl border border-border shadow-lg p-4 lg:p-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-            <ListInput label={t('listInput.listA')} labelColor="#6366f1" value={listA} onChange={setListA} placeholder={t('listInput.placeholderA')} />
-            <ListInput label={t('listInput.listB')} labelColor="#06b6d4" value={listB} onChange={setListB} placeholder={t('listInput.placeholderB')} />
+            <ListInput label={t('listInput.listA')} labelColor="#6366f1" value={listA} onChange={setListA} onTableParsed={setTableA} placeholder={t('listInput.placeholderA')} />
+            <ListInput label={t('listInput.listB')} labelColor="#06b6d4" value={listB} onChange={setListB} onTableParsed={setTableB} placeholder={t('listInput.placeholderB')} />
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
             <button onClick={() => setShowOptions(!showOptions)} className="text-xs text-text-secondary hover:text-text flex items-center gap-1">
@@ -118,6 +125,7 @@ export default function CompareExcelColumnsPage() {
               {t('actions.compare')}
             </button>
           </div>
+          {tableA && tableB && <TableComparePanel tableA={tableA} tableB={tableB} options={options} />}
           {result && (
             <div className="space-y-4">
               <StatsCards stats={result.stats} />
@@ -127,7 +135,7 @@ export default function CompareExcelColumnsPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-white border-t border-border">
+      <section className="py-12 bg-surface/30 border-t border-border">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-8">{t('steps.heading')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -148,7 +156,7 @@ export default function CompareExcelColumnsPage() {
           {faqs.map((faq, i) => (
             <div key={i} className="border border-border rounded-lg overflow-hidden">
               <button onClick={() => setShowFaq(showFaq === i ? null : i)}
-                className="w-full px-5 py-4 text-left text-sm font-medium flex items-center justify-between hover:bg-gray-50">
+                className="w-full px-5 py-4 text-left text-sm font-medium flex items-center justify-between hover:bg-surface-alt/30">
                 {faq.q}
                 {showFaq === i ? <ChevronUp size={16} className="text-text-muted shrink-0" /> : <ChevronDown size={16} className="text-text-muted shrink-0" />}
               </button>
@@ -163,7 +171,7 @@ export default function CompareExcelColumnsPage() {
       </div>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
-        <Link href="/" className="hover:text-text transition-colors">CompareList</Link> &middot; {t('footer.tagline')}
+        <Link href="/" className="hover:text-text transition-colors">CompareList</Link>
       </footer>
     </div>
   );

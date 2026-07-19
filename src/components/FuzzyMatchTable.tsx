@@ -10,12 +10,16 @@ interface FuzzyMatch {
   reason: string;
 }
 
-interface FuzzyMatchTableProps {
-  matches: FuzzyMatch[];
-  locked?: boolean;
-}
+interface FuzzyMatchTableProps { matches: FuzzyMatch[]; }
 
-export default function FuzzyMatchTable({ matches, locked = false }: FuzzyMatchTableProps) {
+const reasonKeys: Record<string, "reasons.exact" | "reasons.tokenOrder" | "reasons.minorDifference" | "reasons.similarStructure"> = {
+  exact: "reasons.exact",
+  "token-order": "reasons.tokenOrder",
+  "minor-difference": "reasons.minorDifference",
+  "similar-structure": "reasons.similarStructure",
+};
+
+export default function FuzzyMatchTable({ matches }: FuzzyMatchTableProps) {
   const t = useTranslations("components.fuzzyMatchTable");
 
   if (matches.length === 0) {
@@ -26,10 +30,6 @@ export default function FuzzyMatchTable({ matches, locked = false }: FuzzyMatchT
     );
   }
 
-  const displayMatches = locked
-    ? matches.slice(0, 2)
-    : matches;
-
   return (
     <div className="glass rounded-xl overflow-hidden">
       <div className="px-4 py-3 border-b border-border flex items-center gap-2">
@@ -39,7 +39,7 @@ export default function FuzzyMatchTable({ matches, locked = false }: FuzzyMatchT
         </span>
       </div>
       <div className="divide-y divide-border">
-        {displayMatches.map((match, i) => (
+        {matches.map((match, i) => (
           <div key={i} className="px-4 py-3 flex items-center gap-3">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 text-sm min-w-0">
@@ -63,17 +63,12 @@ export default function FuzzyMatchTable({ matches, locked = false }: FuzzyMatchT
                 >
                   {Math.round(match.confidence * 100)}%
                 </span>
-                <span className="text-xs text-text-muted">{match.reason}</span>
+                <span className="text-xs text-text-muted">{t(reasonKeys[match.reason] ?? "reasons.similarStructure")}</span>
               </div>
             </div>
           </div>
         ))}
       </div>
-      {locked && matches.length > 2 && (
-        <div className="px-4 py-3 bg-surface-alt/30 text-center text-xs text-text-muted">
-          {t("moreHidden", { count: matches.length - 2 })}
-        </div>
-      )}
     </div>
   );
 }

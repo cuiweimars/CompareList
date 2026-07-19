@@ -20,18 +20,24 @@
     "features": "Funktionen",
     "faq": "FAQ",
     "history": "Verlauf",
-    "pricing": "Preise"
+    "pricing": "Preise",
+    "about": "Über uns",
+    "privacy": "Datenschutz"
   },
   "home": {
+    "seo": {
+      "title": "Zwei Listen kostenlos online vergleichen - Unterschiede und Treffer | CompareList",
+      "description": "Vergleichen Sie zwei Listen online und finden Sie gemeinsame, eindeutige, hinzugefügte und entfernte Einträge. Mit lokalem Smart Match und CSV-/Excel-Import."
+    },
     "hero": {
       "badge": "Kostenlos · Privat · Keine Anmeldung",
       "title": "Zwei Listen <gradient>sofort</gradient> vergleichen",
-      "subtitle": "Finden Sie Unterschiede, gemeinsame Elemente und eindeutige Eintrage zwischen zwei Listen. KI-betrieben."
+      "subtitle": "Finden Sie Unterschiede, gemeinsame Elemente und eindeutige Eintrage zwischen zwei Listen. Schnell, privat und lokal verarbeitet."
     },
     "tool": {
       "modeExact": "Exakte Ubereinstimmung",
-      "modeAi": "KI-Ubereinstimmung",
-      "modeAiFree": "Kostenlos",
+      "modeAi": "Intelligenter Abgleich",
+      "modeAiFree": "Lokal",
       "listALabel": "Liste A",
       "listBLabel": "Liste B",
       "listAPlaceholder": "Fugen Sie Ihre erste Liste hier ein, ein Element pro Zeile...",
@@ -41,22 +47,23 @@
       "options": "Optionen",
       "tryDemo": "Demo testen",
       "compareLists": "Listen vergleichen",
-      "compareWithAi": "Mit KI vergleichen",
+      "compareWithAi": "Intelligent vergleichen",
       "analyzing": "Analyse...",
       "results": "Ergebnisse",
-      "clearResults": "Ergebnisse loschen"
+      "clearResults": "Ergebnisse loschen",
+      "similarityThreshold": "Minimale Ähnlichkeit"
     },
     "dragOverlay": {
       "title": "Dateien zum Vergleichen ablegen",
       "subtitle": "2 Dateien (Liste A + Liste B) oder 1 Datei ablegen (fuellt die erste leere Liste automatisch)"
     },
     "aiAnalysis": {
-      "title": "KI-Analyse",
-      "unavailableWarning": "Die tiefgehende KI-Analyse ist vorubergehend nicht verfugbar. Lokale Fuzzy-Matching-Ergebnisse werden kostenlos angezeigt.",
-      "foundFuzzy": "KI hat <strong>{count} Fuzzy-Ubereinstimmung{plural}</strong> gefunden, die die exakte Suche ubersehen hat.",
+      "title": "Ergebnisse des intelligenten Abgleichs",
+      "unavailableWarning": "Der intelligente Abgleich läuft lokal in Ihrem Browser.",
+      "foundFuzzy": "Der intelligente Abgleich hat <strong>{count} ähnliche Übereinstimmung{plural}</strong> gefunden, die der exakte Vergleich übersah.",
       "combinedRate": "Kombinierte Rate: <strong>{aiRate}%</strong> (vs. {exactRate}% exakt).",
       "fuzzyMatches": "{count} Fuzzy-Ubereinstimmung{plural}",
-      "aiError": "KI-Analyse fehlgeschlagen. Exakte Vergleichsergebnisse werden unten angezeigt."
+      "aiError": "Der intelligente Abgleich ist fehlgeschlagen. Die exakten Ergebnisse werden angezeigt."
     },
     "features": {
       "0": {
@@ -65,15 +72,15 @@
       },
       "1": {
         "title": "100% privat",
-        "desc": "Ihre Daten verlassen niemals Ihr Geraet. Kein Tracking, keine Datenerfassung, kein Server-Upload."
+        "desc": "Ihre Listeninhalte bleiben auf dem Gerät. Vergleichswerte werden weder erfasst noch hochgeladen."
       },
       "2": {
         "title": "Jedes Format",
         "desc": "Text einfugen, Dateien hochladen, Drag & Drop. Trennzeichen werden automatisch erkannt."
       },
       "3": {
-        "title": "KI-betrieben",
-        "desc": "DeepSeek KI findet automatisch Fuzzy-Ubereinstimmungen, Tippfehler und neu angeordnete Elemente."
+        "title": "Intelligenter Abgleich",
+        "desc": "Lokaler Ähnlichkeitsabgleich findet Tippfehler, kleine Unterschiede und geänderte Wortfolgen ohne Upload."
       },
       "sectionTag": "Warum CompareList",
       "sectionTitle": "Fur Geschwindigkeit & Datenschutz gebaut"
@@ -151,7 +158,7 @@
       "1": {
         "step": "02",
         "title": "Modus wahlen",
-        "desc": "Exakte Ubereinstimmung kostenlos, oder KI-Ubereinstimmung fur Fuzzy-Matching und DeepSeek-Einblicke."
+        "desc": "Nutzen Sie den exakten Vergleich für strenge Ergebnisse oder den intelligenten Abgleich für lokale Ähnlichkeitssuche."
       },
       "2": {
         "step": "03",
@@ -180,8 +187,8 @@
         "a": "Kein festes Limit. Verarbeitet reibungslos Zehntausende von Elementen, da die gesamte Verarbeitung lokal erfolgt."
       },
       "3": {
-        "q": "Was ist der KI-Vergleich?",
-        "a": "Der KI-Modus nutzt DeepSeek, um Fuzzy-Ubereinstimmungen wie 'John Smith' vs. 'Smith, John' zu finden, Tippfehler zu erkennen und eine intelligente Analysezusammenfassung zu erstellen. Verbraucht 1 Guthaben pro Vergleich."
+        "q": "Was ist der intelligente Abgleich?",
+        "a": "Er läuft lokal im Browser und findet ähnliche Einträge, kleine Tippfehler und geänderte Wortfolgen. Er ist kostenlos und lädt Ihre Listen nicht hoch."
       },
       "4": {
         "q": "Wie wird die Ubereinstimmungsrate berechnet?",
@@ -471,7 +478,7 @@
       },
       "2": {
         "q": "Werden Schluesselwort-Varianten berucksichtigt?",
-        "a": "Standardmassig ist der Vergleich exakt (gross-/kleinschreibungsunabhangig). Fur die Erkennung ahnlicher Schluesselworter wie 'Laufschuhe' vs. 'Schuhe zum Laufen' verwenden Sie den KI-Ubereinstimmungsmodus."
+        "a": "Standardmäßig ist der Vergleich exakt und unabhängig von Groß-/Kleinschreibung. Für ähnliche Begriffe mit anderer Wortfolge nutzen Sie den lokalen intelligenten Abgleich."
       },
       "3": {
         "q": "Wie finde ich Schluesselwortlucken?",
@@ -490,8 +497,8 @@
   "compareNameLists": {
     "hero": {
       "badge": "Namenslistenvergleich",
-      "title": "Zwei CSV-Spalten online vergleichen",
-      "subtitle": "Unterschiede zwischen zwei Datenspalten aus CSV- oder Excel-Dateien finden. Einfugen, vergleichen, exportieren."
+      "title": "Zwei Namenslisten online vergleichen",
+      "subtitle": "Passende Namen, Schreibvarianten und eindeutige Einträge finden; Akzente oder Namensreihenfolge können ignoriert werden."
     },
     "listInput": {
       "listA": "Spalte A",
@@ -792,7 +799,8 @@
     },
     "actions": {
       "removeDuplicates": "Duplikate entfernen",
-      "copyToClipboard": "In Zwischenablage kopieren"
+      "copyToClipboard": "In Zwischenablage kopieren",
+      "download": "TXT herunterladen"
     },
     "result": {
       "heading": "Dedupliziertes Ergebnis",
@@ -820,11 +828,11 @@
     "faq": {
       "0": {
         "q": "Wie entferne ich Duplikate aus einer Liste?",
-        "a": "Fugen Sie Ihre Liste in den Textbereich oben ein (ein Element pro Zeile) und klicken Sie auf Duplikate entfernen. Sie erhalten sofort eine bereinigte Liste ohne Duplikate."
+        "a": "Fügen Sie die Liste oben ein. Das bereinigte Ergebnis aktualisiert sich sofort und kann kopiert oder als TXT geladen werden."
       },
       "1": {
-        "q": "Werden Duplikate ubergreifend uber beide Listen entfernt?",
-        "a": "Wenn Sie zwei Listen einfugen, zeigt das Tool an, welche Elemente geteilt sind (Duplikate zwischen Listen) und welche in jeder eindeutig sind. Fur eine einzelne Liste werden interne Duplikate entfernt."
+        "q": "Welche Trennzeichen werden unterstützt?",
+        "a": "Verwenden Sie einen Eintrag pro Zeile. Komma, Semikolon und Tabulator in einer Zeile werden ebenfalls erkannt."
       },
       "2": {
         "q": "Wird Gross-/Kleinschreibung beachtet?",
@@ -861,7 +869,7 @@
       },
       "1": {
         "title": "100% privat",
-        "desc": "Ihre Daten verlassen niemals Ihr Geraet. Keine Server-Uploads, kein Tracking."
+        "desc": "Listeninhalte bleiben auf dem Gerät und werden nicht in optionale Seitenanalysen aufgenommen."
       },
       "2": {
         "title": "Jedes Format",
@@ -879,8 +887,8 @@
       "1": {
         "num": "2",
         "title": "Vergleichsmodus wahlen",
-        "desc": "Wahlen Sie \"Exakte Ubereinstimmung\" fur prazisen Element-fur-Element-Vergleich oder \"KI-Ubereinstimmung\", um Fuzzy-Matches wie Tippfehler, neu angeordnete Namen (\"John Smith\" vs. \"Smith, John\") und ahnliche Eintrage mit DeepSeek KI zu finden.",
-        "tip": "Exakte Ubereinstimmung ist immer kostenlos. KI-Ubereinstimmung verbraucht 1 Guthaben pro Vergleich und enthalt Fuzzy-Matching und intelligente Analyse."
+        "desc": "Wählen Sie den exakten Vergleich für strenge Ergebnisse oder den intelligenten Abgleich, um Tippfehler, umgestellte Namen und ähnliche Einträge lokal zu finden.",
+        "tip": "Beide Modi sind kostenlos und laufen im Browser. Der intelligente Abgleich zeigt Konfidenz und Grund für jedes Paar."
       },
       "2": {
         "num": "3",
@@ -922,7 +930,7 @@
       },
       "4": {
         "title": "Namensabgleich",
-        "desc": "Ubereinstimmende Namen listenuebergreifend mit KI-Fuzzy-Matching fur Schreibvariationen finden."
+        "desc": "Passende Namen mit lokalem Ähnlichkeitsabgleich trotz Schreibvarianten finden."
       },
       "5": {
         "title": "URL-Vergleich",
@@ -944,8 +952,8 @@
         "a": "Die Ubereinstimmungsrate verwendet die Dice-Koeffizient-Formel: 2 x (gemeinsame Elemente) / (Gesamt A + Gesamt B). Sie gibt einen Prozentsatz an, der zeigt, wie ahnlich die beiden Listen sind."
       },
       "3": {
-        "q": "Wie funktioniert KI-Fuzzy-Matching?",
-        "a": "KI-Matching verwendet eine Kombination aus Levenshtein-Editierdistanz und Jaccard-Token-Ahnlichkeit, um Elemente zu finden, die ahnlich, aber nicht identisch sind — wie Tippfehler, umgestellte Worter oder teilweise Ubereinstimmungen."
+        "q": "Wie funktioniert der intelligente Abgleich?",
+        "a": "Er kombiniert Levenshtein-Distanz und Jaccard-Ähnlichkeit für Tippfehler und umgestellte Wörter. Er läuft lokal und ordnet jedes Element höchstens einmal zu."
       },
       "4": {
         "q": "Werden meine Daten irgendwo gespeichert?",
@@ -1048,7 +1056,7 @@
     "hero": {
       "badge": "Tutorial",
       "title": "Unterschiede zwischen zwei Listen finden — Anleitung",
-      "subtitle": "Ein praktischer Leitfaden, um zu identifizieren, was unterschiedlich und was gleich ist zwischen zwei Listen, mit exakten und KI-basierten Methoden."
+      "subtitle": "Ein praktischer Leitfaden für Unterschiede und Gemeinsamkeiten mit exaktem und lokalem intelligentem Abgleich."
     },
     "methods": {
       "0": {
@@ -1058,12 +1066,13 @@
         "best": "E-Mails, IDs, Produktcodes, exakte Zeichenketten"
       },
       "1": {
-        "title": "KI-Fuzzy-Matching",
-        "badge": "1 Guthaben",
+        "title": "Lokaler intelligenter Abgleich",
+        "badge": "Kostenlos",
         "desc": "Verwendet Levenshtein-Distanz und tokenbasierte Ahnlichkeit, um Nahe-Ubereinstimmungen zu finden. Erkennt Tippfehler, umgestellte Worter und ahnliche Eintrage, die die exakte Suche verpasst.",
         "best": "Namen (\"John Smith\" vs. \"Smith, John\"), Adressen, Schluesselworter mit Tippfehlern"
       },
-      "heading": "Zwei Wege, um Unterschiede zu finden"
+      "heading": "Zwei Wege, um Unterschiede zu finden",
+      "bestFor": "Geeignet für:"
     },
     "terms": {
       "0": {
@@ -1119,7 +1128,7 @@
     },
     "jsonLd": {
       "name": "Unterschiede zwischen zwei Listen finden — Anleitung",
-      "description": "Ein praktischer Leitfaden, um zu identifizieren, was unterschiedlich und was gleich ist zwischen zwei Listen, mit exakten und KI-basierten Methoden."
+      "description": "Ein praktischer Leitfaden für Unterschiede und Gemeinsamkeiten mit exaktem und lokalem intelligentem Abgleich."
     }
   },
   "pricing": {
@@ -1205,7 +1214,9 @@
       "previewRow": "Vorschau (Zeile 1):",
       "fileTooLarge": "Datei zu gross. Bitte verwenden Sie Dateien unter 50MB.",
       "largeFileConfirm": "Diese Datei ist {size}MB. Grosse Dateien konnen langsam verarbeitet werden. Fortfahren?",
-      "items": "{count} Elemente"
+      "items": "{count} Elemente",
+      "sheet": "Blatt",
+      "unsupportedFileType": "Nicht unterstützter Dateityp. Verwenden Sie TXT, CSV, TSV oder XLSX."
     },
     "resultTabs": {
       "tabs": {
@@ -1256,7 +1267,8 @@
       "matchRate": "Ubereinstimmungsrate",
       "commonItems": "Gemeinsame Elemente",
       "onlyInListA": "Nur in Liste A",
-      "onlyInListB": "Nur in Liste B"
+      "onlyInListB": "Nur in Liste B",
+      "diagnostics": "Eingabediagnose: {duplicates} Duplikate, {invalid} ungültige Werte und {empty} leere Einträge. Optionen vor dem Export prüfen."
     },
     "optionsPanel": {
       "caseSensitive": {
@@ -1274,13 +1286,46 @@
       "ignoreEmpty": {
         "label": "Leerzeilen ignorieren",
         "desc": "Leere Zeilen und leere Elemente uberspringen"
+      },
+      "delimiter": {
+        "label": "Elementtrennzeichen",
+        "auto": "Automatisch erkennen",
+        "newline": "Neue Zeile",
+        "comma": "Komma",
+        "semicolon": "Semikolon",
+        "tab": "Tabulator",
+        "custom": "Benutzerdefiniert",
+        "customValue": "Eigener Wert"
+      },
+      "normalization": {
+        "label": "Datentyp",
+        "generic": "Allgemeiner Text",
+        "email": "E-Mail",
+        "phone": "Telefonnummer",
+        "url": "URL",
+        "name": "Personenname",
+        "ip": "IP-Adresse",
+        "keyword": "Schlüsselwort"
+      },
+      "advanced": {
+        "ignoreDiacritics": { "label": "Akzente ignorieren", "desc": "e und é gleich behandeln" },
+        "reorderNameTokens": { "label": "Namensreihenfolge ignorieren", "desc": "John Smith und Smith, John zuordnen" },
+        "defaultCountryCode": { "label": "Standard-Ländercode", "desc": "Diesen Code lokalen Nummern voranstellen" },
+        "ignoreUrlProtocol": { "label": "Protokoll ignorieren", "desc": "HTTP und HTTPS gleich behandeln" },
+        "ignoreUrlWww": { "label": "www ignorieren", "desc": "Domains mit und ohne www gleich behandeln" },
+        "ignoreUrlTrailingSlash": { "label": "End-Schrägstrich ignorieren", "desc": "/page und /page/ gleich behandeln" },
+        "ignoreUrlHash": { "label": "URL-Fragment ignorieren", "desc": "Teil nach # ignorieren" }
       }
+    },
+    "tableCompare": {
+      "title": "Zeilenvergleich", "description": "Wählen Sie eine oder mehrere Schlüsselspalten, um Zeilen als hinzugefügt, entfernt, geändert oder unverändert einzuordnen.", "keyA": "Schlüssel in Datei A", "keyB": "Schlüssel in Datei B", "unnamedColumn": "Spalte {index}", "compositeHint": "Mehrere Spalten bilden einen zusammengesetzten Schlüssel.", "compareRows": "Zeilen vergleichen", "added": "Hinzugefügt", "removed": "Entfernt", "changed": "Geändert", "unchanged": "Unverändert", "duplicateKeys": "Doppelte Schlüssel: {a} in A und {b} in B. Zuordnung in Quellreihenfolge.", "key": "Schlüssel", "field": "Geändertes Feld", "before": "Vorher", "after": "Nachher", "exportReport": "Zeilenbericht exportieren"
     },
     "fuzzyMatchTable": {
       "title": "Fuzzy-Ubereinstimmungen",
       "subtitle": "Ahnliche, aber nicht identische Elemente",
       "noMatches": "Keine Fuzzy-Ubereinstimmungen gefunden. Versuchen Sie, den Ahnlichkeitsschwellenwert zu senken.",
-      "moreHidden": "+ {count} weitere Ubereinstimmungen ausgeblendet"
+      "moreHidden": "+ {count} weitere Ubereinstimmungen ausgeblendet",
+      "reasons": { "exact": "Nach Normalisierung identisch", "tokenOrder": "Gleiche Wörter, andere Reihenfolge", "minorDifference": "Kleiner Textunterschied", "similarStructure": "Ähnliche Textstruktur" }
     },
     "aiInsights": {
       "title": "KI-Einblicke",
@@ -1352,7 +1397,8 @@
       "justNow": "Gerade eben",
       "minutesAgo": "vor {count} Min.",
       "hoursAgo": "vor {count} Std.",
-      "modeAi": "KI",
+      "modeAi": "Intelligent",
+      "privacyNote": "Auf diesem Gerät werden nur Anzahlen und Einstellungen gespeichert. Neue Verlaufseinträge enthalten keine Listeninhalte.",
       "modeExact": "Exakt",
       "labelA": "A: {count}",
       "labelB": "B: {count}",

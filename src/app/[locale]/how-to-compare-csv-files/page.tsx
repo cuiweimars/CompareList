@@ -2,46 +2,24 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRightLeft, ArrowRight, FileSpreadsheet, Check } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { buildMetadata } from "@/lib/seo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { safeJsonLd } from "@/lib/seo";
 
 const basePath = "/how-to-compare-csv-files";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   setRequestLocale(locale);
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com";
-
-  return {
-    title: "How to Compare Two CSV Files Online - Free CSV Comparison Guide | CompareList",
-    description:
-      "Learn how to compare two CSV files online for free. Find differences between CSV files, compare specific columns, and export comparison results. Step-by-step tutorial.",
-    keywords: [
-      "compare csv files",
-      "compare two csv files",
-      "csv comparison tool",
-      "find differences in csv",
-      "compare csv columns",
-      "csv diff tool",
-    ],
-    openGraph: {
-      title: "How to Compare Two CSV Files Online",
-      description: "Free guide to comparing CSV files. Find differences, compare columns, and export results instantly.",
-    },
-    twitter: {
-      card: "summary_large_image" as const,
-      title: "How to Compare Two CSV Files Online",
-      description: "Free guide to comparing CSV files. Find differences, compare columns, and export results instantly.",
-    },
-    alternates: {
-      canonical: `${baseUrl}/${locale === "en" ? "" : locale + "/"}${basePath.slice(1)}`,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${baseUrl}/${l}${basePath}`])
-      ),
-    },
-  };
+  const t = await getTranslations({ locale, namespace: "howToCompareCsvFiles" });
+  return buildMetadata({
+    locale,
+    path: basePath,
+    title: `${t("hero.title")} | CompareList`,
+    description: t("hero.subtitle"),
+  });
 }
 
 export default async function HowToCompareCSVFilesPage({
@@ -50,6 +28,7 @@ export default async function HowToCompareCSVFilesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("howToCompareCsvFiles");
 
   return (
@@ -62,7 +41,7 @@ export default async function HowToCompareCSVFilesPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "HowTo",
             name: t("jsonLd.name"),
@@ -85,7 +64,7 @@ export default async function HowToCompareCSVFilesPage({
               </div>
               <span className="font-bold text-lg font-[family-name:var(--font-sora)]">CompareList</span>
             </Link>
-            <span className="text-text-muted text-sm">/ {t('nav.tutorials')}</span>
+            <span className="text-text-muted text-sm">/ {t('hero.badge')}</span>
           </div>
           <LanguageSwitcher />
         </div>

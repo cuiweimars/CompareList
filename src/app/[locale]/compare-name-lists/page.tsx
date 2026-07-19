@@ -2,28 +2,35 @@
 
 import { useState } from "react";
 import { ArrowRightLeft, FileSpreadsheet, ChevronDown, ChevronUp } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ListInput from "@/components/ListInput";
 import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
-import { compareLists, CompareResult } from "@/lib/compare";
+import { compareLists, CompareResult, type CompareUiOptions } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { localizedUrl, safeJsonLd } from "@/lib/seo";
 
 export default function CompareNameListsPage() {
   const t = useTranslations("compareNameLists");
+  const locale = useLocale();
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
   const [showOptions, setShowOptions] = useState(false);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<CompareUiOptions>({
     caseSensitive: false,
     trimWhitespace: true,
     removeDuplicates: true,
     ignoreEmpty: true,
+    delimiter: "auto",
+    customDelimiter: "",
+    normalization: "name",
+    ignoreDiacritics: true,
+    reorderNameTokens: true,
   });
 
   function handleCompare() {
@@ -40,19 +47,19 @@ export default function CompareNameListsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: t('jsonLd.name'),
             description: t('jsonLd.description'),
-            url: "https://comparelist.com/compare-name-lists",
+            url: localizedUrl(locale, "/compare-name-lists"),
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           }),
         }}
       />
-      <header className="border-b border-border bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-border bg-surface/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -81,7 +88,7 @@ export default function CompareNameListsPage() {
       </section>
 
       <section className="max-w-5xl mx-auto px-4 pb-12">
-        <div className="bg-white rounded-2xl border border-border shadow-lg p-4 lg:p-6">
+        <div className="glass-elevated rounded-2xl border border-border shadow-lg p-4 lg:p-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
             <ListInput label={t('listInput.listA')} labelColor="#6366f1" value={listA} onChange={setListA} placeholder={t('listInput.placeholderA')} />
             <ListInput label={t('listInput.listB')} labelColor="#06b6d4" value={listB} onChange={setListB} placeholder={t('listInput.placeholderB')} />
@@ -112,7 +119,7 @@ export default function CompareNameListsPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-white border-t border-border">
+      <section className="py-12 bg-surface/30 border-t border-border">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-6">{t('steps.heading')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -138,7 +145,7 @@ export default function CompareNameListsPage() {
       </div>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
-        <Link href="/" className="hover:text-text transition-colors">CompareList</Link> &middot; {t('footer.tagline')}
+        <Link href="/" className="hover:text-text transition-colors">CompareList</Link>
       </footer>
     </div>
   );

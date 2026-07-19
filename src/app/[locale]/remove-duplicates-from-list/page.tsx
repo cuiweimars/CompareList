@@ -1,35 +1,39 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowRightLeft, ListChecks, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ListInput from "@/components/ListInput";
-import StatsCards from "@/components/StatsCards";
-import ResultTabs from "@/components/ResultTabs";
-import { compareLists, CompareResult } from "@/lib/compare";
+import { parseList } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { localizedUrl, safeJsonLd } from "@/lib/seo";
+import { copyToClipboard } from "@/lib/export";
 
 export default function RemoveDuplicatesFromListPage() {
-  const t = useTranslations("removeDuplicates");
+  const t = useTranslations("removeDuplicatesFromList");
+  const locale = useLocale();
   const [listA, setListA] = useState("");
-  const [listB, setListB] = useState("");
-  const [result, setResult] = useState<CompareResult | null>(null);
   const [showFaq, setShowFaq] = useState<number | null>(null);
 
-  function handleCompare() {
-    if (!listA.trim()) return;
-    setResult(compareLists(listA, listB || "", {
-      caseSensitive: false, trimWhitespace: true, removeDuplicates: true, ignoreEmpty: true,
-    }));
-  }
-
-  const deduped = listA.trim() ? [...new Set(listA.split(/[\n,;\t]+/).map(s => s.trim()).filter(s => s))].join("\n") : "";
-  const totalRaw = listA.trim() ? listA.split(/[\n,;\t]+/).map(s => s.trim()).filter(s => s).length : 0;
-  const totalDedup = deduped ? deduped.split("\n").length : 0;
+  const rawItems = parseList(listA, { removeDuplicates: false });
+  const dedupedItems = parseList(listA, { removeDuplicates: true });
+  const deduped = dedupedItems.join("\n");
+  const totalRaw = rawItems.length;
+  const totalDedup = dedupedItems.length;
   const dupCount = totalRaw - totalDedup;
+
+  function downloadDeduped() {
+    const blob = new Blob([deduped], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "comparelist-deduplicated.txt";
+    anchor.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
 
   return (
     <div className="min-h-screen">
@@ -37,12 +41,12 @@ export default function RemoveDuplicatesFromListPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: t("jsonLd.name"),
             description: t("jsonLd.description"),
-            url: "https://comparelist.com/remove-duplicates-from-list",
+            url: localizedUrl(locale, "/remove-duplicates-from-list"),
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -52,7 +56,7 @@ export default function RemoveDuplicatesFromListPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [0, 1, 2, 3, 4].map((i) => ({
@@ -94,40 +98,25 @@ export default function RemoveDuplicatesFromListPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
             <ListInput label={t('listInput.listA')} labelColor="#818cf8" value={listA} onChange={setListA} placeholder={t('listInput.placeholderA')} />
             <div className="space-y-4">
-              <ListInput label={t('listInput.listB')} labelColor="#22d3ee" value={listB} onChange={setListB} placeholder={t('listInput.placeholderB')} />
               {listA.trim() && (
-                <div className="glass rounded-xl p-4">
+                <div className="glass rounded-xl p-4 min-h-[460px] flex flex-col">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-sm font-semibold text-text-secondary">{t('dedupResult.heading')}</h3>
-                    <span className="text-xs text-text-muted">{totalDedup} items ({dupCount} {t('dedupResult.duplicatesRemoved')})</span>
+                    <h3 className="text-sm font-semibold text-text-secondary">{t('result.heading')}</h3>
+                    <span className="text-xs text-text-muted">{t('result.stats', { count: totalDedup, dupCount })}</span>
                   </div>
-                  <div className="bg-surface-alt/30 rounded-lg p-3 max-h-40 overflow-y-auto">
+                  <div className="bg-surface-alt/30 rounded-lg p-3 flex-1 min-h-64 max-h-[360px] overflow-y-auto">
                     <pre className="text-sm text-text-secondary whitespace-pre-wrap font-mono">{deduped}</pre>
                   </div>
                   {deduped && (
-                    <button
-                      onClick={() => navigator.clipboard.writeText(deduped)}
-                      className="mt-2 text-xs text-primary hover:text-primary/80 transition-colors"
-                    >
-                      {t('dedupResult.copy')}
-                    </button>
+                    <div className="flex items-center gap-4 mt-3">
+                      <button onClick={() => copyToClipboard(deduped)} className="text-xs text-primary hover:text-primary/80 transition-colors">{t('actions.copyToClipboard')}</button>
+                      <button onClick={downloadDeduped} className="text-xs text-primary hover:text-primary/80 transition-colors">{t('actions.download')}</button>
+                    </div>
                   )}
                 </div>
               )}
             </div>
           </div>
-          <div className="flex items-center justify-end">
-            <button onClick={handleCompare} disabled={!listA.trim()}
-              className="btn-primary px-8 py-2.5 text-sm font-semibold text-white rounded-xl">
-              {t('actions.compare')}
-            </button>
-          </div>
-          {result && (
-            <div className="space-y-4 mt-6">
-              <StatsCards stats={result.stats} />
-              <ResultTabs onlyInA={result.onlyInA} onlyInB={result.onlyInB} inBoth={result.inBoth} />
-            </div>
-          )}
         </div>
 
         <div className="mt-16 space-y-8">

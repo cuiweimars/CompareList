@@ -4,17 +4,16 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 const tools = [
-  { href: "/compare-email-lists", label: "Compare Email Lists" },
-  { href: "/compare-excel-columns", label: "Compare Excel Columns" },
-  { href: "/compare-csv-files", label: "Compare CSV Files" },
-  { href: "/compare-two-columns-excel", label: "Compare Two Columns in Excel" },
-  { href: "/compare-ip-addresses", label: "Compare IP Addresses" },
-  { href: "/compare-keywords", label: "Compare Keywords" },
-  { href: "/compare-name-lists", label: "Compare Name Lists" },
-  { href: "/compare-phone-numbers", label: "Compare Phone Numbers" },
-  { href: "/compare-urls", label: "Compare URLs" },
-  { href: "/list-diff", label: "List Diff" },
-  { href: "/remove-duplicates-from-list", label: "Remove Duplicates" },
+  { href: "/compare-email-lists", message: "tools.0.label" },
+  { href: "/compare-excel-columns", message: "tools.1.label" },
+  { href: "/compare-csv-files", message: "tools.2.label" },
+  { href: "/compare-ip-addresses", message: "tools.4.label" },
+  { href: "/compare-keywords", message: "tools.5.label" },
+  { href: "/compare-name-lists", message: "tools.6.label" },
+  { href: "/compare-phone-numbers", message: "tools.7.label" },
+  { href: "/compare-urls", message: "tools.8.label" },
+  { href: "/list-diff", message: "tools.9.label" },
+  { href: "/remove-duplicates-from-list", message: "tools.10.label" },
 ];
 
 const guides = [
@@ -36,7 +35,7 @@ export default function RelatedTools({ current }: { current: string }) {
             href={tool.href}
             className="text-sm px-3 py-2 rounded-lg border border-border hover:border-primary/40 hover:bg-surface-alt/30 transition-all text-text-secondary hover:text-text"
           >
-            {t(`tools.${tools.indexOf(tool)}.label`)}
+            {t(tool.message)}
           </Link>
         ))}
       </div>

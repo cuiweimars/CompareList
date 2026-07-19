@@ -10,6 +10,12 @@ interface StatsCardsProps {
     uniqueB: number;
     common: number;
     matchRate: number;
+    duplicatesA?: number;
+    duplicatesB?: number;
+    invalidA?: number;
+    invalidB?: number;
+    emptyA?: number;
+    emptyB?: number;
   };
   onCardClick?: (cardIndex: number) => void;
 }
@@ -46,10 +52,14 @@ export default function StatsCards({ stats, onCardClick }: StatsCardsProps) {
       icon: "B",
     },
   ];
+  const duplicates = (stats.duplicatesA ?? 0) + (stats.duplicatesB ?? 0);
+  const invalid = (stats.invalidA ?? 0) + (stats.invalidB ?? 0);
+  const empty = (stats.emptyA ?? 0) + (stats.emptyB ?? 0);
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 stagger">
-      {cards.map((card, i) => (
+    <div className="space-y-2">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 stagger">
+        {cards.map((card, i) => (
         <div
           key={card.label}
           className={`glass rounded-xl p-5 animate-fade-up group hover:border-border-active transition-all duration-300 ${onCardClick ? "cursor-pointer active:scale-[0.98]" : ""}`}
@@ -74,7 +84,13 @@ export default function StatsCards({ stats, onCardClick }: StatsCardsProps) {
             {typeof card.value === "number" ? card.value.toLocaleString() : card.value}
           </div>
         </div>
-      ))}
+        ))}
+      </div>
+      {duplicates + invalid + empty > 0 && (
+        <div className="text-xs text-amber-500 bg-amber-500/8 border border-amber-500/15 rounded-lg px-3 py-2">
+          {t("diagnostics", { duplicates, invalid, empty })}
+        </div>
+      )}
     </div>
   );
 }

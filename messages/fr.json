@@ -20,18 +20,24 @@
     "features": "Fonctionnalites",
     "faq": "FAQ",
     "history": "Historique",
-    "pricing": "Tarifs"
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "privacy": "Confidentialité"
   },
   "home": {
+    "seo": {
+      "title": "Comparer deux listes en ligne gratuitement - Différences et correspondances | CompareList",
+      "description": "Comparez deux listes en ligne et trouvez les éléments communs, uniques, ajoutés ou supprimés. Correspondance intelligente locale et import CSV/Excel."
+    },
     "hero": {
       "badge": "Gratuit · Prive · Sans inscription",
       "title": "Comparez deux listes <gradient>instantanement</gradient>",
-      "subtitle": "Trouvez les differences, les elements communs et les entrees uniques entre deux listes. Propulse par l'IA."
+      "subtitle": "Trouvez les differences, les elements communs et les entrees uniques entre deux listes. Rapide, prive et traite localement."
     },
     "tool": {
       "modeExact": "Correspondance exacte",
-      "modeAi": "Correspondance IA",
-      "modeAiFree": "Gratuit",
+      "modeAi": "Correspondance intelligente",
+      "modeAiFree": "Locale",
       "listALabel": "Liste A",
       "listBLabel": "Liste B",
       "listAPlaceholder": "Collez votre premiere liste ici, un element par ligne...",
@@ -41,22 +47,23 @@
       "options": "Options",
       "tryDemo": "Essayer la demo",
       "compareLists": "Comparer les listes",
-      "compareWithAi": "Comparer avec l'IA",
+      "compareWithAi": "Comparaison intelligente",
       "analyzing": "Analyse en cours...",
       "results": "Resultats",
-      "clearResults": "Effacer les resultats"
+      "clearResults": "Effacer les resultats",
+      "similarityThreshold": "Similarité minimale"
     },
     "dragOverlay": {
       "title": "Deposez les fichiers a comparer",
       "subtitle": "Deposez 2 fichiers (Liste A + Liste B) ou 1 fichier (remplit la premiere liste vide)"
     },
     "aiAnalysis": {
-      "title": "Analyse IA",
+      "title": "Resultats intelligents",
       "unavailableWarning": "L'analyse approfondie par IA est temporairement indisponible. Affichage des resultats de correspondance floue locale gratuitement.",
-      "foundFuzzy": "L'IA a trouve <strong>{count} correspondance{plural} floue{plural}</strong> que la correspondance exacte n'a pas detectee{plural}.",
+      "foundFuzzy": "La correspondance intelligente a trouve <strong>{count} correspondance{plural} similaire{plural}</strong> que l'exacte n'a pas detectee{plural}.",
       "combinedRate": "Taux combine : <strong>{aiRate}%</strong> (vs {exactRate}% exact).",
       "fuzzyMatches": "{count} correspondance{plural} floue{plural}",
-      "aiError": "L'analyse IA a echoue. Affichage des resultats de comparaison exacte ci-dessous."
+      "aiError": "La correspondance intelligente a echoue. Les resultats exacts sont affiches ci-dessous."
     },
     "features": {
       "0": {
@@ -65,15 +72,15 @@
       },
       "1": {
         "title": "100% prive",
-        "desc": "Vos donnees ne quittent jamais votre appareil. Pas de suivi, pas de collecte, pas de telechargement sur un serveur."
+        "desc": "Le contenu de vos listes reste sur l'appareil. Les valeurs ne sont ni collectées ni téléversées."
       },
       "2": {
         "title": "Tout format",
         "desc": "Collez du texte, telechargez des fichiers, glissez-deposez. Detection automatique des delimiteurs."
       },
       "3": {
-        "title": "Propulse par l'IA",
-        "desc": "DeepSeek IA trouve automatiquement les correspondances floues, les fautes de frappe et les elements reordonnes."
+        "title": "Correspondance intelligente",
+        "desc": "La similarite locale detecte fautes, petites differences et mots reordonnes sans telecharger vos listes."
       },
       "sectionTag": "Pourquoi CompareList",
       "sectionTitle": "Concu pour la vitesse et la confidentialite"
@@ -151,7 +158,7 @@
       "1": {
         "step": "02",
         "title": "Choisissez le mode",
-        "desc": "Correspondance Exacte gratuitement, ou Correspondance IA pour la correspondance floue et les insights DeepSeek."
+        "desc": "Utilisez la correspondance exacte pour un contrôle strict ou l'intelligente pour détecter les similarités localement."
       },
       "2": {
         "step": "03",
@@ -180,8 +187,8 @@
         "a": "Pas de limite stricte. Gere des dizaines de milliers d'elements facilement puisque tout le traitement est local."
       },
       "3": {
-        "q": "Qu'est-ce que la comparaison IA ?",
-        "a": "Le mode IA utilise DeepSeek pour trouver des correspondances floues comme 'John Smith' vs 'Smith, John', detecter les fautes de frappe et generer un resume d'analyse intelligent. Utilise 1 credit par comparaison."
+        "q": "Qu'est-ce que la correspondance intelligente ?",
+        "a": "Elle fonctionne localement dans votre navigateur pour trouver des entrees similaires, de petites fautes et des mots reordonnes. Elle est gratuite et vos listes ne sont pas envoyees."
       },
       "4": {
         "q": "Comment le taux de correspondance est-il calcule ?",
@@ -471,7 +478,7 @@
       },
       "2": {
         "q": "Gere-t-il les variations de mots-cles ?",
-        "a": "Par defaut, la comparaison est exacte (insensible a la casse). Pour detecter des mots-cles similaires comme 'chaussures running' vs 'running chaussures', utilisez le mode Correspondance IA."
+        "a": "Par defaut, la comparaison exacte ignore la casse. Pour des mots-cles similaires dans un ordre different, utilisez la correspondance intelligente locale."
       },
       "3": {
         "q": "Comment puis-je trouver les ecarts de mots-cles ?",
@@ -490,8 +497,8 @@
   "compareNameLists": {
     "hero": {
       "badge": "Comparaison de listes de noms",
-      "title": "Comparez deux colonnes CSV en ligne",
-      "subtitle": "Trouvez les differences entre deux colonnes de donnees de fichiers CSV ou Excel. Collez, comparez, exportez."
+      "title": "Comparez deux listes de noms en ligne",
+      "subtitle": "Trouvez les noms correspondants, les variantes et les entrées uniques, en ignorant si besoin accents ou ordre."
     },
     "listInput": {
       "listA": "Colonne A",
@@ -792,7 +799,8 @@
     },
     "actions": {
       "removeDuplicates": "Supprimer les doublons",
-      "copyToClipboard": "Copier dans le presse-papiers"
+      "copyToClipboard": "Copier dans le presse-papiers",
+      "download": "Télécharger TXT"
     },
     "result": {
       "heading": "Resultat dedoublonne",
@@ -820,11 +828,11 @@
     "faq": {
       "0": {
         "q": "Comment supprimer les doublons d'une liste ?",
-        "a": "Collez votre liste dans la zone de texte ci-dessus (un element par ligne) et cliquez sur Supprimer les doublons. Vous obtiendrez instantanement une liste nettoyee sans aucun doublon."
+        "a": "Collez la liste ci-dessus. Le résultat nettoyé se met à jour immédiatement et peut être copié ou téléchargé en TXT."
       },
       "1": {
-        "q": "Supprime-t-il les doublons entre les deux listes ?",
-        "a": "Si vous collez deux listes, l'outil vous montre quels elements sont partages (doublons entre les listes) et lesquels sont uniques a chaque liste. Pour une seule liste, il supprime les doublons internes."
+        "q": "Quels séparateurs sont acceptés ?",
+        "a": "Utilisez un élément par ligne. Les virgules, points-virgules et tabulations sur une seule ligne sont aussi détectés."
       },
       "2": {
         "q": "Est-ce sensible a la casse ?",
@@ -861,7 +869,7 @@
       },
       "1": {
         "title": "100% prive",
-        "desc": "Vos donnees ne quittent jamais votre appareil. Pas de telechargement sur serveur, pas de suivi."
+        "desc": "Vos listes restent sur l'appareil et ne sont pas incluses dans les statistiques de page facultatives."
       },
       "2": {
         "title": "Tout format",
@@ -879,8 +887,8 @@
       "1": {
         "num": "2",
         "title": "Choisissez votre mode de comparaison",
-        "desc": "Selectionnez \"Correspondance Exacte\" pour une comparaison precise element par element, ou \"Correspondance IA\" pour trouver des correspondances floues comme les fautes de frappe, les noms reordonnes (\"John Smith\" vs \"Smith, John\"), et les entrees similaires avec DeepSeek IA.",
-        "tip": "La Correspondance Exacte est toujours gratuite. La Correspondance IA utilise 1 credit par comparaison et inclut la correspondance floue et l'analyse intelligente."
+        "desc": "Selectionnez \"Correspondance exacte\" pour un controle strict ou \"Correspondance intelligente\" pour trouver localement les fautes, noms reordonnes et entrees similaires.",
+        "tip": "Les deux modes sont gratuits et fonctionnent dans le navigateur. Le mode intelligent affiche un score et une raison pour chaque paire."
       },
       "2": {
         "num": "3",
@@ -922,7 +930,7 @@
       },
       "4": {
         "title": "Correspondance de noms",
-        "desc": "Trouvez les noms correspondants entre les listes avec la correspondance floue IA pour les variantes orthographiques."
+        "desc": "Trouvez les noms correspondants avec une similarite locale tenant compte des variantes orthographiques."
       },
       "5": {
         "title": "Comparaison d'URL",
@@ -944,8 +952,8 @@
         "a": "Le taux de correspondance utilise la formule du coefficient de Dice : 2 x (elements communs) / (total A + total B). Il donne un pourcentage montrant la similitude entre les deux listes."
       },
       "3": {
-        "q": "Comment fonctionne la correspondance floue IA ?",
-        "a": "La correspondance IA utilise une combinaison de distance d'edition de Levenshtein et de similarite de tokens Jaccard pour trouver des elements similaires mais non identiques — comme les fautes de frappe, les mots reordonnes ou les correspondances partielles."
+        "q": "Comment fonctionne la correspondance intelligente ?",
+        "a": "Elle combine la distance de Levenshtein et la similarite Jaccard pour detecter fautes et mots reordonnes. Elle fonctionne localement et associe chaque element une seule fois au maximum."
       },
       "4": {
         "q": "Mes donnees sont-elles stockees quelque part ?",
@@ -1048,7 +1056,7 @@
     "hero": {
       "badge": "Tutoriel",
       "title": "Comment trouver les differences entre deux listes",
-      "subtitle": "Un guide pratique pour identifier ce qui est different et ce qui est identique entre deux listes, en utilisant des methodes exactes et IA."
+      "subtitle": "Un guide pratique pour identifier les differences et les points communs avec des methodes exactes et intelligentes locales."
     },
     "methods": {
       "0": {
@@ -1058,12 +1066,13 @@
         "best": "Emails, ID, codes produits, chaines exactes"
       },
       "1": {
-        "title": "Correspondance floue IA",
-        "badge": "1 credit",
+        "title": "Correspondance intelligente locale",
+        "badge": "Gratuit",
         "desc": "Utilise la distance de Levenshtein et la similarite basee sur les tokens pour trouver des correspondances proches. Detecte les fautes de frappe, les mots reordonnes et les entrees similaires que la correspondance exacte manque.",
         "best": "Noms (\"John Smith\" vs \"Smith, John\"), adresses, mots-cles avec fautes"
       },
-      "heading": "Deux methodes pour trouver les differences"
+      "heading": "Deux methodes pour trouver les differences",
+      "bestFor": "Idéal pour :"
     },
     "terms": {
       "0": {
@@ -1119,7 +1128,7 @@
     },
     "jsonLd": {
       "name": "Comment trouver les differences entre deux listes",
-      "description": "Un guide pratique pour identifier ce qui est different et ce qui est identique entre deux listes, en utilisant des methodes exactes et IA."
+      "description": "Un guide pratique pour identifier les differences et les points communs avec des methodes exactes et intelligentes locales."
     }
   },
   "pricing": {
@@ -1205,7 +1214,9 @@
       "previewRow": "Apercu (ligne 1) :",
       "fileTooLarge": "Fichier trop volumineux. Veuillez utiliser des fichiers de moins de 50Mo.",
       "largeFileConfirm": "Ce fichier fait {size}Mo. Les fichiers volumineux peuvent etre lents a traiter. Continuer ?",
-      "items": "{count} elements"
+      "items": "{count} elements",
+      "sheet": "Feuille",
+      "unsupportedFileType": "Type non pris en charge. Utilisez TXT, CSV, TSV ou XLSX."
     },
     "resultTabs": {
       "tabs": {
@@ -1256,7 +1267,8 @@
       "matchRate": "Taux de correspondance",
       "commonItems": "Elements communs",
       "onlyInListA": "Seulement dans la Liste A",
-      "onlyInListB": "Seulement dans la Liste B"
+      "onlyInListB": "Seulement dans la Liste B",
+      "diagnostics": "Diagnostic : {duplicates} doublons, {invalid} valeurs invalides et {empty} éléments vides. Vérifiez les options avant l'export."
     },
     "optionsPanel": {
       "caseSensitive": {
@@ -1274,13 +1286,46 @@
       "ignoreEmpty": {
         "label": "Ignorer les lignes vides",
         "desc": "Ignorer les lignes vides et elements vides"
+      },
+      "delimiter": {
+        "label": "Séparateur d'éléments",
+        "auto": "Détection automatique",
+        "newline": "Nouvelle ligne",
+        "comma": "Virgule",
+        "semicolon": "Point-virgule",
+        "tab": "Tabulation",
+        "custom": "Personnalisé",
+        "customValue": "Valeur personnalisée"
+      },
+      "normalization": {
+        "label": "Type de données",
+        "generic": "Texte générique",
+        "email": "E-mail",
+        "phone": "Numéro de téléphone",
+        "url": "URL",
+        "name": "Nom de personne",
+        "ip": "Adresse IP",
+        "keyword": "Mot-clé"
+      },
+      "advanced": {
+        "ignoreDiacritics": { "label": "Ignorer les accents", "desc": "Traiter e et é comme identiques" },
+        "reorderNameTokens": { "label": "Ignorer l'ordre du nom", "desc": "Associer John Smith et Smith, John" },
+        "defaultCountryCode": { "label": "Indicatif par défaut", "desc": "Ajouter cet indicatif aux numéros locaux" },
+        "ignoreUrlProtocol": { "label": "Ignorer le protocole", "desc": "Traiter HTTP et HTTPS comme identiques" },
+        "ignoreUrlWww": { "label": "Ignorer www", "desc": "Traiter les domaines avec ou sans www comme identiques" },
+        "ignoreUrlTrailingSlash": { "label": "Ignorer la barre finale", "desc": "Traiter /page et /page/ comme identiques" },
+        "ignoreUrlHash": { "label": "Ignorer le fragment URL", "desc": "Ignorer la partie après #" }
       }
+    },
+    "tableCompare": {
+      "title": "Comparaison par lignes", "description": "Choisissez une ou plusieurs colonnes clés pour classer les lignes ajoutées, supprimées, modifiées ou inchangées.", "keyA": "Clés du fichier A", "keyB": "Clés du fichier B", "unnamedColumn": "Colonne {index}", "compositeHint": "Sélectionnez plusieurs colonnes pour une clé composite.", "compareRows": "Comparer les lignes", "added": "Ajoutées", "removed": "Supprimées", "changed": "Modifiées", "unchanged": "Inchangées", "duplicateKeys": "Clés en double : {a} dans A et {b} dans B. Association dans l'ordre source.", "key": "Clé", "field": "Champ modifié", "before": "Avant", "after": "Après", "exportReport": "Exporter le rapport"
     },
     "fuzzyMatchTable": {
       "title": "Correspondances floues",
       "subtitle": "Elements similaires mais non identiques",
       "noMatches": "Aucune correspondance floue trouvee. Essayez de baisser le seuil de similarite.",
-      "moreHidden": "+ {count} correspondances supplementaires cachees"
+      "moreHidden": "+ {count} correspondances supplementaires cachees",
+      "reasons": { "exact": "Exacte après normalisation", "tokenOrder": "Mêmes mots, ordre différent", "minorDifference": "Petite différence de texte", "similarStructure": "Structure de texte similaire" }
     },
     "aiInsights": {
       "title": "Insights IA",
@@ -1352,7 +1397,8 @@
       "justNow": "A l'instant",
       "minutesAgo": "il y a {count}m",
       "hoursAgo": "il y a {count}h",
-      "modeAi": "IA",
+      "modeAi": "Intelligent",
+      "privacyNote": "Seuls les nombres et réglages sont conservés sur cet appareil. Le nouveau historique ne stocke jamais le contenu des listes.",
       "modeExact": "Exact",
       "labelA": "A : {count}",
       "labelB": "B : {count}",

@@ -2,46 +2,24 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRightLeft, ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { buildMetadata } from "@/lib/seo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { safeJsonLd } from "@/lib/seo";
 
 const basePath = "/how-to-find-differences";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   setRequestLocale(locale);
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://comparelist.com";
-
-  return {
-    title: "How to Find Differences Between Two Lists - Free Guide | CompareList",
-    description:
-      "Learn how to find differences between two lists. Discover items only in list A, only in list B, and common items. Includes exact and AI-powered fuzzy matching methods.",
-    keywords: [
-      "find differences between lists",
-      "list difference finder",
-      "items only in one list",
-      "compare lists find differences",
-      "list diff tool",
-      "symmetric difference lists",
-    ],
-    openGraph: {
-      title: "How to Find Differences Between Two Lists",
-      description: "Free guide to finding differences between lists using exact matching and AI fuzzy matching.",
-    },
-    twitter: {
-      card: "summary_large_image" as const,
-      title: "How to Find Differences Between Two Lists",
-      description: "Free guide to finding differences between lists using exact matching and AI fuzzy matching.",
-    },
-    alternates: {
-      canonical: `${baseUrl}/${locale === "en" ? "" : locale + "/"}${basePath.slice(1)}`,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${baseUrl}/${l}${basePath}`])
-      ),
-    },
-  };
+  const t = await getTranslations({ locale, namespace: "howToFindDifferences" });
+  return buildMetadata({
+    locale,
+    path: basePath,
+    title: `${t("hero.title")} | CompareList`,
+    description: t("hero.subtitle"),
+  });
 }
 
 export default async function HowToFindDifferencesPage({
@@ -50,6 +28,7 @@ export default async function HowToFindDifferencesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("howToFindDifferences");
 
   return (
@@ -62,13 +41,13 @@ export default async function HowToFindDifferencesPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "Article",
-            headline: t("jsonLd.headline"),
+            headline: t("jsonLd.name"),
             description: t("jsonLd.description"),
             author: { "@type": "Organization", name: "CompareList" },
-            publisher: { "@type": "Organization", name: "CompareList", logo: { "@type": "ImageObject", url: "https://comparelist.com/favicon-32.png" } },
+            publisher: { "@type": "Organization", name: "CompareList", logo: { "@type": "ImageObject", url: "https://comparelist.org/favicon-32.png" } },
           }),
         }}
       />
@@ -81,7 +60,7 @@ export default async function HowToFindDifferencesPage({
               </div>
               <span className="font-bold text-lg font-[family-name:var(--font-sora)]">CompareList</span>
             </Link>
-            <span className="text-text-muted text-sm">/ {t('nav.tutorials')}</span>
+            <span className="text-text-muted text-sm">/ {t('hero.badge')}</span>
           </div>
           <LanguageSwitcher />
         </div>
@@ -126,7 +105,7 @@ export default async function HowToFindDifferencesPage({
             {[0, 1, 2, 3, 4].map((i) => (
               <div key={i} className="glass rounded-xl p-5 flex items-start gap-4">
                 <div className="w-28 shrink-0">
-                  <span className="text-sm font-semibold text-primary">{t(`terms.${i}.name`)}</span>
+                  <span className="text-sm font-semibold text-primary">{t(`terms.${i}.term`)}</span>
                 </div>
                 <p className="text-sm text-text-secondary">{t(`terms.${i}.desc`)}</p>
               </div>
@@ -139,7 +118,7 @@ export default async function HowToFindDifferencesPage({
           <h2 className="font-semibold text-lg mb-4 font-[family-name:var(--font-sora)]">{t('example.heading')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <h3 className="text-sm font-medium mb-2 text-[#818cf8]">{t('example.listALabel')}</h3>
+              <h3 className="text-sm font-medium mb-2 text-[#818cf8]">{t('example.listA.title')}</h3>
               <div className="bg-surface-alt/30 rounded-lg p-4 font-mono text-sm text-text-secondary space-y-1">
                 <p>alice@gmail.com</p>
                 <p>bob@yahoo.com</p>
@@ -148,7 +127,7 @@ export default async function HowToFindDifferencesPage({
               </div>
             </div>
             <div>
-              <h3 className="text-sm font-medium mb-2 text-[#22d3ee]">{t('example.listBLabel')}</h3>
+              <h3 className="text-sm font-medium mb-2 text-[#22d3ee]">{t('example.listB.title')}</h3>
               <div className="bg-surface-alt/30 rounded-lg p-4 font-mono text-sm text-text-secondary space-y-1">
                 <p>bob@yahoo.com</p>
                 <p>charlie@hotmail.com</p>
@@ -159,19 +138,19 @@ export default async function HowToFindDifferencesPage({
           </div>
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-amber-500/5 border border-amber-500/20 rounded-lg p-3">
-              <h4 className="text-xs font-medium text-amber-500 mb-1">{t('example.onlyInA.title')}</h4>
+              <h4 className="text-xs font-medium text-amber-500 mb-1">{t('example.onlyA.title')}</h4>
               <p className="text-sm font-mono text-text-secondary">alice@gmail.com, david@company.com</p>
-              <p className="text-xs text-text-muted mt-1">{t('example.onlyInA.note')}</p>
+              <p className="text-xs text-text-muted mt-1">{t('example.onlyA.desc')}</p>
             </div>
             <div className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg p-3">
-              <h4 className="text-xs font-medium text-cyan-500 mb-1">{t('example.onlyInB.title')}</h4>
+              <h4 className="text-xs font-medium text-cyan-500 mb-1">{t('example.onlyB.title')}</h4>
               <p className="text-sm font-mono text-text-secondary">emma@outlook.com, frank@gmail.com</p>
-              <p className="text-xs text-text-muted mt-1">{t('example.onlyInB.note')}</p>
+              <p className="text-xs text-text-muted mt-1">{t('example.onlyB.desc')}</p>
             </div>
             <div className="bg-green-500/5 border border-green-500/20 rounded-lg p-3">
-              <h4 className="text-xs font-medium text-green-500 mb-1">{t('example.inBoth.title')}</h4>
+              <h4 className="text-xs font-medium text-green-500 mb-1">{t('example.both.title')}</h4>
               <p className="text-sm font-mono text-text-secondary">bob@yahoo.com, charlie@hotmail.com</p>
-              <p className="text-xs text-text-muted mt-1">{t('example.inBoth.note')}</p>
+              <p className="text-xs text-text-muted mt-1">{t('example.both.desc')}</p>
             </div>
           </div>
         </div>

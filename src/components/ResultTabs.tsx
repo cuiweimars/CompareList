@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { Copy, Download, Check, Search, ArrowUpDown, FileSpreadsheet, CheckSquare, Square, Trash2, Pencil, MoreHorizontal } from "lucide-react";
-import { copyToClipboard, downloadAsCSV, downloadAsText } from "@/lib/export";
+import { Copy, Download, Check, Search, ArrowUpDown, FileSpreadsheet, CheckSquare, Square, MoreHorizontal } from "lucide-react";
+import { copyToClipboard, downloadAsCSV, downloadAsText, downloadCsvContent } from "@/lib/export";
 
 interface ResultTabsProps {
   onlyInA: string[];
@@ -20,20 +20,10 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
   const [copied, setCopied] = useState(false);
   const [search, setSearch] = useState("");
   const [sortMode, setSortMode] = useState<SortMode>("original");
-  const [selected, setSelected] = useState<Set<number>>(new Set());
-  const [editingIdx, setEditingIdx] = useState<number | null>(null);
-  const [editValue, setEditValue] = useState("");
+  const [selected, setSelected] = useState<Set<string>>(new Set());
   const [showExportMenu, setShowExportMenu] = useState(false);
   const [visibleCount, setVisibleCount] = useState(200);
-  const [items, setItems] = useState<{ onlyInA: string[]; onlyInB: string[]; inBoth: string[] }>({ onlyInA, onlyInB, inBoth });
   const exportMenuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setItems({ onlyInA, onlyInB, inBoth });
-    setSelected(new Set());
-    setEditingIdx(null);
-    setVisibleCount(200);
-  }, [onlyInA, onlyInB, inBoth]);
 
   // Close export menu on outside click
   useEffect(() => {
@@ -47,36 +37,36 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
   }, [showExportMenu]);
 
   const tabs: { key: TabKey; label: string; short: string; count: number; color: string }[] = [
-    { key: "onlyA", label: t("tabs.onlyA.label"), short: t("tabs.onlyA.short"), count: items.onlyInA.length, color: "#fbbf24" },
-    { key: "onlyB", label: t("tabs.onlyB.label"), short: t("tabs.onlyB.short"), count: items.onlyInB.length, color: "#22d3ee" },
-    { key: "both", label: t("tabs.both.label"), short: t("tabs.both.short"), count: items.inBoth.length, color: "#34d399" },
+    { key: "onlyA", label: t("tabs.onlyA.label"), short: t("tabs.onlyA.short"), count: onlyInA.length, color: "#fbbf24" },
+    { key: "onlyB", label: t("tabs.onlyB.label"), short: t("tabs.onlyB.short"), count: onlyInB.length, color: "#22d3ee" },
+    { key: "both", label: t("tabs.both.label"), short: t("tabs.both.short"), count: inBoth.length, color: "#34d399" },
     {
       key: "union", label: t("tabs.union.label"), short: t("tabs.union.short"),
-      count: new Set([...items.onlyInA, ...items.inBoth, ...items.onlyInB]).size,
+      count: new Set([...onlyInA, ...inBoth, ...onlyInB]).size,
       color: "#a78bfa",
     },
     {
       key: "symDiff", label: t("tabs.symDiff.label"), short: t("tabs.symDiff.short"),
-      count: items.onlyInA.length + items.onlyInB.length,
+      count: onlyInA.length + onlyInB.length,
       color: "#f472b6",
     },
     {
       key: "all", label: t("tabs.all.label"), short: t("tabs.all.short"),
-      count: items.onlyInA.length + items.onlyInB.length + items.inBoth.length,
+      count: onlyInA.length + onlyInB.length + inBoth.length,
       color: "#818cf8",
     },
   ];
 
   const rawList = useMemo(() => {
     switch (activeTab) {
-      case "onlyA": return items.onlyInA;
-      case "onlyB": return items.onlyInB;
-      case "both": return items.inBoth;
-      case "union": return [...new Set([...items.onlyInA, ...items.inBoth, ...items.onlyInB])];
-      case "symDiff": return [...items.onlyInA, ...items.onlyInB];
-      case "all": return [...items.onlyInA, ...items.inBoth, ...items.onlyInB];
+      case "onlyA": return onlyInA;
+      case "onlyB": return onlyInB;
+      case "both": return inBoth;
+      case "union": return [...new Set([...onlyInA, ...inBoth, ...onlyInB])];
+      case "symDiff": return [...onlyInA, ...onlyInB];
+      case "all": return [...onlyInA, ...inBoth, ...onlyInB];
     }
-  }, [activeTab, items]);
+  }, [activeTab, inBoth, onlyInA, onlyInB]);
 
   const currentList = useMemo(() => {
     let list = rawList;
@@ -104,17 +94,17 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
   function handleExportFullReport() {
     const header = '"Category","Item"';
     const rows: string[] = [header];
-    for (const item of items.onlyInA) rows.push(`"Only in A","${item.replace(/"/g, '""')}"`);
-    for (const item of items.onlyInB) rows.push(`"Only in B","${item.replace(/"/g, '""')}"`);
-    for (const item of items.inBoth) rows.push(`"In Both","${item.replace(/"/g, '""')}"`);
-    downloadAsText(rows.join("\n"), "compare-list-full-report.csv");
+    for (const item of onlyInA) rows.push(`"Only in A","${item.replace(/"/g, '""')}"`);
+    for (const item of onlyInB) rows.push(`"Only in B","${item.replace(/"/g, '""')}"`);
+    for (const item of inBoth) rows.push(`"In Both","${item.replace(/"/g, '""')}"`);
+    downloadCsvContent(rows.join("\r\n"), "compare-list-full-report.csv");
     setShowExportMenu(false);
   }
 
-  function toggleSelect(i: number) {
+  function toggleSelect(item: string) {
     setSelected((prev) => {
       const next = new Set(prev);
-      if (next.has(i)) next.delete(i); else next.add(i);
+      if (next.has(item)) next.delete(item); else next.add(item);
       return next;
     });
   }
@@ -123,47 +113,16 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
     if (selected.size === currentList.length) {
       setSelected(new Set());
     } else {
-      setSelected(new Set(currentList.map((_, i) => i)));
+      setSelected(new Set(currentList));
     }
   }
 
   function handleCopySelected() {
-    const sel = currentList.filter((_, i) => selected.has(i));
+    const sel = currentList.filter((item) => selected.has(item));
     if (sel.length === 0) return;
     copyToClipboard(sel.join("\n")).then((ok) => {
       if (ok) { setCopied(true); setTimeout(() => setCopied(false), 2000); }
     });
-  }
-
-  function handleDeleteSelected() {
-    const toDelete = new Set(selected);
-    const key = activeTab as "onlyInA" | "onlyB" | "both";
-    if (key in items) {
-      setItems((prev) => ({
-        ...prev,
-        [key]: prev[key as keyof typeof prev].filter((_, i) => !toDelete.has(i)),
-      }));
-    }
-    setSelected(new Set());
-  }
-
-  function startEdit(i: number) {
-    setEditingIdx(i);
-    setEditValue(currentList[i]);
-  }
-
-  function commitEdit(i: number) {
-    if (editValue.trim() && editValue !== currentList[i]) {
-      const key = activeTab as "onlyInA" | "onlyB" | "both";
-      if (key in items) {
-        setItems((prev) => {
-          const arr = [...prev[key as keyof typeof prev] as string[]];
-          arr[i] = editValue.trim();
-          return { ...prev, [key]: arr };
-        });
-      }
-    }
-    setEditingIdx(null);
   }
 
   const sortLabel = sortMode === "asc" ? t("sortAsc") : sortMode === "desc" ? t("sortDesc") : t("sort");
@@ -243,9 +202,6 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
               <button onClick={handleCopySelected} className="p-1.5 text-primary hover:bg-primary/10 rounded transition-colors" title={t("copySelected")}>
                 <Copy size={12} />
               </button>
-              <button onClick={handleDeleteSelected} className="p-1.5 text-danger hover:bg-danger/10 rounded transition-colors" title={t("deleteSelected")}>
-                <Trash2 size={12} />
-              </button>
             </div>
           )}
           {/* Copy All — standalone visible button */}
@@ -303,43 +259,20 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
               <div
                 key={i}
                 className={`px-2 py-2 rounded-lg transition-colors flex items-center gap-2 group ${
-                  selected.has(i) ? "bg-primary/8" : "hover:bg-surface-alt/30"
+                  selected.has(item) ? "bg-primary/8" : "hover:bg-surface-alt/30"
                 }`}
               >
                 {!isComputedTab && (
                 <input
                   type="checkbox"
-                  checked={selected.has(i)}
-                  onChange={() => toggleSelect(i)}
+                  checked={selected.has(item)}
+                  onChange={() => toggleSelect(item)}
                   className="shrink-0 accent-primary cursor-pointer w-3.5 h-3.5"
                 />
                 )}
-                {editingIdx === i && !isComputedTab ? (
-                  <input
-                    autoFocus
-                    value={editValue}
-                    onChange={(e) => setEditValue(e.target.value)}
-                    onBlur={() => commitEdit(i)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") commitEdit(i);
-                      if (e.key === "Escape") setEditingIdx(null);
-                    }}
-                    className="flex-1 min-w-0 bg-surface-alt/50 border border-primary/40 rounded px-2 py-0.5 text-sm font-mono outline-none"
-                  />
-                ) : (
-                  <span className="flex-1 min-w-0 truncate text-sm font-mono text-text-secondary" title={item}>
-                    {item}
-                  </span>
-                )}
-                {editingIdx !== i && !isComputedTab && (
-                  <button
-                    onClick={() => startEdit(i)}
-                    className="opacity-0 group-hover:opacity-100 p-1 text-text-muted hover:text-text transition-all shrink-0"
-                    title="Edit"
-                  >
-                    <Pencil size={11} />
-                  </button>
-                )}
+                <span className="flex-1 min-w-0 truncate text-sm font-mono text-text-secondary" title={item}>
+                  {item}
+                </span>
               </div>
             ))}
             {visibleCount < currentList.length && (

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRightLeft, Search, ChevronDown, ChevronUp } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ListInput from "@/components/ListInput";
@@ -10,19 +10,22 @@ import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import VennDiagram from "@/components/VennDiagram";
 import ResultTabs from "@/components/ResultTabs";
-import { compareLists, CompareResult } from "@/lib/compare";
+import { compareLists, CompareResult, type CompareUiOptions } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { localizedUrl, safeJsonLd } from "@/lib/seo";
 
 export default function CompareKeywordsPage() {
   const t = useTranslations("compareKeywords");
+  const locale = useLocale();
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
   const [showOptions, setShowOptions] = useState(false);
   const [showFaq, setShowFaq] = useState<number | null>(null);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<CompareUiOptions>({
     caseSensitive: false, trimWhitespace: true, removeDuplicates: true, ignoreEmpty: true,
+    delimiter: "auto", customDelimiter: "", normalization: "keyword",
   });
 
   function handleCompare() {
@@ -46,12 +49,12 @@ export default function CompareKeywordsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: t('jsonLd.name'),
             description: t('jsonLd.description'),
-            url: "https://comparelist.com/compare-keywords",
+            url: localizedUrl(locale, "/compare-keywords"),
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -61,7 +64,7 @@ export default function CompareKeywordsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: faqs.map((faq) => ({
@@ -72,7 +75,7 @@ export default function CompareKeywordsPage() {
           }),
         }}
       />
-      <header className="border-b border-border bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-border bg-surface/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -97,7 +100,7 @@ export default function CompareKeywordsPage() {
       </section>
 
       <section className="max-w-5xl mx-auto px-4 pb-12 -mt-2">
-        <div className="bg-white rounded-2xl border border-border shadow-lg p-4 lg:p-6">
+        <div className="glass-elevated rounded-2xl border border-border shadow-lg p-4 lg:p-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
             <ListInput label={t('listInput.listA')} labelColor="#6366f1" value={listA} onChange={setListA} placeholder={t('listInput.placeholderA')} />
             <ListInput label={t('listInput.listB')} labelColor="#06b6d4" value={listB} onChange={setListB} placeholder={t('listInput.placeholderB')} />
@@ -126,7 +129,7 @@ export default function CompareKeywordsPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-white border-t border-border">
+      <section className="py-12 bg-surface/30 border-t border-border">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-6">{t('useCases.heading')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -150,7 +153,7 @@ export default function CompareKeywordsPage() {
           {faqs.map((faq, i) => (
             <div key={i} className="border border-border rounded-lg overflow-hidden">
               <button onClick={() => setShowFaq(showFaq === i ? null : i)}
-                className="w-full px-5 py-4 text-left text-sm font-medium flex items-center justify-between hover:bg-gray-50">
+                className="w-full px-5 py-4 text-left text-sm font-medium flex items-center justify-between hover:bg-surface-alt/30">
                 {faq.q}
                 {showFaq === i ? <ChevronUp size={16} className="text-text-muted shrink-0" /> : <ChevronDown size={16} className="text-text-muted shrink-0" />}
               </button>
@@ -165,7 +168,7 @@ export default function CompareKeywordsPage() {
       </div>
 
       <footer className="py-6 border-t border-border text-center text-sm text-text-muted">
-        <Link href="/" className="hover:text-text transition-colors">CompareList</Link> &middot; {t('footer.tagline')}
+        <Link href="/" className="hover:text-text transition-colors">CompareList</Link>
       </footer>
     </div>
   );

@@ -3,12 +3,15 @@
 import { useRef, useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Upload, X, FileText, Columns3, CheckSquare, Square } from "lucide-react";
+import type { TableData } from "@/lib/table-compare";
+import { parseList } from "@/lib/compare";
 
 interface ListInputProps {
   label: string;
   labelColor: string;
   value: string;
   onChange: (value: string) => void;
+  onTableParsed?: (table: TableData | null) => void;
   placeholder?: string;
 }
 
@@ -17,6 +20,7 @@ export default function ListInput({
   labelColor,
   value,
   onChange,
+  onTableParsed,
   placeholder = "Paste your list here, one item per line...",
 }: ListInputProps) {
   const t = useTranslations("components.listInput");
@@ -24,17 +28,14 @@ export default function ListInput({
   const [fileName, setFileName] = useState<string | null>(null);
   const [csvColumns, setCsvColumns] = useState<string[] | null>(null);
   const [csvRows, setCsvRows] = useState<string[][] | null>(null);
+  const [excelSheets, setExcelSheets] = useState<{ name: string; data: string[][] }[] | null>(null);
+  const [selectedSheet, setSelectedSheet] = useState(0);
   const [selectedCols, setSelectedCols] = useState<Set<number>>(new Set([0]));
   const [showColPicker, setShowColPicker] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const pickerRef = useRef<HTMLDivElement>(null);
-  const isInitialParseRef = useRef(false);
 
-  const lineCount = value
-    ? (csvColumns
-        ? value.split("\n").filter((s) => s.trim().length > 0).length
-        : value.split(/[\n,;\t]+/).map((s) => s.trim()).filter((s) => s.length > 0).length)
-    : 0;
+  const lineCount = value ? parseList(value, { removeDuplicates: false }).length : 0;
 
   // Close column picker on outside click or Escape
   useEffect(() => {
@@ -55,39 +56,35 @@ export default function ListInput({
     };
   }, [showColPicker]);
 
-  // Emit data when column selection changes (skip initial parse — handled separately)
-  useEffect(() => {
-    if (isInitialParseRef.current) {
-      isInitialParseRef.current = false;
-      return;
-    }
-    if (!csvRows || selectedCols.size === 0) return;
-    const indices = Array.from(selectedCols).sort((a, b) => a - b);
-    const lines = csvRows.map((row) => {
-      return indices.map((ci) => row[ci] || "").join(" | ");
-    }).filter((line) => line.replace(/\s*\|\s*/g, "").length > 0);
+  function emitSelectedColumns(selection: Set<number>, rows: string[][] | null = csvRows) {
+    if (!rows || selection.size === 0) return;
+    const indices = Array.from(selection).sort((a, b) => a - b);
+    const lines = rows
+      .map((row) => indices.map((columnIndex) => row[columnIndex] || "").join(" | "))
+      .filter((line) => line.replace(/\s*\|\s*/g, "").length > 0);
     onChange(lines.join("\n"));
-  }, [selectedCols]);
+  }
 
-  function handleColumnsParsed(headers: string[], rows: string[][]) {
+  function handleColumnsParsed(headers: string[], rows: string[][], parsedFileName?: string) {
     setCsvColumns(headers);
     setCsvRows(rows);
-    isInitialParseRef.current = true;
     setSelectedCols(new Set([0]));
+    onTableParsed?.({ headers, rows, fileName: parsedFileName });
     // Emit first column by default
     const colData = rows.map((r) => r[0] || "").filter((s) => s.length > 0).join("\n");
     onChange(colData);
   }
 
-  function splitCsvLine(line: string, delimiter: string): string[] {
-    const fields: string[] = [];
+  function parseDelimited(text: string, delimiter: string): string[][] {
+    const rows: string[][] = [];
+    let fields: string[] = [];
     let current = "";
     let inQuotes = false;
-    for (let i = 0; i < line.length; i++) {
-      const ch = line[i];
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
       if (inQuotes) {
         if (ch === '"') {
-          if (i + 1 < line.length && line[i + 1] === '"') {
+          if (i + 1 < text.length && text[i + 1] === '"') {
             current += '"';
             i++;
           } else {
@@ -102,23 +99,31 @@ export default function ListInput({
         } else if (ch === delimiter) {
           fields.push(current.trim());
           current = "";
+        } else if (ch === "\n" || ch === "\r") {
+          if (ch === "\r" && text[i + 1] === "\n") i++;
+          fields.push(current.trim());
+          if (fields.some((field) => field.length > 0)) rows.push(fields);
+          fields = [];
+          current = "";
         } else {
           current += ch;
         }
       }
     }
     fields.push(current.trim());
-    return fields;
+    if (fields.some((field) => field.length > 0)) rows.push(fields);
+    return rows;
   }
 
   function detectColumns(text: string, ext: string): { headers: string[]; rows: string[][] } | null {
     const delimiter = ext === ".tsv" ? "\t" : ext === ".csv" ? "," : null;
     if (!delimiter) return null;
-    const lines = text.split("\n").filter((l) => l.trim());
-    if (lines.length < 2) return null;
-    const firstRow = splitCsvLine(lines[0], delimiter);
+    const parsedRows = parseDelimited(text, delimiter);
+    if (parsedRows.length < 2) return null;
+    const firstRow = parsedRows[0];
+    firstRow[0] = firstRow[0]?.replace(/^\uFEFF/, "") ?? "";
     if (firstRow.length < 2) return null;
-    const rows = lines.slice(1).map((l) => splitCsvLine(l, delimiter));
+    const rows = parsedRows.slice(1);
     return { headers: firstRow, rows };
   }
 
@@ -134,23 +139,35 @@ export default function ListInput({
     setFileName(file.name);
     const ext = "." + file.name.split(".").pop()?.toLowerCase();
 
-    if (ext === ".xlsx" || ext === ".xls") {
+    if (![".txt", ".csv", ".tsv", ".xlsx"].includes(ext)) {
+      alert(t("unsupportedFileType"));
+      setFileName(null);
+      return;
+    }
+
+    if (ext === ".xlsx") {
       try {
-        const XLSX = await import("xlsx");
-        const buf = await file.arrayBuffer();
-        const wb = XLSX.read(buf, { type: "array" });
-        const sheet = wb.Sheets[wb.SheetNames[0]];
-        const data: string[][] = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+        const { default: readWorkbook } = await import("read-excel-file/browser");
+        const workbook = await readWorkbook(file);
+        const sheets = workbook.map(({ sheet, data }) => ({
+          name: sheet,
+          data: data.map((row) => row.map((cell) => cell instanceof Date ? cell.toISOString() : String(cell ?? ""))),
+        }));
+        const data = sheets[0]?.data ?? [];
+        setExcelSheets(sheets);
+        setSelectedSheet(0);
         if (data.length < 2) {
           const text = data.flat().filter((s) => String(s).trim()).join("\n");
+          onTableParsed?.(null);
           onChange(text);
           return;
         }
-        const headers = data[0].map((h) => String(h));
-        const rows = data.slice(1).map((r) => r.map((c) => String(c ?? "")));
-        handleColumnsParsed(headers, rows);
+        const headers = data[0];
+        const rows = data.slice(1);
+        handleColumnsParsed(headers, rows, file.name);
       } catch {
         const text = await file.text();
+        onTableParsed?.(null);
         onChange(text);
       }
       return;
@@ -160,11 +177,13 @@ export default function ListInput({
     reader.onload = (e) => {
       const text = e.target?.result as string;
       const parsed = detectColumns(text, ext);
+      setExcelSheets(null);
       if (parsed && parsed.headers.length >= 2) {
-        handleColumnsParsed(parsed.headers, parsed.rows);
+        handleColumnsParsed(parsed.headers, parsed.rows, file.name);
       } else {
         setCsvColumns(null);
         setCsvRows(null);
+        onTableParsed?.(null);
         onChange(text);
       }
     };
@@ -172,24 +191,23 @@ export default function ListInput({
   }
 
   function toggleCol(idx: number) {
-    setSelectedCols((prev) => {
-      const next = new Set(prev);
-      if (next.has(idx)) {
-        if (next.size > 1) next.delete(idx);
-      } else {
-        next.add(idx);
-      }
-      return next;
-    });
+    const next = new Set(selectedCols);
+    if (next.has(idx)) {
+      if (next.size > 1) next.delete(idx);
+    } else {
+      next.add(idx);
+    }
+    setSelectedCols(next);
+    emitSelectedColumns(next);
   }
 
   function handleAllOrReset() {
     if (!csvColumns) return;
-    if (selCount === totalCols) {
-      setSelectedCols(new Set([0]));
-    } else {
-      setSelectedCols(new Set(csvColumns.map((_, i) => i)));
-    }
+    const next = selCount === totalCols
+      ? new Set([0])
+      : new Set(csvColumns.map((_, index) => index));
+    setSelectedCols(next);
+    emitSelectedColumns(next);
     setShowColPicker(false);
   }
 
@@ -205,7 +223,10 @@ export default function ListInput({
     setFileName(null);
     setCsvColumns(null);
     setCsvRows(null);
+    setExcelSheets(null);
+    setSelectedSheet(0);
     setSelectedCols(new Set([0]));
+    onTableParsed?.(null);
     if (fileRef.current) fileRef.current.value = "";
   }
 
@@ -246,7 +267,9 @@ export default function ListInput({
           )}
         </div>
         <button
+          type="button"
           onClick={() => fileRef.current?.click()}
+          aria-label={`${t("upload")} ${label}`}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-surface-alt/40 hover:bg-surface-alt/70 hover:border-border-active transition-all text-text-secondary hover:text-text text-xs font-medium shrink-0"
         >
           <Upload size={14} />
@@ -255,7 +278,7 @@ export default function ListInput({
         <input
           ref={fileRef}
           type="file"
-          accept=".txt,.csv,.tsv,.xls,.xlsx"
+          accept=".txt,.csv,.tsv,.xlsx"
           className="hidden"
           onChange={(e) => {
             const file = e.target.files?.[0];
@@ -276,6 +299,7 @@ export default function ListInput({
           {csvColumns && csvColumns.length >= 2 && (
             <div className="relative" ref={pickerRef}>
               <button
+                type="button"
                 onClick={() => setShowColPicker(!showColPicker)}
                 className="flex items-center gap-1 text-xs px-2 py-1 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-600 hover:bg-amber-500/20 transition-colors"
               >
@@ -287,6 +311,7 @@ export default function ListInput({
                   <div className="px-3 py-1.5 flex items-center justify-between border-b border-border mb-1">
                     <span className="text-xs font-medium text-text">{t("selectColumns")}</span>
                     <button
+                      type="button"
                       onClick={handleAllOrReset}
                       className="text-xs text-amber-600 hover:underline"
                     >
@@ -295,6 +320,7 @@ export default function ListInput({
                   </div>
                   {csvColumns.map((col, i) => (
                     <button
+                      type="button"
                       key={i}
                       onClick={() => toggleCol(i)}
                       className="w-full flex items-center gap-2 px-3 py-1.5 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors"
@@ -321,6 +347,23 @@ export default function ListInput({
               )}
             </div>
           )}
+          {excelSheets && excelSheets.length > 1 && (
+            <label className="flex items-center gap-1 text-xs text-text-muted">
+              <span>{t("sheet")}</span>
+              <select
+                value={selectedSheet}
+                onChange={(event) => {
+                  const index = Number(event.target.value);
+                  const data = excelSheets[index]?.data ?? [];
+                  setSelectedSheet(index);
+                  if (data.length >= 2) handleColumnsParsed(data[0], data.slice(1), fileName ?? undefined);
+                }}
+                className="rounded-lg border border-border bg-surface px-2 py-1 text-xs text-text-secondary"
+              >
+                {excelSheets.map((sheet, index) => <option key={sheet.name} value={index}>{sheet.name}</option>)}
+              </select>
+            </label>
+          )}
           {csvRows && csvRows.length > 0 && (
             <span className="text-xs text-text-muted bg-surface/50 px-2 py-1 rounded-lg border border-border">
               {csvRows.length.toLocaleString()} rows
@@ -328,6 +371,7 @@ export default function ListInput({
           )}
           {value && (
             <button
+              type="button"
               onClick={clearInput}
               className="p-1 hover:bg-surface-alt/50 rounded-lg transition-colors ml-auto"
               title="Clear"
@@ -350,8 +394,9 @@ export default function ListInput({
           <div className="absolute inset-0 rounded-xl ring-2 ring-primary/50 bg-primary/5 z-10 pointer-events-none" />
         )}
         <textarea
+          aria-label={label}
           value={value}
-          onChange={(e) => { onChange(e.target.value); setFileName(null); setCsvColumns(null); }}
+          onChange={(e) => { onChange(e.target.value); setFileName(null); setCsvColumns(null); setCsvRows(null); setExcelSheets(null); onTableParsed?.(null); }}
           placeholder={placeholder}
           className="relative w-full h-full p-5 bg-transparent resize-none outline-none text-[15px] font-mono leading-7 text-text placeholder:text-text-muted/40"
           spellCheck={false}

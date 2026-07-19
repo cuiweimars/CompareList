@@ -7,8 +7,8 @@ export interface ComparisonRecord {
   uniqueACount: number;
   uniqueBCount: number;
   matchRate: number;
-  mode: "exact" | "ai";
-  preview: {
+  mode: "exact" | "smart";
+  preview?: {
     onlyInA: string[];
     onlyInB: string[];
     inBoth: string[];
@@ -20,8 +20,17 @@ const MAX_RECORDS = 20;
 
 export function getHistory(): ComparisonRecord[] {
   if (typeof window === "undefined") return [];
-  const stored = localStorage.getItem(STORAGE_KEY);
-  return stored ? JSON.parse(stored) : [];
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return [];
+    const parsed: unknown = JSON.parse(stored);
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .filter((item): item is ComparisonRecord => Boolean(item && typeof item === "object"))
+      .map((item) => ({ ...item, mode: item.mode === "smart" ? "smart" : "exact" }));
+  } catch {
+    return [];
+  }
 }
 
 export function saveComparison(record: Omit<ComparisonRecord, "id" | "timestamp">): ComparisonRecord {
@@ -35,13 +44,21 @@ export function saveComparison(record: Omit<ComparisonRecord, "id" | "timestamp"
   if (history.length > MAX_RECORDS) {
     history.length = MAX_RECORDS;
   }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  } catch {
+    // Comparisons still work when storage is disabled or full.
+  }
   return entry;
 }
 
 export function deleteComparison(id: string): void {
   const history = getHistory().filter((h) => h.id !== id);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  } catch {
+    // Ignore unavailable storage.
+  }
 }
 
 export function clearHistory(): void {

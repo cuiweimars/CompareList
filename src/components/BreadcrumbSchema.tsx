@@ -1,5 +1,11 @@
+"use client";
+
+import JsonLd from "@/components/JsonLd";
+import { useLocale } from "next-intl";
+import { localizedUrl } from "@/lib/seo";
+
 export default function BreadcrumbSchema({ items }: { items: { name: string; path: string }[] }) {
-  const baseUrl = "https://comparelist.org";
+  const locale = useLocale();
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -7,13 +13,8 @@ export default function BreadcrumbSchema({ items }: { items: { name: string; pat
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${baseUrl}${item.path}`,
+        item: localizedUrl(locale, item.path),
     })),
   };
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
+  return <JsonLd data={schema} />;
 }

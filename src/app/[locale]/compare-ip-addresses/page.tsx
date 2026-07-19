@@ -2,16 +2,17 @@
 
 import { useState } from "react";
 import { ArrowRightLeft, Globe, ChevronDown, ChevronUp } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ListInput from "@/components/ListInput";
 import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
-import { compareLists, CompareResult } from "@/lib/compare";
+import { compareLists, CompareResult, type CompareUiOptions } from "@/lib/compare";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { localizedUrl, safeJsonLd } from "@/lib/seo";
 
 const DEMO_A = `192.168.1.1
 192.168.1.100
@@ -33,12 +34,14 @@ const DEMO_B = `192.168.1.1
 
 export default function CompareIPAddressesPage() {
   const t = useTranslations("compareIpAddresses");
+  const locale = useLocale();
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
   const [showOptions, setShowOptions] = useState(false);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<CompareUiOptions>({
     caseSensitive: true, trimWhitespace: true, removeDuplicates: true, ignoreEmpty: true,
+    delimiter: "auto", customDelimiter: "", normalization: "ip",
   });
 
   function handleCompare() {
@@ -60,12 +63,12 @@ export default function CompareIPAddressesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: t('jsonLd.name'),
             description: t('jsonLd.description'),
-            url: "https://comparelist.com/compare-ip-addresses",
+            url: localizedUrl(locale, "/compare-ip-addresses"),
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

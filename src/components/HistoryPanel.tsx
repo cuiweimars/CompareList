@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Clock, Trash2, X, ChevronRight, RotateCcw } from "lucide-react";
+import { Clock, Trash2, X, RotateCcw, ShieldCheck } from "lucide-react";
 import { getHistory, deleteComparison, clearHistory, ComparisonRecord } from "@/lib/history";
 
 interface HistoryPanelProps {
@@ -13,11 +13,7 @@ interface HistoryPanelProps {
 
 export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelProps) {
   const t = useTranslations("components.historyPanel");
-  const [records, setRecords] = useState<ComparisonRecord[]>([]);
-
-  useEffect(() => {
-    if (open) setRecords(getHistory());
-  }, [open]);
+  const [records, setRecords] = useState<ComparisonRecord[]>(() => getHistory());
 
   if (!open) return null;
 
@@ -32,6 +28,7 @@ export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelP
   }
 
   function handleRestore(record: ComparisonRecord) {
+    if (!record.preview) return;
     onRestore?.(record);
     onClose();
   }
@@ -66,6 +63,11 @@ export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelP
           </div>
         </div>
 
+        <div className="px-5 py-3 border-b border-border bg-success/5 text-xs text-text-secondary flex items-start gap-2">
+          <ShieldCheck size={14} className="text-success shrink-0 mt-0.5" />
+          <span>{t("privacyNote")}</span>
+        </div>
+
         <div className="flex-1 overflow-y-auto">
           {records.length === 0 ? (
             <div className="p-10 text-center text-text-muted text-sm">{t("noComparisons")}</div>
@@ -74,17 +76,17 @@ export default function HistoryPanel({ open, onClose, onRestore }: HistoryPanelP
               {records.map((record) => (
                 <div
                   key={record.id}
-                  className="px-5 py-4 hover:bg-surface-alt/20 transition-colors cursor-pointer group"
-                  onClick={() => handleRestore(record)}
+                  className={`px-5 py-4 hover:bg-surface-alt/20 transition-colors group ${record.preview ? "cursor-pointer" : "cursor-default"}`}
+                  onClick={() => record.preview && handleRestore(record)}
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
                       <span
                         className={`text-xs px-2 py-0.5 rounded font-medium ${
-                          record.mode === "ai" ? "bg-primary/10 text-primary" : "bg-surface-alt text-text-secondary"
+                          record.mode === "smart" ? "bg-primary/10 text-primary" : "bg-surface-alt text-text-secondary"
                         }`}
                       >
-                        {record.mode === "ai" ? t("modeAi") : t("modeExact")}
+                        {record.mode === "smart" ? t("modeAi") : t("modeExact")}
                       </span>
                       <span className="text-xs text-text-muted">{formatDate(record.timestamp)}</span>
                     </div>

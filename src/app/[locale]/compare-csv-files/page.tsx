@@ -2,26 +2,33 @@
 
 import { useState } from "react";
 import { ArrowRightLeft, FileSpreadsheet, ChevronDown, ChevronUp } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ListInput from "@/components/ListInput";
 import OptionsPanel from "@/components/OptionsPanel";
 import StatsCards from "@/components/StatsCards";
 import ResultTabs from "@/components/ResultTabs";
-import { compareLists, CompareResult } from "@/lib/compare";
+import TableComparePanel from "@/components/TableComparePanel";
+import { compareLists, CompareResult, type CompareUiOptions } from "@/lib/compare";
+import type { TableData } from "@/lib/table-compare";
 import RelatedTools from "@/components/RelatedTools";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { localizedUrl, safeJsonLd } from "@/lib/seo";
 
 export default function CompareCsvFilesPage() {
   const t = useTranslations("compareCsvFiles");
+  const locale = useLocale();
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
+  const [tableA, setTableA] = useState<TableData | null>(null);
+  const [tableB, setTableB] = useState<TableData | null>(null);
   const [showOptions, setShowOptions] = useState(false);
   const [showFaq, setShowFaq] = useState<number | null>(null);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<CompareUiOptions>({
     caseSensitive: false, trimWhitespace: true, removeDuplicates: true, ignoreEmpty: true,
+    delimiter: "auto", customDelimiter: "", normalization: "generic",
   });
 
   function handleCompare() {
@@ -43,12 +50,12 @@ export default function CompareCsvFilesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: t('jsonLd.name'),
             description: t('jsonLd.description'),
-            url: "https://comparelist.com/compare-csv-files",
+            url: localizedUrl(locale, "/compare-csv-files"),
             applicationCategory: "UtilityApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -58,7 +65,7 @@ export default function CompareCsvFilesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: faqs.map((faq) => ({
@@ -98,8 +105,8 @@ export default function CompareCsvFilesPage() {
 
         <div className="glass-elevated rounded-2xl p-5 lg:p-7 gradient-border">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
-            <ListInput label={t('listInput.listA')} labelColor="#818cf8" value={listA} onChange={setListA} placeholder={t('listInput.placeholderA')} />
-            <ListInput label={t('listInput.listB')} labelColor="#22d3ee" value={listB} onChange={setListB} placeholder={t('listInput.placeholderB')} />
+            <ListInput label={t('listInput.listA')} labelColor="#818cf8" value={listA} onChange={setListA} onTableParsed={setTableA} placeholder={t('listInput.placeholderA')} />
+            <ListInput label={t('listInput.listB')} labelColor="#22d3ee" value={listB} onChange={setListB} onTableParsed={setTableB} placeholder={t('listInput.placeholderB')} />
           </div>
           <div className="flex items-center justify-between">
             <button onClick={() => setShowOptions(!showOptions)} className="text-sm text-text-muted hover:text-text-secondary flex items-center gap-1.5">
@@ -115,6 +122,7 @@ export default function CompareCsvFilesPage() {
               <OptionsPanel {...options} onChange={setOptions} />
             </div>
           )}
+          {tableA && tableB && <TableComparePanel tableA={tableA} tableB={tableB} options={options} />}
           {result && (
             <div className="space-y-4 mt-6">
               <StatsCards stats={result.stats} />

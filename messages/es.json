@@ -20,18 +20,24 @@
     "features": "Características",
     "faq": "FAQ",
     "history": "Historial",
-    "pricing": "Precios"
+    "pricing": "Precios",
+    "about": "Acerca de",
+    "privacy": "Privacidad"
   },
   "home": {
+    "seo": {
+      "title": "Comparar dos listas online gratis - Diferencias y coincidencias | CompareList",
+      "description": "Compara dos listas online y encuentra elementos comunes, únicos, añadidos y eliminados. Incluye coincidencia inteligente local e importación CSV y Excel."
+    },
     "hero": {
       "badge": "Gratis · Privado · Sin registro",
       "title": "Compara dos listas <gradient>al instante</gradient>",
-      "subtitle": "Encuentra diferencias, elementos comunes y entradas únicas entre dos listas. Potenciado por AI."
+      "subtitle": "Encuentra diferencias, elementos comunes y entradas únicas entre dos listas. Rápido, privado y procesado localmente."
     },
     "tool": {
       "modeExact": "Coincidencia exacta",
-      "modeAi": "Coincidencia AI",
-      "modeAiFree": "Gratis",
+      "modeAi": "Coincidencia inteligente",
+      "modeAiFree": "Local",
       "listALabel": "Lista A",
       "listBLabel": "Lista B",
       "listAPlaceholder": "Pega tu primera lista aquí, un elemento por línea...",
@@ -41,22 +47,23 @@
       "options": "Opciones",
       "tryDemo": "Probar demo",
       "compareLists": "Comparar listas",
-      "compareWithAi": "Comparar con AI",
+      "compareWithAi": "Comparación inteligente",
       "analyzing": "Analizando...",
       "results": "Resultados",
-      "clearResults": "Limpiar resultados"
+      "clearResults": "Limpiar resultados",
+      "similarityThreshold": "Similitud mínima"
     },
     "dragOverlay": {
       "title": "Suelta archivos para comparar",
       "subtitle": "Suelta 2 archivos (Lista A + Lista B) o 1 archivo (se rellena la primera lista vacía)"
     },
     "aiAnalysis": {
-      "title": "Análisis AI",
+      "title": "Resultados inteligentes",
       "unavailableWarning": "El análisis profundo de AI no está disponible temporalmente. Mostrando resultados de coincidencia difusa local gratis.",
-      "foundFuzzy": "AI encontró <strong>{count} coincidencia{plural} difusa{plural}</strong> que la coincidencia exacta no detectó.",
+      "foundFuzzy": "La coincidencia inteligente encontró <strong>{count} coincidencia{plural} similar{plural}</strong> que la exacta no detectó.",
       "combinedRate": "Tasa combinada: <strong>{aiRate}%</strong> (vs {exactRate}% exacta).",
       "fuzzyMatches": "{count} coincidencia{plural} difusa{plural}",
-      "aiError": "El análisis AI falló. Mostrando resultados de comparación exacta a continuación."
+      "aiError": "La coincidencia inteligente falló. Se muestran los resultados exactos."
     },
     "features": {
       "0": {
@@ -65,15 +72,15 @@
       },
       "1": {
         "title": "100% privado",
-        "desc": "Tus datos nunca salen de tu dispositivo. Sin rastreo, sin recopilación, sin subida a servidores."
+        "desc": "El contenido de tus listas permanece en el dispositivo. Los valores no se recopilan ni se suben."
       },
       "2": {
         "title": "Cualquier formato",
         "desc": "Pega texto, sube archivos, arrastra y suelta. Detecta delimitadores automáticamente."
       },
       "3": {
-        "title": "Potenciado por AI",
-        "desc": "DeepSeek AI encuentra coincidencias difusas, errores tipográficos y elementos reordenados automáticamente."
+        "title": "Coincidencia inteligente",
+        "desc": "La similitud local encuentra errores, pequeñas diferencias y palabras reordenadas sin subir tus listas."
       },
       "sectionTag": "Por qué CompareList",
       "sectionTitle": "Diseñado para velocidad y privacidad"
@@ -151,7 +158,7 @@
       "1": {
         "step": "02",
         "title": "Elige el modo",
-        "desc": "Coincidencia Exacta gratis, o Coincidencia AI para coincidencia difusa e información de DeepSeek."
+        "desc": "Usa la coincidencia exacta para una comparación estricta o la inteligente para detectar similitudes localmente."
       },
       "2": {
         "step": "03",
@@ -180,8 +187,8 @@
         "a": "Sin límite estricto. Maneja decenas de miles de elementos sin problemas ya que todo el procesamiento es local."
       },
       "3": {
-        "q": "¿Qué es la comparación AI?",
-        "a": "El modo AI usa DeepSeek para encontrar coincidencias difusas como 'John Smith' vs 'Smith, John', detectar errores tipográficos y generar un resumen de análisis inteligente. Usa 1 crédito por comparación."
+        "q": "¿Qué es la coincidencia inteligente?",
+        "a": "Funciona localmente en tu navegador para encontrar entradas similares, errores menores y palabras reordenadas. Es gratis y no sube tus listas."
       },
       "4": {
         "q": "¿Cómo se calcula la tasa de coincidencia?",
@@ -471,7 +478,7 @@
       },
       "2": {
         "q": "¿Maneja variaciones de palabras clave?",
-        "a": "Por defecto, la comparación es exacta (sin distinguir mayúsculas/minúsculas). Para detectar palabras clave similares como 'zapatillas running' vs 'running zapatillas', usa el modo Coincidencia AI."
+        "a": "Por defecto, la comparación es exacta y no distingue mayúsculas. Para palabras clave similares con distinto orden, usa la coincidencia inteligente local."
       },
       "3": {
         "q": "¿Cómo puedo encontrar brechas de palabras clave?",
@@ -490,8 +497,8 @@
   "compareNameLists": {
     "hero": {
       "badge": "Comparación de listas de nombres",
-      "title": "Compara dos columnas CSV en línea",
-      "subtitle": "Encuentra diferencias entre dos columnas de datos de archivos CSV o Excel. Pega, compara, exporta."
+      "title": "Compara dos listas de nombres en línea",
+      "subtitle": "Encuentra nombres coincidentes, variantes y entradas únicas, con opciones para ignorar acentos u orden."
     },
     "listInput": {
       "listA": "Columna A",
@@ -792,7 +799,8 @@
     },
     "actions": {
       "removeDuplicates": "Eliminar duplicados",
-      "copyToClipboard": "Copiar al portapapeles"
+      "copyToClipboard": "Copiar al portapapeles",
+      "download": "Descargar TXT"
     },
     "result": {
       "heading": "Resultado sin duplicados",
@@ -820,11 +828,11 @@
     "faq": {
       "0": {
         "q": "¿Cómo elimino duplicados de una lista?",
-        "a": "Pega tu lista en el área de texto de arriba (un elemento por línea) y haz clic en Eliminar duplicados. Obtendrás instantáneamente una lista limpia sin duplicados."
+        "a": "Pega la lista arriba. El resultado limpio se actualiza al instante y se puede copiar o descargar como TXT."
       },
       "1": {
-        "q": "¿Elimina duplicados entre ambas listas?",
-        "a": "Si pegas dos listas, la herramienta te muestra qué elementos son compartidos (duplicados entre listas) y cuáles son únicos en cada una. Para una sola lista, elimina los duplicados internos."
+        "q": "¿Qué separadores admite?",
+        "a": "Usa un elemento por línea. También detecta comas, punto y coma y tabulaciones en una sola línea."
       },
       "2": {
         "q": "¿Distingue mayúsculas de minúsculas?",
@@ -861,7 +869,7 @@
       },
       "1": {
         "title": "100% privado",
-        "desc": "Tus datos nunca salen de tu dispositivo. Sin subidas a servidores, sin rastreo."
+        "desc": "Tus listas permanecen en el dispositivo y no se incluyen en las analíticas opcionales de página."
       },
       "2": {
         "title": "Cualquier formato",
@@ -879,8 +887,8 @@
       "1": {
         "num": "2",
         "title": "Elige tu modo de comparación",
-        "desc": "Selecciona \"Coincidencia Exacta\" para una comparación precisa elemento por elemento, o \"Coincidencia AI\" para encontrar coincidencias difusas como errores tipográficos, nombres reordenados (\"John Smith\" vs \"Smith, John\"), y entradas similares usando DeepSeek AI.",
-        "tip": "La Coincidencia Exacta es siempre gratuita. La Coincidencia AI usa 1 crédito por comparación e incluye coincidencia difusa y análisis inteligente."
+        "desc": "Selecciona \"Coincidencia exacta\" para una comparación estricta o \"Coincidencia inteligente\" para encontrar localmente errores, nombres reordenados y entradas similares.",
+        "tip": "Ambos modos son gratis y funcionan en el navegador. La coincidencia inteligente muestra confianza y motivo para cada pareja."
       },
       "2": {
         "num": "3",
@@ -922,7 +930,7 @@
       },
       "4": {
         "title": "Coincidencia de nombres",
-        "desc": "Encuentra nombres coincidentes entre listas con coincidencia difusa AI para variaciones ortográficas."
+        "desc": "Encuentra nombres entre listas con similitud local para variaciones ortográficas."
       },
       "5": {
         "title": "Comparación de URLs",
@@ -944,8 +952,8 @@
         "a": "La tasa de coincidencia usa la fórmula del coeficiente de Dice: 2 x (elementos comunes) / (total A + total B). Da un porcentaje que muestra cuán similares son las dos listas."
       },
       "3": {
-        "q": "¿Cómo funciona la coincidencia difusa AI?",
-        "a": "La coincidencia AI usa una combinación de distancia de edición de Levenshtein y similitud de tokens Jaccard para encontrar elementos que son similares pero no idénticos — como errores tipográficos, palabras reordenadas o coincidencias parciales."
+        "q": "¿Cómo funciona la coincidencia inteligente?",
+        "a": "Combina la distancia de Levenshtein y la similitud Jaccard para detectar errores o palabras reordenadas. Funciona localmente y cada elemento se empareja como máximo una vez."
       },
       "4": {
         "q": "¿Se almacenan mis datos en algún lugar?",
@@ -1048,7 +1056,7 @@
     "hero": {
       "badge": "Tutorial",
       "title": "Cómo encontrar diferencias entre dos listas",
-      "subtitle": "Una guía práctica para identificar qué es diferente y qué es igual entre dos listas, usando métodos exactos y potenciados por AI."
+      "subtitle": "Una guía práctica para identificar diferencias y coincidencias con métodos exactos e inteligentes que funcionan localmente."
     },
     "methods": {
       "0": {
@@ -1058,12 +1066,13 @@
         "best": "Emails, IDs, códigos de productos, cadenas exactas"
       },
       "1": {
-        "title": "Coincidencia difusa AI",
-        "badge": "1 crédito",
+        "title": "Coincidencia inteligente local",
+        "badge": "Gratis",
         "desc": "Usa la distancia de Levenshtein y similitud basada en tokens para encontrar coincidencias cercanas. Detecta errores tipográficos, palabras reordenadas y entradas similares que la coincidencia exacta no detecta.",
         "best": "Nombres (\"John Smith\" vs \"Smith, John\"), direcciones, palabras clave con errores"
       },
-      "heading": "Dos formas de encontrar diferencias"
+      "heading": "Dos formas de encontrar diferencias",
+      "bestFor": "Ideal para:"
     },
     "terms": {
       "0": {
@@ -1119,7 +1128,7 @@
     },
     "jsonLd": {
       "name": "Cómo encontrar diferencias entre dos listas",
-      "description": "Una guía práctica para identificar qué es diferente y qué es igual entre dos listas, usando métodos exactos y potenciados por AI."
+      "description": "Una guía práctica para identificar diferencias y coincidencias con métodos exactos e inteligentes que funcionan localmente."
     }
   },
   "pricing": {
@@ -1205,7 +1214,9 @@
       "previewRow": "Vista previa (fila 1):",
       "fileTooLarge": "Archivo demasiado grande. Por favor usa archivos menores a 50MB.",
       "largeFileConfirm": "Este archivo es de {size}MB. Los archivos grandes pueden ser lentos de procesar. ¿Continuar?",
-      "items": "{count} elementos"
+      "items": "{count} elementos",
+      "sheet": "Hoja",
+      "unsupportedFileType": "Tipo no compatible. Usa TXT, CSV, TSV o XLSX."
     },
     "resultTabs": {
       "tabs": {
@@ -1256,7 +1267,8 @@
       "matchRate": "Tasa de coincidencia",
       "commonItems": "Elementos comunes",
       "onlyInListA": "Solo en Lista A",
-      "onlyInListB": "Solo en Lista B"
+      "onlyInListB": "Solo en Lista B",
+      "diagnostics": "Diagnóstico: {duplicates} duplicados, {invalid} valores no válidos y {empty} elementos vacíos. Revisa las opciones antes de exportar."
     },
     "optionsPanel": {
       "caseSensitive": {
@@ -1274,13 +1286,46 @@
       "ignoreEmpty": {
         "label": "Ignorar líneas vacías",
         "desc": "Omitir líneas en blanco y elementos vacíos"
+      },
+      "delimiter": {
+        "label": "Separador de elementos",
+        "auto": "Detectar automáticamente",
+        "newline": "Nueva línea",
+        "comma": "Coma",
+        "semicolon": "Punto y coma",
+        "tab": "Tabulación",
+        "custom": "Personalizado",
+        "customValue": "Valor personalizado"
+      },
+      "normalization": {
+        "label": "Tipo de datos",
+        "generic": "Texto genérico",
+        "email": "Correo electrónico",
+        "phone": "Número de teléfono",
+        "url": "URL",
+        "name": "Nombre de persona",
+        "ip": "Dirección IP",
+        "keyword": "Palabra clave"
+      },
+      "advanced": {
+        "ignoreDiacritics": { "label": "Ignorar acentos", "desc": "Tratar e y é como iguales" },
+        "reorderNameTokens": { "label": "Ignorar orden del nombre", "desc": "Emparejar John Smith con Smith, John" },
+        "defaultCountryCode": { "label": "Código de país", "desc": "Añadir este código a números locales" },
+        "ignoreUrlProtocol": { "label": "Ignorar protocolo", "desc": "Tratar HTTP y HTTPS como iguales" },
+        "ignoreUrlWww": { "label": "Ignorar www", "desc": "Tratar dominios con y sin www como iguales" },
+        "ignoreUrlTrailingSlash": { "label": "Ignorar barra final", "desc": "Tratar /page y /page/ como iguales" },
+        "ignoreUrlHash": { "label": "Ignorar fragmento URL", "desc": "Ignorar la parte posterior a #" }
       }
+    },
+    "tableCompare": {
+      "title": "Comparación por filas", "description": "Elige una o más columnas clave para clasificar filas como añadidas, eliminadas, modificadas o sin cambios.", "keyA": "Claves del archivo A", "keyB": "Claves del archivo B", "unnamedColumn": "Columna {index}", "compositeHint": "Selecciona varias columnas para una clave compuesta.", "compareRows": "Comparar filas", "added": "Añadidas", "removed": "Eliminadas", "changed": "Modificadas", "unchanged": "Sin cambios", "duplicateKeys": "Claves duplicadas: {a} en A y {b} en B. Se emparejan en orden de origen.", "key": "Clave", "field": "Campo modificado", "before": "Antes", "after": "Después", "exportReport": "Exportar informe"
     },
     "fuzzyMatchTable": {
       "title": "Coincidencias difusas",
       "subtitle": "Elementos similares pero no idénticos",
       "noMatches": "No se encontraron coincidencias difusas. Intenta bajar el umbral de similitud.",
-      "moreHidden": "+ {count} coincidencias más ocultas"
+      "moreHidden": "+ {count} coincidencias más ocultas",
+      "reasons": { "exact": "Exacta tras normalizar", "tokenOrder": "Mismas palabras, distinto orden", "minorDifference": "Pequeña diferencia de texto", "similarStructure": "Estructura de texto similar" }
     },
     "aiInsights": {
       "title": "Insights AI",
@@ -1352,7 +1397,8 @@
       "justNow": "Justo ahora",
       "minutesAgo": "hace {count}m",
       "hoursAgo": "hace {count}h",
-      "modeAi": "AI",
+      "modeAi": "Inteligente",
+      "privacyNote": "Solo se guardan conteos y ajustes en este dispositivo. El historial nuevo nunca guarda el contenido de tus listas.",
       "modeExact": "Exacta",
       "labelA": "A: {count}",
       "labelB": "B: {count}",
