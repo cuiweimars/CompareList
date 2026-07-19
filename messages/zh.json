@@ -6,6 +6,7 @@
     "copy": "复制",
     "copied": "已复制！",
     "clear": "清除",
+    "close": "关闭",
     "delete": "删除",
     "edit": "编辑",
     "reset": "重置",
@@ -31,7 +32,7 @@
     },
     "hero": {
       "badge": "免费 · 隐私 · 无需注册",
-      "title": "即时比较两个列表 <gradient>Instantly</gradient>",
+      "title": "即时<gradient>比较两个列表</gradient>",
       "subtitle": "查找任意两个列表之间的差异、共同项和独有条目。快速、私密，全部在本地处理。"
     },
     "tool": {
@@ -1256,6 +1257,7 @@
       "copy": "复制",
       "copied": "已复制！",
       "copyAll": "复制全部",
+      "export": "导出",
       "downloadCsv": "下载 CSV",
       "downloadTxt": "下载 TXT",
       "fullReport": "完整报告",

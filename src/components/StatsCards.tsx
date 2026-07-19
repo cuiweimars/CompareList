@@ -62,12 +62,12 @@ export default function StatsCards({ stats, onCardClick }: StatsCardsProps) {
         {cards.map((card, i) => (
         <div
           key={card.label}
-          className={`glass rounded-xl p-5 animate-fade-up group hover:border-border-active transition-all duration-300 ${onCardClick ? "cursor-pointer active:scale-[0.98]" : ""}`}
+          className={`glass rounded-xl p-4 sm:p-5 animate-fade-up group hover:border-border-active transition-all duration-300 ${onCardClick ? "cursor-pointer active:scale-[0.98]" : ""}`}
           style={{ animationDelay: `${i * 80}ms` }}
           onClick={() => onCardClick?.(i)}
         >
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs uppercase tracking-widest text-text-muted font-medium">
+            <span className="text-xs uppercase tracking-wide text-text-muted font-medium leading-snug">
               {card.label}
             </span>
             <span
@@ -78,7 +78,7 @@ export default function StatsCards({ stats, onCardClick }: StatsCardsProps) {
             </span>
           </div>
           <div
-            className="text-3xl font-bold font-[family-name:var(--font-sora)] stat-value"
+            className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-sora)] stat-value"
             style={{ color: card.color, textShadow: `0 0 20px ${card.glow}` }}
           >
             {typeof card.value === "number" ? card.value.toLocaleString() : card.value}

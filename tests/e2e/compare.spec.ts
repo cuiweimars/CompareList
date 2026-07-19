@@ -57,3 +57,33 @@ test("canonical and language alternate URLs are consistent", async ({ page }) =>
   await page.goto("/privacy");
   await expect(page.getByRole("heading", { name: "Privacy Policy" })).toBeVisible();
 });
+
+test.describe("mobile comparison experience", () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test("keeps primary controls readable and results accessible", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(page.getByRole("link", { name: "Tool", exact: true })).toBeHidden();
+    await expect(page.getByRole("button", { name: "Swap lists" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "History" })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+
+    await page.getByRole("button", { name: "Try Demo" }).click();
+    await expect(page.getByRole("heading", { name: "Results" })).toBeVisible();
+    await expect(page.getByRole("tab")).toHaveCount(6);
+    await expect(page.getByRole("button", { name: "Export" })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+
+    await page.getByRole("button", { name: "Export" }).click();
+    await expect(page.getByRole("menuitem", { name: "Download CSV" })).toBeVisible();
+
+    await page.getByRole("button", { name: "History" }).click();
+    const dialog = page.getByRole("dialog", { name: "History" });
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByRole("button", { name: "Close" })).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(dialog).toBeHidden();
+    await expect(page.getByRole("button", { name: "History" })).toBeFocused();
+  });
+});

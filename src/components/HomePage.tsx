@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import {
   ArrowRightLeft, Zap, Shield, Globe, Sparkles,
   ChevronDown, ChevronUp, History, ArrowRight, ArrowLeftRight,
@@ -39,6 +39,7 @@ export default function HomePage() {
   const [showFaq, setShowFaq] = useState<number | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const [globalDragOver, setGlobalDragOver] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
   const [options, setOptions] = useState<CompareUiOptions>({
     caseSensitive: false, trimWhitespace: true, removeDuplicates: true, ignoreEmpty: true,
     delimiter: "auto", customDelimiter: "", normalization: "generic",
@@ -127,6 +128,17 @@ export default function HomePage() {
       }
     : result;
 
+  useEffect(() => {
+    if (!result) return;
+    const frame = window.requestAnimationFrame(() => {
+      resultsRef.current?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [result, smartResult]);
+
   return (
     <div
       className="flex flex-col min-h-screen relative"
@@ -135,23 +147,31 @@ export default function HomePage() {
       onDrop={(e) => { e.preventDefault(); if (e.dataTransfer.files.length > 0) handleGlobalDrop(e.dataTransfer.files); }}
     >
       {/* Header */}
-      <header className="border-b border-border bg-surface/60 backdrop-blur-xl sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow">
+      <header className="border-b border-border bg-surface/85 backdrop-blur-xl sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow">
               <ArrowRightLeft size={16} className="text-white" />
             </div>
-            <span className="font-bold text-xl font-[family-name:var(--font-sora)] tracking-tight">
+            <span className="font-bold text-lg sm:text-xl font-[family-name:var(--font-sora)] tracking-tight">
               Compare<span className="hero-gradient-text">List</span>
             </span>
           </Link>
-          <nav className="flex items-center gap-4 text-[15px]">
-            <a href="#tool" className="text-text-secondary hover:text-text px-3 py-1.5 rounded-lg hover:bg-surface-alt/40 transition-all">{tNav('tool')}</a>
-            <a href="#features" className="text-text-secondary hover:text-text px-3 py-1.5 rounded-lg hover:bg-surface-alt/40 transition-all">{tNav('features')}</a>
-            <a href="#faq" className="text-text-secondary hover:text-text px-3 py-1.5 rounded-lg hover:bg-surface-alt/40 transition-all">{tNav('faq')}</a>
+          <nav className="flex items-center gap-1 sm:gap-2 lg:gap-4 text-[15px] min-w-0" aria-label={tNav('tool')}>
+            <div className="hidden md:flex items-center gap-1 lg:gap-2">
+              <a href="#tool" className="text-text-secondary hover:text-text px-3 py-2 rounded-lg hover:bg-surface-alt/40 transition-all">{tNav('tool')}</a>
+              <a href="#features" className="text-text-secondary hover:text-text px-3 py-2 rounded-lg hover:bg-surface-alt/40 transition-all">{tNav('features')}</a>
+              <a href="#faq" className="text-text-secondary hover:text-text px-3 py-2 rounded-lg hover:bg-surface-alt/40 transition-all">{tNav('faq')}</a>
+            </div>
             <LanguageSwitcher />
-            <div className="w-px h-5 bg-border mx-1" />
-            <button onClick={() => setShowHistory(true)} className="p-2 hover:bg-surface-alt/50 rounded-lg transition-colors" title="History">
+            <div className="hidden sm:block w-px h-5 bg-border mx-1" />
+            <button
+              type="button"
+              onClick={() => setShowHistory(true)}
+              className="w-10 h-10 inline-flex items-center justify-center hover:bg-surface-alt/50 rounded-lg transition-colors"
+              title={tNav('history')}
+              aria-label={tNav('history')}
+            >
               <History size={17} className="text-text-secondary" />
             </button>
             {/* Credits hidden - AI features are free during beta */}
@@ -171,37 +191,37 @@ export default function HomePage() {
       )}
 
       {/* Hero */}
-      <section className="relative py-12 lg:py-16 text-center overflow-hidden">
+      <section className="relative py-8 sm:py-12 lg:py-16 text-center overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/6 rounded-full blur-[100px] pointer-events-none" />
-        <div className="relative max-w-3xl mx-auto px-6 animate-fade-up">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-surface/50 backdrop-blur-sm text-sm text-text-muted mb-5">
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full border border-border bg-surface/50 backdrop-blur-sm text-xs sm:text-sm text-text-muted mb-4 sm:mb-5">
             <span className="w-2 h-2 rounded-full bg-success animate-pulse-glow" />
             {t('hero.badge')}
           </div>
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold font-[family-name:var(--font-sora)] tracking-tight mb-4 leading-[1.1]">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold font-[family-name:var(--font-sora)] tracking-tight mb-3 sm:mb-4 leading-[1.12]">
             {t.rich('hero.title', {
               gradient: (chunks) => <span className="hero-gradient-text">{chunks}</span>,
             })}
           </h1>
-          <p className="text-text-secondary text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-text-secondary text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
             {t('hero.subtitle')}
           </p>
         </div>
       </section>
 
       {/* Tool - 1250px width for spacious layout */}
-      <section id="tool" className="max-w-[1250px] mx-auto px-4 pb-20 -mt-2 relative z-10 w-full">
-        <div className="glass-elevated rounded-2xl p-6 lg:p-8 glow-primary gradient-border">
+      <section id="tool" className="max-w-[1250px] mx-auto px-3 sm:px-4 pb-12 sm:pb-20 -mt-1 sm:-mt-2 relative z-10 w-full scroll-mt-20">
+        <div className="glass-elevated rounded-2xl p-4 sm:p-6 lg:p-8 glow-primary gradient-border">
           {/* Mode Toggle */}
           <div className="flex items-center justify-center mb-5">
-            <div className="inline-flex items-center p-1 rounded-xl bg-surface/80 border border-border">
-              <button onClick={() => { setMode("exact"); setResult(null); setSmartResult(null); }}
-                className={`px-6 py-2.5 rounded-lg text-[15px] font-medium transition-all duration-300 ${mode === "exact" ? "bg-surface-alt text-text shadow-md" : "text-text-muted hover:text-text-secondary"}`}>
+            <div className="inline-flex items-center p-1 rounded-xl bg-surface/80 border border-border max-w-full">
+              <button type="button" aria-pressed={mode === "exact"} onClick={() => { setMode("exact"); setResult(null); setSmartResult(null); }}
+                className={`px-4 sm:px-6 min-h-11 rounded-lg text-sm sm:text-[15px] font-medium transition-all duration-300 ${mode === "exact" ? "bg-surface-alt text-text shadow-md" : "text-text-muted hover:text-text-secondary"}`}>
                 {t('tool.modeExact')}
               </button>
-              <button onClick={() => { setMode("smart"); setResult(null); setSmartResult(null); }}
-                className={`px-6 py-2.5 rounded-lg text-[15px] font-medium transition-all duration-300 flex items-center gap-2 ${mode === "smart" ? "bg-surface-alt text-text shadow-md" : "text-text-muted hover:text-text-secondary"}`}>
+              <button type="button" aria-pressed={mode === "smart"} onClick={() => { setMode("smart"); setResult(null); setSmartResult(null); }}
+                className={`px-3 sm:px-6 min-h-11 rounded-lg text-sm sm:text-[15px] font-medium transition-all duration-300 flex items-center gap-1.5 sm:gap-2 ${mode === "smart" ? "bg-surface-alt text-text shadow-md" : "text-text-muted hover:text-text-secondary"}`}>
                 <Sparkles size={15} className="text-primary" />
                 {t('tool.modeAi')}
                 <span className="text-xs text-green-600 bg-green-500/10 px-2 py-0.5 rounded-full font-medium">{t('tool.modeAiFree')}</span>
@@ -212,6 +232,7 @@ export default function HomePage() {
             <div className="max-w-sm mx-auto -mt-2 mb-5 flex items-center gap-3 text-xs text-text-muted">
               <span className="shrink-0">{t("tool.similarityThreshold")}</span>
               <input
+                aria-label={t("tool.similarityThreshold")}
                 type="range"
                 min="60"
                 max="95"
@@ -227,10 +248,21 @@ export default function HomePage() {
           {/* Fixed-height Inputs */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5 relative">
             <ListInput label={t('tool.listALabel')} labelColor="#818cf8" value={listA} onChange={setListA} placeholder={t('tool.listAPlaceholder')} />
+            <button
+              type="button"
+              onClick={swapLists}
+              className="lg:hidden justify-self-center inline-flex items-center justify-center gap-2 min-h-11 px-4 rounded-xl bg-surface-alt/70 border border-border hover:border-primary/40 text-sm text-text-secondary hover:text-text transition-all"
+              aria-label={t('tool.swapLists')}
+            >
+              <ArrowLeftRight size={16} />
+              {t('tool.swapLists')}
+            </button>
             <ListInput label={t('tool.listBLabel')} labelColor="#22d3ee" value={listB} onChange={setListB} placeholder={t('tool.listBPlaceholder')} />
             {/* Swap button - centered between the two inputs */}
             <button
               onClick={swapLists}
+              type="button"
+              aria-label={t('tool.swapLists')}
               className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface-alt border border-border hover:border-primary/40 items-center justify-center transition-all hover:scale-110 z-10"
               title={t('tool.swapLists')}
             >
@@ -239,16 +271,22 @@ export default function HomePage() {
           </div>
 
           {/* Action bar - single row, no conditional height changes */}
-          <div className="flex items-center justify-between gap-4">
-            <button onClick={() => setShowOptions(!showOptions)} className="text-sm text-text-muted hover:text-text-secondary flex items-center gap-1.5 transition-colors">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+            <button
+              type="button"
+              onClick={() => setShowOptions(!showOptions)}
+              aria-expanded={showOptions}
+              aria-controls="comparison-options"
+              className="self-start min-h-11 px-1 text-sm text-text-muted hover:text-text-secondary flex items-center gap-1.5 transition-colors"
+            >
               {showOptions ? <ChevronUp size={15} /> : <ChevronDown size={15} />} {t('tool.options')}
             </button>
-            <div className="flex items-center gap-3">
-              <button onClick={handleDemo} className="px-5 py-2.5 text-[15px] text-text-muted hover:text-text border border-border rounded-xl hover:bg-surface-alt/50 transition-all">
+            <div className="grid grid-cols-2 sm:flex items-stretch sm:items-center gap-3 w-full sm:w-auto">
+              <button type="button" onClick={handleDemo} className="min-h-11 px-3 sm:px-5 text-sm sm:text-[15px] text-text-secondary hover:text-text border border-border rounded-xl hover:bg-surface-alt/50 transition-all whitespace-nowrap">
                 {t('tool.tryDemo')}
               </button>
-              <button onClick={handleCompare} disabled={!listA.trim() && !listB.trim()}
-                className="btn-primary px-8 py-2.5 text-[15px] font-semibold text-white rounded-xl flex items-center gap-2">
+              <button type="button" onClick={handleCompare} disabled={!listA.trim() && !listB.trim()}
+                className="btn-primary min-h-11 px-3 sm:px-8 text-sm sm:text-[15px] font-semibold text-white rounded-xl flex items-center justify-center gap-2 whitespace-nowrap">
                 {mode === "smart" ? (
                   <><Sparkles size={16} />{t('tool.compareWithAi')}</>
                 ) : t('tool.compareLists')}
@@ -258,19 +296,24 @@ export default function HomePage() {
 
           {/* Options - expands BELOW the bar, never shifts inputs */}
           {showOptions && (
-            <div className="mt-4 pt-4 border-t border-border">
+            <div id="comparison-options" className="mt-4 pt-4 border-t border-border">
               <OptionsPanel {...options} onChange={setOptions} />
             </div>
           )}
 
           {/* Results */}
           {displayedResult && (
-            <div className="space-y-4 mt-6 animate-fade-up" id="results-section">
+            <div
+              ref={resultsRef}
+              className="space-y-4 mt-6 animate-fade-up scroll-mt-28"
+              id="results-section"
+              aria-live="polite"
+            >
               <div className="flex items-center justify-between">
                 <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider">{t('tool.results')}</h3>
                 <button onClick={() => { setResult(null); setSmartResult(null); }} className="text-xs text-text-muted hover:text-text-secondary transition-colors">{t('tool.clearResults')}</button>
               </div>
-              <StatsCards stats={displayedResult.stats} onCardClick={() => document.getElementById("results-section")?.scrollIntoView({ behavior: "smooth" })} />
+              <StatsCards stats={displayedResult.stats} />
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <VennDiagram totalA={displayedResult.stats.totalA} totalB={displayedResult.stats.totalB} common={displayedResult.stats.common} onlyA={displayedResult.stats.uniqueA} onlyB={displayedResult.stats.uniqueB} />
                 <div className="lg:col-span-2">

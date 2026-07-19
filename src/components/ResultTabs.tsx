@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { Copy, Download, Check, Search, ArrowUpDown, FileSpreadsheet, CheckSquare, Square, MoreHorizontal } from "lucide-react";
+import { Copy, Download, Check, Search, ArrowUpDown, FileSpreadsheet, CheckSquare, Square } from "lucide-react";
 import { copyToClipboard, downloadAsCSV, downloadAsText, downloadCsvContent } from "@/lib/export";
 
 interface ResultTabsProps {
@@ -25,15 +25,24 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
   const [visibleCount, setVisibleCount] = useState(200);
   const exportMenuRef = useRef<HTMLDivElement>(null);
 
-  // Close export menu on outside click
+  // Close export menu on outside click or Escape
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (exportMenuRef.current && !exportMenuRef.current.contains(e.target as Node)) {
         setShowExportMenu(false);
       }
     }
-    if (showExportMenu) document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setShowExportMenu(false);
+    }
+    if (showExportMenu) {
+      document.addEventListener("mousedown", handleClick);
+      document.addEventListener("keydown", handleKey);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
   }, [showExportMenu]);
 
   const tabs: { key: TabKey; label: string; short: string; count: number; color: string }[] = [
@@ -130,14 +139,19 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
 
   return (
     <div className="glass rounded-xl overflow-hidden">
-      {/* Tab bar — scrollable */}
-      <div className="border-b border-border overflow-x-auto">
-        <div className="flex px-1">
+      {/* Tab bar — a visible 3 × 2 grid on phones, a compact row elsewhere */}
+      <div className="border-b border-border">
+        <div className="grid grid-cols-3 sm:flex sm:overflow-x-auto px-1" role="tablist">
           {tabs.map((tab) => (
             <button
+              type="button"
               key={tab.key}
+              id={`result-tab-${tab.key}`}
+              role="tab"
+              aria-selected={activeTab === tab.key}
+              aria-controls="comparison-result-panel"
               onClick={() => { setActiveTab(tab.key); setSearch(""); setSelected(new Set()); setVisibleCount(200); }}
-              className={`px-2.5 py-2.5 text-xs font-medium transition-all relative shrink-0 ${
+              className={`min-h-11 px-2 sm:px-2.5 py-2 text-xs font-medium transition-all relative sm:shrink-0 ${
                 activeTab === tab.key ? "text-text" : "text-text-muted hover:text-text-secondary"
               }`}
             >
@@ -161,94 +175,109 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
         </div>
       </div>
 
-      {/* Toolbar — two rows on small screens */}
-      <div className="px-3 py-2 border-b border-border bg-surface/30 space-y-2">
-        {/* Row 1: select + search + sort */}
-        <div className="flex items-center gap-2">
-          {!isComputedTab && (
-          <button
-            onClick={toggleSelectAll}
-            className="p-1 text-text-muted hover:text-text transition-colors shrink-0"
-            title={selected.size === currentList.length ? t("deselect") : t("select")}
-          >
-            {selected.size === currentList.length && currentList.length > 0
-              ? <CheckSquare size={14} className="text-primary" />
-              : <Square size={14} />}
-          </button>
-          )}
-          <div className="relative flex-1 min-w-0 max-w-[220px]">
-            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-text-muted" />
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder={t("filter")}
-              className="w-full pl-7 pr-2 py-1.5 text-sm bg-surface-alt/50 rounded-lg border border-border outline-none focus:border-primary/40 transition-colors placeholder:text-text-muted/50"
-            />
-          </div>
-          <button
-            onClick={cycleSort}
-            className={`flex items-center gap-1 px-2 py-1.5 text-xs rounded-lg border shrink-0 transition-all ${
-              sortMode !== "original" ? "border-primary/30 bg-primary/5 text-primary" : "border-border text-text-muted hover:text-text-secondary"
-            }`}
-          >
-            <ArrowUpDown size={12} />
-            {sortLabel}
-          </button>
-          {/* Selected actions */}
-          {selected.size > 0 && (
-            <div className="flex items-center gap-1 shrink-0">
-              <span className="text-xs text-primary font-medium">{selected.size}</span>
-              <button onClick={handleCopySelected} className="p-1.5 text-primary hover:bg-primary/10 rounded transition-colors" title={t("copySelected")}>
-                <Copy size={12} />
+      {/* Toolbar — actions stay readable instead of compressing on phones */}
+      <div className="px-3 py-2.5 border-b border-border bg-surface/30">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+          <div className="flex items-center gap-2 flex-1 min-w-0">
+            {!isComputedTab && (
+              <button
+                type="button"
+                onClick={toggleSelectAll}
+                aria-label={selected.size === currentList.length ? t("deselect") : t("select")}
+                className="w-9 h-9 inline-flex items-center justify-center text-text-muted hover:text-text transition-colors shrink-0 rounded-lg hover:bg-surface-alt/50"
+                title={selected.size === currentList.length ? t("deselect") : t("select")}
+              >
+                {selected.size === currentList.length && currentList.length > 0
+                  ? <CheckSquare size={15} className="text-primary" />
+                  : <Square size={15} />}
               </button>
+            )}
+            <div className="relative flex-1 min-w-0 sm:max-w-[240px]">
+              <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-text-muted" aria-hidden="true" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder={t("filter")}
+                className="w-full h-9 pl-8 pr-2 text-sm bg-surface-alt/50 rounded-lg border border-border outline-none focus:border-primary/40 transition-colors placeholder:text-text-muted/70"
+              />
             </div>
-          )}
-          {/* Copy All — standalone visible button */}
-          <button
-            onClick={handleCopy}
-            className="flex items-center gap-1 px-2 py-1.5 text-xs text-text-muted hover:text-text rounded-lg hover:bg-surface-alt/50 transition-colors shrink-0"
-          >
-            {copied ? <Check size={13} className="text-success" /> : <Copy size={13} />}
-            {copied ? t("copied") : t("copy")}
-          </button>
-          {/* Export menu trigger */}
-          <div className="relative shrink-0" ref={exportMenuRef}>
             <button
-              onClick={() => setShowExportMenu(!showExportMenu)}
-              className="flex items-center gap-1 px-2 py-1.5 text-xs text-text-muted hover:text-text rounded-lg hover:bg-surface-alt/50 transition-colors"
+              type="button"
+              onClick={cycleSort}
+              className={`min-h-9 flex items-center gap-1 px-2.5 text-xs rounded-lg border shrink-0 transition-all ${
+                sortMode !== "original" ? "border-primary/30 bg-primary/5 text-primary" : "border-border text-text-muted hover:text-text-secondary"
+              }`}
             >
-              <MoreHorizontal size={14} />
+              <ArrowUpDown size={13} />
+              {sortLabel}
             </button>
-            {showExportMenu && (
-              <div className="absolute right-0 top-full mt-1 w-40 bg-[#0f1629] rounded-lg shadow-xl border border-border z-20 py-1">
-                <button onClick={handleCopy} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
-                  {copied ? <Check size={13} className="text-success" /> : <Copy size={13} />}
-                  {copied ? t("copied") : t("copyAll")}
-                </button>
-                <button onClick={handleDownloadCSV} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
-                  <Download size={13} /> {t("downloadCsv")}
-                </button>
-                <button onClick={handleDownloadTXT} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
-                  <Download size={13} /> {t("downloadTxt")}
-                </button>
-                <div className="my-1 border-t border-border" />
-                <button onClick={handleExportFullReport} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
-                  <FileSpreadsheet size={13} /> {t("fullReport")}
+          </div>
+
+          <div className="flex items-center justify-end gap-1.5 shrink-0">
+            {selected.size > 0 && (
+              <div className="flex items-center gap-1 shrink-0">
+                <span className="text-xs text-primary font-medium" aria-live="polite">{selected.size}</span>
+                <button type="button" onClick={handleCopySelected} aria-label={t("copySelected")} className="w-9 h-9 inline-flex items-center justify-center text-primary hover:bg-primary/10 rounded-lg transition-colors" title={t("copySelected")}>
+                  <Copy size={14} />
                 </button>
               </div>
             )}
+            <button
+              type="button"
+              onClick={handleCopy}
+              className="min-h-9 flex items-center gap-1.5 px-3 text-xs text-text-secondary hover:text rounded-lg border border-border hover:bg-surface-alt/50 transition-colors shrink-0"
+            >
+              {copied ? <Check size={14} className="text-success" /> : <Copy size={14} />}
+              {copied ? t("copied") : t("copy")}
+            </button>
+            <div className="relative shrink-0" ref={exportMenuRef}>
+              <button
+                type="button"
+                onClick={() => setShowExportMenu(!showExportMenu)}
+                aria-expanded={showExportMenu}
+                aria-haspopup="menu"
+                className="min-h-9 flex items-center gap-1.5 px-3 text-xs text-text-secondary hover:text rounded-lg border border-border hover:bg-surface-alt/50 transition-colors"
+              >
+                <Download size={14} />
+                {t("export")}
+              </button>
+              {showExportMenu && (
+                <div role="menu" className="absolute right-0 top-full mt-1 w-44 bg-[#0f1629] rounded-lg shadow-xl border border-border z-20 py-1">
+                  <button type="button" role="menuitem" onClick={handleCopy} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
+                    {copied ? <Check size={13} className="text-success" /> : <Copy size={13} />}
+                    {copied ? t("copied") : t("copyAll")}
+                  </button>
+                  <button type="button" role="menuitem" onClick={handleDownloadCSV} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
+                    <Download size={13} /> {t("downloadCsv")}
+                  </button>
+                  <button type="button" role="menuitem" onClick={handleDownloadTXT} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
+                    <Download size={13} /> {t("downloadTxt")}
+                  </button>
+                  <div className="my-1 border-t border-border" />
+                  <button type="button" role="menuitem" onClick={handleExportFullReport} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors">
+                    <FileSpreadsheet size={13} /> {t("fullReport")}
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Results list */}
-      <div className="max-h-[380px] overflow-y-auto overflow-x-hidden" onScroll={(e) => {
+      <div
+        id="comparison-result-panel"
+        role="tabpanel"
+        aria-labelledby={`result-tab-${activeTab}`}
+        className="max-h-[380px] overflow-y-auto overflow-x-hidden"
+        onScroll={(e) => {
         const el = e.currentTarget;
         if (el.scrollHeight - el.scrollTop - el.clientHeight < 100 && visibleCount < currentList.length) {
           setVisibleCount((c) => Math.min(c + 200, currentList.length));
         }
-      }}>
+        }}
+      >
         {currentList.length === 0 ? (
           <div className="p-10 text-center text-text-muted text-base">
             {search ? t("noItemsFilter") : t("noItemsCategory")}
@@ -267,6 +296,7 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
                   type="checkbox"
                   checked={selected.has(item)}
                   onChange={() => toggleSelect(item)}
+                  aria-label={item}
                   className="shrink-0 accent-primary cursor-pointer w-3.5 h-3.5"
                 />
                 )}

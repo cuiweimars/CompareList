@@ -24,7 +24,9 @@ export default function ListInput({
   placeholder = "Paste your list here, one item per line...",
 }: ListInputProps) {
   const t = useTranslations("components.listInput");
+  const tCommon = useTranslations("common");
   const [dragOver, setDragOver] = useState(false);
+  const [fileError, setFileError] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
   const [csvColumns, setCsvColumns] = useState<string[] | null>(null);
   const [csvRows, setCsvRows] = useState<string[][] | null>(null);
@@ -129,18 +131,20 @@ export default function ListInput({
 
   async function handleFile(file: File) {
     if (file.size > 50 * 1024 * 1024) {
-      alert(t("fileTooLarge"));
+      setFileError(t("fileTooLarge"));
+      setFileName(null);
       return;
     }
     if (file.size > 10 * 1024 * 1024) {
       const ok = confirm(t("largeFileConfirm", { size: (file.size / 1024 / 1024).toFixed(1) }));
       if (!ok) return;
     }
+    setFileError(null);
     setFileName(file.name);
     const ext = "." + file.name.split(".").pop()?.toLowerCase();
 
     if (![".txt", ".csv", ".tsv", ".xlsx"].includes(ext)) {
-      alert(t("unsupportedFileType"));
+      setFileError(t("unsupportedFileType"));
       setFileName(null);
       return;
     }
@@ -220,6 +224,7 @@ export default function ListInput({
 
   function clearInput() {
     onChange("");
+    setFileError(null);
     setFileName(null);
     setCsvColumns(null);
     setCsvRows(null);
@@ -301,13 +306,15 @@ export default function ListInput({
               <button
                 type="button"
                 onClick={() => setShowColPicker(!showColPicker)}
+                aria-expanded={showColPicker}
+                aria-haspopup="menu"
                 className="flex items-center gap-1 text-xs px-2 py-1 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-600 hover:bg-amber-500/20 transition-colors"
               >
                 <Columns3 size={12} />
                 {colLabel}
               </button>
               {showColPicker && (
-                <div className="absolute left-0 top-full mt-1 w-72 bg-[#0f1629] rounded-xl shadow-2xl border border-border z-30 py-1.5">
+                <div role="menu" className="absolute left-0 top-full mt-1 w-72 max-w-[calc(100vw-2rem)] bg-[#0f1629] rounded-xl shadow-2xl border border-border z-30 py-1.5">
                   <div className="px-3 py-1.5 flex items-center justify-between border-b border-border mb-1">
                     <span className="text-xs font-medium text-text">{t("selectColumns")}</span>
                     <button
@@ -315,7 +322,7 @@ export default function ListInput({
                       onClick={handleAllOrReset}
                       className="text-xs text-amber-600 hover:underline"
                     >
-                      {selCount === totalCols ? "Reset" : "All"}
+                      {selCount === totalCols ? tCommon("reset") : tCommon("all")}
                     </button>
                   </div>
                   {csvColumns.map((col, i) => (
@@ -323,6 +330,8 @@ export default function ListInput({
                       type="button"
                       key={i}
                       onClick={() => toggleCol(i)}
+                      role="menuitemcheckbox"
+                      aria-checked={selectedCols.has(i)}
                       className="w-full flex items-center gap-2 px-3 py-1.5 text-xs text-text-secondary hover:bg-surface-alt/50 transition-colors"
                     >
                       {selectedCols.has(i)
@@ -366,15 +375,16 @@ export default function ListInput({
           )}
           {csvRows && csvRows.length > 0 && (
             <span className="text-xs text-text-muted bg-surface/50 px-2 py-1 rounded-lg border border-border">
-              {csvRows.length.toLocaleString()} rows
+              {tCommon("rows", { count: csvRows.length })}
             </span>
           )}
           {value && (
             <button
               type="button"
               onClick={clearInput}
-              className="p-1 hover:bg-surface-alt/50 rounded-lg transition-colors ml-auto"
-              title="Clear"
+              className="w-9 h-9 inline-flex items-center justify-center hover:bg-surface-alt/50 rounded-lg transition-colors ml-auto"
+              title={tCommon("clear")}
+              aria-label={`${tCommon("clear")} ${label}`}
             >
               <X size={13} className="text-text-muted" />
             </button>
@@ -382,10 +392,18 @@ export default function ListInput({
         </div>
       )}
 
+      {fileError && (
+        <p role="alert" className="mb-2 rounded-lg border border-danger/25 bg-danger/10 px-3 py-2 text-sm text-danger">
+          {fileError}
+        </p>
+      )}
+
       {/* Textarea container - resizable via bottom-right drag handle */}
       <div
-        className={`relative rounded-xl transition-colors duration-300 w-full group/container`}
-        style={{ minHeight: "200px", height: csvColumns ? "420px" : "460px", resize: "vertical", overflow: "hidden" }}
+        className={`relative rounded-xl transition-colors duration-300 w-full min-h-[180px] group/container ${
+          csvColumns ? "h-[320px] sm:h-[360px]" : "h-[240px] sm:h-[300px] lg:h-[340px]"
+        }`}
+        style={{ resize: "vertical", overflow: "hidden" }}
         onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
         onDragLeave={() => setDragOver(false)}
         onDrop={handleDrop}
@@ -396,9 +414,9 @@ export default function ListInput({
         <textarea
           aria-label={label}
           value={value}
-          onChange={(e) => { onChange(e.target.value); setFileName(null); setCsvColumns(null); setCsvRows(null); setExcelSheets(null); onTableParsed?.(null); }}
+          onChange={(e) => { onChange(e.target.value); setFileError(null); setFileName(null); setCsvColumns(null); setCsvRows(null); setExcelSheets(null); onTableParsed?.(null); }}
           placeholder={placeholder}
-          className="relative w-full h-full p-5 bg-transparent resize-none outline-none text-[15px] font-mono leading-7 text-text placeholder:text-text-muted/40"
+          className="relative w-full h-full p-4 sm:p-5 bg-transparent resize-none outline-none text-[15px] font-mono leading-7 text-text placeholder:text-text-muted/70"
           spellCheck={false}
         />
         {dragOver && (
