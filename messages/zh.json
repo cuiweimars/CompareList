@@ -154,7 +154,7 @@
       "0": {
         "step": "01",
         "title": "粘贴您的列表",
-        "desc": "粘贴两个列表或上传 TXT/CSV 文件。自动检测换行符、逗号和制表符。"
+        "desc": "粘贴列表或上传 TXT、CSV、TSV、Excel、ODS 文件。编码、分隔符、工作表和列均在本地识别。"
       },
       "1": {
         "step": "02",
@@ -181,7 +181,7 @@
       },
       "1": {
         "q": "支持哪些文件格式？",
-        "a": "可以粘贴文本或上传 .txt、.csv、.tsv 文件。条目可以用换行符、逗号、分号或制表符分隔。"
+        "a": "可以粘贴文本或上传 TXT、CSV、TSV、XLSX、XLS、XLSM、ODS 文件。文本编码和分隔符会自动识别，也可手动修正。"
       },
       "2": {
         "q": "可以比较多少条数据？",
@@ -1217,7 +1217,7 @@
       "largeFileConfirm": "此文件大小为 {size}MB。大文件处理可能较慢。是否继续？",
       "items": "{count} 项",
       "sheet": "工作表",
-      "unsupportedFileType": "不支持此文件类型，请使用 TXT、CSV、TSV 或 XLSX。"
+      "unsupportedFileType": "不支持此文件类型，请使用 TXT、CSV、TSV、XLSX、XLS、XLSM 或 ODS。"
     },
     "resultTabs": {
       "tabs": {

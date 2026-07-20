@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Copy, Download, Check, Search, ArrowUpDown, FileSpreadsheet, CheckSquare, Square } from "lucide-react";
 import { copyToClipboard, downloadAsCSV, downloadAsText, downloadCsvContent } from "@/lib/export";
+import { event as trackEvent, itemCountBucket } from "@/lib/gtag";
 
 interface ResultTabsProps {
   onlyInA: string[];
@@ -94,11 +95,23 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
 
   async function handleCopy() {
     const ok = await copyToClipboard(currentList.join("\n"));
-    if (ok) { setCopied(true); setTimeout(() => setCopied(false), 2000); }
+    if (ok) {
+      trackEvent("comparison_result_copied", { category: activeTab, item_bucket: itemCountBucket(currentList.length) });
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   }
 
-  function handleDownloadCSV() { downloadAsCSV(currentList, `compare-list-${activeTab}.csv`); setShowExportMenu(false); }
-  function handleDownloadTXT() { downloadAsText(currentList.join("\n"), `compare-list-${activeTab}.txt`); setShowExportMenu(false); }
+  function handleDownloadCSV() {
+    downloadAsCSV(currentList, `compare-list-${activeTab}.csv`);
+    trackEvent("comparison_result_exported", { category: activeTab, format: "csv", item_bucket: itemCountBucket(currentList.length) });
+    setShowExportMenu(false);
+  }
+  function handleDownloadTXT() {
+    downloadAsText(currentList.join("\n"), `compare-list-${activeTab}.txt`);
+    trackEvent("comparison_result_exported", { category: activeTab, format: "txt", item_bucket: itemCountBucket(currentList.length) });
+    setShowExportMenu(false);
+  }
 
   function handleExportFullReport() {
     const header = '"Category","Item"';
@@ -107,6 +120,7 @@ export default function ResultTabs({ onlyInA, onlyInB, inBoth }: ResultTabsProps
     for (const item of onlyInB) rows.push(`"Only in B","${item.replace(/"/g, '""')}"`);
     for (const item of inBoth) rows.push(`"In Both","${item.replace(/"/g, '""')}"`);
     downloadCsvContent(rows.join("\r\n"), "compare-list-full-report.csv");
+    trackEvent("comparison_result_exported", { category: "full_report", format: "csv", item_bucket: itemCountBucket(rows.length - 1) });
     setShowExportMenu(false);
   }
 

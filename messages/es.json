@@ -1217,7 +1217,7 @@
       "largeFileConfirm": "Este archivo es de {size}MB. Los archivos grandes pueden ser lentos de procesar. ¿Continuar?",
       "items": "{count} elementos",
       "sheet": "Hoja",
-      "unsupportedFileType": "Tipo no compatible. Usa TXT, CSV, TSV o XLSX."
+      "unsupportedFileType": "Tipo no compatible. Usa TXT, CSV, TSV, XLSX, XLS, XLSM u ODS."
     },
     "resultTabs": {
       "tabs": {

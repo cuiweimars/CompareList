@@ -1,10 +1,13 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
-import { Upload, X, FileText, Columns3, CheckSquare, Square } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { Upload, X, FileText, Columns3, CheckSquare, Square, Table2, EyeOff } from "lucide-react";
 import type { TableData } from "@/lib/table-compare";
 import { parseList } from "@/lib/compare";
+import { event as trackEvent, fileSizeBucket } from "@/lib/gtag";
+import { isSupportedFileName, parseSupportedFile, type ParseFileOptions, type ParsedFile, type SupportedTextEncoding } from "@/lib/file-parsers";
+import { getWorkspaceCopy } from "@/lib/workspace-copy";
 
 interface ListInputProps {
   label: string;
@@ -12,6 +15,7 @@ interface ListInputProps {
   value: string;
   onChange: (value: string) => void;
   onTableParsed?: (table: TableData | null) => void;
+  onFileNameChange?: (fileName: string | null) => void;
   placeholder?: string;
 }
 
@@ -21,10 +25,13 @@ export default function ListInput({
   value,
   onChange,
   onTableParsed,
+  onFileNameChange,
   placeholder = "Paste your list here, one item per line...",
 }: ListInputProps) {
   const t = useTranslations("components.listInput");
   const tCommon = useTranslations("common");
+  const locale = useLocale();
+  const workspaceCopy = getWorkspaceCopy(locale);
   const [dragOver, setDragOver] = useState(false);
   const [fileError, setFileError] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
@@ -34,6 +41,11 @@ export default function ListInput({
   const [selectedSheet, setSelectedSheet] = useState(0);
   const [selectedCols, setSelectedCols] = useState<Set<number>>(new Set([0]));
   const [showColPicker, setShowColPicker] = useState(false);
+  const [showTablePreview, setShowTablePreview] = useState(true);
+  const [fileEncoding, setFileEncoding] = useState<string | null>(null);
+  const [sourceFile, setSourceFile] = useState<File | null>(null);
+  const [manualEncoding, setManualEncoding] = useState<"auto" | SupportedTextEncoding>("auto");
+  const [manualDelimiter, setManualDelimiter] = useState<"auto" | "," | ";" | "\t" | "|">("auto");
   const fileRef = useRef<HTMLInputElement>(null);
   const pickerRef = useRef<HTMLDivElement>(null);
 
@@ -77,62 +89,33 @@ export default function ListInput({
     onChange(colData);
   }
 
-  function parseDelimited(text: string, delimiter: string): string[][] {
-    const rows: string[][] = [];
-    let fields: string[] = [];
-    let current = "";
-    let inQuotes = false;
-    for (let i = 0; i < text.length; i++) {
-      const ch = text[i];
-      if (inQuotes) {
-        if (ch === '"') {
-          if (i + 1 < text.length && text[i + 1] === '"') {
-            current += '"';
-            i++;
-          } else {
-            inQuotes = false;
-          }
-        } else {
-          current += ch;
-        }
-      } else {
-        if (ch === '"') {
-          inQuotes = true;
-        } else if (ch === delimiter) {
-          fields.push(current.trim());
-          current = "";
-        } else if (ch === "\n" || ch === "\r") {
-          if (ch === "\r" && text[i + 1] === "\n") i++;
-          fields.push(current.trim());
-          if (fields.some((field) => field.length > 0)) rows.push(fields);
-          fields = [];
-          current = "";
-        } else {
-          current += ch;
-        }
-      }
+  function applyParsedFile(file: File, parsed: ParsedFile): number | null {
+    const sheets = parsed.sheets;
+    const data = sheets[0]?.data ?? [];
+    setExcelSheets(sheets.length > 1 ? sheets : null);
+    setSelectedSheet(0);
+    setFileEncoding(parsed.encoding ?? null);
+    setShowTablePreview(true);
+    if (data.length >= 2 && data[0].length >= 2) {
+      const headers = data[0];
+      const rows = data.slice(1);
+      handleColumnsParsed(headers, rows, file.name);
+      return rows.length;
     }
-    fields.push(current.trim());
-    if (fields.some((field) => field.length > 0)) rows.push(fields);
-    return rows;
-  }
-
-  function detectColumns(text: string, ext: string): { headers: string[]; rows: string[][] } | null {
-    const delimiter = ext === ".tsv" ? "\t" : ext === ".csv" ? "," : null;
-    if (!delimiter) return null;
-    const parsedRows = parseDelimited(text, delimiter);
-    if (parsedRows.length < 2) return null;
-    const firstRow = parsedRows[0];
-    firstRow[0] = firstRow[0]?.replace(/^\uFEFF/, "") ?? "";
-    if (firstRow.length < 2) return null;
-    const rows = parsedRows.slice(1);
-    return { headers: firstRow, rows };
+    const text = parsed.text ?? data.flat().filter((cell) => cell.trim()).join("\n");
+    setCsvColumns(null);
+    setCsvRows(null);
+    onTableParsed?.(null);
+    onChange(text);
+    return null;
   }
 
   async function handleFile(file: File) {
     if (file.size > 50 * 1024 * 1024) {
+      trackEvent("file_upload_failed", { reason: "too_large", size_bucket: fileSizeBucket(file.size) });
       setFileError(t("fileTooLarge"));
       setFileName(null);
+      onFileNameChange?.(null);
       return;
     }
     if (file.size > 10 * 1024 * 1024) {
@@ -141,57 +124,57 @@ export default function ListInput({
     }
     setFileError(null);
     setFileName(file.name);
+    onFileNameChange?.(file.name);
     const ext = "." + file.name.split(".").pop()?.toLowerCase();
 
-    if (![".txt", ".csv", ".tsv", ".xlsx"].includes(ext)) {
-      setFileError(t("unsupportedFileType"));
+    if (!isSupportedFileName(file.name)) {
+      trackEvent("file_upload_failed", { reason: "unsupported_type", format: ext.slice(1) || "unknown" });
+      setFileError(workspaceCopy.supportedFileTypes);
       setFileName(null);
+      onFileNameChange?.(null);
       return;
     }
 
-    if (ext === ".xlsx") {
-      try {
-        const { default: readWorkbook } = await import("read-excel-file/browser");
-        const workbook = await readWorkbook(file);
-        const sheets = workbook.map(({ sheet, data }) => ({
-          name: sheet,
-          data: data.map((row) => row.map((cell) => cell instanceof Date ? cell.toISOString() : String(cell ?? ""))),
-        }));
-        const data = sheets[0]?.data ?? [];
-        setExcelSheets(sheets);
-        setSelectedSheet(0);
-        if (data.length < 2) {
-          const text = data.flat().filter((s) => String(s).trim()).join("\n");
-          onTableParsed?.(null);
-          onChange(text);
-          return;
-        }
-        const headers = data[0];
-        const rows = data.slice(1);
-        handleColumnsParsed(headers, rows, file.name);
-      } catch {
-        const text = await file.text();
-        onTableParsed?.(null);
-        onChange(text);
-      }
-      return;
-    }
+    setSourceFile(file);
+    setManualEncoding("auto");
+    setManualDelimiter("auto");
 
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const text = e.target?.result as string;
-      const parsed = detectColumns(text, ext);
-      setExcelSheets(null);
-      if (parsed && parsed.headers.length >= 2) {
-        handleColumnsParsed(parsed.headers, parsed.rows, file.name);
+    try {
+      const parsed = await parseSupportedFile(file);
+      const rowCount = applyParsedFile(file, parsed);
+      if (rowCount !== null) {
+        trackEvent("file_upload_completed", { format: ext.slice(1), size_bucket: fileSizeBucket(file.size), row_bucket: rowCount <= 100 ? "1-100" : rowCount <= 1000 ? "101-1000" : "1000+" });
       } else {
-        setCsvColumns(null);
-        setCsvRows(null);
-        onTableParsed?.(null);
-        onChange(text);
+        trackEvent("file_upload_completed", { format: ext.slice(1), size_bucket: fileSizeBucket(file.size) });
       }
+    } catch {
+      setFileError(workspaceCopy.fileParsingFailed);
+      setFileName(null);
+      onFileNameChange?.(null);
+      setCsvColumns(null);
+      setCsvRows(null);
+      setExcelSheets(null);
+      setFileEncoding(null);
+      setSourceFile(null);
+      onTableParsed?.(null);
+      trackEvent("file_upload_failed", { reason: "parse_error", format: ext.slice(1) || "unknown", size_bucket: fileSizeBucket(file.size) });
+    }
+  }
+
+  async function reparseTextFile(encoding: "auto" | SupportedTextEncoding, delimiter: "auto" | "," | ";" | "\t" | "|") {
+    if (!sourceFile) return;
+    const parseOptions: ParseFileOptions = {
+      ...(encoding === "auto" ? {} : { encoding }),
+      delimiter,
     };
-    reader.readAsText(file);
+    try {
+      const parsed = await parseSupportedFile(sourceFile, parseOptions);
+      applyParsedFile(sourceFile, parsed);
+      setFileError(null);
+      trackEvent("file_parser_setting_changed", { encoding, delimiter: delimiter === "\t" ? "tab" : delimiter === "auto" ? "auto" : delimiter });
+    } catch {
+      setFileError(workspaceCopy.fileParsingFailed);
+    }
   }
 
   function toggleCol(idx: number) {
@@ -226,9 +209,14 @@ export default function ListInput({
     onChange("");
     setFileError(null);
     setFileName(null);
+    onFileNameChange?.(null);
     setCsvColumns(null);
     setCsvRows(null);
     setExcelSheets(null);
+    setFileEncoding(null);
+    setSourceFile(null);
+    setManualEncoding("auto");
+    setManualDelimiter("auto");
     setSelectedSheet(0);
     setSelectedCols(new Set([0]));
     onTableParsed?.(null);
@@ -283,7 +271,7 @@ export default function ListInput({
         <input
           ref={fileRef}
           type="file"
-          accept=".txt,.csv,.tsv,.xlsx"
+          accept=".txt,.csv,.tsv,.xlsx,.xls,.xlsm,.ods"
           className="hidden"
           onChange={(e) => {
             const file = e.target.files?.[0];
@@ -378,6 +366,57 @@ export default function ListInput({
               {tCommon("rows", { count: csvRows.length })}
             </span>
           )}
+          {fileEncoding && (
+            <span className="text-xs text-text-muted bg-surface/50 px-2 py-1 rounded-lg border border-border">
+              {workspaceCopy.detectedEncoding.replace("{encoding}", fileEncoding)}
+            </span>
+          )}
+          {sourceFile && fileEncoding && (
+            <>
+              <label className="flex items-center gap-1 text-xs text-text-muted">
+                <span>{workspaceCopy.encoding}</span>
+                <select
+                  value={manualEncoding}
+                  onChange={(event) => {
+                    const next = event.target.value as "auto" | SupportedTextEncoding;
+                    setManualEncoding(next);
+                    void reparseTextFile(next, manualDelimiter);
+                  }}
+                  className="min-h-9 rounded-lg border border-border bg-surface px-2 text-xs text-text-secondary"
+                >
+                  <option value="auto">{workspaceCopy.autoDetect}</option>
+                  <option value="utf-8">UTF-8</option>
+                  <option value="gb18030">GB18030 / GBK</option>
+                  <option value="utf-16le">UTF-16LE</option>
+                  <option value="utf-16be">UTF-16BE</option>
+                </select>
+              </label>
+              <label className="flex items-center gap-1 text-xs text-text-muted">
+                <span>{workspaceCopy.delimiter}</span>
+                <select
+                  value={manualDelimiter}
+                  onChange={(event) => {
+                    const next = event.target.value as "auto" | "," | ";" | "\t" | "|";
+                    setManualDelimiter(next);
+                    void reparseTextFile(manualEncoding, next);
+                  }}
+                  className="min-h-9 rounded-lg border border-border bg-surface px-2 text-xs text-text-secondary"
+                >
+                  <option value="auto">{workspaceCopy.autoDetect}</option>
+                  <option value=",">,</option>
+                  <option value=";">;</option>
+                  <option value="\t">Tab</option>
+                  <option value="|">|</option>
+                </select>
+              </label>
+            </>
+          )}
+          {csvColumns && csvRows && (
+            <button type="button" onClick={() => setShowTablePreview((visible) => !visible)} className="min-h-9 inline-flex items-center gap-1.5 rounded-lg border border-border px-2 text-xs text-text-secondary hover:bg-surface-alt/50">
+              {showTablePreview ? <EyeOff size={13} /> : <Table2 size={13} />}
+              {showTablePreview ? workspaceCopy.hidePreview : workspaceCopy.previewData}
+            </button>
+          )}
           {value && (
             <button
               type="button"
@@ -389,6 +428,21 @@ export default function ListInput({
               <X size={13} className="text-text-muted" />
             </button>
           )}
+        </div>
+      )}
+
+      {csvColumns && csvRows && showTablePreview && (
+        <div className="mb-2 max-h-48 overflow-auto rounded-xl border border-border bg-surface/55">
+          <table className="w-full min-w-max text-xs">
+            <thead className="sticky top-0 bg-[#141d31] text-text-secondary">
+              <tr>{csvColumns.map((column, index) => <th key={`${column}-${index}`} className="p-2 text-left font-medium">{column || `#${index + 1}`}</th>)}</tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {csvRows.slice(0, 5).map((row, rowIndex) => (
+                <tr key={rowIndex}>{csvColumns.map((_, columnIndex) => <td key={columnIndex} className="max-w-48 truncate p-2 font-mono text-text-muted" title={row[columnIndex] ?? ""}>{row[columnIndex] ?? ""}</td>)}</tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
 
@@ -414,7 +468,7 @@ export default function ListInput({
         <textarea
           aria-label={label}
           value={value}
-          onChange={(e) => { onChange(e.target.value); setFileError(null); setFileName(null); setCsvColumns(null); setCsvRows(null); setExcelSheets(null); onTableParsed?.(null); }}
+          onChange={(e) => { onChange(e.target.value); setFileError(null); setFileName(null); onFileNameChange?.(null); setCsvColumns(null); setCsvRows(null); setExcelSheets(null); setFileEncoding(null); setSourceFile(null); setManualEncoding("auto"); setManualDelimiter("auto"); onTableParsed?.(null); }}
           placeholder={placeholder}
           className="relative w-full h-full p-4 sm:p-5 bg-transparent resize-none outline-none text-[15px] font-mono leading-7 text-text placeholder:text-text-muted/70"
           spellCheck={false}

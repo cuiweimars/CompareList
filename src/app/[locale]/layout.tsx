@@ -3,6 +3,8 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { Metadata, Viewport } from "next";
 import Analytics from "@/components/Analytics";
+import WebVitals from "@/components/WebVitals";
+import PwaRegister from "@/components/PwaRegister";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
@@ -45,6 +47,8 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col bg-[#030712] bg-grid">
         <NextIntlClientProvider messages={messages}>
           <Analytics />
+          <WebVitals />
+          <PwaRegister />
           {children}
         </NextIntlClientProvider>
       </body>

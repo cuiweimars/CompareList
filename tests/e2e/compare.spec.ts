@@ -29,7 +29,40 @@ test("CSV files support composite-key row comparison", async ({ page }) => {
   await expect(panel).toBeVisible();
   await panel.getByRole("button", { name: "Compare rows" }).click();
   await expect(panel.getByText("paused", { exact: true })).toBeVisible();
-  await expect(panel.getByRole("cell", { name: "status" })).toBeVisible();
+  await expect(panel.getByRole("row", { name: "2 status active paused" })).toBeVisible();
+  await panel.getByRole("tab", { name: "1 Added rows" }).click();
+  await expect(panel.getByRole("cell", { name: "Dana" })).toBeVisible();
+
+  const downloadPromise = page.waitForEvent("download");
+  await panel.getByRole("button", { name: "Excel report" }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toBe("comparelist-row-report.xlsx");
+});
+
+test("local projects and privacy-first share links are reusable", async ({ page, context }) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Try Demo" }).click();
+  await page.getByRole("button", { name: "Save project" }).click();
+
+  const saveDialog = page.getByRole("dialog", { name: "Save project" });
+  await saveDialog.getByRole("textbox", { name: "Project name" }).fill("Weekly QA project");
+  await saveDialog.getByRole("checkbox").check();
+  await saveDialog.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(page.getByText("Project saved", { exact: true })).toBeVisible();
+
+  await page.getByRole("button", { name: "Local projects" }).click();
+  const projectsDialog = page.getByRole("dialog", { name: "Local projects" });
+  await expect(projectsDialog.getByRole("heading", { name: "Weekly QA project" })).toBeVisible();
+  await projectsDialog.getByRole("button", { name: "Close" }).click();
+
+  await page.getByRole("button", { name: "Share workspace" }).click();
+  const shareDialog = page.getByRole("dialog", { name: "Share workspace" });
+  await expect(shareDialog.getByRole("checkbox")).not.toBeChecked();
+  await shareDialog.getByRole("button", { name: "Copy link" }).click();
+  const sharedUrl = await page.evaluate(() => navigator.clipboard.readText());
+  expect(sharedUrl).toContain("#share=");
+  expect(sharedUrl).not.toContain("?share=");
 });
 
 test("canonical and language alternate URLs are consistent", async ({ page }) => {
@@ -56,6 +89,11 @@ test("canonical and language alternate URLs are consistent", async ({ page }) =>
   expect(sitemap).not.toContain("/compare-csv-columns");
   await page.goto("/privacy");
   await expect(page.getByRole("heading", { name: "Privacy Policy" })).toBeVisible();
+
+  const manifest = await (await page.request.get("/manifest.webmanifest")).json();
+  expect(manifest.display).toBe("standalone");
+  expect(manifest.icons).toHaveLength(2);
+  await expect.poll(async () => page.evaluate(async () => Boolean((await navigator.serviceWorker.ready).active))).toBe(true);
 });
 
 test.describe("mobile comparison experience", () => {
@@ -66,11 +104,11 @@ test.describe("mobile comparison experience", () => {
 
     await expect(page.getByRole("link", { name: "Tool", exact: true })).toBeHidden();
     await expect(page.getByRole("button", { name: "Swap lists" })).toBeVisible();
-    await expect(page.getByRole("button", { name: "History" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Local projects" })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 
     await page.getByRole("button", { name: "Try Demo" }).click();
-    await expect(page.getByRole("heading", { name: "Results" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Results", exact: true })).toBeVisible();
     await expect(page.getByRole("tab")).toHaveCount(6);
     await expect(page.getByRole("button", { name: "Export" })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -78,12 +116,12 @@ test.describe("mobile comparison experience", () => {
     await page.getByRole("button", { name: "Export" }).click();
     await expect(page.getByRole("menuitem", { name: "Download CSV" })).toBeVisible();
 
-    await page.getByRole("button", { name: "History" }).click();
-    const dialog = page.getByRole("dialog", { name: "History" });
+    await page.getByRole("button", { name: "Local projects" }).click();
+    const dialog = page.getByRole("dialog", { name: "Local projects" });
     await expect(dialog).toBeVisible();
     await expect(dialog.getByRole("button", { name: "Close" })).toBeFocused();
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
-    await expect(page.getByRole("button", { name: "History" })).toBeFocused();
+    await expect(page.getByRole("button", { name: "Local projects" })).toBeFocused();
   });
 });

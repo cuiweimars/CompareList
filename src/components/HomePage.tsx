@@ -3,8 +3,8 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import {
   ArrowRightLeft, Zap, Shield, Globe, Sparkles,
-  ChevronDown, ChevronUp, History, ArrowRight, ArrowLeftRight,
-  Upload,
+  ChevronDown, ChevronUp, FolderClock, ArrowRight, ArrowLeftRight,
+  Upload, Save, RefreshCcw, BarChart3, Share2,
 } from "lucide-react";
 import ListInput from "@/components/ListInput";
 import OptionsPanel from "@/components/OptionsPanel";
@@ -12,13 +12,22 @@ import StatsCards from "@/components/StatsCards";
 import VennDiagram from "@/components/VennDiagram";
 import ResultTabs from "@/components/ResultTabs";
 import FuzzyMatchTable from "@/components/FuzzyMatchTable";
-import HistoryPanel from "@/components/HistoryPanel";
+import ProjectPanel from "@/components/ProjectPanel";
+import SaveProjectDialog from "@/components/SaveProjectDialog";
+import ShareProjectDialog from "@/components/ShareProjectDialog";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { compareLists, CompareResult, type CompareUiOptions } from "@/lib/compare";
-import { smartCompareLists, SmartCompareResult } from "@/lib/ai-compare";
+import { fuzzyMatchId, smartCompareLists, SmartCompareResult } from "@/lib/ai-compare";
 import { saveComparison } from "@/lib/history";
+import { saveProject, type LocalCompareProject } from "@/lib/project-store";
+import { getWorkspaceCopy } from "@/lib/workspace-copy";
+import { event as trackEvent, itemCountBucket } from "@/lib/gtag";
+import { parseSupportedFile } from "@/lib/file-parsers";
+import { runComparisonInWorker } from "@/lib/compare-worker-client";
+import { COMPARISON_TEMPLATES, localizedTemplate } from "@/lib/comparison-templates";
+import { decodeSharedComparison } from "@/lib/share-project";
 import { safeJsonLd } from "@/lib/seo";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 const DEMO_A = `apple\nbanana\ncherry\ndate\nelderberry\nfig\ngrape\nhoneydew\nJohn Smith\nNew York\ninfo@example.com`;
@@ -29,15 +38,30 @@ type CompareMode = "exact" | "smart";
 export default function HomePage() {
   const t = useTranslations("home");
   const tNav = useTranslations("nav");
+  const locale = useLocale();
+  const workspaceCopy = getWorkspaceCopy(locale);
   const [listA, setListA] = useState("");
   const [listB, setListB] = useState("");
   const [result, setResult] = useState<CompareResult | null>(null);
   const [smartResult, setSmartResult] = useState<SmartCompareResult | null>(null);
+  const [rejectedFuzzyMatches, setRejectedFuzzyMatches] = useState<Set<string>>(new Set());
   const [mode, setMode] = useState<CompareMode>("exact");
+  const [activeTemplate, setActiveTemplate] = useState("");
   const [smartThreshold, setSmartThreshold] = useState(0.8);
   const [showOptions, setShowOptions] = useState(false);
   const [showFaq, setShowFaq] = useState<number | null>(null);
-  const [showHistory, setShowHistory] = useState(false);
+  const [showProjects, setShowProjects] = useState(false);
+  const [showSaveProject, setShowSaveProject] = useState(false);
+  const [showShareProject, setShowShareProject] = useState(false);
+  const [activeProjectId, setActiveProjectId] = useState<string | undefined>();
+  const [activeProjectName, setActiveProjectName] = useState("");
+  const [fileNameA, setFileNameA] = useState<string | null>(null);
+  const [fileNameB, setFileNameB] = useState<string | null>(null);
+  const [workspaceNotice, setWorkspaceNotice] = useState<string | null>(null);
+  const [showVennOnMobile, setShowVennOnMobile] = useState(false);
+  const [isComparing, setIsComparing] = useState(false);
+  const [comparisonProgress, setComparisonProgress] = useState(0);
+  const comparisonAbortRef = useRef<AbortController | null>(null);
   const [globalDragOver, setGlobalDragOver] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
   const [options, setOptions] = useState<CompareUiOptions>({
@@ -47,28 +71,142 @@ export default function HomePage() {
 
   const swapLists = useCallback(() => { const tmp = listA; setListA(listB); setListB(tmp); }, [listA, listB]);
 
-  const handleCompare = useCallback(() => {
+  const handleCompare = useCallback(async () => {
     if (!listA.trim() && !listB.trim()) return;
-    const r = compareLists(listA, listB, options);
-    const smart = mode === "smart" ? smartCompareLists(listA, listB, options, smartThreshold) : null;
-    setResult(r);
-    setSmartResult(smart);
-    const commonCount = smart ? smart.stats.exactMatches + smart.stats.fuzzyMatches : r.stats.common;
-    saveComparison({
-      listALength: r.stats.totalA, listBLength: r.stats.totalB,
-      commonCount, uniqueACount: smart?.onlyInA.length ?? r.stats.uniqueA,
-      uniqueBCount: smart?.onlyInB.length ?? r.stats.uniqueB, matchRate: smart?.stats.totalMatchRate ?? r.stats.matchRate,
-      mode,
-    });
+    comparisonAbortRef.current?.abort();
+    const controller = new AbortController();
+    comparisonAbortRef.current = controller;
+    setIsComparing(true);
+    setComparisonProgress(5);
+    trackEvent("comparison_started", { mode, source: "home" });
+    try {
+      const output = await runComparisonInWorker({
+        listA,
+        listB,
+        options,
+        mode,
+        smartThreshold,
+        signal: controller.signal,
+        onProgress: setComparisonProgress,
+      });
+      const r = output.result;
+      const smart = output.smartResult;
+      setResult(r);
+      setSmartResult(smart);
+      setRejectedFuzzyMatches(new Set());
+      const commonCount = smart ? smart.stats.exactMatches + smart.stats.fuzzyMatches : r.stats.common;
+      saveComparison({
+        listALength: r.stats.totalA, listBLength: r.stats.totalB,
+        commonCount, uniqueACount: smart?.onlyInA.length ?? r.stats.uniqueA,
+        uniqueBCount: smart?.onlyInB.length ?? r.stats.uniqueB, matchRate: smart?.stats.totalMatchRate ?? r.stats.matchRate,
+        mode,
+      });
+      trackEvent("comparison_completed", {
+        mode,
+        source: "home",
+        item_bucket: itemCountBucket(r.stats.totalA + r.stats.totalB),
+        match_rate_bucket: `${Math.floor(r.stats.matchRate / 10) * 10}-${Math.min(100, Math.floor(r.stats.matchRate / 10) * 10 + 9)}`,
+      });
+    } catch (error) {
+      if (!(error instanceof DOMException && error.name === "AbortError")) {
+        trackEvent("comparison_failed", { mode, source: "home" });
+      }
+    } finally {
+      if (comparisonAbortRef.current === controller) {
+        comparisonAbortRef.current = null;
+        setIsComparing(false);
+        setComparisonProgress(0);
+      }
+    }
   }, [listA, listB, options, mode, smartThreshold]);
+
+  const cancelComparison = useCallback(() => {
+    comparisonAbortRef.current?.abort();
+    trackEvent("comparison_cancelled", { mode, source: "home" });
+  }, [mode]);
+
+  const handleTemplateChange = useCallback((templateId: string) => {
+    setActiveTemplate(templateId);
+    if (!templateId) return;
+    const template = COMPARISON_TEMPLATES.find((item) => item.id === templateId);
+    if (!template) return;
+    setOptions((current) => ({ ...current, ...template.options }));
+    setResult(null);
+    setSmartResult(null);
+    setRejectedFuzzyMatches(new Set());
+    setWorkspaceNotice(workspaceCopy.templateApplied);
+    window.setTimeout(() => setWorkspaceNotice(null), 3000);
+    trackEvent("comparison_template_applied", { template: template.id });
+  }, [workspaceCopy.templateApplied]);
 
   const handleDemo = useCallback(() => {
     setListA(DEMO_A); setListB(DEMO_B);
     setResult(null); setSmartResult(null);
+    setRejectedFuzzyMatches(new Set());
     const r = compareLists(DEMO_A, DEMO_B, options);
     setResult(r);
     if (mode === "smart") setSmartResult(smartCompareLists(DEMO_A, DEMO_B, options, smartThreshold));
+    trackEvent("demo_used", { mode });
   }, [options, mode, smartThreshold]);
+
+  const handleSaveProject = useCallback(async (name: string, saveContent: boolean) => {
+    const project = await saveProject({
+      id: activeProjectId,
+      name,
+      saveContent,
+      listA,
+      listB,
+      labelA: fileNameA || t("tool.listALabel"),
+      labelB: fileNameB || t("tool.listBLabel"),
+      mode,
+      smartThreshold,
+      options,
+      result,
+      smartResult,
+      rejectedFuzzyMatches: [...rejectedFuzzyMatches],
+    });
+    setActiveProjectId(project.id);
+    setActiveProjectName(project.name);
+    setWorkspaceNotice(workspaceCopy.saved);
+    window.setTimeout(() => setWorkspaceNotice(null), 3000);
+    trackEvent("project_saved", { content_saved: saveContent ? 1 : 0, mode });
+  }, [activeProjectId, fileNameA, fileNameB, listA, listB, mode, options, rejectedFuzzyMatches, result, smartResult, smartThreshold, t, workspaceCopy.saved]);
+
+  const handleOpenProject = useCallback((project: LocalCompareProject) => {
+    setActiveProjectId(project.id);
+    setActiveProjectName(project.name);
+    setMode(project.mode);
+    setSmartThreshold(project.smartThreshold);
+    setOptions(project.options);
+    setActiveTemplate("");
+    setFileNameA(project.labelA);
+    setFileNameB(project.labelB);
+    if (project.saveContent) {
+      setListA(project.listA);
+      setListB(project.listB);
+      setResult(project.result);
+      setSmartResult(project.smartResult);
+      setRejectedFuzzyMatches(new Set(project.rejectedFuzzyMatches ?? []));
+    } else {
+      setListA("");
+      setListB("");
+      setResult(null);
+      setSmartResult(null);
+      setRejectedFuzzyMatches(new Set());
+    }
+  }, []);
+
+  const handleCompareNewVersion = useCallback(() => {
+    setListB("");
+    setFileNameB(null);
+    setResult(null);
+    setSmartResult(null);
+    setRejectedFuzzyMatches(new Set());
+    setWorkspaceNotice(workspaceCopy.baselineKept);
+    window.setTimeout(() => setWorkspaceNotice(null), 4500);
+    trackEvent("compare_new_version_started", { mode });
+    window.requestAnimationFrame(() => document.getElementById("tool")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  }, [mode, workspaceCopy.baselineKept]);
 
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
@@ -79,30 +217,56 @@ export default function HomePage() {
     return () => document.removeEventListener("keydown", handleKey);
   }, [handleCompare, swapLists]);
 
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash.startsWith("#share=")) return;
+    try {
+      const shared = decodeSharedComparison(hash.slice("#share=".length));
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+      queueMicrotask(() => {
+        setMode(shared.mode);
+        setSmartThreshold(shared.smartThreshold);
+        setOptions(shared.options);
+        setListA(shared.listA ?? "");
+        setListB(shared.listB ?? "");
+        setResult(null);
+        setSmartResult(null);
+        setRejectedFuzzyMatches(new Set());
+        setActiveTemplate("");
+        setWorkspaceNotice(workspaceCopy.sharedWorkspaceLoaded);
+        window.setTimeout(() => setWorkspaceNotice(null), 4500);
+        trackEvent("shared_comparison_opened", { content_included: shared.listA !== undefined || shared.listB !== undefined ? 1 : 0 });
+      });
+    } catch {
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    }
+  }, [workspaceCopy.sharedWorkspaceLoaded]);
+
   const handleGlobalDrop = useCallback(async (files: FileList) => {
     async function readFile(file: File): Promise<string> {
-      const ext = "." + file.name.split(".").pop()?.toLowerCase();
-      if (ext === ".xlsx") {
-        try {
-          const { default: readWorkbook } = await import("read-excel-file/browser");
-          const workbook = await readWorkbook(file);
-          return (workbook[0]?.data ?? []).flat().filter((cell) => String(cell ?? "").trim()).map((cell) => cell instanceof Date ? cell.toISOString() : String(cell ?? "")).join("\n");
-        } catch { /* fallback */ }
-      }
-      return file.text();
+      const parsed = await parseSupportedFile(file);
+      return (parsed.sheets[0]?.data ?? []).flat().filter((cell) => cell.trim()).join("\n");
     }
     if (files.length >= 2) {
       const textA = await readFile(files[0]);
       const textB = await readFile(files[1]);
       setListA(textA); setListB(textB);
+      setFileNameA(files[0].name); setFileNameB(files[1].name);
     } else if (files.length === 1) {
       const text = await readFile(files[0]);
       setListA((prev) => {
-        if (!prev.trim()) return text;
-        setListB((prevB) => prevB.trim() ? prevB : text);
+        if (!prev.trim()) {
+          setFileNameA(files[0].name);
+          return text;
+        }
+        setListB((prevB) => {
+          if (!prevB.trim()) setFileNameB(files[0].name);
+          return prevB.trim() ? prevB : text;
+        });
         return prev;
       });
     }
+    trackEvent("files_dropped", { file_count: Math.min(files.length, 2) });
     setGlobalDragOver(false);
   }, []);
 
@@ -113,17 +277,23 @@ export default function HomePage() {
     a: t(`faq.${i}.a`),
   }));
 
+  const acceptedFuzzyMatches = smartResult?.fuzzyMatches.filter((match, index) => !rejectedFuzzyMatches.has(fuzzyMatchId(match, index))) ?? [];
+  const rejectedMatches = smartResult?.fuzzyMatches.filter((match, index) => rejectedFuzzyMatches.has(fuzzyMatchId(match, index))) ?? [];
+  const acceptedCommon = smartResult ? smartResult.stats.exactMatches + acceptedFuzzyMatches.length : 0;
+  const acceptedMatchRate = smartResult && smartResult.stats.totalA + smartResult.stats.totalB > 0
+    ? Math.round((2 * acceptedCommon * 100) / (smartResult.stats.totalA + smartResult.stats.totalB))
+    : 0;
   const displayedResult: CompareResult | null = result && mode === "smart" && smartResult
     ? {
-        onlyInA: smartResult.onlyInA,
-        onlyInB: smartResult.onlyInB,
-        inBoth: [...smartResult.inBoth, ...smartResult.fuzzyMatches.map((match) => match.itemA)],
+        onlyInA: [...smartResult.onlyInA, ...rejectedMatches.map((match) => match.itemA)],
+        onlyInB: [...smartResult.onlyInB, ...rejectedMatches.map((match) => match.itemB)],
+        inBoth: [...smartResult.inBoth, ...acceptedFuzzyMatches.map((match) => match.itemA)],
         stats: {
           ...result.stats,
-          uniqueA: smartResult.onlyInA.length,
-          uniqueB: smartResult.onlyInB.length,
-          common: smartResult.stats.exactMatches + smartResult.stats.fuzzyMatches,
-          matchRate: smartResult.stats.totalMatchRate,
+          uniqueA: smartResult.onlyInA.length + rejectedMatches.length,
+          uniqueB: smartResult.onlyInB.length + rejectedMatches.length,
+          common: acceptedCommon,
+          matchRate: acceptedMatchRate,
         },
       }
     : result;
@@ -167,12 +337,12 @@ export default function HomePage() {
             <div className="hidden sm:block w-px h-5 bg-border mx-1" />
             <button
               type="button"
-              onClick={() => setShowHistory(true)}
+              onClick={() => { setShowProjects(true); trackEvent("project_panel_opened"); }}
               className="w-10 h-10 inline-flex items-center justify-center hover:bg-surface-alt/50 rounded-lg transition-colors"
-              title={tNav('history')}
-              aria-label={tNav('history')}
+              title={workspaceCopy.projects}
+              aria-label={workspaceCopy.projects}
             >
-              <History size={17} className="text-text-secondary" />
+              <FolderClock size={17} className="text-text-secondary" />
             </button>
             {/* Credits hidden - AI features are free during beta */}
           </nav>
@@ -214,7 +384,7 @@ export default function HomePage() {
       <section id="tool" className="max-w-[1250px] mx-auto px-3 sm:px-4 pb-12 sm:pb-20 -mt-1 sm:-mt-2 relative z-10 w-full scroll-mt-20">
         <div className="glass-elevated rounded-2xl p-4 sm:p-6 lg:p-8 glow-primary gradient-border">
           {/* Mode Toggle */}
-          <div className="flex items-center justify-center mb-5">
+          <div className="flex items-center justify-center mb-3">
             <div className="inline-flex items-center p-1 rounded-xl bg-surface/80 border border-border max-w-full">
               <button type="button" aria-pressed={mode === "exact"} onClick={() => { setMode("exact"); setResult(null); setSmartResult(null); }}
                 className={`px-4 sm:px-6 min-h-11 rounded-lg text-sm sm:text-[15px] font-medium transition-all duration-300 ${mode === "exact" ? "bg-surface-alt text-text shadow-md" : "text-text-muted hover:text-text-secondary"}`}>
@@ -227,6 +397,21 @@ export default function HomePage() {
                 <span className="text-xs text-green-600 bg-green-500/10 px-2 py-0.5 rounded-full font-medium">{t('tool.modeAiFree')}</span>
               </button>
             </div>
+          </div>
+          <div className="mx-auto mb-5 flex max-w-lg flex-col items-center justify-center gap-1.5 sm:flex-row">
+            <label htmlFor="comparison-template" className="text-xs text-text-muted">{workspaceCopy.templates}</label>
+            <select
+              id="comparison-template"
+              value={activeTemplate}
+              onChange={(event) => handleTemplateChange(event.target.value)}
+              className="min-h-10 w-full rounded-lg border border-border bg-surface px-3 text-sm text-text-secondary outline-none focus:border-primary/60 sm:w-auto"
+            >
+              <option value="">{workspaceCopy.customTemplate}</option>
+              {COMPARISON_TEMPLATES.map((template) => {
+                const localized = localizedTemplate(template, locale);
+                return <option key={template.id} value={template.id}>{localized.name} — {localized.description}</option>;
+              })}
+            </select>
           </div>
           {mode === "smart" && (
             <div className="max-w-sm mx-auto -mt-2 mb-5 flex items-center gap-3 text-xs text-text-muted">
@@ -247,7 +432,7 @@ export default function HomePage() {
 
           {/* Fixed-height Inputs */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5 relative">
-            <ListInput label={t('tool.listALabel')} labelColor="#818cf8" value={listA} onChange={setListA} placeholder={t('tool.listAPlaceholder')} />
+            <ListInput label={t('tool.listALabel')} labelColor="#818cf8" value={listA} onChange={setListA} onFileNameChange={setFileNameA} placeholder={t('tool.listAPlaceholder')} />
             <button
               type="button"
               onClick={swapLists}
@@ -257,7 +442,7 @@ export default function HomePage() {
               <ArrowLeftRight size={16} />
               {t('tool.swapLists')}
             </button>
-            <ListInput label={t('tool.listBLabel')} labelColor="#22d3ee" value={listB} onChange={setListB} placeholder={t('tool.listBPlaceholder')} />
+            <ListInput label={t('tool.listBLabel')} labelColor="#22d3ee" value={listB} onChange={setListB} onFileNameChange={setFileNameB} placeholder={t('tool.listBPlaceholder')} />
             {/* Swap button - centered between the two inputs */}
             <button
               onClick={swapLists}
@@ -285,9 +470,16 @@ export default function HomePage() {
               <button type="button" onClick={handleDemo} className="min-h-11 px-3 sm:px-5 text-sm sm:text-[15px] text-text-secondary hover:text-text border border-border rounded-xl hover:bg-surface-alt/50 transition-all whitespace-nowrap">
                 {t('tool.tryDemo')}
               </button>
-              <button type="button" onClick={handleCompare} disabled={!listA.trim() && !listB.trim()}
+              <button
+                type="button"
+                onClick={isComparing ? cancelComparison : handleCompare}
+                disabled={!isComparing && !listA.trim() && !listB.trim()}
+                aria-busy={isComparing}
+                title={isComparing ? workspaceCopy.cancel : undefined}
                 className="btn-primary min-h-11 px-3 sm:px-8 text-sm sm:text-[15px] font-semibold text-white rounded-xl flex items-center justify-center gap-2 whitespace-nowrap">
-                {mode === "smart" ? (
+                {isComparing ? (
+                  <>{t("tool.analyzing")} {comparisonProgress}%</>
+                ) : mode === "smart" ? (
                   <><Sparkles size={16} />{t('tool.compareWithAi')}</>
                 ) : t('tool.compareLists')}
               </button>
@@ -297,7 +489,7 @@ export default function HomePage() {
           {/* Options - expands BELOW the bar, never shifts inputs */}
           {showOptions && (
             <div id="comparison-options" className="mt-4 pt-4 border-t border-border">
-              <OptionsPanel {...options} onChange={setOptions} />
+              <OptionsPanel {...options} onChange={(next) => { setOptions(next); setActiveTemplate(""); }} />
             </div>
           )}
 
@@ -313,9 +505,31 @@ export default function HomePage() {
                 <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider">{t('tool.results')}</h3>
                 <button onClick={() => { setResult(null); setSmartResult(null); }} className="text-xs text-text-muted hover:text-text-secondary transition-colors">{t('tool.clearResults')}</button>
               </div>
+              <div className="rounded-xl border border-primary/25 bg-primary/5 p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="text-sm font-medium truncate">{activeProjectName || workspaceCopy.compareNewVersion}</p>
+                  <p className="text-xs text-text-muted mt-0.5">{workspaceCopy.compareNewVersionDescription}</p>
+                </div>
+                <div className="grid grid-cols-1 min-[420px]:grid-cols-3 sm:flex gap-2 shrink-0">
+                  <button type="button" onClick={() => setShowSaveProject(true)} className="min-h-11 inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-4 text-sm text-text-secondary hover:text-text hover:bg-surface-alt/50">
+                    <Save size={15} /> {workspaceCopy.saveProject}
+                  </button>
+                  <button type="button" onClick={() => setShowShareProject(true)} className="min-h-11 inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-4 text-sm text-text-secondary hover:text-text hover:bg-surface-alt/50">
+                    <Share2 size={15} /> {workspaceCopy.shareProject}
+                  </button>
+                  <button type="button" onClick={handleCompareNewVersion} className="min-h-11 inline-flex items-center justify-center gap-2 rounded-xl bg-primary/15 border border-primary/30 px-4 text-sm text-primary hover:bg-primary/20">
+                    <RefreshCcw size={15} /> {workspaceCopy.compareNewVersion}
+                  </button>
+                </div>
+              </div>
               <StatsCards stats={displayedResult.stats} />
+              <button type="button" onClick={() => setShowVennOnMobile((visible) => !visible)} className="lg:hidden min-h-11 w-full inline-flex items-center justify-center gap-2 rounded-xl border border-border text-sm text-text-secondary">
+                <BarChart3 size={15} /> {showVennOnMobile ? workspaceCopy.hideChart : workspaceCopy.showChart}
+              </button>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                <VennDiagram totalA={displayedResult.stats.totalA} totalB={displayedResult.stats.totalB} common={displayedResult.stats.common} onlyA={displayedResult.stats.uniqueA} onlyB={displayedResult.stats.uniqueB} />
+                <div className={`${showVennOnMobile ? "block" : "hidden"} lg:block`}>
+                  <VennDiagram totalA={displayedResult.stats.totalA} totalB={displayedResult.stats.totalB} common={displayedResult.stats.common} onlyA={displayedResult.stats.uniqueA} onlyB={displayedResult.stats.uniqueB} />
+                </div>
                 <div className="lg:col-span-2">
                   <ResultTabs onlyInA={displayedResult.onlyInA} onlyInB={displayedResult.onlyInB} inBoth={displayedResult.inBoth} />
                 </div>
@@ -330,7 +544,17 @@ export default function HomePage() {
                 <Sparkles size={15} className="text-primary" />
                 <span className="text-base font-semibold font-[family-name:var(--font-sora)]">{t('aiAnalysis.title')}</span>
               </div>
-              {smartResult.fuzzyMatches.length > 0 && <FuzzyMatchTable matches={smartResult.fuzzyMatches} />}
+              {smartResult.fuzzyMatches.length > 0 && (
+                <FuzzyMatchTable
+                  matches={smartResult.fuzzyMatches}
+                  rejected={rejectedFuzzyMatches}
+                  onDecision={(matchId, accepted) => setRejectedFuzzyMatches((current) => {
+                    const next = new Set(current);
+                    if (accepted) next.delete(matchId); else next.add(matchId);
+                    return next;
+                  })}
+                />
+              )}
               {smartResult.fuzzyMatches.length > 0 && (
                 <div className="glass rounded-xl p-4 flex items-start gap-3 border border-success/20">
                   <Zap size={15} className="text-success mt-0.5 shrink-0" />
@@ -342,7 +566,7 @@ export default function HomePage() {
                     })}
                     {" "}
                     {t.rich('aiAnalysis.combinedRate', {
-                      aiRate: String(smartResult.stats.totalMatchRate),
+                      aiRate: String(acceptedMatchRate),
                       exactRate: String(result?.stats.matchRate || 0),
                       strong: (chunks) => <strong>{chunks}</strong>,
                     })}
@@ -353,6 +577,29 @@ export default function HomePage() {
           )}
         </div>
       </section>
+
+      {!displayedResult && (listA.trim() || listB.trim()) && (
+        <div className="sm:hidden fixed left-3 right-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-40 rounded-2xl border border-primary/30 bg-[#0f1629]/95 p-2 shadow-2xl backdrop-blur-xl">
+          <button
+            type="button"
+            onClick={isComparing ? cancelComparison : handleCompare}
+            aria-busy={isComparing}
+            title={isComparing ? workspaceCopy.cancel : undefined}
+            className="btn-primary min-h-12 w-full rounded-xl text-sm font-semibold text-white inline-flex items-center justify-center gap-2"
+          >
+            {!isComparing && mode === "smart" && <Sparkles size={16} />}
+            {isComparing
+              ? `${t("tool.analyzing")} ${comparisonProgress}%`
+              : mode === "smart" ? t("tool.compareWithAi") : t("tool.compareLists")}
+          </button>
+        </div>
+      )}
+
+      {workspaceNotice && (
+        <div role="status" aria-live="polite" className="fixed left-1/2 top-20 z-[90] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-xl border border-success/30 bg-[#0f1629] px-4 py-3 text-sm text-success shadow-2xl">
+          {workspaceNotice}
+        </div>
+      )}
 
       {/* Features */}
       <section id="features" className="py-20 relative">
@@ -467,26 +714,26 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {showHistory && <HistoryPanel
-        open={showHistory}
-        onClose={() => setShowHistory(false)}
-        onRestore={(record) => {
-          // Older records may include a local preview that can be restored.
-          if (record.preview) {
-            const a = [
-              ...record.preview.onlyInA,
-              ...record.preview.inBoth,
-            ].join("\n");
-            const b = [
-              ...record.preview.onlyInB,
-              ...record.preview.inBoth,
-            ].join("\n");
-            setListA(a);
-            setListB(b);
-            setResult(null);
-          }
-        }}
-      />}
+      <ProjectPanel open={showProjects} onClose={() => setShowProjects(false)} onOpenProject={handleOpenProject} />
+      {showSaveProject && (
+        <SaveProjectDialog
+          open={showSaveProject}
+          defaultName={activeProjectName || `${fileNameA || t("tool.listALabel")} vs ${fileNameB || t("tool.listBLabel")}`}
+          defaultSaveContent={Boolean(activeProjectId)}
+          onClose={() => setShowSaveProject(false)}
+          onSave={handleSaveProject}
+        />
+      )}
+      {showShareProject && (
+        <ShareProjectDialog
+          listA={listA}
+          listB={listB}
+          mode={mode}
+          smartThreshold={smartThreshold}
+          options={options}
+          onClose={() => setShowShareProject(false)}
+        />
+      )}
     </div>
   );
 }

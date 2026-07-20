@@ -1,16 +1,16 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { ArrowRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { ArrowRight, Check, X } from "lucide-react";
+import { fuzzyMatchId, type FuzzyMatch } from "@/lib/ai-compare";
+import { getWorkspaceCopy } from "@/lib/workspace-copy";
+import { event as trackEvent } from "@/lib/gtag";
 
-interface FuzzyMatch {
-  itemA: string;
-  itemB: string;
-  confidence: number;
-  reason: string;
+interface FuzzyMatchTableProps {
+  matches: FuzzyMatch[];
+  rejected?: Set<string>;
+  onDecision?: (matchId: string, accepted: boolean) => void;
 }
-
-interface FuzzyMatchTableProps { matches: FuzzyMatch[]; }
 
 const reasonKeys: Record<string, "reasons.exact" | "reasons.tokenOrder" | "reasons.minorDifference" | "reasons.similarStructure"> = {
   exact: "reasons.exact",
@@ -19,8 +19,9 @@ const reasonKeys: Record<string, "reasons.exact" | "reasons.tokenOrder" | "reaso
   "similar-structure": "reasons.similarStructure",
 };
 
-export default function FuzzyMatchTable({ matches }: FuzzyMatchTableProps) {
+export default function FuzzyMatchTable({ matches, rejected = new Set(), onDecision }: FuzzyMatchTableProps) {
   const t = useTranslations("components.fuzzyMatchTable");
+  const copy = getWorkspaceCopy(useLocale());
 
   if (matches.length === 0) {
     return (
@@ -33,14 +34,17 @@ export default function FuzzyMatchTable({ matches }: FuzzyMatchTableProps) {
   return (
     <div className="glass rounded-xl overflow-hidden">
       <div className="px-4 py-3 border-b border-border flex items-center gap-2">
-        <span className="text-sm font-semibold">{t("title")}</span>
+        <span className="shrink-0 text-sm font-semibold">{t("title")}</span>
         <span className="text-xs text-text-muted">
           {t("subtitle")}
         </span>
       </div>
       <div className="divide-y divide-border">
-        {matches.map((match, i) => (
-          <div key={i} className="px-4 py-3 flex items-center gap-3">
+        {matches.map((match, i) => {
+          const matchId = fuzzyMatchId(match, i);
+          const isRejected = rejected.has(matchId);
+          return (
+          <div key={matchId} className={`px-4 py-3 flex flex-col gap-3 sm:flex-row sm:items-center ${isRejected ? "bg-danger/5" : ""}`}>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 text-sm min-w-0">
                 <span className="font-mono truncate text-amber-600 shrink-0 max-w-[40%]" title={match.itemA}>
@@ -66,8 +70,28 @@ export default function FuzzyMatchTable({ matches }: FuzzyMatchTableProps) {
                 <span className="text-xs text-text-muted">{t(reasonKeys[match.reason] ?? "reasons.similarStructure")}</span>
               </div>
             </div>
+            {onDecision && (
+              <div className="flex shrink-0 items-center gap-2">
+                <button
+                  type="button"
+                  aria-pressed={!isRejected}
+                  onClick={() => { onDecision(matchId, true); trackEvent("fuzzy_match_reviewed", { decision: "accepted" }); }}
+                  className={`min-h-9 inline-flex items-center gap-1.5 rounded-lg border px-3 text-xs ${!isRejected ? "border-success/35 bg-success/10 text-success" : "border-border text-text-muted hover:text-text"}`}
+                >
+                  <Check size={13} /> {!isRejected ? copy.matchAccepted : copy.acceptMatch}
+                </button>
+                <button
+                  type="button"
+                  aria-pressed={isRejected}
+                  onClick={() => { onDecision(matchId, false); trackEvent("fuzzy_match_reviewed", { decision: "rejected" }); }}
+                  className={`min-h-9 inline-flex items-center gap-1.5 rounded-lg border px-3 text-xs ${isRejected ? "border-danger/35 bg-danger/10 text-danger" : "border-border text-text-muted hover:text-text"}`}
+                >
+                  <X size={13} /> {isRejected ? copy.matchRejected : copy.rejectMatch}
+                </button>
+              </div>
+            )}
           </div>
-        ))}
+        );})}
       </div>
     </div>
   );

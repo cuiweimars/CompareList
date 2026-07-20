@@ -21,6 +21,10 @@ export interface SmartCompareResult {
   };
 }
 
+export function fuzzyMatchId(match: FuzzyMatch, index: number): string {
+  return `${index}\u001f${match.itemA}\u001f${match.itemB}`;
+}
+
 export function computeFuzzyScore(a: string, b: string): number {
   const normA = a.toLocaleLowerCase().trim();
   const normB = b.toLocaleLowerCase().trim();

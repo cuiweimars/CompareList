@@ -154,7 +154,7 @@
       "0": {
         "step": "01",
         "title": "Paste Your Lists",
-        "desc": "Paste two lists or upload TXT/CSV files. Auto-detects newlines, commas, tabs."
+        "desc": "Paste lists or upload TXT, CSV, TSV, Excel, or ODS files. Encoding, delimiters, sheets, and columns are detected locally."
       },
       "1": {
         "step": "02",
@@ -181,7 +181,7 @@
       },
       "1": {
         "q": "What file formats are supported?",
-        "a": "Paste text or upload .txt, .csv, .tsv files. Items can be separated by newlines, commas, semicolons, or tabs."
+        "a": "Paste text or upload TXT, CSV, TSV, XLSX, XLS, XLSM, or ODS files. Text encodings and delimiters are detected automatically and can be corrected manually."
       },
       "2": {
         "q": "How many items can I compare?",
@@ -1217,7 +1217,7 @@
       "largeFileConfirm": "This file is {size}MB. Large files may be slow to process. Continue?",
       "items": "{count} items",
       "sheet": "Sheet",
-      "unsupportedFileType": "Unsupported file type. Use TXT, CSV, TSV, or XLSX."
+      "unsupportedFileType": "Unsupported file type. Use TXT, CSV, TSV, XLSX, XLS, XLSM, or ODS."
     },
     "resultTabs": {
       "tabs": {

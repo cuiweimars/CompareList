@@ -1217,7 +1217,7 @@
       "largeFileConfirm": "Ce fichier fait {size}Mo. Les fichiers volumineux peuvent etre lents a traiter. Continuer ?",
       "items": "{count} elements",
       "sheet": "Feuille",
-      "unsupportedFileType": "Type non pris en charge. Utilisez TXT, CSV, TSV ou XLSX."
+      "unsupportedFileType": "Type non pris en charge. Utilisez TXT, CSV, TSV, XLSX, XLS, XLSM ou ODS."
     },
     "resultTabs": {
       "tabs": {

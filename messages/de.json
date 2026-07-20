@@ -1217,7 +1217,7 @@
       "largeFileConfirm": "Diese Datei ist {size}MB. Grosse Dateien konnen langsam verarbeitet werden. Fortfahren?",
       "items": "{count} Elemente",
       "sheet": "Blatt",
-      "unsupportedFileType": "Nicht unterstützter Dateityp. Verwenden Sie TXT, CSV, TSV oder XLSX."
+      "unsupportedFileType": "Nicht unterstützter Dateityp. Verwenden Sie TXT, CSV, TSV, XLSX, XLS, XLSM oder ODS."
     },
     "resultTabs": {
       "tabs": {

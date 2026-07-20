@@ -1217,7 +1217,7 @@
       "largeFileConfirm": "このファイルは{size}MBです。大きなファイルは処理に時間がかかる場合があります。続行しますか？",
       "items": "{count}件",
       "sheet": "シート",
-      "unsupportedFileType": "未対応の形式です。TXT、CSV、TSV、XLSXを使用してください。"
+      "unsupportedFileType": "未対応の形式です。TXT、CSV、TSV、XLSX、XLS、XLSM、ODSを使用してください。"
     },
     "resultTabs": {
       "tabs": {
